@@ -1,0 +1,175 @@
+@charset "UTF-8";
+* {
+  font-family: "Segoe UI", Verdana, sans-serif;
+  background: none;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+}
+.navbar a {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  align-self: center;
+}
+.navbar__links {
+  text-align: right;
+  flex: 1;
+}
+.navbar__links ul li {
+  list-style: none;
+  display: inline-block;
+  padding: 0px 12px;
+}
+
+.header {
+  flex-shrink: 0;
+  background-color: #307074;
+}
+
+body {
+  background-color: #BEE9EF;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+main {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+}
+main .left_part {
+  margin-top: 50px;
+  margin-left: 40px;
+  display: flex;
+  flex-direction: column;
+  flex-basis: calc(20% - 20px);
+}
+main .left_part .wantToRead {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  background-color: rgb(232, 228, 228);
+  border-radius: 5%;
+  margin-bottom: 50px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+main .left_part .wantToRead .books {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-gap: 0px;
+}
+main .left_part .wantToRead .books .image {
+  text-align: center;
+}
+main .left_part .wantToRead .books .image img {
+  height: 100px;
+  width: 70px;
+}
+main .left_part .challenge {
+  background-color: rgb(232, 228, 228);
+  border-radius: 5%;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+main .left_part .challenge .content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+main .left_part .challenge .content img {
+  padding-right: 10px;
+  height: 100px;
+  width: 70px;
+}
+main .left_part .currentlyReading {
+  padding-left: 10px;
+  background-color: rgb(232, 228, 228);
+  border-radius: 5%;
+}
+main .left_part .currentlyReading img {
+  height: 100px;
+  width: 70px;
+}
+main .middle_part {
+  margin-top: 50px;
+  flex-basis: calc(50% - 20px);
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+main .middle_part .titlu {
+  align-self: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+main .middle_part .update {
+  display: flex;
+  flex-direction: column;
+}
+main .middle_part .update .item {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(232, 228, 228);
+  border-radius: 3%;
+}
+main .middle_part .update .item .user_content {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+main .middle_part .update .item .user_content .userphoto {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+main .middle_part .update .item .descriere {
+  padding-left: 20px;
+}
+main .middle_part .update .item .actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+main .middle_part .update .item .actions .like_button {
+  border: none;
+}
+main .right_part {
+  margin-top: 50px;
+  margin-right: 40px;
+  flex-basis: calc(20% - 20px);
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+main .right_part .titlu {
+  align-self: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+main .right_part .item {
+  flex-grow: 1;
+  background-color: rgb(232, 228, 228);
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
+
+footer {
+  flex-shrink: 0; /* Fixează footer-ul, astfel încât să nu se întindă */
+  text-align: center;
+  color: white;
+  background: #307074;
+}/*# sourceMappingURL=mainpage.css.map */

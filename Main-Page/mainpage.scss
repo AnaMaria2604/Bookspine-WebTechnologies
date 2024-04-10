@@ -1,0 +1,209 @@
+* {
+    font-family: 'Segoe UI', Verdana, sans-serif;
+    background: none;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+
+    a {
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        align-self: center; // flex-end in jos flex-start:sus
+    }
+
+    &__links {
+        text-align: right;
+        flex: 1; // sa ocupe tot spatiul
+
+        ul li {
+            list-style: none;
+            display: inline-block;
+            padding: 0px 12px;
+            
+        }
+    }
+}
+
+.header {
+    flex-shrink: 0;
+    background-color: #307074;
+    // position: relative;
+}
+
+body {
+    background-color: #BEE9EF;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width:100%;
+    .left_part
+    {
+        margin-top:50px;
+        margin-left:40px;
+        //background-color:pink;
+        display: flex;
+        //justify-content: space-around;
+        flex-direction: column;
+        flex-basis:calc(20% - 20px);
+        .wantToRead{
+            display:flex;
+            justify-content: space-between;
+            flex-direction: column;
+            background-color: rgb(232, 228, 228);
+            border-radius: 5%;
+            margin-bottom: 50px;
+            padding-left: 10px;
+            padding-right: 10px;
+            
+        .books
+        {
+            
+            display:grid;
+            grid-template-columns: repeat(3, auto);
+            grid-gap: 0px;
+        
+        .image {
+            text-align: center;
+        img {
+            height:100px;
+            width: 70px;
+            }
+                }
+     //   margin-bottom:50px;
+                
+        }
+        }
+        .challenge
+        {
+            background-color: rgb(232, 228, 228);
+            border-radius:5%;
+            padding-left: 10px;
+            display:flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .content{
+                display:flex;
+                flex-direction: row;
+                
+                align-items: center;
+            img{
+                padding-right: 10px;
+            height:100px;
+            width: 70px;
+            }
+        }
+    //background-color:blue;
+    margin-bottom:50px;
+}
+    .currentlyReading
+    {
+        padding-left: 10px;
+        background-color:rgb(232, 228, 228);
+        border-radius: 5%;
+        img{
+            height:100px;
+            width: 70px;
+        }
+    }
+    }
+    .middle_part
+    {
+        margin-top:50px;
+        flex-basis:calc(50% - 20px);
+       // background-color:rgb(232, 228, 228);
+        display: flex;
+            gap: 10px;
+            flex-direction: column;
+            .titlu
+            {
+                align-self: center;
+                font-weight: bold;
+                font-size: 20px;
+            }
+          .update
+          {
+            display:flex;
+            flex-direction: column;
+            
+            .item
+            {
+                margin-top: 50px;
+                display:flex;
+                flex-direction:column;
+                background-color:rgb(232, 228, 228) ;
+                border-radius: 3%;
+                .user_content
+                {
+                    display:flex;
+                    flex-direction:row;
+                    gap:5px;
+                    .userphoto
+                    {
+                        height:30px;
+                        width: 30px;
+                        border-radius:50%;
+                        overflow: hidden;
+                    }
+                }
+                .descriere
+                {
+                    padding-left: 20px;
+                }
+                .actions
+                {
+                    display:flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    .like_button
+                    {
+                        border:none;
+                    }
+                }
+            }
+
+          }
+    }
+    .right_part
+    {
+        margin-top:50px;
+        margin-right:40px;
+        flex-basis:calc(20% - 20px);
+       // background-color:rgb(232, 228, 228);
+       // border-radius: 3%;
+            display: flex;
+            gap: 10px;
+            flex-direction: column;
+            .titlu
+            {
+                align-self: center;
+                font-weight: bold;
+                font-size: 20px;
+            }
+          .item {
+            flex-grow: 1;
+            background-color: rgb(232, 228, 228);
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+            margin-bottom:30px;
+          }
+    }
+   
+}
+
+footer {
+    flex-shrink: 0; /* Fixează footer-ul, astfel încât să nu se întindă */
+    text-align: center;
+    color: #ffff;
+    background: #307074;
+}
