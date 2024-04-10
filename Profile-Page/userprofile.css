@@ -1,0 +1,160 @@
+@charset "UTF-8";
+* {
+  font-family: "Segoe UI", Verdana, sans-serif;
+  background: none;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding: 0%;
+  margin: 0 10px;
+}
+.navbar a {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+.navbar__links {
+  text-align: right;
+  flex: 1;
+}
+.navbar__links ul li {
+  display: inline-block;
+  position: relative;
+  padding: 0px 10px;
+}
+.navbar__links ul li a {
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+}
+.navbar__links ul li .search-container {
+  display: flex;
+  align-items: center;
+  width: 300px;
+  /* Lățimea dorită a barei de căutare */
+}
+.navbar__links ul li .search-input {
+  width: 80%;
+  padding: 5px;
+  border: 1px solid #2a3738;
+  background-color: #ffffff;
+  border-radius: 4px;
+  font-size: 16px;
+}
+.navbar__links ul li .search-button {
+  padding: 4px 10px;
+  background-color: #2b3a3e;
+  /* Culoare de fundal a butonului */
+  color: white;
+  /* Culoare text buton */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 8px;
+  /* Spațiu între buton și input */
+}
+.navbar__links ul li .search-button:hover {
+  background-color: #1e3137;
+  /* Culoare de fundal la hover */
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10%;
+  width: 100%;
+}
+main .left_part {
+  width: 25%;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+  align-items: center;
+}
+main .left_part .user_content .userphoto img {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+}
+main .left_part .user_content .name {
+  font-size: 25px;
+  font-weight: bold;
+}
+main .left_part .bookshelves {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  align-items: center;
+}
+main .middle_part {
+  margin-top: 50px;
+  display: flex;
+  width: 50%;
+}
+main .middle_part .container1 {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  gap: 5px;
+}
+main .middle_part .container2 {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+main .middle_part .container1 > div, main .middle_part .container2 > div {
+  flex: 1;
+  padding-left: 20px;
+}
+main .right_part {
+  width: 25%;
+  margin-right: 50px;
+  margin-top: 50px;
+}
+main .right_part .challenge {
+  background-color: rgb(232, 228, 228);
+  border-radius: 5%;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+main .right_part .challenge .content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+main .right_part .challenge .content img {
+  padding-right: 10px;
+  height: 100px;
+  width: 70px;
+}
+
+.header {
+  top: 0;
+  left: 0;
+  background-color: #307074;
+  position: relative;
+}
+
+body {
+  background-color: #BEE9EF;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+footer {
+  flex-shrink: 0; /* Fixează footer-ul, astfel încât să nu se întindă */
+  text-align: center;
+  color: white;
+  background: #307074;
+}/*# sourceMappingURL=userprofile.css.map */
