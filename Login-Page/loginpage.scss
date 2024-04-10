@@ -1,0 +1,211 @@
+* {
+    font-family: 'Segoe UI', Verdana, sans-serif;
+    background: none;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+
+    a {
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        padding: 0px 12px;
+        align-self: center; // flex-end in jos flex-start:sus
+    }
+
+    &__links {
+        text-align: right;
+        flex: 1; // sa ocupe tot spatiul
+
+        ul li {
+            list-style: none;
+            display: inline-block;
+            padding: 0px 12px;
+
+            a {
+                color: white;
+                font-size: 17px;
+                font-weight: bold;
+                text-decoration: none;
+            }
+            .search-container {
+                display: flex;
+                align-items: center;
+                width: 300px; /* Lățimea dorită a barei de căutare */
+            }
+            
+            .search-input {
+                width: 80%; 
+                padding: 5px;
+                border: 1px solid #2a3738;
+                background-color: #ffffff;
+                border-radius: 4px;
+                font-size: 16px;
+            }
+            
+            .search-button {
+                padding: 4px 10px;
+                background-color: #2b3a3e; /* Culoare de fundal a butonului */
+                color: white; /* Culoare text buton */
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 16px;
+                margin-left: 8px; /* Spațiu între buton și input */
+            }
+            
+            .search-button:hover {
+                background-color: #1e3137; /* Culoare de fundal la hover */
+            }
+        }
+    }
+
+    
+}
+
+.header {
+    flex-shrink: 0;
+    background-color: #307074;
+}
+body
+{
+    background-color: #BEE9EF;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.Containers
+{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative; 
+    align-items: flex-start; 
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 40px;
+        bottom: 0;
+        left: 50%; 
+        width: 3px;
+        padding-left: 3px;
+        padding-right: 3px;
+        background-color: white; 
+    }
+}
+.RegistrationContainer {
+    align-self: left;
+    background-color: #307074;
+    width: 25%;
+    margin-top: 40px;
+    margin-left: 10%;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+        align-self: center;
+        color: white;
+        margin: 0; // Elimină margin-ul implicit al h2
+    }
+
+    .formGroup {
+        margin-bottom: 10px;
+
+        label {
+            display: block;
+            margin-bottom: 0px;
+            color: white;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            margin-top: 0;
+            background-color: white;
+            width: 50%;
+        }
+    }
+
+    button[type="submit"] {
+    align-self: center;
+    padding: 10px 20px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer; 
+    margin-top:10px;
+    &:hover {
+        background-color: grey; // Schimbăm culoarea de fundal la hover
+    }
+}
+}
+.AuthentificationContainer {
+    align-self: right;
+    background-color: #307074;
+    width: 25%;
+    margin-top: 80px;
+    margin-right: 10%;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+        align-self: center;
+        color: white;
+    }
+
+    .formGroup {
+        margin-bottom: 10px;
+
+        label {
+            display: block;
+            margin-bottom: 0px;
+            color: white;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            margin-top: 0;
+            background-color: white;
+            width: 50%;
+        }
+    }
+
+    button[type="submit"] {
+        align-self: center;
+        padding: 10px 20px;
+        background-color: white;
+        color: black;
+        border: none;
+        border-radius: 3px;
+        margin-top:10px;
+        cursor: pointer;
+        &:hover {
+            background-color: grey; // Schimbăm culoarea de fundal la hover
+        }
+    }
+}
+
+footer {
+    flex: 1;
+    margin-top: 100px;
+    text-align: center;
+    color: #ffff;
+    align-self: flex-start;
+    background: #307074;
+    bottom: 0;
+    width: 100%; 
+}
+
