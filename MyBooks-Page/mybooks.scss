@@ -1,0 +1,221 @@
+* {
+    font-family: 'Segoe UI', Verdana, sans-serif;
+    background: none;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+ 
+    a {
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        align-self: center; // flex-end in jos flex-start:sus
+    }
+
+    &__links {
+        text-align: right;
+        flex: 1; // sa ocupe tot spatiul
+
+        ul li {
+            list-style: none;
+            display: inline-block;
+            padding: 0px 12px;
+
+            a {
+                color: white;
+                font-size: 17px;
+                font-weight: bold;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.header {
+    flex-shrink: 0;
+    background-color: #307074;
+}
+.header2 {
+    display: flex;
+    margin-top: 60px;
+    flex-direction: row;
+    //background-color: pink;
+    // align-items: flex-end;
+
+    .Logo {
+        padding-left: 10%;
+        align-self: center;
+        color: white;
+        font-weight: bold;
+        font-size:20px;
+    }
+
+    .search-container {
+        align-self: center;
+        padding-left: 20%;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+
+        input {
+            background-color: white;
+            color: black; // Aici se specifică culoarea textului
+            margin-right: 5%;
+            border-color:black;
+            outline: none;
+            border-radius: 3px;
+        }
+
+        button {
+            
+            background-color: white;
+            color: black;
+            border-color: black;
+            border-radius: 3px;
+            cursor: pointer;
+            &:hover {
+                background-color: grey; // Schimbăm culoarea de fundal la hover
+            }
+        }
+    }
+}
+
+body
+{
+    background-color: #BEE9EF;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.horizontal-line {
+    border: 1px solid black; /* specificați grosimea, culoarea și stilul liniei */
+    margin-top: 20px; /* adăugați spațiu de sus și de jos între linie și alte elemente */
+    width: 85%;
+}
+.main
+{
+    display:flex;
+   // justify-content: space-between;
+    flex-direction: row;
+    .left_part
+    {
+
+        display: flex;
+        justify-content: space-between;
+        margin-left:10%;
+        flex-direction: column;
+        .Bookshelf
+        {
+            display:flex;
+            justify-content: space-between;
+            flex-direction: column;
+            margin-bottom: 10px;
+            .titlu
+            {
+               // background-color: pink;
+                color:black;
+                font-weight: bold;
+            }
+            .Options
+            {
+                display:flex;
+                justify-content: space-between;
+               flex-direction: column;
+            a{
+               color:blue;
+               text-decoration: none;
+               transition: color 0.3s;//cv efect tranzitie
+             &:hover {
+                color: purple; // Schimbă culoarea la hover
+            }
+             }
+            }
+        }
+         .ReadingActivity
+         {
+            display:flex;
+            justify-content: space-between;
+            flex-direction: column;
+            margin-bottom: 10px;
+            .titlu
+            {
+              //  background-color: pink;
+                color:black;
+                font-weight: bold;
+            }
+            .Options
+            {
+                display:flex;
+                justify-content: space-between;
+                flex-direction: column;
+            a{
+                color:blue;
+                text-decoration: none;
+                transition: color 0.3s;//cv efect tranzitie
+                &:hover {
+                color: purple; // Schimbă culoarea la hover
+            }
+             }
+            }
+         }
+         .AddBook
+         {
+            display:flex;
+            justify-content: space-between;
+            flex-direction: column;
+            margin-bottom: 10px;
+            .titlu
+            {
+                //background-color: pink;
+                color:black;
+                font-weight: bold;
+            }
+            .Options
+            {
+                display:flex;
+                justify-content: space-between;
+                flex-direction: column;
+            a{
+               color:blue;
+               text-decoration: none;
+               transition: color 0.3s;//cv efect tranzitie
+             &:hover {
+                color: purple; // Schimbă culoarea la hover
+            }
+            }
+            }   
+        }
+
+    }
+    .right_part {
+        display: flex;
+        margin-left: 10%; // Centrăm conținutul pe axa orizontală
+        border-collapse: collapse; // pentru a asigura lipirea liniilor
+        width: 100%; // lățimea tabelului
+        align-items: flex-start;
+        th, td {
+            border-bottom: 1px solid black; // linie orizontală între rânduri
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            padding: 4px; // spațiere între conținut și marginile celulei
+            text-align: left; // aliniere text la stânga
+            padding: 8px 16px;
+        }
+      th{
+        background-color: lightgray;
+      }
+        img {
+            max-width: 100%; // asigurați-vă că imaginea nu depășește lățimea tabelului
+            height:150px;
+        }
+    
+    }
+    
+    
+    
+    
+    
+}

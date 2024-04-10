@@ -1,0 +1,190 @@
+@charset "UTF-8";
+* {
+  font-family: "Segoe UI", Verdana, sans-serif;
+  background: none;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+}
+.navbar a {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  align-self: center;
+}
+.navbar__links {
+  text-align: right;
+  flex: 1;
+}
+.navbar__links ul li {
+  list-style: none;
+  display: inline-block;
+  padding: 0px 12px;
+}
+.navbar__links ul li a {
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.header {
+  flex-shrink: 0;
+  background-color: #307074;
+}
+
+.header2 {
+  display: flex;
+  margin-top: 60px;
+  flex-direction: row;
+}
+.header2 .Logo {
+  padding-left: 10%;
+  align-self: center;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+.header2 .search-container {
+  align-self: center;
+  padding-left: 20%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+.header2 .search-container input {
+  background-color: white;
+  color: black;
+  margin-right: 5%;
+  border-color: black;
+  outline: none;
+  border-radius: 3px;
+}
+.header2 .search-container button {
+  background-color: white;
+  color: black;
+  border-color: black;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.header2 .search-container button:hover {
+  background-color: grey;
+}
+
+body {
+  background-color: #BEE9EF;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.horizontal-line {
+  border: 1px solid black; /* specificați grosimea, culoarea și stilul liniei */
+  margin-top: 20px; /* adăugați spațiu de sus și de jos între linie și alte elemente */
+  width: 85%;
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+}
+.main .left_part {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 10%;
+  flex-direction: column;
+}
+.main .left_part .Bookshelf {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+.main .left_part .Bookshelf .titlu {
+  color: black;
+  font-weight: bold;
+}
+.main .left_part .Bookshelf .Options {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.main .left_part .Bookshelf .Options a {
+  color: blue;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.main .left_part .Bookshelf .Options a:hover {
+  color: purple;
+}
+.main .left_part .ReadingActivity {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+.main .left_part .ReadingActivity .titlu {
+  color: black;
+  font-weight: bold;
+}
+.main .left_part .ReadingActivity .Options {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.main .left_part .ReadingActivity .Options a {
+  color: blue;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.main .left_part .ReadingActivity .Options a:hover {
+  color: purple;
+}
+.main .left_part .AddBook {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+.main .left_part .AddBook .titlu {
+  color: black;
+  font-weight: bold;
+}
+.main .left_part .AddBook .Options {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.main .left_part .AddBook .Options a {
+  color: blue;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.main .left_part .AddBook .Options a:hover {
+  color: purple;
+}
+.main .right_part {
+  display: flex;
+  margin-left: 10%;
+  border-collapse: collapse;
+  width: 100%;
+  align-items: flex-start;
+}
+.main .right_part th, .main .right_part td {
+  border-bottom: 1px solid black;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  padding: 4px;
+  text-align: left;
+  padding: 8px 16px;
+}
+.main .right_part th {
+  background-color: lightgray;
+}
+.main .right_part img {
+  max-width: 100%;
+  height: 150px;
+}/*# sourceMappingURL=mybooks.css.map */
