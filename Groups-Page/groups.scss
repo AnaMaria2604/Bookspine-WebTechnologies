@@ -1,0 +1,306 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    //background-color: #307074;
+    padding: 0%;
+    margin: 0 10px;
+
+    a {
+        color: #ffff;
+        font-size: 20px;
+        //background-color: #307074;
+        font-weight: bold;
+    }
+
+    &__links {
+        text-align: right;
+        flex: 1;
+
+        ul li {
+            display: inline-block;
+            position: relative;
+            padding: 0px 10px;
+
+            a {
+                color: #ffff;
+                font-size: 17px;
+                font-weight: bold;
+            }
+
+            .search-container {
+                display: flex;
+                align-items: center;
+                width: 300px;
+                /* Lățimea dorită a barei de căutare */
+            }
+
+            .search-input {
+                width: 80%;
+                padding: 5px;
+                border: 1px solid #2a3738;
+                background-color: #ffffff;
+                border-radius: 4px;
+                font-size: 16px;
+            }
+
+            .search-button {
+                padding: 4px 10px;
+                background-color: #2b3a3e;
+                /* Culoare de fundal a butonului */
+                color: white;
+                /* Culoare text buton */
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 16px;
+                margin-left: 8px;
+                /* Spațiu între buton și input */
+            }
+
+            .search-button:hover {
+                background-color: #1e3137;
+                /* Culoare de fundal la hover */
+            }
+        }
+    }
+}
+
+.header {
+    top: 0;
+    left: 0;
+    background-color: #307074;
+    position: relative;
+}
+
+body {
+    background-color: #bee9ef;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+.pagina{
+    display: flex;
+    flex-direction: row;
+    .main__body{
+        width: 100%;
+    .main {
+        display: flex;
+        padding: 10px 10px 20px 20px;
+        flex-direction: column;
+
+        .text {
+            font-size: 20px;
+
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            padding-left: 20px;
+            width: 300px;
+            /* Lățimea dorită a barei de căutare */
+        }
+
+        .search-input {
+            width: 80%;
+            padding: 5px;
+            border: 1px solid #2a3738;
+            background-color: #ffffff;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .search-button {
+            padding: 4px 10px;
+            background-color: #2b3a3e;
+            /* Culoare de fundal a butonului */
+            color: white;
+            /* Culoare text buton */
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 8px;
+            /* Spațiu între buton și input */
+        }
+
+        .search-button:hover {
+            background-color: #1e3137;
+            /* Culoare de fundal la hover */
+        }
+    }
+
+    .page__body {
+        display: flex;
+        flex-direction: column;
+
+        .mybooks {
+            display: flex;
+            padding: 10px 10px 20px 20px;
+            flex-direction: column;
+
+            .mybooks__text {
+                font-size: 23px;
+            }
+
+            .grupuri {
+
+                .mybooks__categorie {
+                    background-color: #a5d0d3;
+                    padding: 10px;
+                    border-radius: 10px;
+                    display: flex;
+                    flex-direction: row;
+                    //padding-left: 80px;
+
+                    .poza {
+                        height: 100px;
+                        width: 100px;
+                        float: left;
+                    }
+
+                    .mybooks__category {
+                        display: flex;
+                        flex-direction: column;
+
+                        .group__updates {
+                            display: flex;
+                            align-items: center;
+                            //padding-left: 80px;
+                            flex-direction: row;
+
+                            .text {
+                                padding-left: 20px;
+                                font-size: 12px;
+                            }
+                        }
+
+                        .group__updates>.text {
+                            margin-right: 8px;
+                        }
+
+                        .categoryname {
+                            padding-top: 30px;
+                            padding-left: 20px;
+                            font-size: 20px;
+                        }
+                    }
+
+                }
+            }
+
+            .grupuri>.mybooks__categorie {
+                margin-top: 10px;
+            }
+        }
+
+        .browse {
+            display: flex;
+            flex-direction: column;
+            padding: 10px 10px 20px 20px;
+
+            .browse__text {
+                font-size: 23px;
+            }
+
+            .grupuri {
+
+                .mybooks__categorie {
+                    background-color: #a5d0d3;
+                    padding: 10px;
+                    border-radius: 10px;
+                    display: flex;
+                    flex-direction: row;
+                    //padding-left: 80px;
+
+                    .poza {
+                        height: 100px;
+                        width: 100px;
+                        float: left;
+                    }
+
+                    .mybooks__category {
+                        display: flex;
+                        flex-direction: column;
+
+                        .tags {
+                            display: flex;
+                            flex-direction: row;
+                            padding-top: 30px;
+                            padding-left: 20px;
+
+                            .categoryname {
+                                padding-right: 10px;
+                                font-size: 20px;
+                            }
+
+                            .buton__fixat {
+                                //position: relative;
+                                width: 20%;
+                                height: 0%;
+                                background-color: #496264;
+                                padding: 10px;
+                                align-content: center;
+                                border-radius: 10px;
+
+                                .text {
+                                    text-align: center;
+                                    font-size: 10;
+
+                                    a {
+                                        color: #ffffff;
+                                    }
+                                }
+                            }
+                        }
+
+                        .group__updates {
+                            display: flex;
+                            align-items: center;
+                            //padding-left: 80px;
+                            flex-direction: row;
+
+                            .text {
+                                padding-left: 20px;
+                                font-size: 12px;
+                            }
+                        }
+
+                        .group__updates>.text {
+                            margin-right: 8px;
+                        }
+
+                    }
+
+
+                }
+            }
+
+            .grupuri>.mybooks__categorie {
+                margin-top: 10px;
+            }
+        }
+    }
+}
+
+    // .page__dreapta{
+        
+    //     .text{
+    //         font-size: 20px;
+    //     }
+    // }
+}
+}
+
+footer {
+    flex: 1;
+    margin-top: 100px;
+    text-align: center;
+    color: #ffff;
+    align-self: flex-start;
+    background: #307074;
+    bottom: 0;
+    width: 100%;
+}
