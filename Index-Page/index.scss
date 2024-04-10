@@ -1,0 +1,235 @@
+
+*{
+    font-family:'Segoe UI',Verdana, sans-serif ;
+    background: none;
+}
+
+.navbar{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    //background-color: #307074;
+    padding: 0%;
+    margin: 0 10px;
+
+    a{
+        color:#ffff;
+        font-size: 20px;
+        //background-color: #307074;
+        font-weight: bold;
+    }
+
+    &__links{
+        text-align: right;
+        flex:1;
+
+
+    ul li{
+        display: inline-block;
+        position: relative;
+        padding: 0px 10px;
+
+        a{
+            color:#ffff;
+            font-size: 17px;
+            font-weight: bold;
+        }
+        .search-container {
+            display: flex;
+            align-items: center;
+            width: 300px; /* Lățimea dorită a barei de căutare */
+        }
+        
+        .search-input {
+            width: 80%; 
+            padding: 5px;
+            border: 1px solid #2a3738;
+            background-color: #ffffff;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        .search-button {
+            padding: 4px 10px;
+            background-color: #2b3a3e; /* Culoare de fundal a butonului */
+            color: white; /* Culoare text buton */
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 8px; /* Spațiu între buton și input */
+        }
+        
+        .search-button:hover {
+            background-color: #1e3137; /* Culoare de fundal la hover */
+        }
+    }
+    
+}
+}
+
+.header{
+    top: 0;
+    left: 0;
+    background-color: #307074;
+    position: relative;
+}
+
+body{
+    background-color: #BEE9EF;
+    display:flex;
+    flex-direction: column;
+    //justify-content: ;
+    height: 100%;
+    //align-items: space-between;
+}
+
+footer {
+    flex: 1;
+    margin-top: 100px;
+    text-align: center;
+    color: #ffff;
+    align-self: flex-start;
+    background: #307074;
+    bottom: 0;
+    position: fixed;
+    width: 100%; 
+}
+
+
+
+* {
+    font-family: 'Segoe UI', Verdana, sans-serif;
+    background: none;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+
+    a {
+        color: white;
+        font-size: 20px;
+        padding: 0px 12px;
+        font-weight: bold;
+        align-self: center; // flex-end in jos flex-start:sus
+    }
+
+    &__links {
+        text-align: right;
+        flex: 1; // sa ocupe tot spatiul
+
+        ul li {
+            list-style: none;
+            display: inline-block;
+            padding: 0px 12px;
+
+            a {
+                color: white;
+                font-size: 17px;
+                font-weight: bold;
+                text-decoration: none;
+            }
+            .search-container {
+                display: flex;
+                align-items: center;
+                width: 300px; /* Lățimea dorită a barei de căutare */
+            }
+            
+            .search-input {
+                width: 80%; 
+                padding: 5px;
+                border: 1px solid #2a3738;
+                background-color: #ffffff;
+                border-radius: 4px;
+                font-size: 16px;
+            }
+            
+            .search-button {
+                padding: 4px 10px;
+                background-color: #2b3a3e; /* Culoare de fundal a butonului */
+                color: white; /* Culoare text buton */
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 16px;
+                margin-left: 8px; /* Spațiu între buton și input */
+            }
+            
+            .search-button:hover {
+                background-color: #1e3137; /* Culoare de fundal la hover */
+            }
+        }
+    }
+
+}
+
+
+.bodypage {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 40px;
+
+    .section1 {
+        display: flex;
+        flex-direction: column;
+        padding: 70px;
+        margin-left: 40px;
+        width: 50%;
+        border-radius: 20px;
+        background-color: #307074;
+
+
+
+
+    }
+
+    .section2 {
+        display: flex;
+        flex-direction: column;
+        padding: 70px;
+        margin-left: 40px;
+        width: 50%;
+        border-radius: 20px;
+        background-color: #307074;
+    }
+
+    .section3 {
+        display: flex;
+        flex-direction: column;
+        padding: 70px;
+        margin-left: 40px;
+        width: 50%;
+        border-radius: 20px;
+        background-color: #307074;
+    }
+
+    &::after {
+        content: '';
+        display: flex;
+        position: absolute;
+        top: 90px;
+        bottom: 120px;
+        left: 65%; 
+        //width: 1rem;
+        padding-left: 3px;
+        border-radius: 10px;
+        padding-right: 3px;
+        background-color: #2a4648; 
+    }
+.butoane{
+    a{
+        display: flex;
+        font-size: 30px;
+        position: absolute;
+        background-color: #307074;
+        top: 350px;
+        right: 110px;
+        padding: 10px 20px;
+        border-radius: 10px;
+        color: #ffff;
+    }}
+}
+
+
