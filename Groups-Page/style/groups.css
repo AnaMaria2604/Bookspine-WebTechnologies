@@ -1,0 +1,338 @@
+* {
+  font-family: "Segoe UI", Verdana, sans-serif;
+  background: none;
+}
+
+body {
+  background-color: #ACEAEC;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+body .header {
+  top: 0;
+  left: 0;
+  background-color: #01161E;
+  margin: 0;
+}
+body .header .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  margin: 0 10px;
+}
+body .header .navbar a {
+  color: white;
+  font-size: 20px;
+  padding-left: 10px;
+  font-weight: bold;
+}
+body .header .navbar__links {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  text-align: right;
+  flex: 1;
+}
+body .header .navbar__links ul li {
+  display: inline-block;
+  position: relative;
+  padding: 0px 10px;
+}
+body .header .navbar__links ul li a {
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+}
+body .header .navbar__links ul li .search-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+body .header .navbar__links ul li .search-input {
+  width: 80%;
+  padding: 5px;
+  border: 1px solid #2a3738;
+  background-color: white;
+  border-radius: 4px;
+  font-size: 16px;
+}
+body .header .navbar__links ul li .search-button {
+  padding: 4px 10px;
+  background-color: #124559;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 8px;
+}
+body .header .navbar__links ul li .search-button:hover {
+  background-color: #0A2E36;
+}
+body .dropdown-container {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+}
+body .dropdown-menu {
+  background-color: #01161E;
+  padding: 10px;
+  border: 1px solid #2a3738;
+  list-style-type: none;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+body .dropdown-menu li {
+  padding: 5px 0;
+}
+body .dropdown-menu li a {
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+}
+body .pagina {
+  display: flex;
+  flex-direction: row;
+  padding-left: 30px;
+}
+body .pagina .main__body {
+  width: 80%;
+}
+body .pagina .main__body .main {
+  display: flex;
+  flex-direction: column;
+}
+body .pagina .main__body .main .text {
+  font-size: 20px;
+}
+body .pagina .main__body .main .search-container {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  width: 300px;
+}
+body .pagina .main__body .main .search-input {
+  width: 80%;
+  padding: 5px;
+  border: 1px solid #2a3738;
+  background-color: white;
+  border-radius: 4px;
+  font-size: 16px;
+}
+body .pagina .main__body .main .search-button {
+  padding: 4px 10px;
+  background-color: #124559;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 8px;
+}
+body .pagina .main__body .main .search-button:hover {
+  background-color: #0A2E36;
+}
+body .pagina .main__body .page__body {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+}
+body .pagina .main__body .page__body .mybooks {
+  display: flex;
+  padding: 10px 10px 20px 20px;
+  flex-direction: column;
+}
+body .pagina .main__body .page__body .mybooks .mybooks__text {
+  font-size: 23px;
+}
+body .pagina .main__body .page__body .mybooks .grupuri .mybooks__categorie {
+  background-color: #104547;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+}
+body .pagina .main__body .page__body .mybooks .grupuri .mybooks__categorie .poza {
+  height: 100px;
+  width: 100px;
+  float: left;
+}
+body .pagina .main__body .page__body .mybooks .grupuri .mybooks__categorie .mybooks__category {
+  display: flex;
+  flex-direction: column;
+}
+body .pagina .main__body .page__body .mybooks .grupuri .mybooks__categorie .mybooks__category .group__updates {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+body .pagina .main__body .page__body .mybooks .grupuri .mybooks__categorie .mybooks__category .group__updates .text {
+  padding-left: 20px;
+  font-size: 12px;
+}
+body .pagina .main__body .page__body .mybooks .grupuri .mybooks__categorie .mybooks__category .group__updates .text a {
+  color: white;
+}
+body .pagina .main__body .page__body .mybooks .grupuri .mybooks__categorie .mybooks__category .group__updates > .text {
+  margin-right: 8px;
+}
+body .pagina .main__body .page__body .mybooks .grupuri .mybooks__categorie .mybooks__category .categoryname {
+  padding-top: 30px;
+  padding-left: 20px;
+  font-size: 20px;
+}
+body .pagina .main__body .page__body .mybooks .grupuri > .mybooks__categorie {
+  margin-top: 10px;
+}
+body .pagina .main__body .page__body .browse {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 10px 20px 20px;
+}
+body .pagina .main__body .page__body .browse .browse__text {
+  font-size: 23px;
+}
+body .pagina .main__body .page__body .browse .grupuri .mybooks__categorie {
+  background-color: #104547;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+}
+body .pagina .main__body .page__body .browse .grupuri .mybooks__categorie .poza {
+  height: 100px;
+  width: 100px;
+  float: left;
+}
+body .pagina .main__body .page__body .browse .grupuri .mybooks__categorie .mybooks__category {
+  display: flex;
+  flex-direction: column;
+}
+body .pagina .main__body .page__body .browse .grupuri .mybooks__categorie .mybooks__category .tags {
+  display: flex;
+  flex-direction: row;
+  padding-top: 30px;
+  padding-left: 20px;
+}
+body .pagina .main__body .page__body .browse .grupuri .mybooks__categorie .mybooks__category .tags .categoryname {
+  padding-right: 10px;
+  font-size: 20px;
+}
+body .pagina .main__body .page__body .browse .grupuri .mybooks__categorie .mybooks__category .tags .buton__fixat {
+  width: 20%;
+  height: 0%;
+  background-color: #496264;
+  padding: 10px;
+  align-content: center;
+  border-radius: 10px;
+}
+body .pagina .main__body .page__body .browse .grupuri .mybooks__categorie .mybooks__category .tags .buton__fixat .text {
+  text-align: center;
+  font-size: 15px;
+}
+body .pagina .main__body .page__body .browse .grupuri .mybooks__categorie .mybooks__category .tags .buton__fixat .text a {
+  color: white;
+}
+body .pagina .main__body .page__body .browse .grupuri .mybooks__categorie .mybooks__category .group__updates {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+body .pagina .main__body .page__body .browse .grupuri .mybooks__categorie .mybooks__category .group__updates .text {
+  padding-left: 20px;
+  font-size: 12px;
+}
+body .pagina .main__body .page__body .browse .grupuri .mybooks__categorie .mybooks__category .group__updates .text a {
+  color: white;
+}
+body .pagina .main__body .page__body .browse .grupuri .mybooks__categorie .mybooks__category .group__updates > .text {
+  margin-right: 8px;
+}
+body .pagina .main__body .page__body .browse .grupuri > .mybooks__categorie {
+  margin-top: 10px;
+}
+body .pagina .page__dreapta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20%;
+}
+body .pagina .page__dreapta .text {
+  font-size: 20px;
+  align-self: center;
+}
+body .pagina .page__dreapta .continut {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  background-color: #0A2E36;
+  padding: 20px;
+}
+body .pagina .page__dreapta .continut .sectiune {
+  display: flex;
+  flex-direction: column;
+}
+body .pagina .page__dreapta .continut .sectiune .sectiune__tags {
+  display: flex;
+  flex-direction: column;
+}
+body .pagina .page__dreapta .continut .sectiune .sectiune__tags a {
+  font-style: italic;
+  color: white;
+  margin-bottom: 10px;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  flex: 1;
+  margin-top: 100px;
+  bottom: 0;
+  width: 100%;
+  background: #0c3742;
+  color: white;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  body .pagina {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  body .pagina .main__body {
+    width: 90%;
+    align-self: center;
+  }
+  body .pagina .page__stanga {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    align-self: center;
+  }
+  body .pagina .page__stanga .continut {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5%;
+  }
+  body .pagina .page__dreapta {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    align-self: center;
+  }
+  body .pagina .page__dreapta .continut {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5%;
+  }
+}/*# sourceMappingURL=groups.css.map */

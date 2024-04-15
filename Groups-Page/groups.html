@@ -2,231 +2,273 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="./groups.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ReadingChallenge</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../Groups-Page/style/groups.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../Index-Page/index.js"></script>
+  <title>Groups</title>
 </head>
 
 <body>
 
-    <header class="header">
-        <nav class="navbar">
-
-            <a href="index.html">
-                BookSpine
-            </a>
-            <div class="navbar__links">
-
-                <ul>
-                    <li>
-                        <div class="search-container">
-                            <input type="text" placeholder="" class="search-input">
-                            <button type="submit" class="search-button">Caută</button>
-                        </div>
-                    </li>
-                    <li><a href="">My books</a></li>
-                    <li><a href="groups.html">Groups</a></li>
-                    <li><a href="loginpage.html">Account</a></li>
-                </ul>
-
-
+  <header class="header">
+    <nav class="navbar">
+      <a href="../Main-Page/mainpage.html"> Boo </a>
+      <div class="navbar__links">
+        <ul>
+          <li>
+            <div class="search-container">
+              <input type="text" placeholder="" class="search-input">
+              <button type="submit" class="search-button">Search</button>
             </div>
-        </nav>
-
-    </header>
-
-    
-    <div class="pagina">
-        <div class="main__body">
-            <div class="main">
-
-                <div class="text">
-                    <h2>Search groups</h2>
-                </div>
-
-                <div class="search-container">
-                    <input type="text" placeholder="" class="search-input">
-                    <button type="submit" class="search-button">Caută</button>
-
-                </div>
-
-            </div>
-
-            <div class="page__body">
-                <div class="mybooks">
-                    <div class="mybooks__text">
-                        <h3>My groups</h3>
-                    </div>
-
-                    <div class="grupuri">
-                        <div class="mybooks__categorie">
-
-                            <img class="poza" alt="" src="./image4.png">
-
-                            <div class="mybooks__category">
-                                <div class="categoryname">
-                                    <span>Booktok</span>
-                                </div>
-
-                                <div class="group__updates">
-                                    <div class="text">
-                                        <a href="">new posts</a>
-                                    </div>
-
-                                    <div class="text">
-                                        <p>9 minutes ago</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+          </li>
+          <li class="dropdown">
+            <a href="#" id="dropdown-toggle">Menu</a>
+            <ul class="dropdown-menu" id="dropdown-menu">
+              <li><a href="../My-Books-Page/mybooks.html">My books</a></li>
+              <li><a href="../Groups-Page/groups.html">Groups</a></li>
+              <li><a href="../Reading-Challenge-Page/challenge.html">Challenges</a></li>
+              <li><a href="../Account-Page/account.html">Account</a></li>
+              <li><a href="../About-Us-Page/aboutus.html">About Us</a></li>
+              <li><a href="../Help-Page/help.html">Help</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
 
 
-                        <div class="mybooks__categorie">
-
-                            <img class="poza" alt="" src="./image4.png">
-
-                            <div class="mybooks__category">
-                                <div class="categoryname">
-                                    <span>Librarians Group</span>
-                                </div>
-
-                                <div class="group__updates">
-                                    <div class="text">
-                                        <a href="">new posts</a>
-                                    </div>
-
-                                    <div class="text">
-                                        <p>23 minutes ago</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="browse">
-                    <div class="browse__text">
-                        <h3>Browse groups by tag</h3>
-                    </div>
-                    <div class="grupuri">
-                        <div class="mybooks__categorie">
-
-                            <img class="poza" alt="" src="./image4.png">
-
-                            <div class="mybooks__category">
-                                <div class="tags">
-                                    <div class="categoryname">
-                                        <span>Booktok</span>
-                                    </div>
-
-                                    <div class="buton__fixat">
-                                        <div class="text">
-                                            <a href="">Join</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="group__updates">
-                                    <div class="text">
-                                        <a href="">new posts</a>
-                                    </div>
-
-                                    <div class="text">
-                                        <p>9 minutes ago</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <!-- to do another group here -->
-                    </div>
-
-                    <div class="grupuri">
-                        <div class="mybooks__categorie">
-
-                            <img class="poza" alt="" src="./image4.png">
-
-                            <div class="mybooks__category">
-                                <div class="tags">
-                                    <div class="categoryname">
-                                        <span>Librarians Group</span>
-                                    </div>
-
-                                    <div class="buton__fixat">
-                                        <div class="text">
-                                            <a href="">Join</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="group__updates">
-                                    <div class="text">
-                                        <a href="">new posts</a>
-                                    </div>
-
-                                    <div class="text">
-                                        <p>23 minutes ago</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <!-- to do another group here -->
-                    </div>
-
-                    <div class="grupuri">
-                        <div class="mybooks__categorie">
-
-                            <img class="poza" alt="" src="./image4.png">
-
-                            <div class="mybooks__category">
-                                <div class="tags">
-                                    <div class="categoryname">
-                                        <span>A Good Thriller</span>
-                                    </div>
-
-                                    <div class="buton__fixat">
-                                        <div class="text">
-                                            <a href="">Join</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="group__updates">
-                                    <div class="text">
-                                        <a href="">new posts</a>
-                                    </div>
-
-                                    <div class="text">
-                                        <p>29 minutes ago</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <!-- to do another group here -->
-                    </div>
-                </div>
-            </div>
+  <div class="pagina">
+    <div class="main__body">
+      <div class="main">
+        <div class="text">
+          <h2>Search groups</h2>
         </div>
 
-        <!-- <div class="page__dreapta">
-            <div class="text">
-                <h2>Tags</h2>
+        <div class="search-container">
+          <input type="text" placeholder="" class="search-input">
+          <button type="submit" class="search-button">Search</button>
+        </div>
+      </div>
+
+      <div class="page__body">
+        <div class="mybooks">
+          <div class="mybooks__text">
+            <h3>My groups</h3>
+          </div>
+
+          <div class="grupuri">
+            <div class="mybooks__categorie">
+              <img class="poza" alt="" src="../Images/image4.png">
+
+              <div class="mybooks__category">
+                <div class="categoryname">
+                  <span>Booktok</span>
+                </div>
+
+                <div class="group__updates">
+                  <div class="text">
+                    <a href="">new posts</a>
+                  </div>
+
+                  <div class="text">
+                    <p>9 minutes ago</p>
+                  </div>
+                </div>
+              </div>
             </div>
-        </div> -->
+
+            <div class="mybooks__categorie">
+              <img class="poza" alt="" src="../Images/image4.png">
+
+              <div class="mybooks__category">
+                <div class="categoryname">
+                  <span>Librarians Group</span>
+                </div>
+
+                <div class="group__updates">
+                  <div class="text">
+                    <a href="">new posts</a>
+                  </div>
+
+                  <div class="text">
+                    <p>23 minutes ago</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="browse">
+          <div class="browse__text">
+            <h3>Browse groups by tag</h3>
+          </div>
+          <div class="grupuri">
+            <div class="mybooks__categorie">
+              <img class="poza" alt="" src="../Images/image4.png">
+
+              <div class="mybooks__category">
+                <div class="tags">
+                  <div class="categoryname">
+                    <span>Booktok</span>
+                  </div>
+
+                  <div class="buton__fixat">
+                    <div class="text">
+                      <a href="">Join</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="group__updates">
+                  <div class="text">
+                    <a href="">new posts</a>
+                  </div>
+
+                  <div class="text">
+                    <p>9 minutes ago</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="grupuri">
+            <div class="mybooks__categorie">
+              <img class="poza" alt="" src="../Images/image4.png">
+
+              <div class="mybooks__category">
+                <div class="tags">
+                  <div class="categoryname">
+                    <span>Librarians Group</span>
+                  </div>
+
+                  <div class="buton__fixat">
+                    <div class="text">
+                      <a href="">Join</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="group__updates">
+                  <div class="text">
+                    <a href="">new posts</a>
+                  </div>
+
+                  <div class="text">
+                    <p>23 minutes ago</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="grupuri">
+            <div class="mybooks__categorie">
+              <img class="poza" alt="" src="../Images/image4.png">
+
+              <div class="mybooks__category">
+                <div class="tags">
+                  <div class="categoryname">
+                    <span>A Good Thriller</span>
+                  </div>
+
+                  <div class="buton__fixat">
+                    <div class="text">
+                      <a href="">Join</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="group__updates">
+                  <div class="text">
+                    <a href="">new posts</a>
+                  </div>
+
+                  <div class="text">
+                    <p>29 minutes ago</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
+    <div class="page__dreapta">
+      <div class="text">
+        <h2>Tags</h2>
+      </div>
 
-    <footer>
-        <p>©BookSpine-2024 All rights are reserved<br>
-            Facultatea de Informatica Iasi(UAIC)<br>
-            Bolohan Constantin-Sebastian and Ursache Ana-Maria
-        </p>
-    </footer>
+      <div class="continut">
+        <div class="sectiune">
+          <h2>Category</h2>
+          <div class="sectiune__tags">
+            <a href="">Romance</a>
+            <a href="">History</a>
+            <a href="">Mistery</a>
+            <a href="">Drama</a>
+          </div>
+        </div>
 
+        <div class="sectiune">
+          <h2>Authors</h2>
+          <div class="sectiune__tags">
+            <a href="">Mihai Eminescu</a>
+            <a href="">Vasile Alecsandri</a>
+            <a href="">Mircea Cartarescu</a>
+            <a href="">Liviu Rebreanu</a>
+          </div>
+        </div>
 
+        <div class="sectiune">
+          <h2>Publisher</h2>
+          <div class="sectiune__tags">
+            <a href="">Academic</a>
+            <a href="">Carminis</a>
+            <a href="">Corint</a>
+            <a href="">Nemira</a>
+          </div>
+        </div>
+
+        <div class="sectiune">
+          <h2>Publication year</h2>
+          <div class="sectiune__tags">
+            <a href="">1920</a>
+            <a href="">1848</a>
+            <a href="">2015</a>
+            <a href="">1925</a>
+          </div>
+        </div>
+
+        <div class="sectiune">
+          <h2>Edition</h2>
+          <div class="sectiune__tags">
+            <a href="">New Editions</a>
+            <a href="">Readaptations</a>
+          </div>
+        </div>
+
+        <div class="sectiune">
+          <h2>Collections</h2>
+          <div class="sectiune__tags">
+            <a href="">Full Collections</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>
+      ©BookSpine-2024 All rights are reserved<br>
+      Facultatea de Informatica Iasi(UAIC)<br>
+      Bolohan Constantin-Sebastian and Ursache Ana-Maria
+    </p>
+  </footer>
 </body>
 
 </html>
