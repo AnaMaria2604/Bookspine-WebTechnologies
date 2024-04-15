@@ -1,0 +1,433 @@
+$color: #ffaa8e;
+$background: #ACEAEC;
+$header: #01161E;
+$footer: #0c3742;
+$body: #104547;
+$textcolor: #ffff;
+$button: #124559;
+$darkbutton: #0A2E36;
+$bordercolor: #2a3738;
+$button2: #496264;
+
+* {
+    font-family: 'Segoe UI', Verdana, sans-serif;
+    background: none;
+}
+
+body {
+    background-color: $background;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+
+    .header {
+        top: 0;
+        left: 0;
+        background-color: $header;
+        margin: 0;
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            margin: 0 10px;
+
+            a {
+                color: $textcolor;
+                font-size: 20px;
+                padding-left: 10px;
+                font-weight: bold;
+            }
+
+            &__links {
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                text-align: right;
+                flex: 1;
+
+                ul li {
+                    display: inline-block;
+                    position: relative;
+                    padding: 0px 10px;
+
+                    a {
+                        color: $textcolor;
+                        font-size: 17px;
+                        font-weight: bold;
+                    }
+
+                    .search-container {
+                        display: flex;
+                        align-items: center;
+                        width: 100%;
+                    }
+
+                    .search-input {
+                        width: 80%;
+                        padding: 5px;
+                        border: 1px solid $bordercolor;
+                        background-color: $textcolor;
+                        border-radius: 4px;
+                        font-size: 16px;
+                    }
+
+                    .search-button {
+                        padding: 4px 10px;
+                        background-color: $button;
+                        color: white;
+                        border: none;
+                        border-radius: 4px;
+                        cursor: pointer;
+                        font-size: 16px;
+                        margin-left: 8px;
+
+                    }
+
+                    .search-button:hover {
+                        background-color: $darkbutton;
+
+                    }
+                }
+            }
+        }
+
+    }
+
+    .dropdown-container {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        display: none; 
+    }
+
+    .dropdown-menu {
+        background-color: $header;
+        padding: 10px;
+        border: 1px solid $bordercolor;
+        list-style-type: none;
+        margin: 0;
+        position: relative;
+        z-index: 1; 
+    }
+
+    .dropdown-menu li {
+        padding: 5px 0;
+    }
+
+    .dropdown-menu li a {
+        color: $textcolor;
+        font-size: 17px;
+        font-weight: bold;
+    }
+
+
+    .pagina {
+        display: flex;
+        flex-direction: row;
+        padding-left: 30px;
+
+        .main__body {
+            width: 80%;
+
+            .main {
+                display: flex;
+                flex-direction: column;
+
+                .text {
+                    font-size: 20px;
+
+                }
+
+                .search-container {
+                    display: flex;
+                    align-items: center;
+                    padding-left: 20px;
+                    width: 300px;
+                }
+
+                .search-input {
+                    width: 80%;
+                    padding: 5px;
+                    border: 1px solid $bordercolor;
+                    background-color: $textcolor;
+                    border-radius: 4px;
+                    font-size: 16px;
+                }
+
+                .search-button {
+                    padding: 4px 10px;
+                    background-color: $button;
+                    color: white;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    font-size: 16px;
+                    margin-left: 8px;
+                }
+
+                .search-button:hover {
+                    background-color: $darkbutton;
+                }
+            }
+
+            .page__body {
+                padding-left: 20px;
+                display: flex;
+                flex-direction: column;
+
+                .mybooks {
+                    display: flex;
+                    padding: 10px 10px 20px 20px;
+                    flex-direction: column;
+
+                    .mybooks__text {
+                        font-size: 23px;
+                    }
+
+                    .grupuri {
+
+                        .mybooks__categorie {
+                            background-color: $body;
+                            color: $textcolor;
+                            padding: 10px;
+                            border-radius: 10px;
+                            display: flex;
+                            flex-direction: row;
+
+                            .poza {
+                                height: 100px;
+                                width: 100px;
+                                float: left;
+                            }
+
+                            .mybooks__category {
+                                display: flex;
+                                flex-direction: column;
+
+                                .group__updates {
+                                    display: flex;
+                                    align-items: center;
+                                    flex-direction: row;
+
+                                    .text {
+
+                                        padding-left: 20px;
+                                        font-size: 12px;
+
+                                        a {
+                                            color: $textcolor;
+                                        }
+                                    }
+
+                                }
+
+                                .group__updates>.text {
+                                    margin-right: 8px;
+                                }
+
+                                .categoryname {
+                                    padding-top: 30px;
+                                    padding-left: 20px;
+                                    font-size: 20px;
+                                }
+                            }
+
+                        }
+                    }
+
+                    .grupuri>.mybooks__categorie {
+                        margin-top: 10px;
+                    }
+                }
+
+                .browse {
+                    display: flex;
+                    flex-direction: column;
+                    padding: 10px 10px 20px 20px;
+
+                    .browse__text {
+
+                        font-size: 23px;
+                    }
+
+                    .grupuri {
+
+                        .mybooks__categorie {
+                            background-color: $body;
+                            color: $textcolor;
+                            padding: 10px;
+                            border-radius: 10px;
+                            display: flex;
+                            flex-direction: row;
+
+                            .poza {
+                                height: 100px;
+                                width: 100px;
+                                float: left;
+                            }
+
+                            .mybooks__category {
+                                display: flex;
+                                flex-direction: column;
+
+                                .tags {
+                                    display: flex;
+                                    flex-direction: row;
+                                    padding-top: 30px;
+                                    padding-left: 20px;
+
+                                    .categoryname {
+                                        padding-right: 10px;
+                                        font-size: 20px;
+                                    }
+
+                                    .buton__fixat {
+                                        width: 20%;
+                                        height: 0%;
+                                        background-color: $button2;
+                                        padding: 10px;
+                                        align-content: center;
+                                        border-radius: 10px;
+
+                                        .text {
+                                            text-align: center;
+                                            font-size: 15px;
+
+                                            a {
+                                                color: $textcolor;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                .group__updates {
+                                    display: flex;
+                                    align-items: center;
+                                    flex-direction: row;
+
+                                    .text {
+                                        padding-left: 20px;
+                                        font-size: 12px;
+
+                                        a {
+                                            color: $textcolor;
+                                        }
+                                    }
+                                }
+
+                                .group__updates>.text {
+                                    margin-right: 8px;
+                                }
+
+                            }
+
+
+                        }
+                    }
+
+                    .grupuri>.mybooks__categorie {
+                        margin-top: 10px;
+                    }
+                }
+            }
+        }
+
+        .page__dreapta {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 20%;
+
+            .text {
+                font-size: 20px;
+                align-self: center;
+            }
+
+            .continut {
+                color: $textcolor;
+                display: flex;
+                flex-direction: column;
+                border-radius: 20px;
+                background-color: $darkbutton;
+                padding: 20px;
+
+                .sectiune {
+                    display: flex;
+                    flex-direction: column;
+
+                    .sectiune__tags {
+                        display: flex;
+                        flex-direction: column;
+
+                        a {
+                            font-style: italic;
+                            color: $textcolor;
+                            margin-bottom: 10px;
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+
+    text-align: center;
+    flex: 1;
+    margin-top: 100px;
+    bottom: 0;
+    width: 100%;
+    background: $footer;
+    color: $textcolor;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    body {
+        .pagina {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .main__body {
+                width: 90%;
+                align-self: center;
+            }
+
+            .page__stanga {
+                width: 90%;
+                margin-left: 5%;
+                margin-right: 5%;
+                align-self: center;
+
+                .continut {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    gap: 5%;
+                }
+            }
+
+            .page__dreapta {
+                width: 90%;
+                margin-left: 5%;
+                margin-right: 5%;
+                align-self: center;
+
+                .continut {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    gap: 5%;
+
+                }
+            }
+        }
+    }
+
+}

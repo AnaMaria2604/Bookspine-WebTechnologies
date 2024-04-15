@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./documentatie.css">
+    <title>Documentation</title>
+</head>
+
+<body>
+    <h1>Boo</h1>
+    <h3>A Web Aplication that will help you manage your books. </h3>
+    <h3>Team: Ursache Ana-Maria and Bolohan Constantin-Sebastian</h3>
+    <br>
+    <div class="sectiune">
+        <h2>1. Introduction</h2>
+        <div class="continut">
+            <p>1.1 Product Purpose & Scope</p>
+            <div class="text">
+                The purpose of our app is to bring customers the opportunity to organize all the books they read,
+                the ones they want to read and the ones they are currently reading. They also
+                can personalise their goals for a year or for a specific month. Users can be in different groups of
+                where participants give updates to specific books. The books themselves can be filtered by different
+                tags,
+                such as: author, year, edition, etc...
+                The main inspiration of the app is Goodreads, an app that has been on the market for a long time and is
+                used by all book lovers.
+            </div>
+        </div>
+        <br>
+        <div class="continut">
+            <p>1.2 Document convensions</p>
+            <div class="text">
+                Within the application we mainly used different shades of the same colour,
+                in total there are about 10 shades (#ACEAEC, #01161E, #0c3742, #104547, #124559,
+                #0A2E36, #2a3738, #272D2D, #15555a, #496264).
+                If we want to highlight certain elements, we use <b>bold</b>.
+                As for the fonts used, I used only one font for each page: Verdana.
+            </div>
+        </div>
+        <br>
+        <div class="continut">
+            <p>1.3 Intended Audience and Reading Suggestions</p>
+            <div class="text">
+                We designed the structure of the app to be accessible. We intended the app to be mainly
+                readers who want to organize their books and who want to find a community of lovers
+                of books (through groups), but also for those people who want to see certain
+                book reviews and different people's opinions.
+            </div>
+        </div>
+        <br>
+        <div class="continut">
+            <p>1.4 References</p>
+            <div class="text">
+                The main inspiration: "Goodreads".
+                <br>
+                We were also inspired by the design made in Figma for the subject "Ingineria Programarii" by our group.
+            </div>
+        </div>
+    </div>
+
+    <div class="sectiune">
+        <h2>2. Overall Description</h2>
+        <div class="continut">
+            <p>2.1 Description</p>
+            <div class="text">
+                Our project is a web application based on a custom REST/GraphQL API,
+                with the aim of facilitating progress monitoring and opinion/feedback in
+                on readings done either by a single user or a selected group
+                of individuals, such as a class of students or a literary club. Our system will manage the books,
+                organizing them according to
+                by various criteria, including category, author(s), publisher, year, edition, as well as relationships
+                to other
+                related literary works. We aim to provide a wide range of statistics, available for export
+                in open formats such as CSV and DocBook. Also, relevant announcements (such as new reviews
+                book reviews, new book releases of interest, or changes in the rankings of acclaimed works
+                in a particular field) will be presented as RSS news feeds.
+            </div>
+        </div>
+        <br>
+        <div class="continut">
+            <p>2.2 Product Perspective</p>
+            <div class="text">
+                The vision of the project is to develop a useful and easy-to-use web tool
+                to add annotations to books while acting as an online library.
+                A user can see other users reviews of a book, and if they are part of the
+                of the same group they can see each other's notes.
+                <br><br>
+                Elements: Frontend - represents the visible part of the application to users, it is implemented using
+                HTML, CSS,
+                REST/GraphQL API - represents the interaction part between frontend and backend, Backend - represents
+                the storage part, but
+                and processing of the data in the application, including application services (to be implemented in
+                JavaScript), Database -
+                represents the storage component of the data used (books/users) by the application.
+            </div>
+        </div>
+        <br>
+        <div class="continut">
+            <p>2.3 Product Functions</p>
+            <div class="text">
+                The application will have numerous functions, such as the possibility to Log In/Log Out, Register,
+                Change Password, Give update for a page from a book, Give review to a book, Join groups,
+                Add Personal Challenges and edit/delete them, Search with tags and see User Profiles.
+            </div>
+        </div>
+        <br>
+        <div class="continut">
+            <p>2.4 Operating Environment</p>
+            <div class="text">
+                We want to make the app responsive on all types of devices, which is why the interface will resize
+                depending on the screen the user is using the app on.
+            </div>
+        </div>
+        <br>
+        <div class="continut">
+            <p>2.5 Design and Implementation Constraints</p>
+            <div class="text">
+                The app doesn't have any kind ofh contraints.
+            </div>
+        </div>
+        <br>
+        <div class="continut">
+            <p>2.6 User Documentation</p>
+            <div class="text">
+                The app will contain 2 special pages that have been designed to be useful for users. The first one:
+                "About us" is
+                the page where the client can see the team and project description. The second one" "Help" is the page
+                where the user enters
+                when they have some problems about how the application should work. There, the user will see some
+                questions with answers,
+                and an important part: a form where the customer can write his/her question.
+            </div>
+        </div>
+        <br>
+        <div class="continut">
+            <p>2.7 Assumptions and Dependencies</p>
+            <div class="text">
+                The app won't have dependencies.
+            </div>
+        </div>
+        <br>
+    </div>
+
+    <div class="sectiune">
+        <h2>3. External Interface Requirements</h2>
+        <div class="continut">
+            <p>3.1 User Interfaces</p>
+            <div class="text">
+                For the unregistered user, who will be a guest user, you will see in the first step the special page for
+                users
+                unregistered users, which contains some statistics and classifications, but also a button that will take
+                him to the
+                registration/login page.
+                <br><br>
+                <img class="poza" alt="" src="./indexpage.png">
+
+                <br><br>
+                For the logged in user, they will see the main page, where they see a custom feed,
+                his challenges, the books he wants to read, news relevant to him and a ranking area.
+                <br><br>
+                <img class="poza" alt="" src="./mainpage.png">
+                <br>
+                As for the pages that will appear in the same way for both types of users (guest user and logged user),
+                both will have the same "Help" page and "About Us" page. These pages are made with the thought of
+                helping
+                the user with navigating through the pages and with the necessary information about the application and
+                the team that made the project.
+                <br><br>
+                <img class="poza" alt="" src="./aboutus.png">
+                <img class="poza" alt="" src="./help.png">
+            </div>
+        </div>
+        <br>
+
+        <div class="continut">
+            <p>3.2 Software Interfaces</p>
+            <div class="text">
+                The proprietary REST/GraphQL API developed will be used to retrieve and send data between the server and
+                the client.
+                <br><br>
+                The database will be used to store information related to each user and
+                their preferences about the genres of books they prefer and other details.
+                necessary for the proper functioning of the application.
+            </div>
+        </div>
+        <br>
+
+        <div class="continut">
+            <p>3.3 Communications Interfaces</p>
+            <div class="text">
+                The communication interface associated with the project includes email communication for sending
+                emails when a user registers a new account, but also for the case when a user
+                lost/forgotten password, at which time it will be emailed to him/her to be
+                redirected to the "Reset Password" page.
+            </div>
+        </div>
+        <br>
+    </div>
+
+    <div class="sectiune">
+        <h2>4. System Features</h2>
+        <div class="continut">
+            <p>4.1 Book-Update Page</p>
+            <div class="text">
+                The user, while being connected to their account, can give updates on a certain book and page that
+                they're reding.
+            </div>
+        </div>
+        <br>
+
+        <div class="continut">
+            <p>4.2 Edit-Challenge Page & Reading-Challenge Page</p>
+            <div class="text">
+                The user, while being connected to their account, can edit or delete a certain personal challenge.
+            </div>
+        </div>
+        <br>
+
+        <div class="continut">
+            <p>4.3 Favorite-Genres Page</p>
+            <div class="text">
+                The user, while being connected to their account, can edit his list of favorite genres, list that will
+                be used on the main
+                page to give recomandations and news on relevant topics for the user.
+            </div>
+        </div>
+        <br>
+
+        <div class="continut">
+            <p>4.4 Forgot-Password Page</p>
+            <div class="text">
+                The user has the possibility to announce that he/she lost the password from their account and reset the
+                password.
+            </div>
+        </div>
+        <br>
+
+        <div class="continut">
+            <p>4.5 Group-Conversation Page & Group-Join Page</p>
+            <div class="text">
+                The user, while being connected to their account, can join different groups and see the adnotations that
+                others leave on the
+                books that the group chose to talk about, and leave, as well, their own opinion/adnotations.
+            </div>
+        </div>
+        <br>
+
+        <div class="continut">
+            <p>4.6 Group-Settings Page</p>
+            <div class="text">
+                The user, while being connected to their account, can edit the name or the description of the group that
+                he created.
+            </div>
+        </div>
+        <br>
+
+        <div class="continut">
+            <p>4.7 Login-Register Page</p>
+            <div class="text">
+                An user has the posibility to connect to the application through an account. The user has to register
+                first with a first and last name, an email and a password that he/she has to remember for the next time
+                when they'll want to log in.
+            </div>
+        </div>
+        <br>
+
+        <div class="continut">
+            <p>4.8 My-Books Page</p>
+            <div class="text">
+                The user, while being connected to their account, can see their shelve and add a new one and see their
+                books(mainly from the read/currently reading/want to read shelves).
+            </div>
+        </div>
+        <br>
+
+        <div class="continut">
+            <p>4.9 Review Page</p>
+            <div class="text">
+                The user, while being connected to their account, can review a book that they finished and leave a
+                certain number of start and an opinion.
+            </div>
+        </div>
+        <br>
+
+        <div class="continut">
+            <p>4.10 Search Page</p>
+            <div class="text">
+                The user can look up books/groups using different tags.
+            </div>
+        </div>
+        <br>
+    </div>
+
+    <div class="sectiune">
+        <h2>5. The general structure that the app will have:</h2>
+        <div class="continut">
+            <div class="text">
+                The front-end uses HTML and SCSS(that will generate the CSS file).
+                <br><br>
+                The back-end will use JavaScript.
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <div class="sectiune">
+        <h2>6. Other Nonfunctional Requirements</h2>
+        <div class="continut">
+            <p>6.1 Performance Requirements</p>
+            <div class="text">
+                The app won't have performance requirements.
+            </div>
+        </div>
+        <br>
+
+        <div class="continut">
+            <p>6.2 Safety Requirements</p>
+            <div class="text">
+                The app won't have safety requirements.
+            </div>
+        </div>
+        <br>
+
+        <div class="continut">
+            <p>6.3 Security Requirements</p>
+            <div class="text">
+                The app won't have any safety requirements, other thatn the password and the email that
+                the user has to provide in order to register in the aplication itself.
+                At the same time, the password will be passed through a hash method that will previously ensure
+                security.
+                the account of that user.
+            </div>
+        </div>
+        <br>
+
+        <div class="continut">
+            <p>6.4 Software Quality Attributes</p>
+            <div class="text">
+                Characteristics for the application that will be important to either the customers or the developers:
+                portability, usability,
+                reusability, compatibility, scalability, correctness.
+            </div>
+        </div>
+        <br>
+
+        <div class="continut">
+            <p>6.5 Business Rules</p>
+            <div class="text">
+                The app has implemented a specific page for an admin, "Admin Page". The admin is the only one allowed to
+                approve and validate
+                groups and book reviews when they are created.
+            </div>
+        </div>
+        <br>
+    </div>
+
+    <div class="sectiune">
+        <h2>7. Other Requirements</h2>
+        <div class="continut">
+            <p>5.1 Performance Requirements</p>
+            <div class="text">
+                The app won't have any other requirements that weren't already mentioned.
+            </div>
+        </div>
+        <br>
+    </div>
+</body>
+
+</html>

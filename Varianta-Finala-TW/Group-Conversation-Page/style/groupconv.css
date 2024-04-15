@@ -1,0 +1,299 @@
+* {
+  font-family: "Segoe UI", Verdana, sans-serif;
+  background: none;
+}
+
+body {
+  background-color: #ACEAEC;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+body .header {
+  top: 0;
+  left: 0;
+  background-color: #01161E;
+  margin: 0;
+}
+body .header .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  margin: 0 10px;
+}
+body .header .navbar a {
+  color: white;
+  font-size: 20px;
+  padding-left: 10px;
+  font-weight: bold;
+}
+body .header .navbar__links {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  text-align: right;
+  flex: 1;
+}
+body .header .navbar__links ul li {
+  display: inline-block;
+  position: relative;
+  padding: 0px 10px;
+}
+body .header .navbar__links ul li a {
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+}
+body .header .navbar__links ul li .search-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+body .header .navbar__links ul li .search-input {
+  width: 80%;
+  padding: 5px;
+  border: 1px solid #2a3738;
+  background-color: white;
+  border-radius: 4px;
+  font-size: 16px;
+}
+body .header .navbar__links ul li .search-button {
+  padding: 4px 10px;
+  background-color: #124559;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 8px;
+}
+body .header .navbar__links ul li .search-button:hover {
+  background-color: #0A2E36;
+}
+body .dropdown-container {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+}
+body .dropdown-menu {
+  background-color: #01161E;
+  padding: 10px;
+  border: 1px solid #2a3738;
+  list-style-type: none;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+body .dropdown-menu li {
+  padding: 5px 0;
+}
+body .dropdown-menu li a {
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+}
+body .main {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+body .main .left_part {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 5%;
+  width: 15%;
+}
+body .main .left_part .groupname {
+  font-weight: bold;
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+body .main .left_part .books {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 20px;
+  background-color: #104547;
+  border-radius: 20px;
+  width: 100%;
+}
+body .main .left_part .books .name {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 20px;
+}
+body .main .left_part .books a {
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+}
+body .main .left_part .settings {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  background-color: #124559;
+  padding: 15px;
+  border-radius: 20px;
+}
+body .main .left_part .settings a {
+  font-weight: bold;
+  font-style: italic;
+  color: white;
+}
+body .main .middle_part {
+  align-self: center;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body .main .middle_part .title {
+  font-size: 30px;
+  font-weight: bold;
+}
+body .main .middle_part .container {
+  display: flex;
+  flex-direction: column;
+}
+body .main .middle_part .container .item {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  background-color: #104547;
+  border-radius: 20px;
+}
+body .main .middle_part .container .item a {
+  color: white;
+}
+body .main .middle_part .container .item .user_content {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  padding: 20px;
+}
+body .main .middle_part .container .item .user_content .userphoto {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+body .main .middle_part .container .item .descriere {
+  color: white;
+  padding: 0px 20px 20px 20px;
+}
+body .main .right_part {
+  margin-top: 50px;
+  margin-right: 5%;
+  width: 25%;
+}
+body .main .right_part .form-group {
+  background-color: #104547;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+body .main .right_part .form-group label {
+  align-self: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: white;
+}
+body .main .right_part .form-group textarea {
+  align-self: center;
+  width: 90%;
+  height: 200px;
+  resize: vertical;
+  padding: 10px;
+}
+body .main .right_part .form-group input[type=submit] {
+  align-self: center;
+  margin-top: 50px;
+  padding: 10px 20px;
+  background-color: #124559;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+body .main .right_part .form-group input[type=submit]:hover {
+  background-color: #0A2E36;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  flex: 1;
+  margin-top: 100px;
+  bottom: 0;
+  width: 100%;
+  background: #0c3742;
+  color: white;
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  body .main {
+    display: flex;
+    flex-direction: column;
+  }
+  body .main .left_part {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+  }
+  body .main .left_part .books {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  body .main .left_part .books .name {
+    display: none;
+  }
+  body .main .middle_part,
+  body .main .right_part {
+    align-self: center;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+  }
+}
+@media (min-width: 320px) and (max-width: 480px) {
+  body .main {
+    display: flex;
+    flex-direction: column;
+  }
+  body .main .left_part {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+  }
+  body .main .left_part .books {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  body .main .left_part .books .name {
+    display: none;
+  }
+  body .main .middle_part,
+  body .main .right_part {
+    align-self: center;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+  }
+}/*# sourceMappingURL=groupconv.css.map */
