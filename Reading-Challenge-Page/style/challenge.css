@@ -1,0 +1,385 @@
+* {
+  font-family: "Segoe UI", Verdana, sans-serif;
+  background: none;
+}
+
+body {
+  background-color: #ACEAEC;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+body .header {
+  top: 0;
+  left: 0;
+  background-color: #01161E;
+  margin: 0;
+}
+body .header .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  margin: 0 10px;
+}
+body .header .navbar a {
+  color: white;
+  font-size: 20px;
+  padding-left: 10px;
+  font-weight: bold;
+}
+body .header .navbar__links {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  text-align: right;
+  flex: 1;
+}
+body .header .navbar__links ul li {
+  display: inline-block;
+  position: relative;
+  padding: 0px 10px;
+}
+body .header .navbar__links ul li a {
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+}
+body .header .navbar__links ul li .search-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+body .header .navbar__links ul li .search-input {
+  width: 80%;
+  padding: 5px;
+  border: 1px solid #2a3738;
+  background-color: white;
+  border-radius: 4px;
+  font-size: 16px;
+}
+body .header .navbar__links ul li .search-button {
+  padding: 4px 10px;
+  background-color: #124559;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 8px;
+}
+body .header .navbar__links ul li .search-button:hover {
+  background-color: #0A2E36;
+}
+body .dropdown-container {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+}
+body .dropdown-menu {
+  background-color: #01161E;
+  padding: 10px;
+  border: 1px solid #2a3738;
+  list-style-type: none;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+body .dropdown-menu li {
+  padding: 5px 0;
+}
+body .dropdown-menu li a {
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+}
+body .challenges {
+  display: flex;
+  padding: 50px;
+  margin-right: 30px;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+body .challenges .articol {
+  display: flex;
+  width: 90%;
+  flex-direction: column;
+  padding: 10px;
+  background-color: #15555a;
+  border-radius: 20px;
+}
+body .challenges .articol .subclass {
+  display: flex;
+  flex-direction: column;
+  padding-left: 100px;
+}
+body .challenges .articol .subclass .carti .carti__poza {
+  width: 80px;
+  height: 100px;
+  padding-top: 10px;
+  padding-left: 10px;
+  float: left;
+}
+body .challenges .articol .subclass .buttons {
+  display: flex;
+  align-items: center;
+}
+body .challenges .articol .subclass .buttons .text {
+  padding-top: 10px;
+  padding-left: 20px;
+  font-size: 15px;
+}
+body .challenges .articol .subclass .buttons .text a {
+  color: white;
+}
+body .challenges .articol .format {
+  display: flex;
+}
+body .challenges .articol .format .format__poza {
+  height: 100px;
+  width: 100px;
+}
+body .challenges .articol .format .format__text {
+  color: white;
+  font-size: 15px;
+  padding-top: 30px;
+  padding-left: 20px;
+  align-items: center;
+}
+body .challenges > .articol {
+  margin-bottom: 30px;
+}
+body .readingchallenge {
+  display: flex;
+  position: relative;
+  width: 95%;
+  height: 128px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-left: 40px;
+  margin-right: 40px;
+  background-color: #1e3137;
+  width: 90%;
+  align-self: center;
+}
+body .readingchallenge .banner {
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+}
+body .readingchallenge .banner .poza {
+  width: 200px;
+  height: 100px;
+  padding-top: 10px;
+  padding-left: 10px;
+  float: left;
+}
+body .readingchallenge .banner .textbanner {
+  color: white;
+  font-size: 32px;
+  float: left;
+  padding-top: 40px;
+  padding-left: 20px;
+}
+body .readingchallenge .statistici {
+  display: block;
+  position: absolute;
+  width: 230px;
+  background-color: #ACEAEC;
+  border-radius: 2px;
+  padding: 10px 10px;
+  margin-right: 10px;
+  top: 30px;
+  right: 10px;
+  height: auto;
+}
+body .readingchallenge .statistici table {
+  display: block;
+  box-sizing: border-box;
+}
+body .readingchallenge .stat {
+  height: 14px;
+  font-size: 12px;
+  text-align: right;
+  padding: 2px 10px;
+  margin-left: 10px;
+  width: 135px;
+}
+body .readingchallenge .numar {
+  height: 14px;
+  font-weight: bold;
+  text-align: left;
+  font-size: 12px;
+  padding-left: 10px;
+  width: 135px;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  flex: 1;
+  margin-top: 100px;
+  bottom: 0;
+  width: 100%;
+  background: #0c3742;
+  color: white;
+}
+
+@media (min-width: 481px) and (max-width: 960px) {
+  body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  body .readingchallenge {
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+  }
+  body .readingchallenge .statistici {
+    display: none;
+  }
+  body .readingchallenge .banner {
+    color: white;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+  }
+  body .readingchallenge .banner .poza {
+    width: 100px;
+    height: 50px;
+    padding-top: 10px;
+    padding-left: 10px;
+    float: left;
+    align-self: center;
+  }
+  body .readingchallenge .banner .textbanner {
+    color: white;
+    font-size: 25px;
+    float: left;
+    padding-top: 40px;
+    padding-left: 20px;
+  }
+  body .challenges .articol {
+    display: flex;
+    width: 90%;
+    flex-direction: column;
+    padding: 10px;
+    background-color: #15555a;
+    border-radius: 20px;
+  }
+  body .challenges .articol .subclass {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-left: 100px;
+  }
+  body .challenges .articol .subclass .carti .carti__poza {
+    width: 80px;
+    height: 100px;
+    padding-top: 10px;
+    padding-left: 10px;
+    float: left;
+  }
+  body .challenges .articol .subclass .buttons {
+    display: flex;
+    align-items: center;
+  }
+  body .challenges .articol .subclass .buttons .text {
+    padding-top: 10px;
+    padding-left: 20px;
+    font-size: 15px;
+  }
+  body .challenges .articol .subclass .buttons .text a {
+    color: white;
+  }
+  body .challenges .articol .format {
+    display: flex;
+  }
+  body .challenges .articol .format .format__poza {
+    padding-top: 20px;
+    height: 100px;
+    width: 100px;
+  }
+  body .challenges .articol .format .format__text {
+    color: white;
+    font-size: 15px;
+    padding-top: 30px;
+    padding-left: 20px;
+    align-items: center;
+  }
+}
+@media (min-width: 320px) and (max-width: 480px) {
+  body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  body .readingchallenge {
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+  }
+  body .readingchallenge .statistici {
+    display: none;
+  }
+  body .readingchallenge .banner {
+    color: white;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+  }
+  body .readingchallenge .banner .poza {
+    width: 100px;
+    height: 50px;
+    padding-top: 10px;
+    padding-left: 10px;
+    float: left;
+    align-self: center;
+  }
+  body .readingchallenge .banner .textbanner {
+    color: white;
+    font-size: 23px;
+    float: left;
+    padding-top: 40px;
+    padding-left: 20px;
+  }
+  body .challenges {
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+  }
+  body .challenges .articol .subclass {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-left: 30px;
+  }
+  body .challenges .articol .subclass .carti .carti__poza {
+    width: 80px;
+    height: 100px;
+    padding-top: 10px;
+    padding-left: 10px;
+    margin-left: 0px;
+    float: left;
+  }
+  body .challenges .articol .format {
+    display: flex;
+  }
+  body .challenges .articol .format .format__poza {
+    height: 50px;
+    width: 50px;
+  }
+  body .challenges .articol .format .format__text {
+    color: white;
+    font-size: 10px;
+    padding-top: 0px;
+    padding-left: 20px;
+    align-items: center;
+  }
+}/*# sourceMappingURL=challenge.css.map */
