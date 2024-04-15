@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../Confirm-Email-Page/style/confirmPage.css">
+  <title>Confirm Email Page</title>
+</head>
+
+<body>
+  <div class="VerificationContainer">
+    <div class="text">
+      An email with the verification code was sent to ab**@cde***.com
+    </div>
+    <form id="form3" action="../Main-Page/mainpage.html" >
+      <div class="formGroup">
+        <label for="cod"> Enter the verification code sent by email:</label><br>
+        <input type="text" id="cod" name="cod" pattern="[0-9]*" required>
+      </div>
+    </form>
+    <button type="submit" form="form3" formaction="../Main-Page/mainpage.html">
+      Send
+    </button>
+  </div>
+</body>
+
+</html>
