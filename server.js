@@ -3,7 +3,7 @@ const path = require('path');
 const fs = require('fs');
 const initializeDatabase = require('./DataBase/databasemaker');
 const { handleCreateAccountRequest, handleCreateAccountSubmit } = require('./Backend/createAccount');
-
+const { handleLoginRequest,handleLoginSubmission} = require('./Backend/login');
 initializeDatabase();
 
 const server = http.createServer((req, res) => {
@@ -13,6 +13,11 @@ const server = http.createServer((req, res) => {
   } else if (req.method === 'POST' && req.url === '/create-account') {
     handleCreateAccountSubmit(req, res);
   } 
+  else if (req.method === 'GET' && req.url === '/login') {
+    handleLoginRequest(req, res);
+   } else if (req.method === 'POST' && req.url === '/login') {
+     handleLoginSubmission(req, res);
+   } 
   // Verifică cererile pentru fișiere CSS
   else if (req.url.startsWith('/style/')) {
     const filePath = path.join(__dirname, 'Frontend/Register-Page', req.url);
