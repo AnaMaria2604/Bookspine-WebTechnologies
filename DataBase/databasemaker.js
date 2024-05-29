@@ -257,6 +257,8 @@ function initializeDatabase() {
             id  INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
             type  VARCHAR(45) NOT NULL,
             textRequest  VARCHAR(45) NOT NULL,
+            email VARCHAR(100) NOT NULL UNIQUE,
+            password VARCHAR(100) NOT NULL,
             userId  INT NOT NULL,
             bookId  INT NOT NULL,
             teamId  INT NOT NULL,
