@@ -1,0 +1,76 @@
+$color: #ffaa8e;
+$background: #ACEAEC;
+$header: #01161E;
+$footer: #0c3742;
+$body: #104547;
+$textcolor: #ffff;
+$button: #124559;
+$darkbutton: #0A2E36;
+$bordercolor: #2a3738;
+$challenge: #272D2D;
+$body2: #15555a;
+
+* {
+    font-family: 'Segoe UI', Verdana, sans-serif;
+    background: none;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: $background;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.page__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.text1 {
+    background-color: $body;
+    border-radius: 20px;
+    padding: 100px;
+    font-size: 60px;
+    font-weight: bolder;
+    font-style: italic;
+    color: white;
+}
+
+body::before {
+    background-image: url(../../Images/bookimg3.jpg);
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.4; // Adjust the opacity
+    z-index: -1;
+}
+
+@media (min-width: 481px) and (max-width: 890px) {
+
+    .text1 {
+        padding: 50px;
+        font-size: 40px;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+    .text1 {
+        padding: 50px;
+        font-size: 20px;
+    }
+}
