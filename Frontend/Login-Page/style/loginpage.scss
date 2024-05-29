@@ -1,0 +1,274 @@
+$color: #ffaa8e;
+$background: #ACEAEC;
+$header: #01161E;
+$footer: #0c3742;
+$body: #104547;
+$textcolor: #ffff;
+$button: #124559;
+$darkbutton: #0A2E36;
+$bordercolor: #2a3738;
+
+* {
+    font-family: 'Segoe UI', Verdana, sans-serif;
+    background: none;
+}
+
+body {
+    background-color: $background;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+
+    .header {
+        top: 0;
+        left: 0;
+        background-color: $header;
+        margin: 0;
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            margin: 0 10px;
+
+            a {
+                color: $textcolor;
+                font-size: 20px;
+                padding-left: 10px;
+                font-weight: bold;
+            }
+
+            &__links {
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                text-align: right;
+                flex: 1;
+
+                ul li {
+                    display: inline-block;
+                    position: relative;
+                    padding: 0px 10px;
+
+                    a {
+                        color: $textcolor;
+                        font-size: 17px;
+                        font-weight: bold;
+                    }
+
+                    .search-container {
+                        display: flex;
+                        align-items: center;
+                        width: 100%;
+                    }
+
+                    .search-input {
+                        width: 80%;
+                        padding: 5px;
+                        border: 1px solid $bordercolor;
+                        background-color: $textcolor;
+                        border-radius: 4px;
+                        font-size: 16px;
+                    }
+
+                    .search-button {
+                        padding: 4px 10px;
+                        background-color: $button;
+                        color: white;
+                        border: none;
+                        border-radius: 4px;
+                        cursor: pointer;
+                        font-size: 16px;
+                        margin-left: 8px;
+
+                    }
+
+                    .search-button:hover {
+                        background-color: $darkbutton;
+
+                    }
+                }
+            }
+        }
+
+    }
+
+    .dropdown-container {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        display: none;
+    }
+
+    .dropdown-menu {
+        background-color: $header;
+        padding: 10px;
+        border: 1px solid $bordercolor;
+        list-style-type: none;
+        margin: 0;
+        position: relative;
+        z-index: 1;
+    }
+
+    .dropdown-menu li {
+        padding: 5px 0;
+    }
+
+    .dropdown-menu li a {
+        color: $textcolor;
+        font-size: 17px;
+        font-weight: bold;
+    }
+
+    .Containers {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .AuthentificationContainer {
+        display: flex;
+        flex-direction: column;
+        background-color: $body;
+        width: 50%;
+        height: auto;
+        margin: 10%;
+        padding: 40px;
+        border-radius: 20px;
+
+        h2 {
+            font-size: 40px;
+            align-self: center;
+            color: white;
+        }
+
+        .formGroup {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            margin-top: 30px;
+
+            label {
+                display: block;
+                margin-bottom: 0px;
+                color: white;
+                font-weight: bold;
+                font-size: 20px;
+            }
+
+            input[type="text"],
+            input[type="email"],
+            input[type="password"] {
+                margin-left: 20px;
+                margin-top: 0;
+                background-color: white;
+                width: 50%;
+            }
+        }
+
+        button[type="submit"] {
+            font-size: 17px;
+            align-self: center;
+            padding: 10px 20px;
+            background-color: white;
+            color: black;
+            border: none;
+            border-radius: 3px;
+            margin-top: 10px;
+            cursor: pointer;
+
+            &:hover {
+                background-color: $darkbutton;
+            }
+        }
+
+        .text {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-self: center;
+            padding-top: 20px;
+
+            a {
+                font-size: 15px;
+                color: $textcolor;
+            }
+        }
+    }
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    text-align: center;
+    flex: 1;
+    bottom: 0;
+    width: 100%;
+    background: $footer;
+    color: $textcolor;
+}
+
+
+@media (min-width: 768px) and (max-width: 1300px) {
+    body {
+        .AuthentificationContainer {
+            margin-top: 20%;
+        }
+    }
+
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+    body {
+        .AuthentificationContainer {
+            margin-top: 30%;
+        }
+    }
+
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    body {
+        .AuthentificationContainer {
+            margin-top: 50%;
+
+            h2 {
+                font-size: 23px;
+            }
+
+            .formGroup {
+                display: flex;
+                flex-direction: column;
+                margin-top: 30px;
+
+                label {
+                    font-size: 15px;
+                }
+
+                input[type="text"],
+                input[type="email"],
+                input[type="password"] {
+                    margin: 0;
+                    width: auto;
+                }
+            }
+
+            button[type="submit"] {
+                margin-top: 30px;
+                font-size: 13px;
+            }
+
+            .text {
+                a {
+                    font-size: 12px;
+                    color: $textcolor;
+                }
+            }
+        }
+    }
+}

@@ -95,123 +95,62 @@ body .dropdown-menu li a {
   font-weight: bold;
 }
 body .Containers {
-  font-size: 10px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  position: relative;
-  align-items: flex-start;
-}
-body .Containers::after {
-  content: "";
-  position: absolute;
-  top: 40px;
-  bottom: 0;
-  left: 50%;
-  width: 3px;
-  padding-left: 3px;
-  padding-right: 3px;
-  background-color: white;
-}
-body .RegistrationContainer {
-  background-color: #104547;
-  width: 25%;
-  margin-top: 40px;
-  margin-left: 10%;
-  padding: 40px;
-  border-radius: 20px;
-  box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.1);
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body .RegistrationContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: #104547;
+  width: 50%;
+  height: auto;
+  margin: 5%;
+  padding: 40px;
+  border-radius: 20px;
 }
 body .RegistrationContainer h2 {
+  font-size: 40px;
   align-self: center;
   color: white;
-  margin: 0;
 }
 body .RegistrationContainer .formGroup {
-  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  margin-top: 30px;
 }
 body .RegistrationContainer .formGroup label {
   display: block;
   margin-bottom: 0px;
   color: white;
   font-weight: bold;
+  font-size: 20px;
 }
 body .RegistrationContainer .formGroup input[type=text],
 body .RegistrationContainer .formGroup input[type=email],
 body .RegistrationContainer .formGroup input[type=password] {
+  margin-left: 20px;
   margin-top: 0;
   background-color: white;
   width: 50%;
 }
 body .RegistrationContainer button[type=submit] {
+  font-size: 17px;
   align-self: center;
   padding: 10px 20px;
   background-color: white;
   color: black;
   border: none;
   border-radius: 3px;
+  margin-top: 20px;
   cursor: pointer;
-  margin-top: 10px;
 }
 body .RegistrationContainer button[type=submit]:hover {
   background-color: #0A2E36;
-}
-body .AuthentificationContainer {
-  display: flex;
-  flex-direction: column;
-  background-color: #104547;
-  width: 25%;
-  margin-top: 80px;
-  margin-right: 10%;
-  padding: 40px;
-  border-radius: 20px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-}
-body .AuthentificationContainer h2 {
-  align-self: center;
-  color: white;
-}
-body .AuthentificationContainer .formGroup {
-  margin-bottom: 10px;
-}
-body .AuthentificationContainer .formGroup label {
-  display: block;
-  margin-bottom: 0px;
-  color: white;
-  font-weight: bold;
-}
-body .AuthentificationContainer .formGroup input[type=text],
-body .AuthentificationContainer .formGroup input[type=email],
-body .AuthentificationContainer .formGroup input[type=password] {
-  margin-top: 0;
-  background-color: white;
-  width: 50%;
-}
-body .AuthentificationContainer button[type=submit] {
-  align-self: center;
-  padding: 10px 20px;
-  background-color: white;
-  color: black;
-  border: none;
-  border-radius: 3px;
-  margin-top: 10px;
-  cursor: pointer;
-}
-body .AuthentificationContainer button[type=submit]:hover {
-  background-color: #0A2E36;
-}
-body .AuthentificationContainer .text {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-self: center;
-  padding-top: 20px;
-}
-body .AuthentificationContainer .text a {
-  font-size: 10px;
-  color: white;
 }
 
 footer {
@@ -220,44 +159,66 @@ footer {
   position: fixed;
   text-align: center;
   flex: 1;
-  margin-top: 100px;
   bottom: 0;
   width: 100%;
   background: #0c3742;
   color: white;
 }
 
-@media (min-width: 481px) and (max-width: 767px) {
-  body .Containers {
+@media (min-width: 768px) and (max-width: 1300px) {
+  body .RegistrationContainer {
+    margin-top: 10%;
+  }
+}
+@media (min-width: 481px) and (max-width: 910px) {
+  body .RegistrationContainer {
+    margin-top: 10%;
+  }
+  body .RegistrationContainer h2 {
+    font-size: 23px;
+  }
+  body .RegistrationContainer .formGroup {
     display: flex;
     flex-direction: column;
-    margin-bottom: 200px;
+    margin-top: 30px;
   }
-  body .Containers::after {
-    display: none;
+  body .RegistrationContainer .formGroup label {
+    font-size: 15px;
   }
-  body .Containers .RegistrationContainer,
-  body .Containers .AuthentificationContainer {
-    width: 60%;
-    align-self: center;
-    margin-left: 20%;
-    margin-right: 20%;
+  body .RegistrationContainer .formGroup input[type=text],
+  body .RegistrationContainer .formGroup input[type=email],
+  body .RegistrationContainer .formGroup input[type=password] {
+    margin: 0;
+    width: 70%;
+  }
+  body .RegistrationContainer button[type=submit] {
+    margin-top: 30px;
+    font-size: 13px;
   }
 }
 @media (min-width: 320px) and (max-width: 480px) {
-  body .Containers {
+  body .RegistrationContainer {
+    margin-top: 15%;
+  }
+  body .RegistrationContainer h2 {
+    font-size: 23px;
+  }
+  body .RegistrationContainer .formGroup {
     display: flex;
     flex-direction: column;
-    margin-bottom: 200px;
+    margin-top: 30px;
   }
-  body .Containers::after {
-    display: none;
+  body .RegistrationContainer .formGroup label {
+    font-size: 15px;
   }
-  body .Containers .RegistrationContainer,
-  body .Containers .AuthentificationContainer {
-    width: 60%;
-    align-self: center;
-    margin-left: 20%;
-    margin-right: 20%;
+  body .RegistrationContainer .formGroup input[type=text],
+  body .RegistrationContainer .formGroup input[type=email],
+  body .RegistrationContainer .formGroup input[type=password] {
+    margin: 0;
+    width: auto;
   }
-}/*# sourceMappingURL=loginpage.css.map */
+  body .RegistrationContainer button[type=submit] {
+    margin-top: 30px;
+    font-size: 13px;
+  }
+}/*# sourceMappingURL=registerpage.css.map */
