@@ -95,17 +95,16 @@ body .dropdown-menu li a {
   font-weight: bold;
 }
 body .bodypage {
-  margin-top: 100px;
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: space-between;
+  margin: 4%;
 }
 body .bodypage .stanga {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  margin-left: 120px;
-  margin-top: 70px;
   padding: 10px 40px;
   width: 100%;
   justify-content: space-between;
@@ -115,7 +114,7 @@ body .bodypage .stanga .section {
   flex-direction: column;
   padding: 30px;
   margin-left: 40px;
-  width: 50%;
+  width: 80%;
   border-radius: 20px;
   background-color: #104547;
 }
@@ -152,34 +151,29 @@ body .bodypage .stanga .section .carti .carte .carte__text a {
 body .bodypage .stanga .carti > .carte {
   margin-right: 10px;
 }
-body .bodypage .stanga::after {
-  content: "";
-  display: flex;
-  position: absolute;
-  top: 170px;
-  bottom: 170px;
-  left: 60%;
-  padding-left: 3px;
-  border-radius: 10px;
-  padding-right: 3px;
-  background-color: #104547;
-}
 body .bodypage .butoane {
   display: flex;
   flex-direction: column;
-  align-self: center;
-  padding-right: 300px;
-  padding-top: 100px;
+  align-items: center;
 }
-body .bodypage .butoane a {
+body .bodypage .butoane a:nth-child(1) {
   display: flex;
-  font-size: 30px;
-  background-color: #124559;
-  top: 450px;
-  right: 110px;
+  font-size: 23px;
+  background-color: #0A2E36;
   text-align: center;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 20px;
+  color: white;
+}
+body .bodypage .butoane a:nth-child(2) {
+  margin-top: 10px;
+  display: flex;
+  font-size: 18px;
+  background-color: #124559;
+  opacity: 0.7;
+  text-align: center;
+  padding: 10px;
+  border-radius: 20px;
   color: white;
 }
 
@@ -194,7 +188,7 @@ body::before {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.3;
+  opacity: 0.4;
   z-index: -1;
 }
 
@@ -236,9 +230,6 @@ footer {
     flex-direction: row;
     flex-wrap: wrap;
   }
-  body .bodypage .stanga::after {
-    display: none;
-  }
 }
 @media (min-width: 320px) and (max-width: 480px) {
   body .bodypage {
@@ -264,8 +255,5 @@ footer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-  }
-  body .bodypage .stanga::after {
-    display: none;
   }
 }/*# sourceMappingURL=index.css.map */
