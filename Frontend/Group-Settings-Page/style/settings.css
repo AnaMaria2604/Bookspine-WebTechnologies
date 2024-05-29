@@ -172,6 +172,26 @@ body .page__body .main .middle_part .container .search-button {
 body .page__body .main .middle_part .container .search-button:hover {
   background-color: #0A2E36;
 }
+body .page__body .main .middle_part .selected__books #dropdown {
+  max-height: 100px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  display: none;
+  position: absolute;
+  background-color: white;
+  width: calc(100% - 22px);
+  z-index: 1;
+}
+body .page__body .main .middle_part .selected__books #dropdown div {
+  padding: 8px;
+  cursor: pointer;
+}
+body .page__body .main .middle_part .selected__books #dropdown div:hover {
+  background-color: #f1f1f1;
+}
+body .page__body .main .middle_part .selected__books #selected-words {
+  margin-top: 20px;
+}
 body .page__body .main .middle_part .buttons {
   display: flex;
   flex-direction: row;
@@ -189,18 +209,6 @@ body .page__body .main .middle_part .buttons .buttons__second a {
   font-size: 0.8rem;
 }
 
-footer {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  flex: 1;
-  margin-top: 100px;
-  bottom: 0;
-  width: 100%;
-  background: #0c3742;
-  color: white;
-}
-
 body::before {
   background-image: url(../../Images/bookimg3.jpg);
   content: "";
@@ -214,6 +222,18 @@ body::before {
   background-repeat: no-repeat;
   opacity: 0.3;
   z-index: -1;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  flex: 1;
+  margin-top: 100px;
+  bottom: 0;
+  width: 100%;
+  background: #0c3742;
+  color: white;
 }
 
 @media (min-width: 481px) and (max-width: 767px) {
