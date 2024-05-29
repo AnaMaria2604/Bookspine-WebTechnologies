@@ -232,11 +232,12 @@ body {
 
     .statistici {
       display: block;
+      text-align: left;
       background-color: $background;
       border-radius: 2px;
-      padding: 10px 0px;
+      padding: 10px 20px;
       margin: 10px;
-      width: 15%;
+      width: auto;
       height: 70%;
 
       table {

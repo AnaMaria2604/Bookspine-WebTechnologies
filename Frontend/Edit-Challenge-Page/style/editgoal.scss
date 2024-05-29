@@ -1,4 +1,6 @@
 $body2: #15555a;
+
+
 $color: #ffaa8e;
 $background: #ACEAEC;
 $header: #01161E;
@@ -237,11 +239,12 @@ body {
 
     .statistici {
       display: block;
+      text-align: left;
       background-color: $background;
       border-radius: 2px;
-      padding: 10px 0px;
+      padding: 10px 20px;
       margin: 10px;
-      width: 15%;
+      width: auto;
       height: 70%;
 
       table {
@@ -262,7 +265,6 @@ body {
     .numar {
       height: 14px;
       font-weight: bold;
-      text-align: left;
       font-size: 12px;
       padding-left: 10px;
     }
