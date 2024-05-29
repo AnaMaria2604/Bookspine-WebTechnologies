@@ -7,6 +7,7 @@ $textcolor: #ffff;
 $button: #124559;
 $darkbutton: #0A2E36;
 $bordercolor: #2a3738;
+
 * {
     font-family: 'Segoe UI', Verdana, sans-serif;
     background: none;
@@ -92,11 +93,12 @@ body {
         }
 
     }
+
     .dropdown-container {
         position: absolute;
-        top: 100%; 
+        top: 100%;
         left: 0;
-        display: none; 
+        display: none;
     }
 
     .dropdown-menu {
@@ -204,7 +206,7 @@ body {
             flex-direction: column;
             align-self: center;
             padding-right: 300px;
-            padding-top: 100px;            
+            padding-top: 100px;
 
             a {
                 display: flex;
@@ -221,6 +223,21 @@ body {
     }
 }
 
+body::before {
+    background-image: url(../../Images/bookimg3.jpg);
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.3; // Adjust the opacity
+    z-index: -1;
+}
+
 footer {
     display: flex;
     flex-direction: column;
@@ -235,81 +252,80 @@ footer {
 }
 
 @media (min-width: 481px) and (max-width: 767px) {
-    body
-    {
-       .bodypage
-       {
-        display:flex;
-        flex-direction:column-reverse;
-        align-items: center;
-        margin: 0px 0px 0px 0px;
-        .butoane
-        {
-            
-            margin:0px 0px 0px 0px;
-            padding: 50px 0px 0px 0px;
-            align-self: center;
-        }
-        .stanga{
-            padding: 0px 0px 0px 0px;
-            margin: 0px 0px 0px 0px;
-           
-            width:100%;
+    body {
+        .bodypage {
             display: flex;
-            flex-direction: column;
-            align-items:center;
-            .section
-            { display:flex;
-                flex-direction: row;
-                flex-wrap: wrap;
-
-            }
-            &::after
-            {
-                display: none;
-            }
-        }
-       }
-    }
- }
- 
- @media (min-width: 320px) and (max-width: 480px) {
-   
-    body
-    {
-       .bodypage
-       {
-        display:flex;
-        flex-direction:column-reverse;
-        align-items: center;
-        margin: 0px 0px 0px 0px;
-        .butoane
-        {
-            
-            margin:0px 0px 0px 0px;
-            padding: 50px 0px 0px 0px;
-            align-self: center;
-        }
-        .stanga{
-            padding: 0px 0px 0px 0px;
+            flex-direction: column-reverse;
+            align-items: center;
             margin: 0px 0px 0px 0px;
-           
-            width:100%;
-            display: flex;
-            flex-direction: column;
-            align-items:center;
-            .section
-            { display:flex;
-                flex-direction: row;
-                flex-wrap: wrap;
 
+            .butoane {
+
+                margin: 0px 0px 0px 0px;
+                padding: 50px 0px 0px 0px;
+                align-self: center;
             }
-            &::after
-            {
-                display: none;
+
+            .stanga {
+                padding: 0px 0px 0px 0px;
+                margin: 0px 0px 0px 0px;
+
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .section {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+
+                }
+
+                &::after {
+                    display: none;
+                }
             }
         }
-       }
     }
- }
+}
 
+@media (min-width: 320px) and (max-width: 480px) {
+
+    body {
+        .bodypage {
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+            margin: 0px 0px 0px 0px;
+
+            .butoane {
+
+                margin: 0px 0px 0px 0px;
+                padding: 50px 0px 0px 0px;
+                align-self: center;
+            }
+
+            .stanga {
+                padding: 0px 0px 0px 0px;
+                margin: 0px 0px 0px 0px;
+
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .section {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+
+                }
+
+                &::after {
+                    display: none;
+                }
+            }
+        }
+    }
+}

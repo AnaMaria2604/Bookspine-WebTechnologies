@@ -97,10 +97,10 @@ body .dropdown-menu li a {
 body .page {
   background-color: #15555a;
   padding: 50px;
-  margin-top: 110px;
-  margin-left: 50px;
-  margin-right: 50px;
   border-radius: 20px;
+  margin: 5%;
+  width: 50%;
+  align-self: center;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -178,14 +178,6 @@ body .page .date {
   margin-top: 10px;
   padding: 10px;
 }
-body .page .date .start__date {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-body .page .date .start__date .text {
-  padding-right: 10px;
-}
 body .page .date .end__date {
   padding-top: 10px;
   display: flex;
@@ -225,6 +217,21 @@ body .page .button .cancel a {
   color: white;
   text-align: center;
   font-size: 10px;
+}
+
+body::before {
+  background-image: url(../../Images/bookimg3.jpg);
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.6;
+  z-index: -1;
 }
 
 footer {
