@@ -44,7 +44,6 @@ console.log(confirmPassword);
         res.writeHead(500, { 'Content-Type': 'application/json' });
         return res.end(JSON.stringify({ message: 'Error hashing password' }));
       }
- console.log("i'm here");
       const sql = 'INSERT INTO user (firstName,lastName, email, password) VALUES (?, ?, ?, ?)';
       pool.getConnection((err, connection) => {
         if (err) {

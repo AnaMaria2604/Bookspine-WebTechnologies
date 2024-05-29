@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./style/registerpage.css">
-  <script src="../Index-Page/index.js"></script>
+  <script src="../../Frontend/Index-Page/index.js"></script>
   <title>RegisterPage</title>
 </head>
 
@@ -25,7 +25,7 @@
           <li class="dropdown">
             <a href="#" id="dropdown-toggle">Menu</a>
             <ul class="dropdown-menu" id="dropdown-menu">
-              <li><a href="../Login-Register-Page/loginpage.html">Account</a></li>
+              <li><a href="../Login-Page/loginpage.html">Account</a></li>
               <li><a href="../About-Us-Page/aboutus.html">About Us</a></li>
               <li><a href="../Help-Page/help.html">Help</a></li>
             </ul>
@@ -38,7 +38,7 @@
   <div class="Containers">
     <div class="RegistrationContainer">
       <h2>Register</h2>
-      <form id="form1" action="../Main-Page/mainpage.html">
+      <form id="form1" action="/create-account" method="POST">
         <div class="formGroup">
           <label for="nume">Last Name</label><br>
           <input type="text" id="nume" name="nume" required>
@@ -61,7 +61,7 @@
           <input type="password" id="confirmedPassword" name="confirmedPassword" required>
         </div>
       </form>
-      <button type="submit" form="form1" formaction="../Main-Page/mainpage.html">
+      <button type="submit" form="form1">
         Create account
       </button>
     </div>

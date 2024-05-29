@@ -26,6 +26,19 @@ const server = http.createServer((req, res) => {
       }
     });
   } 
+   // Verifică cererile pentru fișierul index.js
+   else if (req.url === '/Frontend/Index-Page/index.js') {
+    const filePath = path.join(__dirname, 'Frontend/Index-Page', 'index.js');
+    fs.readFile(filePath, (err, data) => {
+      if (err) {
+        res.writeHead(404);
+        res.end('404 Not Found');
+      } else {
+        res.writeHead(200, { 'Content-Type': 'application/javascript' });
+        res.end(data);
+      }
+    });
+  } 
   // Verifică cererile pentru alte fișiere statice (HTML, JS, imagini)
   else if (req.url.startsWith('/Frontend/')) {
     const filePath = path.join(__dirname, req.url);
