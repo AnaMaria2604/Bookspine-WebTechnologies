@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../Favorite-Genres-Page/style/favoritegenres.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../Index-Page/index.js"></script>
+  <title>Favorite Genres Page</title>
+</head>
+
+<body>
+
+  <header class="header">
+    <nav class="navbar">
+      <a href="../Main-Page/mainpage.html"> Boo </a>
+      <div class="navbar__links">
+        <ul>
+          <li>
+            <div class="search-container">
+              <input type="text" placeholder="" class="search-input">
+              <button type="submit" class="search-button">Search</button>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="#" id="dropdown-toggle">Menu</a>
+            <ul class="dropdown-menu" id="dropdown-menu">
+              <li><a href="../My-Books-Page/mybooks.html">My books</a></li>
+              <li><a href="../Groups-Page/groups.html">Groups</a></li>
+              <li><a href="../Reading-Challenge-Page/challenge.html">Challenges</a></li>
+              <li><a href="../Account-Page/account.html">Account</a></li>
+              <li><a href="../About-Us-Page/aboutus.html">About Us</a></li>
+              <li><a href="../Help-Page/help.html">Help</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <div class="main">
+    <div class="text">Select your favourite genres</div>
+    <form action="../Main-Page/mainpage.html">
+      <div class="form">
+        <div class="genres">
+          <div class="pair">
+            <input type="checkbox" id="art" name="preferinte[]" value="Art">
+            <label for="art">Art</label><br>
+          </div>
+          <div class="pair">
+            <input type="checkbox" id="christian" name="preferinte[]" value="Christian">
+            <label for="christian">Christian</label><br>
+          </div>
+          <div class="pair">
+            <input type="checkbox" id="crime" name="preferinte[]" value="Crime">
+            <label for="crime">Crime</label><br>
+          </div>
+
+          <div class="pair">
+            <input type="checkbox" id="biography" name="preferinte[]" value="Biography">
+            <label for="biography">Biography</label><br>
+          </div>
+
+          <div class="pair">
+            <input type="checkbox" id="business" name="preferinte[]" value="Business">
+            <label for="business">Business</label><br>
+          </div>
+
+          <div class="pair">
+            <input type="checkbox" id="chicklit" name="preferinte[]" value="Chick Lit">
+            <label for="chicklit">Chick Lit</label><br>
+          </div>
+
+          <div class="pair">
+            <input type="checkbox" id="children" name="preferinte[]" value="Children's">
+            <label for="children">Children's</label><br>
+          </div>
+
+          <div class="pair">
+            <input type="checkbox" id="classics" name="preferinte[]" value="Classics">
+            <label for="classics">Classics</label><br>
+          </div>
+
+          <div class="pair">
+            <input type="checkbox" id="comics" name="preferinte[]" value="Comics">
+            <label for="comics">Comics</label><br>
+          </div>
+
+          <div class="pair">
+            <input type="checkbox" id="cookbooks" name="preferinte[]" value="Cookbooks">
+            <label for="cookbooks">Cookbooks</label><br>
+          </div>
+
+          <div class="pair">
+            <input type="checkbox" id="ebooks" name="preferinte[]" value="Ebooks">
+            <label for="ebooks">Ebooks</label><br>
+          </div>
+          <div class="pair">
+            <input type="checkbox" id="fantasy" name="preferinte[]" value="Fantasy">
+            <label for="fantasy">Fantasy</label><br>
+          </div>
+          <div class="pair">
+            <input type="checkbox" id="fiction" name="preferinte[]" value="Fiction">
+            <label for="fiction">Fiction</label><br>
+          </div>
+          <div class="pair">
+            <input type="checkbox" id="graphicnovels" name="preferinte[]" value="Graphic Novels">
+            <label for="graphicnovels">Graphic Novels</label><br>
+          </div>
+          <div class="pair">
+            <input type="checkbox" id="histfiction" name="preferinte[]" value=" Historical Fiction">
+            <label for="histfiction"> Historical Fiction</label><br>
+          </div>
+          <div class="pair">
+            <input type="checkbox" id="history" name="preferinte[]" value="History">
+            <label for="history">History</label><br>
+          </div>
+          <div class="pair">
+            <input type="checkbox" id="horror" name="preferinte[]" value="Horror">
+            <label for="horror">Horror</label><br>
+          </div>
+          <div class="pair">
+            <input type="checkbox" id="manga" name="preferinte[]" value="Manga">
+            <label for="manga">Manga</label><br>
+          </div>
+          <div class="pair">
+            <input type="checkbox" id="memoir" name="preferinte[]" value="Memoir">
+            <label for="memoir">Memoir</label><br>
+          </div>
+          <div class="pair">
+            <input type="checkbox" id="music" name="preferinte[]" value="Music">
+            <label for="music">Music</label><br>
+          </div>
+          <div class="pair">
+            <input type="checkbox" id="mystery" name="preferinte[]" value="Mystery">
+            <label for="mystery">Mystery</label><br>
+          </div>
+          <div class="pair">
+            <input type="checkbox" id="paranormal" name="preferinte[]" value="Paranormal">
+            <label for="paranormal">Paranormal</label><br>
+          </div>
+          <div class="pair">
+            <input type="checkbox" id="philosophy" name="preferinte[]" value="Philosophy">
+            <label for="philosophy">Philosophy</label><br>
+          </div>
+          <div class="pair">
+            <input type="checkbox" id="poetry" name="preferinte[]" value="Poetry">
+            <label for="poetry">Poetry</label><br>
+          </div>
+          <div class="pair">
+            <input type="checkbox" id="psychology" name="preferinte[]" value="Psychology">
+            <label for="psychology">Psychology</label><br>
+          </div>
+          <div class="pair">
+            <input type="checkbox" id="romance" name="preferinte[]" value="Romance">
+            <label for="romance">Romance</label><br>
+          </div>
+          <div class="pair">
+            <input type="checkbox" id="science" name="preferinte[]" value="Science">
+            <label for="science">Science</label><br>
+          </div>
+          <div class="pair">
+            <input type="checkbox" id="sciencefiction" name="preferinte[]" value=" Science Fiction">
+            <label for="sciencefiction"> Science Fiction</label><br>
+          </div>
+          <div class="pair">
+            <input type="checkbox" id="selfhelp" name="preferinte[]" value="Self Help">
+            <label for="selfhelp">Self Help</label><br>
+          </div>
+          <div class="pair">
+            <input type="checkbox" id="spirituality" name="preferinte[]" value="Spirituality">
+            <label for="spirituality">Spirituality</label><br>
+          </div>
+          <div class="pair">
+            <input type="checkbox" id="sports" name="preferinte[]" value="Sports">
+            <label for="sports">Sports</label><br>
+          </div>
+          <div class="pair">
+            <input type="checkbox" id="thriller" name="preferinte[]" value="Thriller">
+            <label for="thriller">Thriller</label><br>
+          </div>
+          <div class="pair">
+            <input type="checkbox" id="travel" name="preferinte[]" value="Travel">
+            <label for="travel">Travel</label><br>
+          </div>
+          <div class="pair">
+            <input type="checkbox" id="contemporary" name="preferinte[]" value="Contemporary">
+            <label for="contemporary">Contemporary</label><br>
+          </div>
+          <div class="pair">
+            <input type="checkbox" id="Gayandlesbian" name="preferinte[]" value="Gay and Lesbian">
+            <label for="Gayandlesbian">Gay and Lesbian</label><br>
+          </div>
+          <div class="pair">
+            <input type="checkbox" id="humorandcomedy" name="preferinte[]" value="Humor and Comedy">
+            <label for="humorandcomedy">Humor and Comedy</label><br>
+          </div>
+          <div class="pair">
+            <input type="checkbox" id="nonfiction" name="preferinte[]" value="Nonfiction">
+            <label for="nonfiction">Nonfiction</label><br>
+          </div>
+          <div class="pair">
+            <input type="checkbox" id="religion" name="preferinte[]" value="Religion">
+            <label for="religion">Religion</label><br>
+          </div>
+          <div class="pair">
+            <input type="checkbox" id="suspense" name="preferinte[]" value="suspense">
+            <label for="suspense">Suspense</label><br>
+          </div>
+          <div class="pair">
+            <input type="checkbox" id="youngadult" name="preferinte[]" value="Young Adult">
+            <label for="youngadult">Young Adult</label><br>
+          </div>
+        </div>
+        <button type="submit">Send</button>
+      </div>
+    </form>
+  </div>
+  <footer>
+    <p>
+      ©BookSpine-2024 All rights are reserved<br>
+      Facultatea de Informatica Iasi(UAIC)<br>
+      Bolohan Constantin-Sebastian and Ursache Ana-Maria
+    </p>
+  </footer>
+</body>
+
+</html>
