@@ -1,6 +1,4 @@
 $body2: #15555a;
-
-
 $color: #ffaa8e;
 $background: #ACEAEC;
 $header: #01161E;
@@ -99,9 +97,9 @@ body {
 
   .dropdown-container {
     position: absolute;
-    top: 100%; 
+    top: 100%;
     left: 0;
-    display: none; 
+    display: none;
   }
 
   .dropdown-menu {
@@ -111,7 +109,7 @@ body {
     list-style-type: none;
     margin: 0;
     position: relative;
-    z-index: 1; 
+    z-index: 1;
   }
 
   .dropdown-menu li {
@@ -208,15 +206,16 @@ body {
     position: relative;
     width: 95%;
     height: 128px;
-    margin-bottom: 20px;
     margin-top: 10px;
     margin-left: 40px;
     margin-right: 40px;
-    background-color: $darkbutton;
+    background-color: #1e3137;
+    align-self: center;
+    justify-content: space-between;
 
     .banner {
       color: $textcolor;
-      font-size: 48px;
+      font-size: 28px;
       font-weight: bold;
 
       .poza {
@@ -238,17 +237,16 @@ body {
 
     .statistici {
       display: block;
-      position: absolute;
-      width: 230px;
-      background-color: white;
+      background-color: $background;
       border-radius: 2px;
-      padding: 10px 10px;
-      margin-right: 10px;
-      top: 30px;
-      right: 10px;
-      height: auto;
+      padding: 10px 0px;
+      margin: 10px;
+      width: 15%;
+      height: 70%;
 
       table {
+        margin-top: 10px;
+        margin-left: 10px;
         display: block;
         box-sizing: border-box;
       }
@@ -258,9 +256,7 @@ body {
       height: 14px;
       font-size: 12px;
       text-align: right;
-      padding: 2px 10px;
-      margin-left: 10px;
-      width: 135px;
+      padding: 6px;
     }
 
     .numar {
@@ -269,7 +265,6 @@ body {
       text-align: left;
       font-size: 12px;
       padding-left: 10px;
-      width: 135px;
     }
   }
 }

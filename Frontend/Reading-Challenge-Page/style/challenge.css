@@ -192,6 +192,7 @@ body .readingchallenge .statistici {
   height: 70%;
 }
 body .readingchallenge .statistici table {
+  margin-top: 10px;
   margin-left: 10px;
   display: block;
   box-sizing: border-box;
