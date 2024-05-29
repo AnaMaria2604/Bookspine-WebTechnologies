@@ -101,11 +101,11 @@ body .header2 {
   flex-direction: row;
 }
 body .header2 .Logo {
-  padding-left: 10%;
+  padding-left: 11%;
   align-self: center;
   color: #01161E;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 1.8rem;
 }
 body .header2 .search-container {
   align-self: center;
@@ -146,78 +146,30 @@ body .main .left_part {
   margin-left: 10%;
   flex-direction: column;
 }
-body .main .left_part .Bookshelf {
+body .main .left_part .continut {
+  color: white;
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
-  margin-bottom: 30px;
+  border-radius: 20px;
+  background-color: #104547;
+  padding: 20px;
 }
-body .main .left_part .Bookshelf .titlu {
-  color: black;
-  font-weight: bold;
-}
-body .main .left_part .Bookshelf .Options {
+body .main .left_part .continut .sectiune {
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
 }
-body .main .left_part .Bookshelf .Options a {
-  color: blue;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-body .main .left_part .Bookshelf .Options a:hover {
-  color: purple;
-}
-body .main .left_part .ReadingActivity {
+body .main .left_part .continut .sectiune .sectiune__tags {
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
-  margin-bottom: 30px;
+  font-style: italic;
 }
-body .main .left_part .ReadingActivity .titlu {
-  color: black;
-  font-weight: bold;
-}
-body .main .left_part .ReadingActivity .Options {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-}
-body .main .left_part .ReadingActivity .Options a {
-  color: blue;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-body .main .left_part .ReadingActivity .Options a:hover {
-  color: purple;
-}
-body .main .left_part .AddBook {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  margin-bottom: 30px;
-}
-body .main .left_part .AddBook .titlu {
-  color: black;
-  font-weight: bold;
-}
-body .main .left_part .AddBook .Options {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-}
-body .main .left_part .AddBook .Options a {
-  color: blue;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-body .main .left_part .AddBook .Options a:hover {
-  color: purple;
+body .main .left_part .continut .sectiune .sectiune__tags a {
+  margin-bottom: 10px;
+  color: white;
 }
 body .main .right_part {
   display: flex;
-  margin-left: 10%;
+  margin-left: 5%;
   border-collapse: collapse;
   width: 100%;
   align-items: flex-start;
@@ -251,10 +203,9 @@ body .main .right_part img {
 footer {
   display: flex;
   flex-direction: column;
-  position: fixed;
   text-align: center;
   flex: 1;
-  margin-top: 100px;
+  margin-top: 120px;
   bottom: 0;
   width: 100%;
   background: #0c3742;

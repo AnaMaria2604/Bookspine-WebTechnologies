@@ -109,15 +109,19 @@ body .page__body .main {
 }
 body .page__body .main .left_part {
   width: 25%;
-  margin-top: 50px;
   display: flex;
   flex-direction: column;
   margin-left: 50px;
   align-items: center;
 }
+body .page__body .main .left_part .user_content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 body .page__body .main .left_part .user_content .userphoto img {
-  height: 200px;
-  width: 200px;
+  height: 150px;
+  width: 150px;
   border-radius: 50%;
 }
 body .page__body .main .left_part .user_content .name {
@@ -167,6 +171,22 @@ body .page__body .main .middle_part .container .search-button {
 }
 body .page__body .main .middle_part .container .search-button:hover {
   background-color: #0A2E36;
+}
+body .page__body .main .middle_part .buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+body .page__body .main .middle_part .buttons .buttons__first a {
+  font-weight: 500;
+  color: #0A2E36;
+  font-size: 1rem;
+}
+body .page__body .main .middle_part .buttons .buttons__second a {
+  font-weight: 500;
+  color: #0A2E36;
+  font-size: 0.8rem;
 }
 
 footer {
@@ -227,6 +247,9 @@ footer {
   }
   body .main .left_part .bookshelves .carte {
     padding: 10px;
+  }
+  body .main .buttons .buttons__second {
+    margin-left: 20px;
   }
 }
 @media (min-width: 320px) and (max-width: 480px) {

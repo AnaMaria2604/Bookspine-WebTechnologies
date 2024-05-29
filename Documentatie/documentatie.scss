@@ -1,0 +1,23 @@
+* {
+    font-family: "Segoe UI", Verdana, sans-serif;
+    background: none;
+}
+
+body {
+    margin-top: 50px;
+    background-color: #cafaf7;
+}
+
+body .sectiune {
+    margin-top: 40px;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+body .sectiune .continut {
+    background-color: #219ba1;
+    color: #ffff;
+    padding: 20px;
+    border-radius: 20px;
+}

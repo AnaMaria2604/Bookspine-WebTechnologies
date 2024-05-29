@@ -7,6 +7,7 @@ $textcolor: #ffff;
 $button: #124559;
 $darkbutton: #0A2E36;
 $bordercolor: #2a3738;
+$body4: #77cad4;
 
 * {
     font-family: 'Segoe UI', Verdana, sans-serif;
@@ -96,9 +97,9 @@ body {
 
     .dropdown-container {
         position: absolute;
-        top: 100%; 
+        top: 100%;
         left: 0;
-        display: none; 
+        display: none;
     }
 
     .dropdown-menu {
@@ -108,7 +109,7 @@ body {
         list-style-type: none;
         margin: 0;
         position: relative;
-        z-index: 1; 
+        z-index: 1;
     }
 
     .dropdown-menu li {
@@ -168,6 +169,7 @@ body {
                         padding: 10px;
                         display: flex;
                         background-color: aliceblue;
+                        align-items: center;
                         color: black;
                         border-radius: 20px;
                         flex-direction: column;
@@ -206,7 +208,7 @@ body {
                 padding: 20px;
                 display: flex;
                 flex-direction: column;
-                margin-left: 10%;
+                margin-left: 5%;
                 color: white;
 
                 .title {
@@ -245,6 +247,48 @@ body {
                     padding: 10px;
                     margin-bottom: 20px;
                 }
+
+                .reviews {
+                    padding: 10px;
+                    font-size: 25px;
+                    margin-bottom: 10px;
+
+                }
+
+                .update {
+                    display: flex;
+                    flex-direction: column;
+
+                    .item {
+                        padding: 10px;
+                        display: flex;
+                        flex-direction: column;
+                        background-color: $body4;
+                        border-radius: 20px;
+                        margin-bottom: 20px;
+
+                        .user_content {
+                            display: flex;
+                            flex-direction: row;
+                            gap: 5px;
+                            padding: 5px;
+
+                            .userphoto {
+                                height: 30px;
+                                width: 30px;
+                                border-radius: 50%;
+                                overflow: hidden;
+                            }
+                        }
+
+                        .descriere {
+                            padding-left: 30px;
+                        }
+
+                    }
+
+                }
+
             }
         }
     }

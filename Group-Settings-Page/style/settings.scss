@@ -136,17 +136,20 @@ body {
 
             .left_part {
                 width: 25%;
-                margin-top: 50px;
                 display: flex;
                 flex-direction: column;
                 margin-left: 50px;
                 align-items: center;
 
                 .user_content {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+
                     .userphoto {
                         img {
-                            height: 200px;
-                            width: 200px;
+                            height: 150px;
+                            width: 150px;
                             border-radius: 50%;
                         }
                     }
@@ -208,6 +211,29 @@ body {
                     .search-button:hover {
                         background-color: $darkbutton;
 
+                    }
+                }
+
+                .buttons {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    margin-top: 20px;
+
+                    .buttons__first {
+                        a {
+                            font-weight: 500;
+                            color: $darkbutton;
+                            font-size: 1rem;
+                        }
+                    }
+
+                    .buttons__second {
+                        a {
+                            font-weight: 500;
+                            color: $darkbutton;
+                            font-size: 0.8rem;
+                        }
                     }
                 }
             }
@@ -288,7 +314,11 @@ footer {
                 }
             }
 
-
+            .buttons {
+                .buttons__second {
+                    margin-left: 20px;
+                }
+            }
         }
     }
 }

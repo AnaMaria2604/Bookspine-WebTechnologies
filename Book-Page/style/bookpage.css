@@ -138,6 +138,7 @@ body .main .content .left_part .container .shelves {
   padding: 10px;
   display: flex;
   background-color: aliceblue;
+  align-items: center;
   color: black;
   border-radius: 20px;
   flex-direction: column;
@@ -162,7 +163,7 @@ body .main .content .right_part {
   padding: 20px;
   display: flex;
   flex-direction: column;
-  margin-left: 10%;
+  margin-left: 5%;
   color: white;
 }
 body .main .content .right_part .title {
@@ -194,6 +195,38 @@ body .main .content .right_part .genres {
 body .main .content .right_part .published {
   padding: 10px;
   margin-bottom: 20px;
+}
+body .main .content .right_part .reviews {
+  padding: 10px;
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+body .main .content .right_part .update {
+  display: flex;
+  flex-direction: column;
+}
+body .main .content .right_part .update .item {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: #77cad4;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+body .main .content .right_part .update .item .user_content {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  padding: 5px;
+}
+body .main .content .right_part .update .item .user_content .userphoto {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+body .main .content .right_part .update .item .descriere {
+  padding-left: 30px;
 }
 
 footer {

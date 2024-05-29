@@ -97,9 +97,9 @@ body {
 
     .dropdown-container {
         position: absolute;
-        top: 100%; 
+        top: 100%;
         left: 0;
-        display: none; 
+        display: none;
     }
 
     .dropdown-menu {
@@ -109,7 +109,7 @@ body {
         list-style-type: none;
         margin: 0;
         position: relative;
-        z-index: 1; 
+        z-index: 1;
     }
 
     .dropdown-menu li {
@@ -130,47 +130,6 @@ body {
 
         .main__body {
             width: 70%;
-
-            .main {
-                display: flex;
-                flex-direction: column;
-
-                .text {
-                    padding-left: 40px;
-                    font-size: 20px;
-                }
-
-                .search-container {
-                    display: flex;
-                    align-items: center;
-                    padding-left: 40px;
-                    width: 300px;
-                }
-
-                .search-input {
-                    width: 80%;
-                    padding: 5px;
-                    border: 1px solid $bordercolor;
-                    background-color: $textcolor;
-                    border-radius: 4px;
-                    font-size: 16px;
-                }
-
-                .search-button {
-                    padding: 4px 10px;
-                    background-color: $button;
-                    color: $textcolor;
-                    border: none;
-                    border-radius: 4px;
-                    cursor: pointer;
-                    font-size: 16px;
-                    margin-left: 8px;
-                }
-
-                .search-button:hover {
-                    background-color: $darkbutton;
-                }
-            }
 
             .page__body {
                 padding-left: 20px;
