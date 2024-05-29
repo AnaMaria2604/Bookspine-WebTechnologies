@@ -186,21 +186,40 @@ body {
 
                     }
 
-                    .star {
-                        display: flex;
-                        flex-direction: row;
-
-                        .poza {
-                            height: 20px;
-                            width: 20px;
-                        }
+                    .rating {
+                        display: inline-block;
+                        margin-bottom: 20px;
+                        padding: 0 10px;
                     }
 
+                    .stars {
+                        display: flex;
+                        flex-direction: row-reverse;
+                    }
 
+                    .stars span {
+                        cursor: pointer;
+                        transition: color .2s, transform .2s;
+                        font-size: 3rem;
+                    }
+
+                    .stars span:hover {
+                        color: orange;
+                        transform: scale(1.1);
+                    }
+
+                    .stars span:hover~span {
+                        color: orange;
+                    }
+
+                    .stars span[data-clicked] {
+                        color: orange;
+                    }
+
+                    .stars span[data-clicked]~span {
+                        color: orange;
+                    }
                 }
-
-
-
 
             }
 

@@ -151,13 +151,32 @@ body .main .content .left_part .container .text {
   align-self: center;
   padding: 10px;
 }
-body .main .content .left_part .container .star {
-  display: flex;
-  flex-direction: row;
+body .main .content .left_part .container .rating {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 0 10px;
 }
-body .main .content .left_part .container .star .poza {
-  height: 20px;
-  width: 20px;
+body .main .content .left_part .container .stars {
+  display: flex;
+  flex-direction: row-reverse;
+}
+body .main .content .left_part .container .stars span {
+  cursor: pointer;
+  transition: color 0.2s, transform 0.2s;
+  font-size: 3rem;
+}
+body .main .content .left_part .container .stars span:hover {
+  color: orange;
+  transform: scale(1.1);
+}
+body .main .content .left_part .container .stars span:hover ~ span {
+  color: orange;
+}
+body .main .content .left_part .container .stars span[data-clicked] {
+  color: orange;
+}
+body .main .content .left_part .container .stars span[data-clicked] ~ span {
+  color: orange;
 }
 body .main .content .right_part {
   padding: 20px;
