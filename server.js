@@ -1,7 +1,7 @@
 const http = require('http');
 const path = require('path');
 const fs = require('fs');
-const initializeDatabase = require('./DataBase/initializeDatabase');
+const initializeDatabase = require('./DataBase/databasemaker');
 const { handleCreateAccountRequest, handleCreateAccountSubmit } = require('./Backend/createAccount');
 
 initializeDatabase();

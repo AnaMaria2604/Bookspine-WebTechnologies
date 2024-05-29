@@ -17,21 +17,21 @@ function initializeDatabase() {
     })
 
     //toate tabelele si modificarile facute vor fi aici:
-    connection.query(
-        `
-    ALTER TABLE user 
-    DROP COLUMN readingChallengeId,
-    ADD COLUMN status VARCHAR(20) NOT NULL
+//     connection.query(
+//         `
+//     ALTER TABLE user 
+//     DROP COLUMN readingChallengeId,
+//     ADD COLUMN status VARCHAR(20) NOT NULL
 
-  `,
-        (err) => {
-            if (err) {
-                console.error('Eroare la crearea tabelei:', err)
-                throw err
-            }
-            console.log('Tabela a fost creată cu succes!')
-        }
-    )
+//   `,
+//         (err) => {
+//             if (err) {
+//                 console.error('Eroare la crearea tabelei:', err)
+//                 throw err
+//             }
+//             console.log('Tabela a fost creată cu succes!')
+//         }
+//     )
 
     connection.query(
         `
