@@ -129,7 +129,8 @@ body .page__body .main {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding-left: 80px;
+  justify-content: center;
+  align-self: center;
   gap: 10%;
   width: 90%;
 }
@@ -198,7 +199,7 @@ body .page__body .main .left_part .groups .groups__card .componenta:last-child {
   margin: 0%;
 }
 body .page__body .main .middle_part {
-  margin-top: 50px;
+  margin-top: 5%;
   display: flex;
   flex-direction: column;
   width: 50%;
@@ -206,22 +207,22 @@ body .page__body .main .middle_part {
 body .page__body .main .middle_part .container {
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 }
 body .page__body .main .middle_part .container .name_category {
-  font-size: 20px;
+  font-size: 25px;
   font-weight: bold;
   margin-bottom: 10px;
 }
 body .page__body .main .middle_part .container .search-container {
-  padding: 10px;
+  padding: 20px;
   display: flex;
   align-items: center;
   width: 100%;
 }
 body .page__body .main .middle_part .container .search-input {
   width: 90%;
-  padding: 20px;
+  padding: 40px;
   border: 1px solid #2a3738;
   background-color: #b1d2d6;
   border-radius: 4px;
