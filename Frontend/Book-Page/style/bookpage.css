@@ -196,12 +196,8 @@ body .main .content .right_part .author {
   font-size: 20px;
   margin-bottom: 20px;
 }
-body .main .content .right_part .star {
+body .main .content .right_part .avgRating {
   padding: 10px;
-}
-body .main .content .right_part .star .poza {
-  height: 20px;
-  width: 20px;
 }
 body .main .content .right_part .description {
   padding: 10px;
