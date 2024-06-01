@@ -186,39 +186,27 @@ body {
 
                     }
 
-                    .rating {
-                        display: inline-block;
-                        margin-bottom: 20px;
-                        padding: 0 10px;
-                    }
-
                     .stars {
                         display: flex;
-                        flex-direction: row-reverse;
+                        flex-direction: row;
+                        justify-content: center;
                     }
 
-                    .stars span {
+                    .star {
+
+
+                        font-size: 30px;
                         cursor: pointer;
-                        transition: color .2s, transform .2s;
-                        font-size: 3rem;
                     }
 
-                    .stars span:hover {
-                        color: orange;
-                        transform: scale(1.1);
+                    .one,
+                    .two,
+                    .three,
+                    .four,
+                    .five {
+                        color: rgb(255, 255, 0);
                     }
 
-                    .stars span:hover~span {
-                        color: orange;
-                    }
-
-                    .stars span[data-clicked] {
-                        color: orange;
-                    }
-
-                    .stars span[data-clicked]~span {
-                        color: orange;
-                    }
                 }
 
             }
@@ -230,23 +218,29 @@ body {
                 margin-left: 5%;
                 color: white;
 
+                .showrating {
+                    font-size: 21px;
+                    margin-left: 10px;
+                    padding: 0px 10px 10px 0px;
+                }
+
+                .gold-star {
+                    color: rgb(255, 255, 0);
+                }
+
+                .white-star {
+                    color: white;
+                }
+
                 .title {
                     padding: 10px;
                     font-size: 25px;
                     font-weight: bold;
-                    margin-bottom: 20px;
                 }
 
                 .author {
                     padding: 10px;
                     font-size: 20px;
-                    margin-bottom: 20px;
-                }
-
-                .avgRating {
-                    padding: 10px;
-
-
                 }
 
                 .description {
@@ -256,12 +250,10 @@ body {
 
                 .genres {
                     padding: 10px;
-                    margin-bottom: 20px;
                 }
 
                 .published {
                     padding: 10px;
-                    margin-bottom: 20px;
                 }
 
                 .reviews {

@@ -151,32 +151,21 @@ body .main .content .left_part .container .text {
   align-self: center;
   padding: 10px;
 }
-body .main .content .left_part .container .rating {
-  display: inline-block;
-  margin-bottom: 20px;
-  padding: 0 10px;
-}
 body .main .content .left_part .container .stars {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
+  justify-content: center;
 }
-body .main .content .left_part .container .stars span {
+body .main .content .left_part .container .star {
+  font-size: 30px;
   cursor: pointer;
-  transition: color 0.2s, transform 0.2s;
-  font-size: 3rem;
 }
-body .main .content .left_part .container .stars span:hover {
-  color: orange;
-  transform: scale(1.1);
-}
-body .main .content .left_part .container .stars span:hover ~ span {
-  color: orange;
-}
-body .main .content .left_part .container .stars span[data-clicked] {
-  color: orange;
-}
-body .main .content .left_part .container .stars span[data-clicked] ~ span {
-  color: orange;
+body .main .content .left_part .container .one,
+body .main .content .left_part .container .two,
+body .main .content .left_part .container .three,
+body .main .content .left_part .container .four,
+body .main .content .left_part .container .five {
+  color: rgb(255, 255, 0);
 }
 body .main .content .right_part {
   padding: 20px;
@@ -185,19 +174,25 @@ body .main .content .right_part {
   margin-left: 5%;
   color: white;
 }
+body .main .content .right_part .showrating {
+  font-size: 21px;
+  margin-left: 10px;
+  padding: 0px 10px 10px 0px;
+}
+body .main .content .right_part .gold-star {
+  color: rgb(255, 255, 0);
+}
+body .main .content .right_part .white-star {
+  color: white;
+}
 body .main .content .right_part .title {
   padding: 10px;
   font-size: 25px;
   font-weight: bold;
-  margin-bottom: 20px;
 }
 body .main .content .right_part .author {
   padding: 10px;
   font-size: 20px;
-  margin-bottom: 20px;
-}
-body .main .content .right_part .avgRating {
-  padding: 10px;
 }
 body .main .content .right_part .description {
   padding: 10px;
@@ -205,11 +200,9 @@ body .main .content .right_part .description {
 }
 body .main .content .right_part .genres {
   padding: 10px;
-  margin-bottom: 20px;
 }
 body .main .content .right_part .published {
   padding: 10px;
-  margin-bottom: 20px;
 }
 body .main .content .right_part .reviews {
   padding: 10px;
