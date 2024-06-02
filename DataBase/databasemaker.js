@@ -1,5 +1,4 @@
 const mysql = require('mysql')
-
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -17,21 +16,43 @@ function initializeDatabase() {
     })
 
     //toate tabelele si modificarile facute vor fi aici:
-//     connection.query(
-//         `
-//     ALTER TABLE user 
-//     DROP COLUMN readingChallengeId,
-//     ADD COLUMN status VARCHAR(20) NOT NULL
+    //     connection.query(
+    //         `
+    //     ALTER TABLE user
+    //     DROP COLUMN readingChallengeId,
+    //     ADD COLUMN status VARCHAR(20) NOT NULL
 
-//   `,
-//         (err) => {
-//             if (err) {
-//                 console.error('Eroare la crearea tabelei:', err)
-//                 throw err
-//             }
-//             console.log('Tabela a fost creată cu succes!')
-//         }
-//     )
+    //   `,
+    //         (err) => {
+    //             if (err) {
+    //                 console.error('Eroare la crearea tabelei:', err)
+    //                 throw err
+    //             }
+    //             console.log('Tabela a fost creată cu succes!')
+    //         }
+    //     )
+    connection.query(
+        `
+  CREATE TABLE IF NOT EXISTS book  (
+      id  INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+      title  VARCHAR(45) NOT NULL,
+      author  VARCHAR(45) NOT NULL,
+      genre  VARCHAR(45) NOT NULL,
+      year  INT NOT NULL,
+      rating  INT NOT NULL,
+      publisher  VARCHAR(45) NOT NULL,
+      editor  VARCHAR(45) NOT NULL,
+      collection  VARCHAR(45)
+     )
+`,
+        (err) => {
+            if (err) {
+                console.error('Eroare la crearea tabelei:', err)
+                throw err
+            }
+            console.log('Tabela a fost creată cu succes!')
+        }
+    )
 
     connection.query(
         `
@@ -72,6 +93,24 @@ function initializeDatabase() {
             console.log('Tabela a fost creată cu succes!')
         }
     )
+    connection.query(
+        `
+       CREATE TABLE IF NOT EXISTS team(
+       id  INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+       teamName  VARCHAR(45) NOT NULL,
+       moderatorId  INT NOT NULL,
+       description  VARCHAR(45),
+       FOREIGN KEY (moderatorId) REFERENCES user(id)
+      )
+      `,
+        (err) => {
+            if (err) {
+                console.error('Eroare la crearea tabelei:', err)
+                throw err
+            }
+            console.log('Tabela a fost creată cu succes!')
+        }
+    )
 
     connection.query(
         `
@@ -101,29 +140,6 @@ function initializeDatabase() {
           FOREIGN KEY (userId) REFERENCES user(id),
           FOREIGN KEY (readingchallengeId) REFERENCES readingchallenge(id)
       )
-    `,
-        (err) => {
-            if (err) {
-                console.error('Eroare la crearea tabelei:', err)
-                throw err
-            }
-            console.log('Tabela a fost creată cu succes!')
-        }
-    )
-
-    connection.query(
-        `
-      CREATE TABLE IF NOT EXISTS book  (
-          id  INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-          title  VARCHAR(45) NOT NULL,
-          author  VARCHAR(45) NOT NULL,
-          genre  VARCHAR(45) NOT NULL,
-          year  INT NOT NULL,
-          rating  INT NOT NULL,
-          publisher  VARCHAR(45) NOT NULL,
-          editor  VARCHAR(45) NOT NULL,
-          collection  VARCHAR(45)
-         )
     `,
         (err) => {
             if (err) {
@@ -268,25 +284,6 @@ function initializeDatabase() {
             FOREIGN KEY (bookId) REFERENCES book(id),
             FOREIGN KEY (teamId) REFERENCES team(id)
           )
-      `,
-        (err) => {
-            if (err) {
-                console.error('Eroare la crearea tabelei:', err)
-                throw err
-            }
-            console.log('Tabela a fost creată cu succes!')
-        }
-    )
-
-    connection.query(
-        `
-       CREATE TABLE IF NOT EXISTS team(
-       id  INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-       teamName  VARCHAR(45) NOT NULL,
-       moderatorId  INT NOT NULL,
-       description  VARCHAR(45),
-       FOREIGN KEY (moderatorId) REFERENCES user(id)
-      )
       `,
         (err) => {
             if (err) {
