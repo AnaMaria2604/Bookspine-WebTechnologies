@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../../Frontend/Index-Page/style/index.css">
-  <script src="../Index-Page/index.js"></script>
+  <script src="../../Frontend/Index-Page/index.js"></script>
   <title>Index-Page</title>
 </head>
 
@@ -37,18 +37,20 @@
     <div class="stanga">
       <h3>Books that we recommend</h3>
       <div class="section">
-        <div class="carti">
-          <!-- RECOMMENDED_BOOKS_PLACEHOLDER -->
+        <div class="carti" id="recommended_books">
+          <!-- Recommended books will be added here dynamically -->
         </div>
       </div>
       <br>
       <h3>Highly rated books</h3>
       <div class="section">
-        <div class="carti">
-          <!-- POPULAR_BOOKS_PLACEHOLDER -->
+        <div class="carti" id="popular_books">
+          <!-- Popular books will be added here dynamically -->
         </div>
       </div>
     </div>
+
+
     <div class="butoane">
       <a href="/create-account">Personalize your experience by making an account</a>
       <a href="/login">I already have an account!</a>
