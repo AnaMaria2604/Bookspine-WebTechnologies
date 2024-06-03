@@ -1,59 +1,54 @@
-const http = require('http');
-const path = require('path');
-const fs = require('fs');
-const initializeDatabase = require('./DataBase/databasemaker');
-const { handleCreateAccountRequest, handleCreateAccountSubmit } = require('./Backend/createAccount');
-const { handleLoginRequest,handleLoginSubmission} = require('./Backend/login');
-const {handleIndexRequest}=require('./Backend/index');
+const http = require('http')
+const path = require('path')
+const fs = require('fs')
+const initializeDatabase = require('./DataBase/databasemaker')
+const {
+    handleCreateAccountRequest,
+    handleCreateAccountSubmit,
+} = require('./Backend/createAccount')
+const { handleLoginRequest, handleLoginSubmission } = require('./Backend/login')
+const { handleIndexRequest } = require('./Backend/indexService')
+const {
+    handlePopularBooksRequest,
+    handleRecommendedBooksRequest,
+} = require('./API/getTenBooks')
 //initializeDatabase();
 
-
 const server = http.createServer((req, res) => {
-  // Verifică cererile pentru pagina de creare a contului
-  if (req.method === 'GET' && req.url === '/create-account') {
-    handleCreateAccountRequest(req, res);
-  } else if (req.method === 'POST' && req.url === '/create-account') {
-    handleCreateAccountSubmit(req, res);
-  } 
-  else if (req.method === 'GET' && req.url === '/login') {
-    handleLoginRequest(req, res);
-   } else if (req.method === 'POST' && req.url === '/login') {
-     handleLoginSubmission(req, res);
-   } 
-   else if (req.method === 'GET' && req.url === '/') {
-    handleIndexRequest(req, res);
-  } 
-  // Verifică cererile pentru fișiere CSS
-  else if (req.url.startsWith('/style/')) {
-    const filePath = path.join(__dirname, 'Frontend/Register-Page', req.url);
-    fs.readFile(filePath, (err, data) => {
-      if (err) {
-        res.writeHead(404);
-        res.end('404 Not Found');
-      } else {
-        res.writeHead(200, { 'Content-Type': 'text/css' });
-        res.end(data);
-      }
-    });
-  } 
-   // Verifică cererile pentru fișierul index.js
-   else if (req.url === '/Frontend/Index-Page/index.js') {
-    const filePath = path.join(__dirname, 'Frontend/Index-Page', 'index.js');
-    fs.readFile(filePath, (err, data) => {
-      if (err) {
-        res.writeHead(404);
-        res.end('404 Not Found');
-      } else {
-        res.writeHead(200, { 'Content-Type': 'application/javascript' });
-        res.end(data);
-      }
-    });
-  } 
-  // Verifică cererile pentru alte fișiere statice (HTML, JS, imagini)
-  else if (req.url.startsWith('/Frontend/')) {
-    const filePath = path.join(__dirname, req.url);
-    const extname = path.extname(filePath).toLowerCase();
-    let contentType = 'text/html';
+    // Verifică cererile pentru pagina de creare a contului
+    if (req.method === 'GET' && req.url === '/create-account') {
+        handleCreateAccountRequest(req, res)
+    } else if (req.method === 'POST' && req.url === '/create-account') {
+        handleCreateAccountSubmit(req, res)
+    } else if (req.method === 'GET' && req.url === '/login') {
+        handleLoginRequest(req, res)
+    } else if (req.method === 'POST' && req.url === '/login') {
+        handleLoginSubmission(req, res)
+    } else if (req.method === 'GET' && req.url === '/') {
+        handleIndexRequest(req, res)
+    } else if (req.method === 'GET' && req.url === '/api/recommended-books') {
+        handleRecommendedBooksRequest(req, res)
+    } else if (req.method === 'GET' && req.url === '/api/popular-books') {
+        handlePopularBooksRequest(req, res)
+    }
+    // Verifică cererile pentru fișiere CSS
+    else if (req.url.startsWith('/style/')) {
+        const filePath = path.join(__dirname, 'Frontend/Register-Page', req.url)
+        fs.readFile(filePath, (err, data) => {
+            if (err) {
+                res.writeHead(404)
+                res.end('404 Not Found')
+            } else {
+                res.writeHead(200, { 'Content-Type': 'text/css' })
+                res.end(data)
+            }
+        })
+    }
+    // Verifică cererile pentru alte fișiere statice (HTML, JS, imagini)
+    else if (req.url.startsWith('/Frontend/')) {
+        const filePath = path.join(__dirname, req.url)
+        const extname = path.extname(filePath).toLowerCase()
+        let contentType = 'text/html'
 
         switch (extname) {
             case '.js':
