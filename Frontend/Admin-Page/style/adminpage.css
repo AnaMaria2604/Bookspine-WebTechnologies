@@ -132,7 +132,8 @@ body .main .container .container2 .request .answer .options .decline {
   color: red;
 }
 body .main .container .container2 {
-  margin-bottom: 20px; /* Adăugare spațiu după .container2 */
+  margin-bottom: 20px;
+  /* Adăugare spațiu după .container2 */
 }
 body footer {
   display: flex;
@@ -144,6 +145,34 @@ body footer {
   width: 100%;
   background: #0c3742;
   color: white;
+}
+
+body::before {
+  background-image: url(../../Images/bookimg3.jpg);
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  background-attachment: fixed;
+  opacity: 0.6;
+  z-index: -2;
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 70%, rgb(172, 234, 236) 100%);
+  z-index: -1;
+  pointer-events: none;
 }
 
 @media (min-width: 481px) and (max-width: 767px) {
