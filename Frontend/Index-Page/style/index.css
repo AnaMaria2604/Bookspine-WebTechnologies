@@ -100,7 +100,6 @@ body .bodypage {
   align-items: center;
   justify-content: space-between;
   margin: 4%;
-  margin-top: 0px;
 }
 body .bodypage .stanga {
   display: flex;
@@ -121,24 +120,21 @@ body .bodypage .stanga .section {
 }
 body .bodypage .stanga .section .carti {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
+  flex-direction: row;
+  position: relative;
 }
 body .bodypage .stanga .section .carti .carte {
   display: flex;
   flex-direction: column;
   padding-left: 10px;
 }
-body .bodypage .stanga .section .carti .carte .carte__poza {
+body .bodypage .stanga .section .carti .carte .carti__poza {
+  display: flex;
+  flex-direction: column;
   width: 90px;
   height: 110px;
   float: left;
-}
-body .bodypage .stanga .section .carti .carte .carte__poza img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
 }
 body .bodypage .stanga .section .carti .carte .carte__text {
   display: flex;
