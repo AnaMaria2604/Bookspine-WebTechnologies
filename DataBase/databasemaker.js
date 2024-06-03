@@ -5,7 +5,7 @@ const connection = mysql.createConnection({
     password: 'password',
     database: 'data_base',
 })
-
+const populateDatabase=require('./populationscript')
 function initializeDatabase() {
     connection.connect((err) => {
         if (err) {
@@ -42,7 +42,8 @@ function initializeDatabase() {
       rating  INT NOT NULL,
       publisher  VARCHAR(45) NOT NULL,
       editor  VARCHAR(45) NOT NULL,
-      collection  VARCHAR(45)
+      collection  VARCHAR(45),
+      cover MEDIUMBLOB
      )
 `,
         (err) => {
@@ -353,7 +354,7 @@ function initializeDatabase() {
             console.log('Tabela a fost creată cu succes!')
         }
     )
-
+    populateDatabase(connection);
     return connection
 }
 

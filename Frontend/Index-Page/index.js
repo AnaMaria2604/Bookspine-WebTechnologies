@@ -41,3 +41,27 @@ function setFooterPosition() {
 
 window.addEventListener("load", setFooterPosition);
 window.addEventListener("resize", setFooterPosition);
+// Frontend/Index-Page/index.js
+document.addEventListener('DOMContentLoaded', () => {
+  fetch('/api/recommended-books')
+    .then(response => response.json())
+    .then(data => {
+      const recommendedContainer = document.getElementById('recommended-books');
+      data.forEach(book => {
+        const bookElement = document.createElement('div');
+        bookElement.innerHTML = `<h3>${book.title}</h3><p>${book.author}</p>`;
+        recommendedContainer.appendChild(bookElement);
+      });
+    });
+
+  fetch('/api/popular-books')
+    .then(response => response.json())
+    .then(data => {
+      const popularContainer = document.getElementById('popular-books');
+      data.forEach(book => {
+        const bookElement = document.createElement('div');
+        bookElement.innerHTML = `<h3>${book.title}</h3><p>${book.author}</p>`;
+        popularContainer.appendChild(bookElement);
+      });
+    });
+});

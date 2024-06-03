@@ -1,15 +1,15 @@
 $color: #ffaa8e;
-$background: #ACEAEC;
-$header: #01161E;
+$background: #aceaec;
+$header: #01161e;
 $footer: #0c3742;
 $body: #104547;
 $textcolor: #ffff;
 $button: #124559;
-$darkbutton: #0A2E36;
+$darkbutton: #0a2e36;
 $bordercolor: #2a3738;
 
 * {
-    font-family: 'Segoe UI', Verdana, sans-serif;
+    font-family: "Segoe UI", Verdana, sans-serif;
     background: none;
 }
 
@@ -81,17 +81,14 @@ body {
                         cursor: pointer;
                         font-size: 16px;
                         margin-left: 8px;
-
                     }
 
                     .search-button:hover {
                         background-color: $darkbutton;
-
                     }
                 }
             }
         }
-
     }
 
     .dropdown-container {
@@ -178,14 +175,12 @@ body {
                             }
                         }
                     }
-
                 }
             }
 
-            .carti>.carte {
+            .carti > .carte {
                 margin-right: 10px;
             }
-
         }
 
         .butoane {
@@ -255,7 +250,6 @@ footer {
             margin: 0px 0px 0px 0px;
 
             .butoane {
-
                 margin: 0px 0px 0px 0px;
                 padding: 50px 0px 0px 0px;
                 align-self: center;
@@ -274,16 +268,13 @@ footer {
                     display: flex;
                     flex-direction: row;
                     flex-wrap: wrap;
-
                 }
-
             }
         }
     }
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
-
     body {
         .bodypage {
             display: flex;
@@ -292,7 +283,6 @@ footer {
             margin: 0px 0px 0px 0px;
 
             .butoane {
-
                 margin: 0px 0px 0px 0px;
                 padding: 50px 0px 0px 0px;
                 align-self: center;
@@ -311,7 +301,6 @@ footer {
                     display: flex;
                     flex-direction: row;
                     flex-wrap: wrap;
-
                 }
             }
         }

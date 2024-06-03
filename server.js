@@ -4,7 +4,9 @@ const fs = require('fs');
 const initializeDatabase = require('./DataBase/databasemaker');
 const { handleCreateAccountRequest, handleCreateAccountSubmit } = require('./Backend/createAccount');
 const { handleLoginRequest,handleLoginSubmission} = require('./Backend/login');
-initializeDatabase();
+const {handleIndexRequest}=require('./Backend/index');
+//initializeDatabase();
+
 
 const server = http.createServer((req, res) => {
   // Verifică cererile pentru pagina de creare a contului
@@ -18,6 +20,9 @@ const server = http.createServer((req, res) => {
    } else if (req.method === 'POST' && req.url === '/login') {
      handleLoginSubmission(req, res);
    } 
+   else if (req.method === 'GET' && req.url === '/') {
+    handleIndexRequest(req, res);
+  } 
   // Verifică cererile pentru fișiere CSS
   else if (req.url.startsWith('/style/')) {
     const filePath = path.join(__dirname, 'Frontend/Register-Page', req.url);
@@ -83,6 +88,7 @@ const server = http.createServer((req, res) => {
           res.writeHead(404);
           res.end('404 Not Found');
         } else {
+          console.log("server");
           res.writeHead(500);
           res.end('Internal Server Error');
         }
