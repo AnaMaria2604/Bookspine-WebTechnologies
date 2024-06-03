@@ -1,5 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
     const starContainer = document.getElementById('starContainer')
+    if (!starContainer) {
+        console.error('starContainer element not found.')
+        return
+    }
     const number = parseInt(starContainer.getAttribute('data-number'))
     showStars(number)
 })

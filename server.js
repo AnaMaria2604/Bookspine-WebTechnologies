@@ -12,6 +12,9 @@ const {
     handlePopularBooksRequest,
     handleRecommendedBooksRequest,
 } = require('./API/getTenBooks')
+
+const { handlePageDetailsRequest } = require('./Backend/bookService')
+const { Console } = require('console')
 //initializeDatabase();
 
 const server = http.createServer((req, res) => {
@@ -30,7 +33,11 @@ const server = http.createServer((req, res) => {
         handleRecommendedBooksRequest(req, res)
     } else if (req.method === 'GET' && req.url === '/api/popular-books') {
         handlePopularBooksRequest(req, res)
+    } else if (req.method === 'GET' && req.url.startsWith('/api/book/')) {
+        const bookId = req.url.split('/').pop()
+        handlePageDetailsRequest(req, res, bookId)
     }
+
     // Verifică cererile pentru fișiere CSS
     else if (req.url.startsWith('/style/')) {
         const filePath = path.join(__dirname, 'Frontend/Register-Page', req.url)

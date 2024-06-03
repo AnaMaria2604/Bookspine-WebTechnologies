@@ -41,6 +41,7 @@ function setFooterPosition() {
 
 window.addEventListener('load', setFooterPosition)
 window.addEventListener('resize', setFooterPosition)
+
 document.addEventListener('DOMContentLoaded', function () {
     fetch('/api/recommended-books')
         .then((response) => response.json())
@@ -57,15 +58,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 const bookElement = document.createElement('div')
                 bookElement.innerHTML = `
                 <div class="carte">
-                <div class="carte__poza">
-                  <img src="${imageUrl}" alt="${book.title}">
-                </div>
-                <div class="carte__text">
-                <a href="#">${book.title}</a>
-                <a href="#">${book.author}<a>
-                </div>
-                </div>
-              `
+                    <div class="carte__poza">
+                        <img src="${imageUrl}" alt="${book.title}">
+                    </div>
+                    <div class="carte__text">
+                        <a href="#">${book.title}</a>
+                        <a href="#">${book.author}<a>
+                    </div>
+                </div>`
                 recommendedContainer.appendChild(bookElement)
             })
         })
@@ -87,21 +87,50 @@ document.addEventListener('DOMContentLoaded', function () {
                 const bookElement = document.createElement('div')
                 bookElement.innerHTML = `
                 <div class="carte">
-    <div class="carte__poza">
-      <img src="${imageUrl}" alt="${book.title}">
-    </div>
-    <div class="carte__text">
-    <a href="#">${book.title}</a>
-    <a href="#">${book.author}<a>
-    </div>
-    </div>
-  `
+                    <div class="carte__poza">
+                        <img src="${imageUrl}" alt="${book.title}">
+                    </div>
+                    <div class="carte__text">
+                        <a href="#">${book.title}</a>
+                        <a href="#">${book.author}<a>
+                    </div>
+                </div>`
                 popularContainer.appendChild(bookElement)
             })
         })
 
         .catch((error) => {
             console.error('Error fetching recommended books:', error)
+        })
+
+    const urlParams = new URLSearchParams(window.location.search)
+    const bookId = urlParams.get('id')
+
+    fetch(`/api/book/${bookId}`)
+        .then((response) => response.json())
+        .then((book) => {
+            const details = document.getElementById('details_book')
+            // data.forEach((book) => {
+            const bookElement = document.createElement('div')
+
+            bookElement.innerHTML = `
+            <div class="title">
+                <p>${book.title}</p>
+            </div>
+            <div class="author">
+                <p>${book.author}</p>
+            </div>
+            <div class="genres">
+                <p>${book.genre}</p>
+            </div>
+            <div class="published">
+                <p> ${book.year}</p>
+            </div>`
+            details.appendChild(bookElement)
+            //})
+        })
+        .catch((error) => {
+            console.error('Error fetching books:', error)
         })
 
     // fetch('/api/popular-books')
