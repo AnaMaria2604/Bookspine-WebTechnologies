@@ -134,6 +134,7 @@ body .main .content .left_part .container {
   flex-direction: column;
 }
 body .main .content .left_part .container .titlu {
+  margin-top: 20px;
   font-weight: bold;
   align-self: center;
   padding: 10px;
