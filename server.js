@@ -37,11 +37,13 @@ const server = http.createServer((req, res) => {
     } else if (req.method === 'GET' && req.url === '/api/popular-books') {
         console.log('aici')
         handlePopularBooksRequest(req, res)
+    } else if (req.method === 'GET' && req.url.startsWith('/book/')) {
+        const bookId = req.url.split('/').pop()
+        //  console.log(bookId)
+        handlePageDetailsRequest(req, res, bookId)
     } else if (req.method === 'GET' && req.url.startsWith('/api/book/')) {
         const bookId = req.url.split('/').pop()
-        handlePageDetailsRequest(req, res, bookId)
-    } else if (req.method === 'GET' && req.url === '/api/book/') {
-        const bookId = req.url.split('/').pop()
+        console.log(bookId)
         handleBookRequest(req, res, bookId)
     }
 

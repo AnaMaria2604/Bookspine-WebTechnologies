@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     </div>
                     <div class="carte__text">
                         <a href="#">${book.title}</a>
-                        <a href="#">${book.author}<a>
+                        <a href="#">${book.author}</a>
                     </div>
                 </div>`
                 popularContainer.appendChild(bookElement)

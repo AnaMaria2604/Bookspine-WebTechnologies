@@ -2,20 +2,7 @@ const fs = require('fs')
 const path = require('path')
 const { getBookDetails } = require('../API/showBookDetails')
 
-function handleBookRequest(req, res, bookId) {
-    getBookDetails(bookId, (error, results) => {
-        if (error) {
-            res.writeHead(500, { 'Content-Type': 'application/json' })
-            res.end(JSON.stringify({ error: 'Internal Server Error' }))
-        } else {
-            res.writeHead(200, { 'Content-Type': 'application/json' })
-            console.log(results)
-            res.end(JSON.stringify(results))
-        }
-    })
-}
-
-const handlePageDetailsRequest = (req, res) => {
+const handlePageDetailsRequest = (req, res, bookId) => {
     console.log('pageee details')
     const filePath = path.join(__dirname, '../Frontend/Book-Page/bookpage.html')
 
@@ -32,5 +19,4 @@ const handlePageDetailsRequest = (req, res) => {
 
 module.exports = {
     handlePageDetailsRequest,
-    handleBookRequest,
 }

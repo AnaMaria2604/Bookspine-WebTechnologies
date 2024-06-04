@@ -2,32 +2,6 @@ const fs = require('fs')
 const path = require('path')
 const { getPopularBooks, getRecommendedBooks } = require('../API/getTenBooks')
 
-function handleRecommendedBooksRequest(req, res) {
-    getRecommendedBooks((error, results) => {
-        if (error) {
-            res.writeHead(500, { 'Content-Type': 'application/json' })
-            res.end(JSON.stringify({ error: 'Internal Server Error' }))
-        } else {
-            res.writeHead(200, { 'Content-Type': 'application/json' })
-            console.log(results)
-            res.end(JSON.stringify(results))
-        }
-    })
-}
-
-function handlePopularBooksRequest(req, res) {
-    getPopularBooks((error, results) => {
-        if (error) {
-            res.writeHead(500, { 'Content-Type': 'application/json' })
-            res.end(JSON.stringify({ error: 'Internal Server Error' }))
-        } else {
-            res.writeHead(200, { 'Content-Type': 'application/json' })
-            console.log(results)
-            res.end(JSON.stringify(results))
-        }
-    })
-}
-
 const handleIndexRequest = (req, res) => {
     console.log('index')
     const filePath = path.join(__dirname, '../Frontend/Index-Page/index.html')
@@ -45,6 +19,4 @@ const handleIndexRequest = (req, res) => {
 
 module.exports = {
     handleIndexRequest,
-    handlePopularBooksRequest,
-    handleRecommendedBooksRequest,
 }
