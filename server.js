@@ -16,6 +16,10 @@ const {
 const { handleBookRequest } = require('./API/showBookDetails')
 
 const { handlePageDetailsRequest } = require('./Backend/book')
+const {
+    handleFavouriteRequest,
+    handleFavouriteSubmission,
+} = require('./Backend/favourite')
 const { Console } = require('console')
 //initializeDatabase();
 
@@ -41,6 +45,12 @@ const server = http.createServer((req, res) => {
     } else if (req.method === 'GET' && req.url.startsWith('/api/book/')) {
         const bookId = req.url.split('/').pop()
         handleBookRequest(req, res, bookId)
+    } else if (req.method === 'GET' && req.url === '/favourite-genres') {
+        console.log('aici')
+        handleFavouriteRequest(req, res)
+    } else if (req.method === 'POST' && req.url === '/favourite-submission') {
+        console.log('intru aici')
+        handleFavouriteSubmission(req, res)
     }
 
     // Verifică cererile pentru fișiere CSS
