@@ -67,6 +67,24 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error('Error fetching books:', error)
         })
 
+    fetch(`/api/book/${bookId}`)
+        .then((response) => response.json())
+        .then((data) => {
+            const details = document.getElementById('description_book')
+            data.forEach((book) => {
+                const bookElement = document.createElement('div')
+                bookElement.innerHTML = `
+                <div class="description">
+                    " ${book.description} "
+                </div>
+                `
+                details.appendChild(bookElement)
+            })
+        })
+        .catch((error) => {
+            console.error('Error fetching books:', error)
+        })
+
     function showStars(number) {
         if (
             typeof number !== 'number' ||

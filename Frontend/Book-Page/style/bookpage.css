@@ -113,9 +113,10 @@ body .main .content {
 body .main .content .left_part {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 60%;
   padding: 20px;
   border-radius: 20px;
+  margin: 20px;
   color: white;
 }
 body .main .content .left_part .cover {
@@ -177,7 +178,6 @@ body .main .content .right_part {
   padding: 20px;
   display: flex;
   flex-direction: column;
-  margin-left: 5%;
   color: white;
 }
 body .main .content .right_part .rating {
@@ -218,6 +218,15 @@ body .main .content .right_part .reviews {
   padding: 10px;
   font-size: 25px;
   margin-bottom: 10px;
+}
+body .main .content .right_part .description_text {
+  font-size: 30px;
+  padding: 10px;
+}
+body .main .content .right_part .description {
+  font-style: italic;
+  font-size: 18px;
+  padding: 10px;
 }
 body .main .content .right_part .update {
   display: flex;

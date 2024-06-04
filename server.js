@@ -17,7 +17,8 @@ const { handleBookRequest } = require('./API/showBookDetails')
 
 const { handlePageDetailsRequest } = require('./Backend/book')
 const { Console } = require('console')
-//initializeDatabase();
+
+//initializeDatabase()
 
 const server = http.createServer((req, res) => {
     // Verifică cererile pentru pagina de creare a contului

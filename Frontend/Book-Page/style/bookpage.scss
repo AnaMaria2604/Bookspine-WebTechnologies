@@ -141,9 +141,10 @@ body {
             .left_part {
                 display: flex;
                 flex-direction: column;
-                width: 50%;
+                width: 60%;
                 padding: 20px;
                 border-radius: 20px;
+                margin: 20px;
                 color: white;
 
                 .cover {
@@ -220,7 +221,7 @@ body {
                 padding: 20px;
                 display: flex;
                 flex-direction: column;
-                margin-left: 5%;
+                // margin-left: 5%;
                 color: white;
 
                 .rating {
@@ -270,6 +271,17 @@ body {
                     font-size: 25px;
                     margin-bottom: 10px;
 
+                }
+
+                .description_text {
+                    font-size: 30px;
+                    padding: 10px;
+                }
+
+                .description {
+                    font-style: italic;
+                    font-size: 18px;
+                    padding: 10px;
                 }
 
                 .update {
