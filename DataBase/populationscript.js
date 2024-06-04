@@ -436,7 +436,38 @@ function populateDatabase(connection) {
         ['History'],
         ['Adventure'],
         ['Dystopian'],
-        ['Poetry'],
+        ['Poetry'], //10
+        ['Art'],
+        ['Christian'],
+        ['Crime'],
+        ['Business'],
+        ['Chick Lit'],
+        ['Childrens'],
+        ['Comics'],
+        ['Cookbooks'],
+        ['Ebooks'],
+        ['Fiction'], //20
+        ['Graphic Novels'],
+        ['Historical Fiction'],
+        ['Horror'],
+        ['Manga'],
+        ['Memoir'],
+        ['Music'],
+        ['Paranormal'],
+        ['Philosophy'],
+        ['Science'],
+        ['Self Help'], //30
+        ['Spirituality'],
+        ['Sports'],
+        ['Thriller'],
+        ['Travel'],
+        ['Contemporary'],
+        ['Gay and Lesbian'],
+        ['Humor and Comedy'],
+        ['Nonfiction'],
+        ['Religion'],
+        ['Suspense'],
+        ['Young Adult'], //41
     ]
 
     connection.query(
