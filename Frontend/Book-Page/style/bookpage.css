@@ -96,7 +96,6 @@ body .dropdown-menu li a {
 }
 body .main {
   width: 100%;
-  margin-top: 50px;
 }
 body .main .content {
   background-color: #104547;
@@ -119,11 +118,16 @@ body .main .content .left_part {
   border-radius: 20px;
   color: white;
 }
-body .main .content .left_part img {
-  height: 300px;
+body .main .content .left_part .cover {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+}
+body .main .content .left_part .cover .book_cover {
+  height: 400px;
   width: auto;
-  padding: 10px;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 body .main .content .left_part .container {
   display: flex;
@@ -175,10 +179,10 @@ body .main .content .right_part {
   margin-left: 5%;
   color: white;
 }
-body .main .content .right_part .showrating {
-  font-size: 21px;
+body .main .content .right_part .rating {
+  font-size: 23px;
   margin-left: 10px;
-  padding: 0px 10px 10px 0px;
+  padding: 10px 0px 30px 0px;
 }
 body .main .content .right_part .gold-star {
   color: rgb(255, 255, 0);
@@ -188,22 +192,26 @@ body .main .content .right_part .white-star {
 }
 body .main .content .right_part .title {
   padding: 10px;
-  font-size: 25px;
+  font-size: 50px;
   font-weight: bold;
 }
 body .main .content .right_part .author {
   padding: 10px;
-  font-size: 20px;
+  font-size: 30px;
 }
 body .main .content .right_part .description {
   padding: 10px;
   margin-bottom: 20px;
 }
 body .main .content .right_part .genres {
+  font-size: 20px;
   padding: 10px;
+  color: rgb(146, 161, 157);
 }
 body .main .content .right_part .published {
+  font-size: 20px;
   padding: 10px;
+  color: rgb(146, 161, 157);
 }
 body .main .content .right_part .reviews {
   padding: 10px;

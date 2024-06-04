@@ -1,13 +1,3 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const starContainer = document.getElementById('starContainer')
-    if (!starContainer) {
-        console.error('starContainer element not found.')
-        return
-    }
-    const number = parseInt(starContainer.getAttribute('data-number'))
-    showStars(number)
-})
-
 function showStars(number) {
     if (
         typeof number !== 'number' ||
@@ -36,4 +26,16 @@ function showStars(number) {
         star.classList.add('white-star')
         starContainer.appendChild(star)
     }
+}
+
+function initStars(number) {
+    document.addEventListener('DOMContentLoaded', function () {
+        const starContainer = document.getElementById('starContainer')
+        if (!starContainer) {
+            console.error('starContainer element not found.')
+            return
+        }
+        //const number = parseInt(starContainer.getAttribute('data-number'));
+        showStars(number)
+    })
 }
