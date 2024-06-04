@@ -5,7 +5,7 @@ const connection = mysql.createConnection({
     password: 'password',
     database: 'data_base',
 })
-const populateDatabase=require('./populationscript')
+const populateDatabase = require('./populationscript')
 function initializeDatabase() {
     connection.connect((err) => {
         if (err) {
@@ -43,6 +43,7 @@ function initializeDatabase() {
       publisher  VARCHAR(45) NOT NULL,
       editor  VARCHAR(45) NOT NULL,
       collection  VARCHAR(45),
+      description VARCHAR(2000),
       cover MEDIUMBLOB
      )
 `,
@@ -82,8 +83,7 @@ function initializeDatabase() {
           email VARCHAR(100) NOT NULL UNIQUE,
           password VARCHAR(100) NOT NULL,
           description VARCHAR(200) ,
-          favQuote VARCHAR(200) ,
-          status VARCHAR(20)
+          favQuote VARCHAR(200) 
       )
     `,
         (err) => {
@@ -354,7 +354,7 @@ function initializeDatabase() {
             console.log('Tabela a fost creată cu succes!')
         }
     )
-    populateDatabase(connection);
+    populateDatabase(connection)
     return connection
 }
 
