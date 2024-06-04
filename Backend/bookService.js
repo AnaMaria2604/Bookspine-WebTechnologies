@@ -1,35 +1,29 @@
-const fs = require('fs')
-const path = require('path')
-const { getBookDetails } = require('../API/showBookDetails')
-
-function handleBookRequest(req, res, bookId) {
-    getBookDetails(bookId, (error, results) => {
-        if (error) {
-            res.writeHead(500, { 'Content-Type': 'application/json' })
-            res.end(JSON.stringify({ error: 'Internal Server Error' }))
-        } else {
-            res.writeHead(200, { 'Content-Type': 'application/json' })
-            res.end(JSON.stringify(results))
-        }
-    })
-}
-
-const handlePageDetailsRequest = (req, res) => {
-    console.log('pageee details')
-    const filePath = path.join(__dirname, '../Frontend/Book-Page/bookpage.html')
-
-    fs.readFile(filePath, (err, data) => {
-        if (err) {
-            res.writeHead(404)
-            res.end('404 Not Found')
-        } else {
-            res.writeHead(200, { 'Content-Type': 'text/html' })
-            res.end(data)
-        }
-    })
-}
-
-module.exports = {
-    handlePageDetailsRequest,
-    handleBookRequest,
-}
+console.log('indexService')
+document.addEventListener('DOMContentLoaded', function () {
+    const urlParams = new URLSearchParams(window.location.search)
+    const bookId = urlParams.get('id')
+    fetch(`/api/book/${bookId}`)
+        .then((response) => response.json())
+        .then((book) => {
+            console.log(book)
+            const details = document.getElementById('details_book')
+            const bookElement = document.createElement('div')
+            bookElement.innerHTML = `
+            <div class="title">
+                <p>${book.title}</p>
+            </div>
+            <div class="author">
+                <p>${book.author}</p>
+            </div>
+            <div class="genres">
+                <p>${book.genre}</p>
+            </div>
+            <div class="published">
+                <p>${book.year}</p>
+            </div>`
+            details.appendChild(bookElement)
+        })
+        .catch((error) => {
+            console.error('Error fetching books:', error)
+        })
+})
