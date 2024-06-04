@@ -17,7 +17,8 @@ const { handleBookRequest } = require('./API/showBookDetails')
 
 const { handlePageDetailsRequest } = require('./Backend/book')
 const { Console } = require('console')
-//initializeDatabase();
+
+//initializeDatabase()
 
 const server = http.createServer((req, res) => {
     // Verifică cererile pentru pagina de creare a contului
@@ -39,6 +40,9 @@ const server = http.createServer((req, res) => {
         const bookId = req.url.split('/').pop()
         handlePageDetailsRequest(req, res, bookId)
     } else if (req.method === 'GET' && req.url.startsWith('/api/book/')) {
+        const bookId = req.url.split('/').pop()
+        handleBookRequest(req, res, bookId)
+    } else if (req.method === 'GET' && req.url.startsWith('/api/review/')) {
         const bookId = req.url.split('/').pop()
         handleBookRequest(req, res, bookId)
     }

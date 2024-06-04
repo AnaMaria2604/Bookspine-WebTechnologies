@@ -7,7 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="../../Frontend/navbar_footer.js"></script>
   <script src="../../Frontend/giverating.js"></script>
-  <script src="../../Frontend/showrating.js"></script>
   <script src="../../Backend/bookService.js"></script>
   <title>Book Page</title>
 </head>
@@ -44,7 +43,10 @@
   <div class="main">
     <div class="content">
       <div class="left_part">
-        <img src="../../Frontend/Images/book1.jpg" alt="Imagine1">
+        <div id="book_image">
+          <!-- Aici va fi poza cartii -->
+        </div>
+
         <div class="container">
           <div class="titlu">Add the book to a shelf</div>
           <div class="shelves">
@@ -71,25 +73,23 @@
           <!-- Aici vor fi detalii despre cartea dorita -->
         </div>
 
-        <div class="showrating" id="starContainer" data-number="4"></div>
-        <!--
-        <div class="description">
-          Since its immediate success in 1813, Pride and Prejudice has
-          remained one of the most popular novels in the English language.
-          Jane Austen called this brilliant work "her own darling child" and
-          its vivacious heroine, Elizabeth Bennet, "as delightful a creature
-          as ever appeared in print." The romantic clash between the
-          opinionated Elizabeth and her proud beau, Mr. Darcy, is a splendid
-          performance of civilized sparring. And Jane Austen's radiant wit
-          sparkles as her characters dance a delicate quadrille of flirtation
-          and intrigue, making this book the most superb comedy of manners of
-          Regency England.
-        </div> -->
+        <!-- <div class="showrating" id="starContainer" data-number="4"></div> -->
+
+        <div class="rating" id="starContainer">
+          <!-- aici se va afisa rating ul unei carti-->
+        </div>
+
+        <div id="description_book">
+          <div class="description_text">Description:</div>
+          <!-- Aici va fi descrierea cartii-->
+        </div>
 
         <div class="update">
           <div class="item">
             <div class="user_content">
-              <div class="userphoto"><img src="../../Frontend/Images/userphoto.jpg" alt=""></div>
+              <div class="userphoto">
+                <img src="../../Frontend/Images/userphoto.jpg" alt="">
+              </div>
               <a href="../../Frontend/User-Profile-Page/userprofile.html">Popescu</a>
               <div class="action">reviews</div>
               <div class="titlucarte">Cartea1</div>
@@ -102,66 +102,7 @@
               relationships and society.
             </div>
           </div>
-          <div class="item">
-            <div class="user_content">
-              <div class="userphoto"><img src="../../Frontend/Images/userphoto.jpg" alt=""></div>
-              <a href="../User-Profile-Page/userprofile.html">Popescu</a>
-              <div class="action">reviews</div>
-              <div class="titlucarte">Cartea1</div>
-            </div>
-            <div class="descriere">
-              With its timeless themes and engaging narrative, 'Pride and
-              Prejudice' remains a literary treasure cherished by generations of
-              readers. Austen's sharp wit and keen observation elevate the novel
-              beyond a mere romance, offering profound insights into human
-              relationships and society.
-            </div>
-          </div>
-          <div class="item">
-            <div class="user_content">
-              <div class="userphoto"><img src="../../Frontend/Images/userphoto.jpg" alt=""></div>
-              <a href="../User-Profile-Page/userprofile.html">Popescu</a>
-              <div class="action">reviews</div>
-              <div class="titlucarte">Cartea1</div>
-            </div>
-            <div class="descriere">
-              With its timeless themes and engaging narrative, 'Pride and
-              Prejudice' remains a literary treasure cherished by generations of
-              readers. Austen's sharp wit and keen observation elevate the novel
-              beyond a mere romance, offering profound insights into human
-              relationships and society.
-            </div>
-          </div>
-          <div class="item">
-            <div class="user_content">
-              <div class="userphoto"><img src="../../Frontend/Images/userphoto.jpg" alt=""></div>
-              <a href="../User-Profile-Page/userprofile.html">Popescu</a>
-              <div class="action">reviews</div>
-              <div class="titlucarte">Cartea1</div>
-            </div>
-            <div class="descriere">
-              With its timeless themes and engaging narrative, 'Pride and
-              Prejudice' remains a literary treasure cherished by generations of
-              readers. Austen's sharp wit and keen observation elevate the novel
-              beyond a mere romance, offering profound insights into human
-              relationships and society.
-            </div>
-          </div>
-          <div class="item">
-            <div class="user_content">
-              <div class="userphoto"><img src="../../Frontend/Images/userphoto.jpg" alt=""></div>
-              <a href="../User-Profile-Page/userprofile.html">Popescu</a>
-              <div class="action">reviews</div>
-              <div class="titlucarte">Cartea1</div>
-            </div>
-            <div class="descriere">
-              With its timeless themes and engaging narrative, 'Pride and
-              Prejudice' remains a literary treasure cherished by generations of
-              readers. Austen's sharp wit and keen observation elevate the novel
-              beyond a mere romance, offering profound insights into human
-              relationships and society.
-            </div>
-          </div>
+
         </div>
 
       </div>

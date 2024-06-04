@@ -98,9 +98,7 @@ body .bodypage {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  margin: 4%;
-  margin-top: 0px;
+  margin: 6%;
 }
 body .bodypage .stanga {
   display: flex;
