@@ -21,7 +21,8 @@ const {
     handleFavouriteSubmission,
 } = require('./Backend/favourite')
 const { Console } = require('console')
-//initializeDatabase();
+
+//initializeDatabase()
 
 const server = http.createServer((req, res) => {
     // Verifică cererile pentru pagina de creare a contului
@@ -51,6 +52,9 @@ const server = http.createServer((req, res) => {
     } else if (req.method === 'POST' && req.url === '/favourite-submission') {
         console.log('intru aici')
         handleFavouriteSubmission(req, res)
+    } else if (req.method === 'GET' && req.url.startsWith('/api/review/')) {
+        const bookId = req.url.split('/').pop()
+        handleBookRequest(req, res, bookId)
     }
 
     // Verifică cererile pentru fișiere CSS

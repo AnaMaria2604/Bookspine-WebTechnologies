@@ -96,7 +96,6 @@ body .dropdown-menu li a {
 }
 body .main {
   width: 100%;
-  margin-top: 50px;
 }
 body .main .content {
   background-color: #104547;
@@ -114,22 +113,29 @@ body .main .content {
 body .main .content .left_part {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 70%;
   padding: 20px;
   border-radius: 20px;
+  margin: 20px;
   color: white;
 }
-body .main .content .left_part img {
-  height: 300px;
+body .main .content .left_part .cover {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+}
+body .main .content .left_part .cover .book_cover {
+  height: 400px;
   width: auto;
-  padding: 10px;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 body .main .content .left_part .container {
   display: flex;
   flex-direction: column;
 }
 body .main .content .left_part .container .titlu {
+  margin-top: 20px;
   font-weight: bold;
   align-self: center;
   padding: 10px;
@@ -172,13 +178,12 @@ body .main .content .right_part {
   padding: 20px;
   display: flex;
   flex-direction: column;
-  margin-left: 5%;
   color: white;
 }
-body .main .content .right_part .showrating {
-  font-size: 21px;
+body .main .content .right_part .rating {
+  font-size: 23px;
   margin-left: 10px;
-  padding: 0px 10px 10px 0px;
+  padding: 10px 0px 30px 0px;
 }
 body .main .content .right_part .gold-star {
   color: rgb(255, 255, 0);
@@ -188,27 +193,37 @@ body .main .content .right_part .white-star {
 }
 body .main .content .right_part .title {
   padding: 10px;
-  font-size: 25px;
+  font-size: 45px;
   font-weight: bold;
 }
 body .main .content .right_part .author {
   padding: 10px;
   font-size: 20px;
 }
-body .main .content .right_part .description {
-  padding: 10px;
-  margin-bottom: 20px;
-}
 body .main .content .right_part .genres {
+  font-size: 16px;
   padding: 10px;
+  color: rgb(146, 161, 157);
 }
 body .main .content .right_part .published {
+  font-size: 16px;
   padding: 10px;
+  color: rgb(146, 161, 157);
 }
 body .main .content .right_part .reviews {
   padding: 10px;
   font-size: 25px;
   margin-bottom: 10px;
+}
+body .main .content .right_part .description_text {
+  font-size: 25px;
+  padding: 10px;
+}
+body .main .content .right_part .description {
+  font-style: italic;
+  font-size: 18px;
+  padding: 10px;
+  margin-bottom: 20px;
 }
 body .main .content .right_part .update {
   display: flex;

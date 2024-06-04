@@ -122,9 +122,7 @@ body {
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: space-between;
-        margin: 4%;
-        margin-top: 0px;
+        margin: 6%;
 
         .stanga {
             display: flex;
@@ -181,7 +179,7 @@ body {
                 }
             }
 
-            .carti > .carte {
+            .carti>.carte {
                 margin-right: 10px;
             }
         }
