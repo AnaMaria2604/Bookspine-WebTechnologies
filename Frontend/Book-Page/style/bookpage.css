@@ -113,7 +113,7 @@ body .main .content {
 body .main .content .left_part {
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 70%;
   padding: 20px;
   border-radius: 20px;
   margin: 20px;
@@ -193,24 +193,20 @@ body .main .content .right_part .white-star {
 }
 body .main .content .right_part .title {
   padding: 10px;
-  font-size: 50px;
+  font-size: 45px;
   font-weight: bold;
 }
 body .main .content .right_part .author {
   padding: 10px;
-  font-size: 30px;
-}
-body .main .content .right_part .description {
-  padding: 10px;
-  margin-bottom: 20px;
+  font-size: 20px;
 }
 body .main .content .right_part .genres {
-  font-size: 20px;
+  font-size: 16px;
   padding: 10px;
   color: rgb(146, 161, 157);
 }
 body .main .content .right_part .published {
-  font-size: 20px;
+  font-size: 16px;
   padding: 10px;
   color: rgb(146, 161, 157);
 }
@@ -220,13 +216,14 @@ body .main .content .right_part .reviews {
   margin-bottom: 10px;
 }
 body .main .content .right_part .description_text {
-  font-size: 30px;
+  font-size: 25px;
   padding: 10px;
 }
 body .main .content .right_part .description {
   font-style: italic;
   font-size: 18px;
   padding: 10px;
+  margin-bottom: 20px;
 }
 body .main .content .right_part .update {
   display: flex;

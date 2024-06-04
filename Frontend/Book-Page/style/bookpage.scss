@@ -141,7 +141,7 @@ body {
             .left_part {
                 display: flex;
                 flex-direction: column;
-                width: 60%;
+                width: 70%;
                 padding: 20px;
                 border-radius: 20px;
                 margin: 20px;
@@ -221,7 +221,6 @@ body {
                 padding: 20px;
                 display: flex;
                 flex-direction: column;
-                // margin-left: 5%;
                 color: white;
 
                 .rating {
@@ -240,28 +239,23 @@ body {
 
                 .title {
                     padding: 10px;
-                    font-size: 50px;
+                    font-size: 45px;
                     font-weight: bold;
                 }
 
                 .author {
                     padding: 10px;
-                    font-size: 30px;
-                }
-
-                .description {
-                    padding: 10px;
-                    margin-bottom: 20px;
+                    font-size: 20px;
                 }
 
                 .genres {
-                    font-size: 20px;
+                    font-size: 16px;
                     padding: 10px;
                     color: rgb(146, 161, 157);
                 }
 
                 .published {
-                    font-size: 20px;
+                    font-size: 16px;
                     padding: 10px;
                     color: rgb(146, 161, 157);
                 }
@@ -274,7 +268,7 @@ body {
                 }
 
                 .description_text {
-                    font-size: 30px;
+                    font-size: 25px;
                     padding: 10px;
                 }
 
@@ -282,6 +276,7 @@ body {
                     font-style: italic;
                     font-size: 18px;
                     padding: 10px;
+                    margin-bottom: 20px;
                 }
 
                 .update {

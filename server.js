@@ -42,6 +42,9 @@ const server = http.createServer((req, res) => {
     } else if (req.method === 'GET' && req.url.startsWith('/api/book/')) {
         const bookId = req.url.split('/').pop()
         handleBookRequest(req, res, bookId)
+    } else if (req.method === 'GET' && req.url.startsWith('/api/review/')) {
+        const bookId = req.url.split('/').pop()
+        handleBookRequest(req, res, bookId)
     }
 
     // Verifică cererile pentru fișiere CSS
