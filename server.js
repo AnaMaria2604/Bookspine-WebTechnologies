@@ -7,7 +7,7 @@ const {
     handleCreateAccountSubmit,
 } = require('./Backend/createAccount')
 const { handleLoginRequest, handleLoginSubmission } = require('./Backend/login')
-const { handleIndexRequest } = require('./Backend/indexService')
+const { handleIndexRequest } = require('./Backend/index')
 const {
     handlePopularBooksRequest,
     handleRecommendedBooksRequest,
@@ -30,8 +30,10 @@ const server = http.createServer((req, res) => {
     } else if (req.method === 'GET' && req.url === '/') {
         handleIndexRequest(req, res)
     } else if (req.method === 'GET' && req.url === '/api/recommended-books') {
+        console.log('aici0')
         handleRecommendedBooksRequest(req, res)
     } else if (req.method === 'GET' && req.url === '/api/popular-books') {
+        console.log('aici')
         handlePopularBooksRequest(req, res)
     } else if (req.method === 'GET' && req.url.startsWith('/api/book/')) {
         const bookId = req.url.split('/').pop()
@@ -47,6 +49,19 @@ const server = http.createServer((req, res) => {
                 res.end('404 Not Found')
             } else {
                 res.writeHead(200, { 'Content-Type': 'text/css' })
+                res.end(data)
+            }
+        })
+    }
+    // Verifică cererile pentru fișierele JavaScript din Backend
+    else if (req.url.startsWith('/Backend/')) {
+        const filePath = path.join(__dirname, req.url)
+        fs.readFile(filePath, (err, data) => {
+            if (err) {
+                res.writeHead(404)
+                res.end('404 Not Found')
+            } else {
+                res.writeHead(200, { 'Content-Type': 'application/javascript' })
                 res.end(data)
             }
         })

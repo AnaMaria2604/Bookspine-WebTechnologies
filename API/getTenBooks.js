@@ -41,7 +41,7 @@ function handleRecommendedBooksRequest(req, res) {
             res.end(JSON.stringify({ error: 'Internal Server Error' }))
         } else {
             res.writeHead(200, { 'Content-Type': 'application/json' })
-
+            console.log(results)
             res.end(JSON.stringify(results))
         }
     })
@@ -54,7 +54,7 @@ function handlePopularBooksRequest(req, res) {
             res.end(JSON.stringify({ error: 'Internal Server Error' }))
         } else {
             res.writeHead(200, { 'Content-Type': 'application/json' })
-            //  console.log(results);
+            console.log(results)
             res.end(JSON.stringify(results))
         }
     })
