@@ -3,7 +3,6 @@ const path = require('path')
 const { getBookDetails } = require('../API/showBookDetails')
 
 const handlePageDetailsRequest = (req, res, bookId) => {
-    console.log('pageee details')
     const filePath = path.join(__dirname, '../Frontend/Book-Page/bookpage.html')
 
     fs.readFile(filePath, (err, data) => {

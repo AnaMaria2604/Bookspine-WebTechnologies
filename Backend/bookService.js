@@ -1,28 +1,29 @@
 document.addEventListener('DOMContentLoaded', function () {
     const urlParts = window.location.pathname.split('/')
     const bookId = urlParts.pop() || urlParts.pop()
-    console.log('bookserv')
-    console.log(bookId)
     fetch(`/api/book/${bookId}`)
         .then((response) => response.json())
-        .then((book) => {
-            console.log(book)
+        .then((data) => {
             const details = document.getElementById('details_book')
-            const bookElement = document.createElement('div')
-            bookElement.innerHTML = `
+            data.forEach((book) => {
+                const bookElement = document.createElement('div')
+                console.log('Book title: ' + book.title)
+                bookElement.innerHTML = `
+            <div>
                 <div class="title">
-                    <p>${book.title}</p>
+                    ${book.title}
                 </div>
                 <div class="author">
-                    <p>${book.author}</p>
+                    ${book.author}
                 </div>
                 <div class="genres">
-                    <p>${book.genre}</p>
+                    ${book.genre}
                 </div>
                 <div class="published">
-                    <p>${book.year}</p>
-                </div>`
-            details.appendChild(bookElement)
+                    ${book.year}
+                </div></div>`
+                details.appendChild(bookElement)
+            })
         })
         .catch((error) => {
             console.error('Error fetching books:', error)

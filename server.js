@@ -32,18 +32,14 @@ const server = http.createServer((req, res) => {
     } else if (req.method === 'GET' && req.url === '/') {
         handleIndexRequest(req, res)
     } else if (req.method === 'GET' && req.url === '/api/recommended-books') {
-        console.log('aici0')
         handleRecommendedBooksRequest(req, res)
     } else if (req.method === 'GET' && req.url === '/api/popular-books') {
-        console.log('aici')
         handlePopularBooksRequest(req, res)
     } else if (req.method === 'GET' && req.url.startsWith('/book/')) {
         const bookId = req.url.split('/').pop()
-        //  console.log(bookId)
         handlePageDetailsRequest(req, res, bookId)
     } else if (req.method === 'GET' && req.url.startsWith('/api/book/')) {
         const bookId = req.url.split('/').pop()
-        console.log(bookId)
         handleBookRequest(req, res, bookId)
     }
 
@@ -112,7 +108,6 @@ const server = http.createServer((req, res) => {
                     res.writeHead(404)
                     res.end('404 Not Found')
                 } else {
-                    console.log('server')
                     res.writeHead(500)
                     res.end('Internal Server Error')
                 }
