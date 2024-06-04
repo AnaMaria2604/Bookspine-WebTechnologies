@@ -123,11 +123,12 @@ body .bodypage .stanga .section .carti {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
 }
 body .bodypage .stanga .section .carti .carte {
   display: flex;
   flex-direction: column;
-  padding-left: 10px;
 }
 body .bodypage .stanga .section .carti .carte .carte__poza {
   width: 90px;

@@ -147,10 +147,13 @@ body {
                     display: flex;
                     flex-direction: row;
                     flex-wrap: wrap;
+                    justify-content: center;
+                    gap: 10px;
+
                     .carte {
                         display: flex;
                         flex-direction: column;
-                        padding-left: 10px;
+
                         .carte__poza {
                             width: 90px;
                             height: 110px;
