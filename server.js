@@ -13,7 +13,10 @@ const {
     handleRecommendedBooksRequest,
 } = require('./API/getTenBooks')
 
-const { handleBookRequest } = require('./API/showBookDetails')
+const {
+    handleBookRequest,
+    handleReviewRequest,
+} = require('./API/showBookDetails')
 
 const { handlePageDetailsRequest } = require('./Backend/book')
 const { Console } = require('console')
@@ -44,7 +47,7 @@ const server = http.createServer((req, res) => {
         handleBookRequest(req, res, bookId)
     } else if (req.method === 'GET' && req.url.startsWith('/api/review/')) {
         const bookId = req.url.split('/').pop()
-        handleBookRequest(req, res, bookId)
+        handleReviewRequest(req, res, bookId)
     }
 
     // Verifică cererile pentru fișiere CSS

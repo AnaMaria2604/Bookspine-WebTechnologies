@@ -279,39 +279,36 @@ body {
                     margin-bottom: 20px;
                 }
 
-                .update {
+
+                .item {
+                    padding: 10px;
                     display: flex;
                     flex-direction: column;
+                    background-color: $body4;
+                    border-radius: 20px;
+                    margin-bottom: 20px;
 
-                    .item {
-                        padding: 10px;
+                    .user_content {
                         display: flex;
-                        flex-direction: column;
-                        background-color: $body4;
-                        border-radius: 20px;
-                        margin-bottom: 20px;
+                        flex-direction: row;
+                        gap: 5px;
+                        padding: 5px;
 
-                        .user_content {
-                            display: flex;
-                            flex-direction: row;
-                            gap: 5px;
-                            padding: 5px;
-
-                            .userphoto {
-                                height: 30px;
-                                width: 30px;
-                                border-radius: 50%;
-                                overflow: hidden;
-                            }
+                        .userphoto {
+                            height: 30px;
+                            width: 30px;
+                            border-radius: 50%;
+                            overflow: hidden;
                         }
+                    }
 
-                        .descriere {
-                            padding-left: 30px;
-                        }
-
+                    .descriere {
+                        padding-left: 30px;
                     }
 
                 }
+
+
 
             }
         }

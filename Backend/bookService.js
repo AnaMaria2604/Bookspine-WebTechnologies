@@ -85,6 +85,35 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error('Error fetching books:', error)
         })
 
+    fetch(`/api/review/${bookId}`)
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data)
+            const details = document.getElementById('reviews')
+            data.forEach((review) => {
+                // const blob = new Blob([new Uint8Array(review.cover.data)], {
+                //     type: 'image/jpeg',
+                // })
+                // const imageUrl = URL.createObjectURL(blob)
+                const reviewElement = document.createElement('div')
+                console.log(review.userId + ' ' + review.reviewDescription)
+                console.log(review)
+                reviewElement.innerHTML = `
+                <div class="item">
+                    <div class="user_content">
+                        <a href="#">${review.userId}'s review: </a>
+                        <div class="review_rating">${review.rating} stars</div>
+                    </div>
+                 <div class="descriere">${review.reviewDescription}</div>
+                </div>
+                `
+                details.appendChild(reviewElement)
+            })
+        })
+        .catch((error) => {
+            console.error('Error fetching reviews:', error)
+        })
+
     function showStars(number) {
         if (
             typeof number !== 'number' ||

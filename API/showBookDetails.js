@@ -31,4 +31,42 @@ const getBookDetails = (bookId, callback) => {
         )
     })
 }
-module.exports = { getBookDetails, handleBookRequest }
+
+const getReviewDetails = (bookId, callback) => {
+    pool.getConnection((err, connection) => {
+        if (err) {
+            return callback(err, null)
+        }
+        connection.query(
+            'SELECT * FROM review WHERE bookId = ?',
+            [bookId],
+            (error, results) => {
+                connection.release()
+                if (error) {
+                    return callback(error, null)
+                }
+                callback(null, results)
+            }
+        )
+    })
+}
+
+function handleReviewRequest(req, res, bookId) {
+    getReviewDetails(bookId, (error, results) => {
+        if (error) {
+            res.writeHead(500, { 'Content-Type': 'application/json' })
+            res.end(JSON.stringify({ error: 'Internal Server Error' }))
+        } else {
+            res.writeHead(200, { 'Content-Type': 'application/json' })
+            console.log(results)
+            res.end(JSON.stringify(results))
+        }
+    })
+}
+
+module.exports = {
+    getReviewDetails,
+    getBookDetails,
+    handleReviewRequest,
+    handleBookRequest,
+}

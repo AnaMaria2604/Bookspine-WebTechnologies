@@ -225,11 +225,7 @@ body .main .content .right_part .description {
   padding: 10px;
   margin-bottom: 20px;
 }
-body .main .content .right_part .update {
-  display: flex;
-  flex-direction: column;
-}
-body .main .content .right_part .update .item {
+body .main .content .right_part .item {
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -237,19 +233,19 @@ body .main .content .right_part .update .item {
   border-radius: 20px;
   margin-bottom: 20px;
 }
-body .main .content .right_part .update .item .user_content {
+body .main .content .right_part .item .user_content {
   display: flex;
   flex-direction: row;
   gap: 5px;
   padding: 5px;
 }
-body .main .content .right_part .update .item .user_content .userphoto {
+body .main .content .right_part .item .user_content .userphoto {
   height: 30px;
   width: 30px;
   border-radius: 50%;
   overflow: hidden;
 }
-body .main .content .right_part .update .item .descriere {
+body .main .content .right_part .item .descriere {
   padding-left: 30px;
 }
 
