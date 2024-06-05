@@ -6,7 +6,6 @@ const querystring = require('querystring')
 const pool = require('../DataBase/database')
 
 const getIdUser = (email, callback) => {
-    console.log('here')
     pool.getConnection((err, connection) => {
         if (err) {
             return callback(err, null)

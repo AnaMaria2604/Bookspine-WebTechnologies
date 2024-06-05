@@ -252,9 +252,10 @@ body .main .content .right_part .item .descriere {
 footer {
   display: flex;
   flex-direction: column;
+  position: fixed;
   text-align: center;
   flex: 1;
-  margin-top: 100px;
+  margin-top: 30px;
   bottom: 0;
   width: 100%;
   background: #0c3742;
