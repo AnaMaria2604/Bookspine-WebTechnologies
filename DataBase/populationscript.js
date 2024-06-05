@@ -17,6 +17,7 @@ function populateDatabase(connection) {
             'password123',
             'I love reading mystery novels.',
             'To be, or not to be, that is the question.',
+            readImage(path.join(__dirname, 'userImages', '1.jpg')),
         ],
         [
             'Jane',
@@ -25,6 +26,7 @@ function populateDatabase(connection) {
             'password456',
             'Avid reader of science fiction.',
             'The only limit to our realization of tomorrow is our doubts of today.',
+            readImage(path.join(__dirname, 'userImages', '2.jpg')),
         ],
         [
             'Alice',
@@ -33,6 +35,7 @@ function populateDatabase(connection) {
             'password789',
             'Enjoys historical fiction.',
             'History is a vast early warning system.',
+            readImage(path.join(__dirname, 'userImages', '3.jpg')),
         ],
         [
             'Bob',
@@ -41,6 +44,7 @@ function populateDatabase(connection) {
             'password012',
             'Fan of fantasy books.',
             'Not all those who wander are lost.',
+            readImage(path.join(__dirname, 'userImages', '4.jpg')),
         ],
         [
             'Charlie',
@@ -49,6 +53,7 @@ function populateDatabase(connection) {
             'password345',
             'Reading thrillers is my hobby.',
             'The truth is rarely pure and never simple.',
+            readImage(path.join(__dirname, 'userImages', '5.jpg')),
         ],
         [
             'Diana',
@@ -57,6 +62,7 @@ function populateDatabase(connection) {
             'password678',
             'Loves classic literature.',
             'It is never too late to be what you might have been.',
+            readImage(path.join(__dirname, 'userImages', '6.jpg')),
         ],
         [
             'Eve',
@@ -65,6 +71,7 @@ function populateDatabase(connection) {
             'password901',
             'Interested in biographies.',
             "Life is what happens when you're busy making other plans.",
+            readImage(path.join(__dirname, 'userImages', '7.jpg')),
         ],
         [
             'Frank',
@@ -73,6 +80,7 @@ function populateDatabase(connection) {
             'password234',
             'Reading non-fiction books.',
             'Knowledge is power.',
+            readImage(path.join(__dirname, 'userImages', '8.jpg')),
         ],
         [
             'Grace',
@@ -81,6 +89,7 @@ function populateDatabase(connection) {
             'password567',
             'Passionate about poetry.',
             'Poetry is when an emotion has found its thought and the thought has found words.',
+            readImage(path.join(__dirname, 'userImages', '9.jpg')),
         ],
         [
             'Hank',
@@ -89,11 +98,12 @@ function populateDatabase(connection) {
             'password890',
             'Loves adventure stories.',
             'Adventure is worthwhile in itself.',
+            readImage(path.join(__dirname, 'userImages', '10.jpg')),
         ],
     ]
 
     connection.query(
-        'INSERT INTO user (firstName, lastName, email, password, description, favQuote) VALUES ?',
+        'INSERT INTO user (firstName, lastName, email, password, description, favQuote, photo) VALUES ?',
         [users],
         (err) => {
             if (err) {
@@ -411,6 +421,7 @@ function populateDatabase(connection) {
         [8, 9, 'It was decent.', 3, new Date('2023-10-15')],
         [9, 10, 'Could have been better.', 3, new Date('2023-02-10')],
         [10, 1, 'Not worth the time.,', 4, new Date('2023-03-09')],
+        [4, 2, 'An amazing read!!!!!!', 5, new Date('2023-01-10')],
     ]
 
     connection.query(

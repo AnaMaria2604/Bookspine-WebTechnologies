@@ -94,9 +94,6 @@ body .dropdown-menu li a {
   font-size: 17px;
   font-weight: bold;
 }
-body .main {
-  width: 100%;
-}
 body .main .content {
   background-color: #104547;
   border-radius: 20px;
@@ -113,7 +110,7 @@ body .main .content {
 body .main .content .left_part {
   display: flex;
   flex-direction: column;
-  width: 70%;
+  width: 50%;
   padding: 20px;
   border-radius: 20px;
   margin: 20px;
@@ -179,6 +176,7 @@ body .main .content .right_part {
   display: flex;
   flex-direction: column;
   color: white;
+  width: 60%;
 }
 body .main .content .right_part .rating {
   font-size: 23px;
@@ -214,6 +212,41 @@ body .main .content .right_part .reviews {
   padding: 10px;
   font-size: 25px;
   margin-bottom: 10px;
+}
+body .main .content .right_part .reviews .section_text {
+  font-size: 25px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+body .main .content .right_part .reviews .item {
+  background-color: #0A2E36;
+}
+body .main .content .right_part .reviews .item .user_content {
+  display: flex;
+  flex-direction: row;
+  font-size: 20px;
+}
+body .main .content .right_part .reviews .item .user_content a {
+  color: white;
+}
+body .main .content .right_part .reviews .item .user_content .user_photo {
+  aspect-ratio: 1;
+  background-size: cover;
+  background-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 100%;
+  display: block;
+  width: 37px;
+  height: 37px;
+  float: right;
+}
+body .main .content .right_part .reviews .item .descriere {
+  overflow-wrap: break-word;
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 20px;
 }
 body .main .content .right_part .description_text {
   font-size: 25px;
@@ -252,10 +285,9 @@ body .main .content .right_part .item .descriere {
 footer {
   display: flex;
   flex-direction: column;
-  position: fixed;
   text-align: center;
   flex: 1;
-  margin-top: 30px;
+  margin-top: 100px;
   bottom: 0;
   width: 100%;
   background: #0c3742;
@@ -290,7 +322,7 @@ body::after {
   pointer-events: none;
 }
 
-@media (min-width: 481px) and (max-width: 767px) {
+@media (min-width: 481px) and (max-width: 1241px) {
   body .main .content {
     display: flex;
     flex-direction: column;
@@ -301,6 +333,16 @@ body::after {
   }
   body .main .content .right_part .showrating {
     align-self: center;
+  }
+  body .main .content .right_part .rating,
+  body .main .content .right_part .gold-star,
+  body .main .content .right_part .white-star,
+  body .main .content .right_part .title,
+  body .main .content .right_part .author,
+  body .main .content .right_part .genres,
+  body .main .content .right_part .published {
+    justify-content: center;
+    align-items: center;
   }
   body .main .content .left_part img {
     align-self: center;

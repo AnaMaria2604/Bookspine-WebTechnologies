@@ -83,7 +83,8 @@ function initializeDatabase() {
           email VARCHAR(100) NOT NULL UNIQUE,
           password VARCHAR(100) NOT NULL,
           description VARCHAR(200) ,
-          favQuote VARCHAR(200) 
+          favQuote VARCHAR(200) ,
+          photo MEDIUMBLOB
       )
     `,
         (err) => {

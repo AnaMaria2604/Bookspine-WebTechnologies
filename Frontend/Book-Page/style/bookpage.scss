@@ -123,7 +123,6 @@ body {
     }
 
     .main {
-        width: 100%;
 
         .content {
             background-color: $body;
@@ -141,7 +140,7 @@ body {
             .left_part {
                 display: flex;
                 flex-direction: column;
-                width: 70%;
+                width: 50%;
                 padding: 20px;
                 border-radius: 20px;
                 margin: 20px;
@@ -222,6 +221,7 @@ body {
                 display: flex;
                 flex-direction: column;
                 color: white;
+                width: 60%;
 
                 .rating {
                     font-size: 23px;
@@ -265,6 +265,47 @@ body {
                     font-size: 25px;
                     margin-bottom: 10px;
 
+                    .section_text {
+                        font-size: 25px;
+                        padding: 10px;
+                        margin-bottom: 10px;
+                    }
+
+                    .item {
+                        background-color: #0A2E36;
+
+                        // width: 100%;
+
+                        .user_content {
+                            display: flex;
+                            flex-direction: row;
+                            font-size: 20px;
+
+                            a {
+                                color: white;
+                            }
+
+                            .user_photo {
+                                aspect-ratio: 1;
+                                background-size: cover;
+                                background-position: center;
+                                object-fit: cover;
+                                border-radius: 100%;
+                                display: block;
+                                width: 37px;
+                                height: 37px;
+                                float: right;
+                            }
+                        }
+
+                        .descriere {
+                            overflow-wrap: break-word;
+                            padding-left: 20px;
+                            padding-top: 10px;
+                            padding-bottom: 10px;
+                            font-size: 20px;
+                        }
+                    }
                 }
 
                 .description_text {
@@ -357,7 +398,7 @@ body::after {
     pointer-events: none;
 }
 
-@media (min-width: 481px) and (max-width: 767px) {
+@media (min-width: 481px) and (max-width: 1241px) {
     body {
         .main {
             .content {
@@ -370,6 +411,16 @@ body::after {
 
                     .showrating {
                         align-self: center;
+                    }
+
+                    .rating,
+                    .gold-star,
+                    .white-star,
+                    .title,
+                    .author,
+                    .genres,
+                    .published {
+                        margin: 20px;
                     }
                 }
 
