@@ -110,7 +110,7 @@ body .main .content {
 body .main .content .left_part {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 40%;
   padding: 20px;
   border-radius: 20px;
   margin: 20px;
@@ -123,7 +123,7 @@ body .main .content .left_part .cover {
   align-content: center;
 }
 body .main .content .left_part .cover .book_cover {
-  height: 400px;
+  height: 300px;
   width: auto;
   border-radius: 10px;
 }
@@ -144,6 +144,7 @@ body .main .content .left_part .container .shelves {
   align-items: center;
   color: black;
   border-radius: 20px;
+  width: auto;
   flex-direction: column;
 }
 body .main .content .left_part .container .shelves .shelve {
@@ -153,7 +154,7 @@ body .main .content .left_part .container .text {
   font-weight: bold;
   align-self: center;
   padding: 10px;
-  margin-top: 40px;
+  margin-top: 30px;
 }
 body .main .content .left_part .container .stars {
   display: flex;
@@ -328,21 +329,20 @@ body::after {
     flex-direction: column;
     align-items: center;
   }
-  body .main .content .right_part {
-    margin: 0px;
-  }
   body .main .content .right_part .showrating {
     align-self: center;
   }
-  body .main .content .right_part .rating,
-  body .main .content .right_part .gold-star,
-  body .main .content .right_part .white-star,
-  body .main .content .right_part .title,
-  body .main .content .right_part .author,
-  body .main .content .right_part .genres,
-  body .main .content .right_part .published {
+  body .main .content .right_part .rating {
+    align-self: center;
     justify-content: center;
-    align-items: center;
+    margin: 0px;
+  }
+  body .main .content .right_part .elements {
+    align-self: center;
+    justify-content: center;
+    background-color: #0A2E36;
+    padding: 20px 80px 20px 80px;
+    border-radius: 20px;
   }
   body .main .content .left_part img {
     align-self: center;
@@ -351,6 +351,17 @@ body::after {
   }
   body .main .content .left_part .container .star {
     align-self: center;
+  }
+  footer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    flex: 1;
+    margin-top: 150px;
+    bottom: 0;
+    width: 100%;
+    background: #0c3742;
+    color: white;
   }
 }
 @media (min-width: 320px) and (max-width: 480px) {
@@ -362,13 +373,69 @@ body::after {
   body .main .content .right_part {
     margin: 0px;
   }
+  body .main .content .right_part .elements {
+    align-self: center;
+    justify-content: center;
+    background-color: #0A2E36;
+    padding: 20px 40px 20px 40px;
+    border-radius: 10px;
+  }
+  body .main .content .right_part .elements .title {
+    font-size: 35px;
+  }
+  body .main .content .right_part .elements .author,
+  body .main .content .right_part .elements .genre,
+  body .main .content .right_part .elements .published {
+    font-size: 14px;
+  }
+  body .main .content .right_part .reviews .item .user_content {
+    font-size: 16px;
+  }
+  body .main .content .right_part .reviews .item .user_content a {
+    color: white;
+  }
+  body .main .content .right_part .reviews .item .descriere {
+    overflow-wrap: break-word;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 15px;
+  }
+  body .main .content .right_part .description_text {
+    font-size: 20px;
+    padding: 10px;
+  }
+  body .main .content .right_part .description {
+    font-style: italic;
+    font-size: 14px;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
   body .main .content .right_part .showrating {
     align-self: center;
+  }
+  body .main .content .right_part .rating {
+    align-self: center;
+    justify-content: center;
+    margin: 0px;
+  }
+  body .main .content .right_part .elements {
+    align-self: center;
+    justify-content: center;
+    background-color: #0A2E36;
+    padding: 20px 80px 20px 80px;
+    border-radius: 20px;
   }
   body .main .content .left_part img {
     align-self: center;
     height: 200px;
     width: auto;
+  }
+  body .main .content .left_part .container .shelves {
+    font-size: 12px;
+  }
+  body .main .content .left_part .container .shelves .shelve {
+    margin: 5px 0;
   }
   body .main .content .left_part .container .star {
     align-self: center;

@@ -140,7 +140,7 @@ body {
             .left_part {
                 display: flex;
                 flex-direction: column;
-                width: 50%;
+                width: 40%;
                 padding: 20px;
                 border-radius: 20px;
                 margin: 20px;
@@ -153,7 +153,7 @@ body {
                     align-content: center;
 
                     .book_cover {
-                        height: 400px;
+                        height: 300px;
                         width: auto;
                         border-radius: 10px;
                     }
@@ -178,6 +178,7 @@ body {
                         align-items: center;
                         color: black;
                         border-radius: 20px;
+                        width: auto;
                         flex-direction: column;
 
                         .shelve {
@@ -189,7 +190,7 @@ body {
                         font-weight: bold;
                         align-self: center;
                         padding: 10px;
-                        margin-top: 40px;
+                        margin-top: 30px;
 
                     }
 
@@ -407,20 +408,24 @@ body::after {
                 align-items: center;
 
                 .right_part {
-                    margin: 0px;
 
                     .showrating {
                         align-self: center;
                     }
 
-                    .rating,
-                    .gold-star,
-                    .white-star,
-                    .title,
-                    .author,
-                    .genres,
-                    .published {
-                        margin: 20px;
+                    .rating {
+                        align-self: center;
+                        justify-content: center;
+                        margin: 0px;
+                    }
+
+
+                    .elements {
+                        align-self: center;
+                        justify-content: center;
+                        background-color: #0A2E36;
+                        padding: 20px 80px 20px 80px;
+                        border-radius: 20px;
                     }
                 }
 
@@ -440,6 +445,18 @@ body::after {
             }
         }
     }
+
+    footer {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        flex: 1;
+        margin-top: 150px;
+        bottom: 0;
+        width: 100%;
+        background: $footer;
+        color: $textcolor;
+    }
 }
 
 
@@ -454,12 +471,78 @@ body::after {
                 .right_part {
                     margin: 0px;
 
+                    .elements {
+                        .title {
+                            font-size: 35px;
+                        }
+
+                        .author,
+                        .genre,
+                        .published {
+                            font-size: 14px;
+                        }
+
+                        align-self: center;
+                        justify-content: center;
+                        background-color: #0A2E36;
+                        padding: 20px 40px 20px 40px;
+                        border-radius: 10px;
+                    }
+
+                    .reviews {
+                        .item {
+                            .user_content {
+                                font-size: 16px;
+
+                                a {
+                                    color: white;
+                                }
+                            }
+
+                            .descriere {
+                                overflow-wrap: break-word;
+                                padding-left: 20px;
+                                padding-top: 10px;
+                                padding-bottom: 10px;
+                                font-size: 15px;
+                            }
+                        }
+                    }
+
+                    .description_text {
+                        font-size: 20px;
+                        padding: 10px;
+                    }
+
+                    .description {
+                        font-style: italic;
+                        font-size: 14px;
+                        padding: 10px;
+                        margin-bottom: 20px;
+                    }
+
                     .showrating {
                         align-self: center;
+                    }
+
+                    .rating {
+                        align-self: center;
+                        justify-content: center;
+                        margin: 0px;
+                    }
+
+
+                    .elements {
+                        align-self: center;
+                        justify-content: center;
+                        background-color: #0A2E36;
+                        padding: 20px 80px 20px 80px;
+                        border-radius: 20px;
                     }
                 }
 
                 .left_part {
+
                     img {
                         align-self: center;
                         height: 200px;
@@ -467,6 +550,14 @@ body::after {
                     }
 
                     .container {
+                        .shelves {
+                            font-size: 12px;
+
+                            .shelve {
+                                margin: 5px 0;
+                            }
+                        }
+
                         .star {
                             align-self: center;
                         }
