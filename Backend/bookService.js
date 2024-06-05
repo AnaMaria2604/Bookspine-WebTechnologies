@@ -33,7 +33,6 @@ document.addEventListener('DOMContentLoaded', function () {
         .then((data) => {
             const details = document.getElementById('book_image')
             data.forEach((book) => {
-                console.log(book.cover)
                 const blob = new Blob([new Uint8Array(book.cover.data)], {
                     type: 'image/jpeg',
                 })
@@ -88,16 +87,39 @@ document.addEventListener('DOMContentLoaded', function () {
     fetch(`/api/review/${bookId}`)
         .then((response) => response.json())
         .then((data) => {
-            console.log(data)
+            console.log(data) //aici afiseaza tot ce e la review
             const details = document.getElementById('reviews')
             data.forEach((review) => {
-                // const blob = new Blob([new Uint8Array(review.cover.data)], {
-                //     type: 'image/jpeg',
-                // })
-                // const imageUrl = URL.createObjectURL(blob)
+                console.log(review.userId) //asta wste 1: bun
+                const userId = review.userId
+                console.log('user id const: ' + userId) //asta wste 1: bun
+
+                fetch(`/api/user-review/${bookId}`)
+                    .then((response) => response.json())
+                    .then((data) => {
+                        console.log(data) //aici afiseaza tot ce e la review
+                        const details = document.getElementById('review_author')
+                        data.forEach((review) => {
+                            console.log('review jos:')
+                            console.log(review)
+                            // const blob = new Blob([new Uint8Array(review.cover.data)], {
+                            //     type: 'image/jpeg',
+                            // })
+                            // const imageUrl = URL.createObjectURL(blob)
+                            const reviewElement = document.createElement('div')
+                            reviewElement.innerHTML = `
+                                <div class="review_author">
+                                    <a href="#">${review.lastName}</a
+                                </div>
+                            `
+                            details.appendChild(reviewElement)
+                        })
+                    })
+                    .catch((error) => {
+                        console.error('Error fetching reviews:', error)
+                    })
+
                 const reviewElement = document.createElement('div')
-                console.log(review.userId + ' ' + review.reviewDescription)
-                console.log(review)
                 reviewElement.innerHTML = `
                 <div class="item">
                     <div class="user_content">
