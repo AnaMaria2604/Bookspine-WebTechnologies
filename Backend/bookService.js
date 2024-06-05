@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                     <a href="#">${user.lastName}'s review:  </a>
                                     <div>${rating} stars</div>
                                 </div>
-                                <div class="descriere">${descr}</div>
+                                <div class="descriere">"${descr}"</div>
                             </div>
                             `
                             details.appendChild(reviewElement)
