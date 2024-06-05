@@ -341,7 +341,7 @@ body::after {
     align-self: center;
     justify-content: center;
     background-color: #0A2E36;
-    padding: 20px 80px 20px 80px;
+    padding: 20px;
     border-radius: 20px;
   }
   body .main .content .left_part img {
@@ -377,7 +377,7 @@ body::after {
     align-self: center;
     justify-content: center;
     background-color: #0A2E36;
-    padding: 20px 40px 20px 40px;
+    padding: 20px;
     border-radius: 10px;
   }
   body .main .content .right_part .elements .title {
@@ -389,7 +389,7 @@ body::after {
     font-size: 14px;
   }
   body .main .content .right_part .reviews .item .user_content {
-    font-size: 16px;
+    font-size: 12px;
   }
   body .main .content .right_part .reviews .item .user_content a {
     color: white;
@@ -399,7 +399,7 @@ body::after {
     padding-left: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
-    font-size: 15px;
+    font-size: 11px;
   }
   body .main .content .right_part .description_text {
     font-size: 20px;
@@ -423,7 +423,7 @@ body::after {
     align-self: center;
     justify-content: center;
     background-color: #0A2E36;
-    padding: 20px 80px 20px 80px;
+    padding: 20px;
     border-radius: 20px;
   }
   body .main .content .left_part img {
