@@ -1,13 +1,20 @@
 const http = require('http')
+
 const path = require('path')
+
 const fs = require('fs')
+
 const initializeDatabase = require('./DataBase/databasemaker')
+
 const {
     handleCreateAccountRequest,
     handleCreateAccountSubmit,
 } = require('./Backend/createAccount')
+
 const { handleLoginRequest, handleLoginSubmission } = require('./Backend/login')
+
 const { handleIndexRequest } = require('./Backend/index')
+
 const {
     handlePopularBooksRequest,
     handleRecommendedBooksRequest,
@@ -20,16 +27,19 @@ const {
 } = require('./API/showBookDetails')
 
 const { handlePageDetailsRequest } = require('./Backend/book')
+
 const {
     handleFavouriteRequest,
     handleFavouriteSubmission,
 } = require('./Backend/favourite')
+
+const { handleShelfsForLoggedUser } = require('./Backend/shelfForUser')
+
 const { Console } = require('console')
 
 //initializeDatabase()
 
 const server = http.createServer((req, res) => {
-    // Verifică cererile pentru pagina de creare a contului
     if (req.method === 'GET' && req.url === '/create-account') {
         handleCreateAccountRequest(req, res)
     } else if (req.method === 'POST' && req.url === '/create-account') {
@@ -63,6 +73,8 @@ const server = http.createServer((req, res) => {
     ) {
         const userId = req.url.split('/').pop()
         handleUserReviewRequest(req, res, userId)
+    } else if (req.method === 'POST' && req.url === '/addToWantToRead') {
+        handleShelfsForLoggedUser(req, res)
     }
 
     // Verifică cererile pentru fișiere CSS

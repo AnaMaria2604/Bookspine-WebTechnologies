@@ -50,9 +50,14 @@
         <div class="container">
           <div class="titlu">Add the book to a shelf</div>
           <div class="shelves">
-            <div class="shelve">Want to read</div>
-            <div class="shelve">Currently reading</div>
-            <div class="shelve">Read</div>
+            <form action="/addToWantToRead" method="POST">
+              <button type="submit" class="shelf">
+                Want to read
+              </button>
+            </form>
+            <!-- <div class="shelve">Want to read</a> -->
+            <div class="shelf">Currently reading</div>
+            <div class="shelf">Read</div>
           </div>
           <div class="text">Rate this book</div>
 
