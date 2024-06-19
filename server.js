@@ -34,6 +34,13 @@ const {
 } = require('./Backend/favourite')
 
 const { handleShelfsForLoggedUser } = require('./Backend/shelfForUser')
+const {
+    handleStatisticsRequest,
+    getTop10Books,
+    // getTopAuthor,
+    exportCSV,
+    exportDocBook,
+} = require('./Backend/statistics')
 
 const { Console } = require('console')
 
@@ -75,6 +82,48 @@ const server = http.createServer((req, res) => {
         handleUserReviewRequest(req, res, userId)
     } else if (req.method === 'POST' && req.url === '/addToWantToRead') {
         handleShelfsForLoggedUser(req, res)
+    } else if (req.method === 'GET' && req.url === '/statistics') {
+        handleStatisticsRequest(req, res)
+    } else if (req.url === '/top10books' && req.method === 'GET') {
+        getTop10Books((err, data) => {
+            if (err) {
+                res.writeHead(500, { 'Content-Type': 'application/json' })
+                res.end(
+                    JSON.stringify({ error: 'Failed to fetch top 10 books' })
+                )
+            } else {
+                res.writeHead(200, { 'Content-Type': 'application/json' })
+                res.end(JSON.stringify(data))
+            }
+        })
+    } else if (req.url === '/topauthor' && req.method === 'GET') {
+        getTopAuthor((err, data) => {
+            if (err) {
+                res.writeHead(500, { 'Content-Type': 'application/json' })
+                res.end(JSON.stringify({ error: 'Failed to fetch top author' }))
+            } else {
+                res.writeHead(200, { 'Content-Type': 'application/json' })
+                res.end(JSON.stringify(data))
+            }
+        })
+    } else if (req.url === '/export/csv' && req.method === 'GET') {
+        getTop10Books((err, data) => {
+            if (err) {
+                res.writeHead(500, { 'Content-Type': 'application/json' })
+                res.end(JSON.stringify({ error: 'Failed to export CSV' }))
+            } else {
+                exportCSV(data, 'top10books.csv', res)
+            }
+        })
+    } else if (req.url === '/export/docbook' && req.method === 'GET') {
+        getTop10Books((err, data) => {
+            if (err) {
+                res.writeHead(500, { 'Content-Type': 'application/json' })
+                res.end(JSON.stringify({ error: 'Failed to export DocBook' }))
+            } else {
+                exportDocBook(data, 'top10books.xml', res)
+            }
+        })
     }
 
     // Verifică cererile pentru fișiere CSS
