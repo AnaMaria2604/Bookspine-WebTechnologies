@@ -8,6 +8,8 @@
   <script src="../../Frontend/navbar_footer.js"></script>
   <script src="../../Frontend/giverating.js"></script>
   <script src="../../Backend/bookService.js"></script>
+  <script src="../../Backend/reviewService.js"></script>
+
   <title>Book Page</title>
 </head>
 
@@ -52,17 +54,23 @@
           <div class="shelves">
 
             <form id="add-to-want-to-read-form" action="/addToWantToRead" method="POST">
-              <button type="submit" class="shelf">Want to read</button>
+              <button type="submit" class="shelf">
+                <a href="#">Want to read</a>
+              </button>
             </form>
 
             <form id="add-to-reading" action="/addToReading" method="POST">
-              <button type="submit" class="shelf">Currently reading</button>
+              <button type="submit" class="shelf">
+                <a href="#">Currently reading</a>
+              </button>
             </form>
 
-            <!-- <div class="shelf">Currently reading</div> -->
-            <div class="shelf">Read</div>
+            <div class="read" id="book-read">
+              <!-- Aici va fi butonul pt Read-->
+            </div>
+
           </div>
-          <div class="text">Rate this book</div>
+          <!-- <div class="text">Rate this book</div>
 
           <div class="stars" data-productid="123">
             <span class="star" starNumber="1">★</span>
@@ -70,7 +78,7 @@
             <span class="star" starNumber="3">★</span>
             <span class="star" starNumber="4">★</span>
             <span class="star" starNumber="5">★</span>
-          </div>
+          </div> -->
 
         </div>
       </div>

@@ -38,6 +38,8 @@ const {
     handleShelfReading,
 } = require('./Backend/shelfForUser')
 
+const { handleReviewDetailsRequest } = require('./Backend/reviewBook')
+
 const { Console } = require('console')
 
 //initializeDatabase()
@@ -81,7 +83,16 @@ const server = http.createServer((req, res) => {
     } else if (req.method === 'POST' && req.url === '/addToReading') {
         handleShelfReading(req, res)
     }
-
+    //else if (
+    //     req.method === 'GET' &&
+    //     req.url.startsWith('/api/review-book/')
+    // ) {
+    //     const bookId = req.url.split('/').pop()
+    //     handleReviewRequest(req, res, bookId)
+    // }
+    else if (req.method === 'GET' && req.url.startsWith('/review-book/')) {
+        handleReviewDetailsRequest(req, res)
+    }
     // Verifică cererile pentru fișiere CSS
     else if (req.url.startsWith('/style/')) {
         const filePath = path.join(__dirname, 'Frontend/Register-Page', req.url)
