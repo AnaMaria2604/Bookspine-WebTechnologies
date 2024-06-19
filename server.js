@@ -33,7 +33,10 @@ const {
     handleFavouriteSubmission,
 } = require('./Backend/favourite')
 
-const { handleShelfsForLoggedUser } = require('./Backend/shelfForUser')
+const {
+    handleShelfWantToRead,
+    handleShelfReading,
+} = require('./Backend/shelfForUser')
 
 const { Console } = require('console')
 
@@ -74,7 +77,9 @@ const server = http.createServer((req, res) => {
         const userId = req.url.split('/').pop()
         handleUserReviewRequest(req, res, userId)
     } else if (req.method === 'POST' && req.url === '/addToWantToRead') {
-        handleShelfsForLoggedUser(req, res)
+        handleShelfWantToRead(req, res)
+    } else if (req.method === 'POST' && req.url === '/addToReading') {
+        handleShelfReading(req, res)
     }
 
     // Verifică cererile pentru fișiere CSS
