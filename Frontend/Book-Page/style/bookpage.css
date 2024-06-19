@@ -147,8 +147,9 @@ body .main .content .left_part .container .shelves {
   width: auto;
   flex-direction: column;
 }
-body .main .content .left_part .container .shelves .shelve {
+body .main .content .left_part .container .shelves .shelf {
   margin: 5px 0;
+  border: none;
 }
 body .main .content .left_part .container .text {
   font-weight: bold;
@@ -434,8 +435,9 @@ body::after {
   body .main .content .left_part .container .shelves {
     font-size: 12px;
   }
-  body .main .content .left_part .container .shelves .shelve {
+  body .main .content .left_part .container .shelves .shelf {
     margin: 5px 0;
+    border: none;
   }
   body .main .content .left_part .container .star {
     align-self: center;

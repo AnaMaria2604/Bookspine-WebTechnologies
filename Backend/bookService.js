@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     const urlParts = window.location.pathname.split('/')
     const bookId = urlParts.pop() || urlParts.pop()
+
     fetch(`/api/book/${bookId}`)
         .then((response) => response.json())
         .then((data) => {
@@ -87,12 +88,9 @@ document.addEventListener('DOMContentLoaded', function () {
     fetch(`/api/review/${bookId}`)
         .then((response) => response.json())
         .then((data) => {
-            console.log(data) //aici afiseaza tot ce e la review
             const details = document.getElementById('reviews')
             data.forEach((review) => {
-                console.log(review.userId) //asta wste 1: bun
                 const userId = review.userId
-                console.log('user id const: ' + userId) //asta wste 1: bun
                 const rating = review.rating
                 const descr = review.reviewDescription
 
@@ -160,4 +158,9 @@ document.addEventListener('DOMContentLoaded', function () {
             starContainer.appendChild(star)
         }
     }
+
+    // function getGlobalBookId() {
+    //     console.log(bookId)
+    //     return bookId
+    // }
 })

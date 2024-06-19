@@ -181,9 +181,12 @@ body {
                         width: auto;
                         flex-direction: column;
 
-                        .shelve {
+
+                        .shelf {
                             margin: 5px 0;
+                            border: none;
                         }
+
                     }
 
                     .text {
@@ -555,9 +558,12 @@ body::after {
                         .shelves {
                             font-size: 12px;
 
-                            .shelve {
+                            .shelf {
                                 margin: 5px 0;
+                                border: none;
                             }
+
+
                         }
 
                         .star {
