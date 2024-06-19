@@ -1,6 +1,31 @@
+
 document.addEventListener('DOMContentLoaded', function () {
     const urlParts = window.location.pathname.split('/')
     const bookId = urlParts.pop() || urlParts.pop()
+
+    const form = document.getElementById('add-to-want-to-read-form')
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault() 
+
+        const formData = new URLSearchParams()
+        formData.append('bookId', bookId)
+
+        fetch('/addToWantToRead', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: formData.toString(),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data)
+            })
+            .catch((error) => {
+                console.error('Error adding to want-to-read list:', error)
+            })
+    })
 
     fetch(`/api/book/${bookId}`)
         .then((response) => response.json())
@@ -158,9 +183,4 @@ document.addEventListener('DOMContentLoaded', function () {
             starContainer.appendChild(star)
         }
     }
-
-    // function getGlobalBookId() {
-    //     console.log(bookId)
-    //     return bookId
-    // }
 })

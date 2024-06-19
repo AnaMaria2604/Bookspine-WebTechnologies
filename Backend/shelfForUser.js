@@ -5,7 +5,7 @@ const cookie = require('cookie')
 const querystring = require('querystring')
 const pool = require('../DataBase/database')
 
-const getIdUser = (email, callback) => {
+function getIdUser(email, callback) {
     pool.getConnection((err, connection) => {
         if (err) {
             return callback(err, null)
@@ -25,7 +25,7 @@ const getIdUser = (email, callback) => {
     })
 }
 
-const addToWantToRead = (userId, bookId, callback) => {
+function addToWantToRead(userId, bookId, callback) {
     pool.getConnection((err, connection) => {
         if (err) {
             return callback(err, null)
@@ -71,24 +71,44 @@ function handleShelfsForLoggedUser(req, res) {
     req.on('end', () => {
         const formData = querystring.parse(body)
         console.log('Form data:', formData)
-
         console.log('Email:', email)
+        const bookId = formData.bookId
+        console.log('Book ID:', bookId)
+
+        if (!bookId) {
+            console.error('Book ID is missing.')
+            res.write(JSON.stringify({ error: 'Book ID is required.' }))
+            res.end()
+            return
+        }
 
         getIdUser(email, (err, result) => {
             if (err) {
                 console.error('Error getting user ID:', err)
+                res.write(JSON.stringify({ error: 'Error getting user ID.' }))
+                res.end()
                 return
             }
 
             const idUser = result[0].id
             console.log('User ID for shelf:', idUser)
 
-            addToWantToRead(idUser, 1, (err) => {
+            addToWantToRead(idUser, bookId, (err) => {
                 if (err) {
                     console.error('Error adding to want-to-read list:', err)
+                    res.write(
+                        JSON.stringify({
+                            error: 'Error adding to want-to-read list.',
+                        })
+                    )
+                    res.end()
                     return
                 }
                 console.log('Shelf updated successfully.')
+                res.write(
+                    JSON.stringify({ message: 'Shelf updated successfully.' })
+                )
+                res.end()
             })
         })
     })
@@ -98,10 +118,11 @@ function getTokenFromCookie(req) {
     const cookies = req.headers.cookie
     if (cookies) {
         const parsedCookies = cookie.parse(cookies)
-        const token = parsedCookies.token
-        return token
+        return parsedCookies.token
     }
     return null
 }
 
-module.exports = { handleShelfsForLoggedUser }
+module.exports = {
+    handleShelfsForLoggedUser,
+}
