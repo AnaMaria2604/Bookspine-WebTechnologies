@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<book>
+  <book>
+    <id>1</id>
+    <title>The Great Gatsby</title>
+    <author>F. Scott Fitzgerald</author>
+    <genre>Classic</genre>
+    <year>1925</year>
+    <rating>5</rating>
+  </book>
+  <book>
+    <id>2</id>
+    <title>1984</title>
+    <author>George Orwell</author>
+    <genre>Dystopian</genre>
+    <year>1949</year>
+    <rating>5</rating>
+  </book>
+  <book>
+    <id>3</id>
+    <title>To Kill a Mockingbird</title>
+    <author>Harper Lee</author>
+    <genre>Classic</genre>
+    <year>1960</year>
+    <rating>5</rating>
+  </book>
+  <book>
+    <id>5</id>
+    <title>Pride and Prejudice</title>
+    <author>Jane Austen</author>
+    <genre>Romance</genre>
+    <year>1813</year>
+    <rating>5</rating>
+  </book>
+  <book>
+    <id>7</id>
+    <title>Brave New World</title>
+    <author>Aldous Huxley</author>
+    <genre>Dystopian</genre>
+    <year>1932</year>
+    <rating>5</rating>
+  </book>
+  <book>
+    <id>8</id>
+    <title>The Hobbit</title>
+    <author>J.R.R. Tolkien</author>
+    <genre>Fantasy</genre>
+    <year>1937</year>
+    <rating>5</rating>
+  </book>
+  <book>
+    <id>10</id>
+    <title>Jane Eyre</title>
+    <author>Charlotte Brontë</author>
+    <genre>Romance</genre>
+    <year>1847</year>
+    <rating>5</rating>
+  </book>
+  <book>
+    <id>4</id>
+    <title>Moby-Dick</title>
+    <author>Herman Melville</author>
+    <genre>Adventure</genre>
+    <year>1851</year>
+    <rating>4</rating>
+  </book>
+  <book>
+    <id>6</id>
+    <title>The Catcher in the Rye</title>
+    <author>J.D. Salinger</author>
+    <genre>Classic</genre>
+    <year>1951</year>
+    <rating>4</rating>
+  </book>
+  <book>
+    <id>9</id>
+    <title>Fahrenheit 451</title>
+    <author>Ray Bradbury</author>
+    <genre>Dystopian</genre>
+    <year>1953</year>
+    <rating>4</rating>
+  </book>
+</book>

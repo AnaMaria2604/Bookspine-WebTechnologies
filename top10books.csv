@@ -1,0 +1,11 @@
+id,title,author,genre,year,rating
+1,The Great Gatsby,F. Scott Fitzgerald,Classic,1925,5
+2,1984,George Orwell,Dystopian,1949,5
+3,To Kill a Mockingbird,Harper Lee,Classic,1960,5
+5,Pride and Prejudice,Jane Austen,Romance,1813,5
+7,Brave New World,Aldous Huxley,Dystopian,1932,5
+8,The Hobbit,J.R.R. Tolkien,Fantasy,1937,5
+10,Jane Eyre,Charlotte Brontë,Romance,1847,5
+4,Moby-Dick,Herman Melville,Adventure,1851,4
+6,The Catcher in the Rye,J.D. Salinger,Classic,1951,4
+9,Fahrenheit 451,Ray Bradbury,Dystopian,1953,4
