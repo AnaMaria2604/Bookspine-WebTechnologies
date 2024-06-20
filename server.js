@@ -47,7 +47,10 @@ const {
     exportCSV,
     exportDocBook,
 } = require('./Backend/statistics')
-
+const {
+    handleSearchPageRequest,
+    handleSearchRequest,
+} = require('./Backend/search')
 const { Console } = require('console')
 
 //initializeDatabase()
@@ -143,6 +146,11 @@ const server = http.createServer((req, res) => {
                 exportDocBook(data, 'top10books.xml', res)
             }
         })
+    } else if (req.url.startsWith('/search') && req.method === 'GET') {
+        // Gestionarea cererilor de căutare
+        handleSearchPageRequest(req, res)
+    } else if (req.url.startsWith('/api/search') && req.method === 'GET') {
+        handleSearchRequest(req, res)
     }
     // Verifică cererile pentru fișiere CSS
     else if (req.url.startsWith('/style/')) {
