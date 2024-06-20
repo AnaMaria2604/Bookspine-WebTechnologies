@@ -1,6 +1,6 @@
 const fs = require('fs')
 const path = require('path')
-const { getPopularBooks, getRecommendedBooks } = require('../API/getTenBooks')
+const { getPopularBooks, getRecommendedBooks } = require('./getTenBooks')
 
 const handleIndexRequest = (req, res) => {
     console.log('index')

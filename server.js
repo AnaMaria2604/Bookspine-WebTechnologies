@@ -18,13 +18,13 @@ const { handleIndexRequest } = require('./Backend/index')
 const {
     handlePopularBooksRequest,
     handleRecommendedBooksRequest,
-} = require('./API/getTenBooks')
+} = require('./Backend/getTenBooks')
 
 const {
     handleBookRequest,
     handleReviewRequest,
     handleUserReviewRequest,
-} = require('./API/showBookDetails')
+} = require('./Backend/showBookDetails')
 
 const { handlePageDetailsRequest } = require('./Backend/book')
 

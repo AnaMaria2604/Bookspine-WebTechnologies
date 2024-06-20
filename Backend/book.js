@@ -1,6 +1,6 @@
 const fs = require('fs')
 const path = require('path')
-const { getBookDetails } = require('../API/showBookDetails')
+const { getBookDetails } = require('./showBookDetails')
 
 const handlePageDetailsRequest = (req, res, bookId) => {
     const filePath = path.join(__dirname, '../Frontend/Book-Page/bookpage.html')
