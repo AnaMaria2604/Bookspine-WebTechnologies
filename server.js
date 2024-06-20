@@ -65,6 +65,7 @@ const { handleReview } = require('./Backend/reviewPostFunctions')
 
 const { Console } = require('console')
 const { handleTagsRequest } = require('./Backend/tags')
+
 //initializeDatabase()
 
 const server = http.createServer((req, res) => {

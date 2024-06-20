@@ -44,6 +44,7 @@ function initializeDatabase() {
       editor  VARCHAR(45) NOT NULL,
       collection  VARCHAR(45),
       description VARCHAR(2000),
+      edition INT,
       cover MEDIUMBLOB
      )
 `,
