@@ -1,16 +1,16 @@
 $color: #ffaa8e;
-$background: #ACEAEC;
-$header: #01161E;
+$background: #aceaec;
+$header: #01161e;
 $footer: #0c3742;
 $body: #104547;
 $textcolor: #ffff;
 $button: #124559;
-$darkbutton: #0A2E36;
+$darkbutton: #0a2e36;
 $bordercolor: #2a3738;
 $categorii: #142b2d;
 
 * {
-    font-family: 'Segoe UI', Verdana, sans-serif;
+    font-family: "Segoe UI", Verdana, sans-serif;
     background: none;
 }
 
@@ -82,17 +82,14 @@ body {
                         cursor: pointer;
                         font-size: 16px;
                         margin-left: 8px;
-
                     }
 
                     .search-button:hover {
                         background-color: $darkbutton;
-
                     }
                 }
             }
         }
-
     }
 
     .dropdown-container {
@@ -122,7 +119,6 @@ body {
         font-weight: bold;
     }
 
-
     .pagina {
         display: flex;
         flex-direction: row;
@@ -146,7 +142,6 @@ body {
                     }
 
                     .grupuri {
-
                         .mybooks__categorie {
                             background-color: $categorii;
                             color: $textcolor;
@@ -194,13 +189,12 @@ body {
                                             color: $textcolor;
                                         }
                                     }
-
                                 }
                             }
                         }
                     }
 
-                    .grupuri>.mybooks__categorie {
+                    .grupuri > .mybooks__categorie {
                         margin-top: 10px;
                     }
                 }
@@ -211,12 +205,10 @@ body {
                     padding: 10px 10px 20px 20px;
 
                     .browse__text {
-
                         font-size: 23px;
                     }
 
                     .grupuri {
-
                         .mybooks__categorie {
                             background-color: $categorii;
                             color: $textcolor;
@@ -280,17 +272,14 @@ body {
                                     }
                                 }
 
-                                .group__updates>.text {
+                                .group__updates > .text {
                                     margin-right: 8px;
                                 }
-
                             }
-
-
                         }
                     }
 
-                    .grupuri>.mybooks__categorie {
+                    .grupuri > .mybooks__categorie {
                         margin-top: 10px;
                     }
                 }
@@ -329,7 +318,6 @@ body {
                             margin-bottom: 10px;
                             color: $textcolor;
                         }
-
                     }
                 }
             }
@@ -338,7 +326,7 @@ body {
 }
 
 body::before {
-    background-image: url(../../Images/bookimg3.jpg);
+    background-image: url(../../../Frontend/Images/bookimg3.jpg);
     content: "";
     position: absolute;
     top: 0;
@@ -404,7 +392,6 @@ footer {
                         }
 
                         .grupuri {
-
                             .mybooks__categorie {
                                 background-color: $categorii;
                                 color: $textcolor;
@@ -452,17 +439,15 @@ footer {
                                                 color: $textcolor;
                                             }
                                         }
-
                                     }
                                 }
                             }
                         }
 
-                        .grupuri>.mybooks__categorie {
+                        .grupuri > .mybooks__categorie {
                             margin-top: 10px;
                         }
                     }
-
                 }
             }
 
@@ -480,5 +465,4 @@ footer {
             }
         }
     }
-
 }

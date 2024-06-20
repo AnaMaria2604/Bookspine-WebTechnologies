@@ -103,55 +103,14 @@
         </div>
       </div>
     </div>
-
     <div class="main__body">
-
       <div class="page__body">
         <div class="mybooks">
           <div class="mybooks__text">
             <h3>Books that match your search:</h3>
           </div>
-
-          <div class="grupuri">
-            <div class="mybooks__categorie">
-              <img class="poza" alt="" src="../Images/image2.jpeg">
-              <div class="text__component">
-                <div class="mybooks__category">
-                  <div class="categoryname">
-                    <span>Silent patient</span>
-                  </div>
-                  <div class="categoryauthor">
-                    <span>by Alex Michaelides</span>
-                  </div>
-
-                </div>
-                <div class="group__updates">
-                  <div class="text">
-                    <a href="../Book-Page/bookpage.html">See more details about the book</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="mybooks__categorie">
-              <img class="poza" alt="" src="../Images/image3.jpeg">
-              <div class="text__component">
-                <div class="mybooks__category">
-                  <div class="categoryname">
-                    <span>Pride and Prejudice</span>
-                  </div>
-                  <div class="categoryauthor">
-                    <span>by Jane Austen</span>
-                  </div>
-
-                </div>
-                <div class="group__updates">
-                  <div class="text">
-                    <a href="../Book-Page/bookpage.html">See more details about the book</a>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div id="book-results" class="grupuri">
+            <!-- Results will be inserted here dynamically -->
           </div>
         </div>
 
@@ -159,98 +118,13 @@
           <div class="browse__text">
             <h3>Groups that match your search:</h3>
           </div>
-          <div class="grupuri">
-            <div class="mybooks__categorie">
-              <img class="poza" alt="" src="../Images/image4.png">
-
-              <div class="mybooks__category">
-                <div class="tags">
-                  <div class="categoryname">
-                    <span>Booktok</span>
-                  </div>
-
-                  <div class="buton__fixat">
-                    <div class="text">
-                      <a href="../Group-Conversation-Page/groupconv.html">Join</a>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="group__updates">
-                  <div class="text">
-                    <a href="">new posts</a>
-                  </div>
-
-                  <div class="text">
-                    <p>9 minutes ago</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="grupuri">
-            <div class="mybooks__categorie">
-              <img class="poza" alt="" src="../Images/image4.png">
-
-              <div class="mybooks__category">
-                <div class="tags">
-                  <div class="categoryname">
-                    <span>Librarians Group</span>
-                  </div>
-
-                  <div class="buton__fixat">
-                    <div class="text">
-                      <a href="../Group-Conversation-Page/groupconv.html">Join</a>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="group__updates">
-                  <div class="text">
-                    <a href="">new posts</a>
-                  </div>
-
-                  <div class="text">
-                    <p>23 minutes ago</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="grupuri">
-            <div class="mybooks__categorie">
-              <img class="poza" alt="" src="../Images/image4.png">
-
-              <div class="mybooks__category">
-                <div class="tags">
-                  <div class="categoryname">
-                    <span>A Good Thriller</span>
-                  </div>
-
-                  <div class="buton__fixat">
-                    <div class="text">
-                      <a href="../Group-Conversation-Page/groupconv.html">Join</a>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="group__updates">
-                  <div class="text">
-                    <a href="">new posts</a>
-                  </div>
-
-                  <div class="text">
-                    <p>29 minutes ago</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div id="group-results" class="grupuri">
+            <!-- Results will be inserted here dynamically -->
           </div>
         </div>
       </div>
     </div>
+
   </div>
 
   <footer>
@@ -260,6 +134,7 @@
       Bolohan Constantin-Sebastian and Ursache Ana-Maria
     </p>
   </footer>
+  <script src="../../Backend/searchService.js"></script>
 </body>
 
 </html>
