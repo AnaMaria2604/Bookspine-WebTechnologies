@@ -281,20 +281,58 @@ function populateDatabase(connection) {
 
     // Adăugăm echipe
     const teams = [
-        ['Book Lovers', 1, 'A team for those who love books.'],
-        ['Sci-Fi Enthusiasts', 2, 'Discussing all things science fiction.'],
-        ['Classic Literature Club', 3, 'Exploring classic literature.'],
-        ['Fantasy Fans', 4, 'For fans of fantasy books.'],
-        ['Mystery Solvers', 5, 'Solving mysteries one book at a time.'],
-        ['Romance Readers', 6, 'For those who love romance novels.'],
-        ['Biography Buffs', 7, 'Reading and discussing biographies.'],
-        ['History Readers', 8, 'Exploring historical books.'],
-        ['Adventure Seekers', 9, 'Reading adventure stories.'],
-        ['Poetry Lovers', 10, 'For those who appreciate poetry.'],
+        [
+            'Book Lovers',
+            1,
+            'A team for those who love books.',
+            readImage(path.join(__dirname, 'groupsImages', '1.jpg')),
+        ],
+        [
+            'Sci-Fi Enthusiasts',
+            2,
+            'Discussing all things science fiction.',
+            readImage(path.join(__dirname, 'groupsImages', '2.jpg')),
+        ],
+        [
+            'Classic Literature Club',
+            3,
+            'Exploring classic literature.',
+            readImage(path.join(__dirname, 'groupsImages', '3.jpg')),
+        ],
+        [
+            'Fantasy Fans',
+            4,
+            'For fans of fantasy books.',
+            readImage(path.join(__dirname, 'groupsImages', '4.jpg')),
+        ],
+        [
+            'Mystery Solvers',
+            5,
+            'Solving mysteries one book at a time.',
+            readImage(path.join(__dirname, 'groupsImages', '5.jpg')),
+        ],
+        [
+            'Romance Readers',
+            6,
+            'For those who love romance novels.',
+            readImage(path.join(__dirname, 'groupsImages', '6.jpg')),
+        ],
+        [
+            'Biography Buffs',
+            7,
+            'Reading and discussing biographies.',
+            readImage(path.join(__dirname, 'groupsImages', '7.jpg')),
+        ],
+        [
+            'Poetry Lovers',
+            10,
+            'For those who appreciate poetry.',
+            readImage(path.join(__dirname, 'groupsImages', '10.jpg')),
+        ],
     ]
 
     connection.query(
-        'INSERT INTO team (teamName, moderatorId, description) VALUES ?',
+        'INSERT INTO team (teamName, moderatorId, description, photo) VALUES ?',
         [teams],
         (err) => {
             if (err) {

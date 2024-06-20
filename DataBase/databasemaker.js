@@ -102,6 +102,7 @@ function initializeDatabase() {
        teamName  VARCHAR(45) NOT NULL,
        moderatorId  INT NOT NULL,
        description  VARCHAR(45),
+       photo MEDIUMBLOB,
        FOREIGN KEY (moderatorId) REFERENCES user(id)
       )
       `,
