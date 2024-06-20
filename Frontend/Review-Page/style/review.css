@@ -145,11 +145,24 @@ body .page .rating {
   flex-wrap: wrap;
 }
 body .page .rating .text {
-  font-size: 13px;
+  font-size: 15px;
+  padding-right: 5px;
 }
-body .page .rating .poza {
-  height: 20px;
-  width: 20px;
+body .page .rating .stars {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+body .page .rating .star {
+  font-size: 16px;
+  cursor: pointer;
+}
+body .page .rating .one,
+body .page .rating .two,
+body .page .rating .three,
+body .page .rating .four,
+body .page .rating .five {
+  color: rgb(255, 255, 0);
 }
 body .page .opinion {
   color: white;

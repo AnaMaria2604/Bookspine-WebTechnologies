@@ -19,7 +19,7 @@ const getBookRequestForReview = (bookId, callback) => {
             return callback(err, null)
         }
         connection.query(
-            'SELECT * FROM book WHERE id = ? DESC LIMIT 1',
+            'SELECT * FROM book WHERE id = ? LIMIT 1',
             [bookId],
             (error, results) => {
                 connection.release()
