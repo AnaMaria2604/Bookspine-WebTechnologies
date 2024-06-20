@@ -49,10 +49,18 @@ const {
     exportCSV,
     exportDocBook,
 } = require('./Backend/statistics')
+
 const {
     handleSearchPageRequest,
     handleSearchRequest,
 } = require('./Backend/search')
+
+const { handleAboutUsPage } = require('./Backend/aboutUs')
+
+const { handleAboutUsButton } = require('./Backend/aboutUsFunctions')
+
+const { handleMainPage } = require('./Backend/mainPage')
+
 const { Console } = require('console')
 
 //initializeDatabase()
@@ -100,8 +108,14 @@ const server = http.createServer((req, res) => {
     } else if (req.method === 'GET' && req.url.startsWith('/review-book/')) {
         const bookId = req.url.split('/').pop()
         handleBookForReviewRequest(req, res, bookId)
+    } else if (req.method === 'GET' && req.url.startsWith('/aboutUs')) {
+        handleAboutUsPage(req, res)
+    } else if (req.method === 'GET' && req.url.startsWith('/about-us-button')) {
+        handleAboutUsButton(req, res)
     } else if (req.method === 'GET' && req.url === '/statistics') {
         handleStatisticsRequest(req, res)
+    } else if (req.method === 'GET' && req.url === '/mainpage') {
+        handleMainPage(req, res)
     } else if (req.url === '/top10books' && req.method === 'GET') {
         getTop10Books((err, data) => {
             if (err) {
