@@ -39,7 +39,9 @@ const {
 } = require('./Backend/shelfForUser')
 
 const { handleReviewDetailsRequest } = require('./Backend/reviewBook')
-const { handleShelfsForLoggedUser } = require('./Backend/shelfForUser')
+
+const { handleBookForReviewRequest } = require('./Backend/reviewBookFunctions')
+
 const {
     handleStatisticsRequest,
     getTop10Books,
@@ -90,17 +92,11 @@ const server = http.createServer((req, res) => {
         handleShelfWantToRead(req, res)
     } else if (req.method === 'POST' && req.url === '/addToReading') {
         handleShelfReading(req, res)
-    }
-    //else if (
-    //     req.method === 'GET' &&
-    //     req.url.startsWith('/api/review-book/')
-    // ) {
-    //     const bookId = req.url.split('/').pop()
-    //     handleReviewRequest(req, res, bookId)
-    // }
-    else if (req.method === 'GET' && req.url.startsWith('/review-book/')) {
+    } else if (req.method === 'GET' && req.url.startsWith('/review-bookId/')) {
         handleReviewDetailsRequest(req, res)
-        handleShelfsForLoggedUser(req, res)
+    } else if (req.method === 'GET' && req.url.startsWith('/review-book/')) {
+        const bookId = req.url.split('/').pop()
+        handleBookForReviewRequest(req, res, bookId)
     } else if (req.method === 'GET' && req.url === '/statistics') {
         handleStatisticsRequest(req, res)
     } else if (req.url === '/top10books' && req.method === 'GET') {

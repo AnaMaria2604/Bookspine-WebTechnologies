@@ -141,7 +141,7 @@ function handleShelfReading(req, res) {
 }
 
 function handleShelfWantToRead(req, res) {
-    console.log('handleReq')
+    console.log('handleReqWantToRead')
 
     const token = getTokenFromCookie(req)
     let email
