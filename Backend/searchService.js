@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <div class="categoryname"><span>${team.teamName}</span></div>
                                 <div class="buton__fixat">
                                     <div class="text">
-                                        <a href="#">Join</a> 
+                                        <a href="/group/${team.id}">Join</a> 
                                     </div>
                                 </div>
                             </div>

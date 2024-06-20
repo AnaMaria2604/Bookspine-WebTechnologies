@@ -63,6 +63,8 @@ const { handleMainPage } = require('./Backend/mainPage')
 
 const { Console } = require('console')
 const { handleTagsRequest } = require('./Backend/tags')
+const { handleGroupJoinPageRequest } = require('./Backend/groupjoin')
+const { handleGroupRequest } = require('./Backend/groupJoinFunction')
 //initializeDatabase()
 
 const server = http.createServer((req, res) => {
@@ -163,6 +165,13 @@ const server = http.createServer((req, res) => {
         handleSearchRequest(req, res)
     } else if (req.url === '/api/tags' && req.method === 'GET') {
         handleTagsRequest(req, res)
+    } else if (req.method === 'GET' && req.url.startsWith('/group/')) {
+        const groupId = req.url.split('/').pop()
+        handleGroupJoinPageRequest(req, res, groupId)
+    } else if (req.method === 'GET' && req.url.startsWith('/api/group/')) {
+        const groupId = req.url.split('/').pop()
+        console.log('here')
+        handleGroupRequest(req, res, groupId)
     }
     // Verifică cererile pentru fișiere CSS
     else if (req.url.startsWith('/style/')) {
