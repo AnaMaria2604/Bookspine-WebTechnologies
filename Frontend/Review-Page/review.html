@@ -6,8 +6,7 @@
   <link rel="stylesheet" href="../../Frontend/Review-Page/style/review.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="../../Frontend/navbar_footer.js"></script>
-  <script src="../../Backend/reviewService.js"></script>
-
+  <script src="../../Backend/giveRatingService.js"></script>
   <title>Review Page</title>
 </head>
 
@@ -41,24 +40,25 @@
 
 
   <div class="page">
-    <div class="page__header">
-      <img class="poza" alt="" src="../Images/image2.jpeg">
-      <div class="text">
-        <div class="titlu">Silent Patient</div>
-        <div class="autor">Alex Michaelides</div>
-      </div>
+
+    <div class="page__header" id="page-header">
+      <!--detalii despre carte-->
     </div>
+
     <div class="rating">
       <div class="text">My rating:</div>
-      <img class="poza" alt="" src="../Images/fullstar.png">
-      <img class="poza" alt="" src="../Images/fullstar.png">
-      <img class="poza" alt="" src="../Images/fullstar.png">
-      <img class="poza" alt="" src="../Images/fullstar.png">
-      <img class="poza" alt="" src="../Images/star.png">
+      <div class="stars" data-productid="123">
+        <span class="star" starNumber="1">★</span>
+        <span class="star" starNumber="2">★</span>
+        <span class="star" starNumber="3">★</span>
+        <span class="star" starNumber="4">★</span>
+        <span class="star" starNumber="5">★</span>
+      </div>
     </div>
+
     <div class="opinion">
       <div class="text">What do you think about the book?</div>
-      <textarea class="text-box"></textarea>
+      <textarea class="text-box" id="textarea-text"></textarea>
     </div>
     <div class="date">
       <div class="end__date">
@@ -69,7 +69,7 @@
 
     <div class="button">
       <div class="post">
-        <a href="../Main-Page/mainpage.html"> Post </a>
+        <a href="/mainpage" id="post-button"> Post </a>
       </div>
       <div class="cancel">
         <a href="../Main-Page/mainpage.html"> Cancel </a>
@@ -84,6 +84,7 @@
       Bolohan Constantin-Sebastian and Ursache Ana-Maria
     </p>
   </footer>
+  <script src="../../Backend/reviewDetailsService.js"></script>
 </body>
 
 </html>
