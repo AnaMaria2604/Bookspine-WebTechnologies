@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const urlParts = window.location.pathname.split('/')
     const bookId = urlParts.pop() || urlParts.pop()
 
-    fetch(`/review-book/${bookId}`)
+    fetch(`/api/book/${bookId}`)
         .then((response) => response.json())
         .then((data) => {
             const details = document.getElementById('book-read')
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const bookElement = document.createElement('div')
                 bookElement.innerHTML = `
                 <div>
-                    <a href="/review-book/${bookId}">Read</a>
+                    <a href="/review-bookId/${bookId}">Read</a>
                 </div>`
                 details.appendChild(bookElement)
             })
