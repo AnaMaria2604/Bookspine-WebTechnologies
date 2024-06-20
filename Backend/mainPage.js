@@ -1,8 +1,6 @@
 const fs = require('fs')
 const path = require('path')
 
-console.log('about us page')
-
 const handleMainPage = (req, res) => {
     const filePath = path.join(__dirname, '../Frontend/Main-Page/mainpage.html')
 

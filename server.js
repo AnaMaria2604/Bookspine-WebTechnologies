@@ -61,8 +61,11 @@ const { handleAboutUsButton } = require('./Backend/aboutUsFunctions')
 
 const { handleMainPage } = require('./Backend/mainPage')
 
+const { handleReview } = require('./Backend/reviewPostFunctions')
+
 const { Console } = require('console')
 const { handleTagsRequest } = require('./Backend/tags')
+
 const { handleGroupJoinPageRequest } = require('./Backend/groupjoin')
 const { handleGroupRequest } = require('./Backend/groupJoinFunction')
 //initializeDatabase()
@@ -112,6 +115,8 @@ const server = http.createServer((req, res) => {
         handleBookForReviewRequest(req, res, bookId)
     } else if (req.method === 'GET' && req.url.startsWith('/aboutUs')) {
         handleAboutUsPage(req, res)
+    } else if (req.method === 'POST' && req.url.startsWith('/post-review')) {
+        handleReview(req, res)
     } else if (req.method === 'GET' && req.url.startsWith('/about-us-button')) {
         handleAboutUsButton(req, res)
     } else if (req.method === 'GET' && req.url === '/statistics') {

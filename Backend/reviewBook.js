@@ -1,8 +1,6 @@
 const fs = require('fs')
 const path = require('path')
 
-console.log('reviewbook')
-
 const handleReviewDetailsRequest = (req, res, bookId) => {
     const filePath = path.join(__dirname, '../Frontend/Review-Page/review.html')
 

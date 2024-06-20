@@ -124,8 +124,9 @@ function populateDatabase(connection) {
             5,
             'Scribner',
             'Maxwell Perkins',
-            'Classics',
+            'Eternal',
             'The Great Gatsby, F. Scott Fitzgeralds third book, stands as the supreme achievement of his career. This exemplary novel of the Jazz Age has been acclaimed by generations of readers. The story of the fabulously wealthy Jay Gatsby and his love for the beautiful Daisy Buchanan, of lavish parties on Long Island at a time when The New York Times noted ~gin was the national drink and sex the national obsession~ it is an exquisitely crafted tale of America in the 1920s.',
+            1940,
             readImage(path.join(__dirname, 'images', 'gatsby.jpg')),
         ],
         [
@@ -136,8 +137,9 @@ function populateDatabase(connection) {
             5,
             'Secker & Warburg',
             'Fredric Warburg',
-            'Classics',
+            'Page Turners',
             'A masterpiece of rebellion and imprisonment where war is peace freedom is slavery and Big Brother is watching Thought Police Big Brother Orwellian These words have entered our vocabulary because of George Orwell s classic dystopian novel 1984 The story of one man s nightmare odyssey as he pursues a forbidden love affair through a world ruled by warring states and a power structure that controls not only information but also individual thought and memory 1984 is a prophetic haunting tale More relevant than ever before 1984 exposes the worst crimes imaginable the destruction of truth freedom and individuality With a foreword by Thomas Pynchon With a foreword by Thomas Pynchon A masterpiece of rebellion and imprisonment where war is peace freedom is slavery and Big Brother is watching View our feature on George Orwell s 1984 Thought Police Big Brother Orwellian These words have entered our vocabulary because of George Orwell s classic dystopian novel 1984 The story of one man s nightmare odyssey as he pursues a forbidden love affair through a world ruled by warring states and a power structure that controls not only information but also individual thought and memory 1984 is a prophetic haunting tale More relevant than ever before 1984 exposes the worst crimes imaginable the destruction of truth freedom and individuality This beautiful paperback edition features deckled edges and french flaps a perfect gift for any occasion',
+            1980,
             readImage(path.join(__dirname, 'images', '1984.jpg')),
         ],
         [
@@ -148,8 +150,9 @@ function populateDatabase(connection) {
             5,
             'J.B. Lippincott & Co.',
             'Tay Hohoff',
-            'Classics',
+            'Prose Paradise',
             'Compassionate, dramatic, and deeply moving, To Kill A Mockingbird takes readers to the roots of human behavior - to innocence and experience, kindness and cruelty, love and hatred, humor and pathos. Now with over 18 million copies in print and translated into forty languages, this regional story by a young Alabama woman claims universal appeal. Harper Lee always considered her book to be a simple love story. Today it is regarded as a masterpiece of American literature.',
+            2005,
             readImage(path.join(__dirname, 'images', 'mockingbird.jpg')),
         ],
         [
@@ -160,8 +163,9 @@ function populateDatabase(connection) {
             4,
             'Harper & Brothers',
             'Richard Bentley',
-            'Classics',
+            'Vintage Volumes',
             'So Melville wrote of his masterpiece, one of the greatest works of imagination in literary history. In part, Moby-Dick is the story of an eerily compelling madman pursuing an unholy war against a creature as vast and dangerous and unknowable as the sea itself. But more than just a novel of adventure, more than an encyclopaedia of whaling lore and legend, the book can be seen as part of its authors lifelong meditation on America. Written with wonderfully redemptive humour, Moby-Dick is also a profound inquiry into character, faith, and the nature of perception.',
+            1977,
             readImage(path.join(__dirname, 'images', 'moby-dick.jpg')),
         ],
         [
@@ -172,8 +176,9 @@ function populateDatabase(connection) {
             5,
             'T. Egerton',
             'Thomas Egerton',
-            'Classics',
+            'Golden Pages',
             'Since its immediate success in 1813, Pride and Prejudice has remained one of the most popular novels in the English language. Jane Austen called this brilliant work "her own darling child" and its vivacious heroine, Elizabeth Bennet, "as delightful a creature as ever appeared in print." The romantic clash between the opinionated Elizabeth and her proud beau, Mr. Darcy, is a splendid performance of civilized sparring. And Jane Austens radiant wit sparkles as her characters dance a delicate quadrille of flirtation and intrigue, making this book the most superb comedy of manners of Regency England.',
+            2000,
             readImage(path.join(__dirname, 'images', 'pride.jpg')),
         ],
         [
@@ -184,8 +189,9 @@ function populateDatabase(connection) {
             4,
             'Little, Brown and Company',
             'Robert Giroux',
-            'Classics',
+            'Historic Library',
             'The Catcher in the Rye is an all-time classic in coming-of-age literature- an elegy to teenage alienation, capturing the deeply human need for connection and the bewildering sense of loss as we leave childhood behind.',
+            2003,
             readImage(path.join(__dirname, 'images', 'catcher.jpg')),
         ],
         [
@@ -196,8 +202,9 @@ function populateDatabase(connection) {
             5,
             'Chatto & Windus',
             'Davidson Bal',
-            'Classics',
+            'Legacy',
             'Aldous Huxleys profoundly important classic of world literature, Brave New World is a searching vision of an unequal, technologically-advanced future where humans are genetically bred, socially indoctrinated, and pharmaceutically anesthetized to passively uphold an authoritarian ruling order all at the cost of our freedom, full humanity, and perhaps also our souls. “A genius [who] who spent his life decrying the onward march of the Machine” (The New Yorker), Huxley was a man of incomparable talents: equally an artist, a spiritual seeker, and one of historys keenest observers of human nature and civilization. Brave New World, his masterpiece, has enthralled and terrified millions of readers, and retains its urgent relevance to this day as both a warning to be heeded as we head into tomorrow and as thought-provoking, satisfying work of literature. Written in the shadow of the rise of fascism during the 1930s, Brave New Worldd likewise speaks to a 21st-century world dominated by mass-entertainment, technology, medicine and pharmaceuticals, the arts of persuasion, and the hidden influence of elites.',
+            1988,
             readImage(path.join(__dirname, 'images', 'bravenewworld.jpg')),
         ],
         [
@@ -208,8 +215,9 @@ function populateDatabase(connection) {
             5,
             'George Allen & Unwin',
             'Stanley Unwin',
-            'Classics',
+            'Heritage Collection',
             'In a hole in the ground there lived a hobbit. Not a nasty, dirty, wet hole, filled with the ends of worms and an oozy smell, nor yet a dry, bare, sandy hole with nothing in it to sit down on or to eat: it was a hobbit-hole, and that means comfort.Written for J.R.R. Tolkiens own children, The Hobbit met with instant critical acclaim when it was first published in 1937. Now recognized as a timeless classic, this introduction to the hobbit Bilbo Baggins, the wizard Gandalf, Gollum, and the spectacular world of Middle-earth recounts of the adventures of a reluctant hero, a powerful and dangerous ring, and the cruel dragon Smaug the Magnificent. The text in this 372-page paperback edition is based on that first published in Great Britain by Collins Modern Classics (1998), and includes a note on the text by Douglas A. Anderson (2001).',
+            1955,
             readImage(path.join(__dirname, 'images', 'hobbit.jpg')),
         ],
         [
@@ -220,8 +228,9 @@ function populateDatabase(connection) {
             4,
             'Ballantine Books',
             'William Morrow',
-            'Classics',
+            'Heritage',
             'Guy Montag is a fireman. His job is to destroy the most illegal of commodities, the printed book, along with the houses in which they are hidden. Montag never questions the destruction and ruin his actions produce, returning each day to his bland life and wife, Mildred, who spends all day with her television “family.” But when he meets an eccentric young neighbor, Clarisse, who introduces him to a past where people didn’t live in fear and to a present where one sees the world through the ideas in books instead of the mindless chatter of television, Montag begins to question everything he has ever known.',
+            2022,
             readImage(path.join(__dirname, 'images', 'fahrenheit.jpg')),
         ],
         [
@@ -232,14 +241,15 @@ function populateDatabase(connection) {
             5,
             'Smith, Elder & Co.',
             'W.S. Williams',
-            'Classics',
+            'Classic Reads',
             'Charlotte Brontë tells the story of orphaned Jane Eyre, who grows up in the home of her heartless aunt, enduring loneliness and cruelty. This troubled childhood strengthens Janes natural independence and spirit - which prove necessary when she finds employment as a governess to the young ward of Byronic, brooding Mr Rochester. As her feelings for Rochester develop, Jane gradually uncovers Thornfield Halls terrible secret, forcing her to make a choice. Should she stay with Rochester and live with the consequences, or follow her convictions - even if it means leaving the man she loves? A novel of intense power and intrigue, Jane Eyre dazzled readers with its passionate depiction of a womans search for equality and freedom.',
+            2007,
             readImage(path.join(__dirname, 'images', 'janeeyre.jpg')),
         ],
     ]
 
     connection.query(
-        'INSERT INTO book (title, author, genre, year, rating, publisher, editor, collection, description, cover) VALUES ?',
+        'INSERT INTO book (title, author, genre, year, rating, publisher, editor, collection, description, edition, cover) VALUES ?',
         [books],
         (err) => {
             if (err) {
@@ -485,7 +495,7 @@ function populateDatabase(connection) {
         ['History'],
         ['Adventure'],
         ['Dystopian'],
-        ['Poetry'], //10
+        ['Poetry'],
         ['Art'],
         ['Christian'],
         ['Crime'],
@@ -495,7 +505,7 @@ function populateDatabase(connection) {
         ['Comics'],
         ['Cookbooks'],
         ['Ebooks'],
-        ['Fiction'], //20
+        ['Fiction'],
         ['Graphic Novels'],
         ['Historical Fiction'],
         ['Horror'],
@@ -505,7 +515,7 @@ function populateDatabase(connection) {
         ['Paranormal'],
         ['Philosophy'],
         ['Science'],
-        ['Self Help'], //30
+        ['Self Help'],
         ['Spirituality'],
         ['Sports'],
         ['Thriller'],
@@ -516,7 +526,7 @@ function populateDatabase(connection) {
         ['Nonfiction'],
         ['Religion'],
         ['Suspense'],
-        ['Young Adult'], //41
+        ['Young Adult'],
     ]
 
     connection.query(
@@ -560,6 +570,73 @@ function populateDatabase(connection) {
                 'Preferințele utilizatorilor au fost inserate cu succes!'
             )
             connection.end()
+        }
+    )
+
+    const teamBooks = [
+        [1, 1],
+        [1, 2],
+        [1, 3],
+        [2, 1],
+        [2, 8],
+        [2, 5],
+        [3, 9],
+        [3, 2],
+        [4, 8],
+        [5, 4],
+        [5, 2],
+        [6, 1],
+        [6, 5],
+        [6, 6],
+        [7, 2],
+        [7, 7],
+        [7, 3],
+        [8, 4],
+        [8, 7],
+    ]
+
+    connection.query(
+        'INSERT INTO teambooks (teamId, bookId) VALUES ?',
+        [teamBooks],
+        (err) => {
+            if (err) {
+                console.error('Error inserting teamBooks:', err)
+                throw err
+            }
+            console.log('Inserted into teambooks table successfully.')
+        }
+    )
+
+    const teamConv = [
+        [1, 1, 1, 'A good book!!'],
+        [1, 7, 1, 'I only read 20 pages but I think it is so interesting!'],
+        [1, 5, 3, 'Easy read for this weekend'],
+
+        [2, 8, 1, 'An introspective exploration of love, loss'],
+        [2, 2, 10, 'An insightful examination of family dynamics'],
+        [2, 9, 10, 'A heartwarming story'],
+        [2, 1, 5, 'A captivating journey through historical events'],
+
+        [3, 4, 9, 'A thrilling adventure filled with unexpected turns'],
+        [3, 8, 2, 'A heartwarming story that celebrates friendship'],
+        [3, 6, 2, 'An introspective exploration of love, loss, and redemption'],
+
+        [4, 3, 8, 'An immersive tale of adventure and discovery'],
+
+        [5, 7, 10, 'A gripping psychological thriller'],
+        [5, 9, 10, 'A poignant tribute to the power of literature'],
+        [5, 1, 5, 'An epic tale of love and betrayal'],
+    ]
+
+    connection.query(
+        'INSERT INTO teamconv (teamId, userId, bookId, text) VALUES ?',
+        [teamConv],
+        (err) => {
+            if (err) {
+                console.error('Error inserting team conversation:', err)
+                throw err
+            }
+            console.log('Inserted into teamconversation table successfully.')
         }
     )
 }
