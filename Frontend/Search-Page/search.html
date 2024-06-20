@@ -19,8 +19,8 @@
         <ul>
           <li>
             <div class="search-container">
-              <input type="text" placeholder="" class="search-input">
-              <button type="submit" class="search-button">Search</button>
+              <input type="text" placeholder="" class="search-input" id="search-input">
+              <button type="submit" class="search-button" id="search-button">Search</button>
             </div>
           </li>
           <li class="dropdown">
@@ -47,59 +47,34 @@
       </div>
 
       <div class="continut">
-        <div class="sectiune">
+        <div class="sectiune" id="category-section">
           <h2>Category</h2>
-          <div class="sectiune__tags">
-            <a href="">Romance</a>
-            <a href="">History</a>
-            <a href="">Mistery</a>
-            <a href="">Drama</a>
-          </div>
+          <div class="sectiune__tags"></div>
         </div>
 
-        <div class="sectiune">
+        <div class="sectiune" id="author-section">
           <h2>Authors</h2>
-          <div class="sectiune__tags">
-            <a href="">Mihai Eminescu</a>
-            <a href="">Vasile Alecsandri</a>
-            <a href="">Mircea Cartarescu</a>
-            <a href="">Liviu Rebreanu</a>
-          </div>
+          <div class="sectiune__tags"></div>
         </div>
 
-        <div class="sectiune">
+        <div class="sectiune" id="publisher-section">
           <h2>Publisher</h2>
-          <div class="sectiune__tags">
-            <a href="">Academic</a>
-            <a href="">Carminis</a>
-            <a href="">Corint</a>
-            <a href="">Nemira</a>
-          </div>
+          <div class="sectiune__tags"></div>
         </div>
 
-        <div class="sectiune">
+        <div class="sectiune" id="publication-year-section">
           <h2>Publication year</h2>
-          <div class="sectiune__tags">
-            <a href="">1920</a>
-            <a href="">1848</a>
-            <a href="">2015</a>
-            <a href="">1925</a>
-          </div>
+          <div class="sectiune__tags"></div>
         </div>
 
-        <div class="sectiune">
+        <div class="sectiune" id="edition-section">
           <h2>Edition</h2>
-          <div class="sectiune__tags">
-            <a href="">New Editions</a>
-            <a href="">Readaptations</a>
-          </div>
+          <div class="sectiune__tags"></div>
         </div>
 
-        <div class="sectiune">
+        <div class="sectiune" id="collection-section">
           <h2>Collections</h2>
-          <div class="sectiune__tags">
-            <a href="">Full Collections</a>
-          </div>
+          <div class="sectiune__tags"></div>
         </div>
       </div>
     </div>
@@ -135,6 +110,7 @@
     </p>
   </footer>
   <script src="../../Backend/searchService.js"></script>
+  <script src="../../Backend/searchRedirect.js"></script>
 </body>
 
 </html>

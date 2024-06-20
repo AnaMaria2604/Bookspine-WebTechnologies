@@ -62,7 +62,7 @@ const { handleAboutUsButton } = require('./Backend/aboutUsFunctions')
 const { handleMainPage } = require('./Backend/mainPage')
 
 const { Console } = require('console')
-
+const { handleTagsRequest } = require('./Backend/tags')
 //initializeDatabase()
 
 const server = http.createServer((req, res) => {
@@ -161,6 +161,8 @@ const server = http.createServer((req, res) => {
         handleSearchPageRequest(req, res)
     } else if (req.url.startsWith('/api/search') && req.method === 'GET') {
         handleSearchRequest(req, res)
+    } else if (req.url === '/api/tags' && req.method === 'GET') {
+        handleTagsRequest(req, res)
     }
     // Verifică cererile pentru fișiere CSS
     else if (req.url.startsWith('/style/')) {
