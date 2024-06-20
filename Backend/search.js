@@ -36,11 +36,19 @@ function handleSearchRequest(req, res) {
         }
 
         // Interogare pentru cărți
-        const bookQuery = `SELECT title, author, cover FROM book WHERE title LIKE ? OR author LIKE ?`
-        const bookQueryValues = [`%${query}%`, `%${query}%`]
+        const bookQuery = `SELECT id,title, author, cover FROM book WHERE title LIKE ? OR author LIKE ? OR publisher LIKE ? OR genre LIKE ? OR collection LIKE ? OR editor LIKE ? OR year LIKE ?`
+        const bookQueryValues = [
+            `%${query}%`,
+            `%${query}%`,
+            `%${query}%`,
+            `%${query}%`,
+            `%${query}%`,
+            `%${query}%`,
+            `%${query}%`,
+        ]
 
         // Interogare pentru grupuri
-        const groupQuery = `SELECT teamName,photo FROM team WHERE teamName LIKE ?`
+        const groupQuery = `SELECT id,teamName,photo FROM team WHERE teamName LIKE ?`
         const groupQueryValues = [`%${query}%`]
         // Execută interogarea pentru cărți
         connection.query(bookQuery, bookQueryValues, (bookErr, bookResults) => {

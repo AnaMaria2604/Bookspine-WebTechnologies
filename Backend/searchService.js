@@ -15,9 +15,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Check if there are no results
                 if (!data || (!data.books && !data.teams)) {
                     const noResultsMessage = document.createElement('p')
-                    noResultsMessage.textContent = 'Nu am găsit nimic'
+                    noResultsMessage.textContent =
+                        'We do not have something with this name'
                     noResultsMessage.className = 'no-results-message'
                     bookResults.appendChild(noResultsMessage)
+                    const noResultsMessage2 = document.createElement('p')
+                    noResultsMessage2.textContent =
+                        'We do not have something with this name'
+                    noResultsMessage2.className = 'no-results-message'
+                    groupResults.appendChild(noResultsMessage2)
                     return
                 }
 
@@ -38,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             </div>
                             <div class="group__updates">
                                 <div class="text">
-                                    <a href="#">See more details about the book</a>
+                                    <a href="/book/${book.id}">See more details about the book</a>
                                 </div>
                             </div>
                         </div>
@@ -61,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <div class="categoryname"><span>${team.teamName}</span></div>
                                 <div class="buton__fixat">
                                     <div class="text">
-                                        <a href="#">Join</a>
+                                        <a href="#">Join</a> 
                                     </div>
                                 </div>
                             </div>
@@ -74,4 +80,30 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.error('Error fetching search results:', error)
             )
     }
+    fetch('/api/tags')
+        .then((response) => response.json())
+        .then((data) => {
+            populateTags('category-section', data.categories, 'Category')
+            populateTags('author-section', data.authors, 'Authors')
+            populateTags('publisher-section', data.publishers, 'Publisher')
+            populateTags(
+                'publication-year-section',
+                data.publicationYears,
+                'Publication year'
+            )
+            populateTags('collection-section', data.collections, 'Collections')
+        })
+        .catch((error) => console.error('Error fetching tags:', error))
 })
+
+function populateTags(sectionId, tags, tagType) {
+    const section = document.getElementById(sectionId)
+    const tagsContainer = section.querySelector('.sectiune__tags')
+
+    tags.forEach((tag) => {
+        const tagElement = document.createElement('a')
+        tagElement.href = `/search?q=${encodeURIComponent(tag)}`
+        tagElement.textContent = tag
+        tagsContainer.appendChild(tagElement)
+    })
+}
