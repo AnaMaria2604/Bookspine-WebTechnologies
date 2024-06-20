@@ -40,7 +40,7 @@ function handleSearchRequest(req, res) {
         const bookQueryValues = [`%${query}%`, `%${query}%`]
 
         // Interogare pentru grupuri
-        const groupQuery = `SELECT teamName FROM team WHERE teamName LIKE ?`
+        const groupQuery = `SELECT teamName,photo FROM team WHERE teamName LIKE ?`
         const groupQueryValues = [`%${query}%`]
         // Execută interogarea pentru cărți
         connection.query(bookQuery, bookQueryValues, (bookErr, bookResults) => {
@@ -50,7 +50,7 @@ function handleSearchRequest(req, res) {
                 res.end(JSON.stringify({ error: 'Failed to query books' }))
                 return
             }
-            console.log(bookResults)
+            //console.log(bookResults)
             // Execută interogarea pentru grupuri
             connection.query(
                 groupQuery,
@@ -67,7 +67,7 @@ function handleSearchRequest(req, res) {
                         )
                         return
                     }
-
+                    console.log(groupResults)
                     // Verifică dacă rezultatele sunt goale
                     if (bookResults.length === 0 && groupResults.length === 0) {
                         console.log('aici')
@@ -79,7 +79,7 @@ function handleSearchRequest(req, res) {
                         // Returnează rezultatele în format JSON
                         const result = {
                             books: bookResults,
-                            groups: groupResults,
+                            teams: groupResults,
                         }
                         console.log(result.books)
 

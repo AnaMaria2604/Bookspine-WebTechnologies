@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 groupResults.innerHTML = ''
 
                 // Check if there are no results
-                if (!data || (!data.books && !data.groups)) {
+                if (!data || (!data.books && !data.teams)) {
                     const noResultsMessage = document.createElement('p')
                     noResultsMessage.textContent = 'Nu am găsit nimic'
                     noResultsMessage.className = 'no-results-message'
@@ -47,8 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 })
 
                 // Populate groups
-                data.groups.forEach((group) => {
-                    const blob = new Blob([new Uint8Array(group.cover.data)], {
+                data.teams.forEach((team) => {
+                    const blob = new Blob([new Uint8Array(team.photo.data)], {
                         type: 'image/jpeg',
                     })
                     const imageUrl = URL.createObjectURL(blob)
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
                          <img class="poza" alt="" src="${imageUrl}">
                         <div class="mybooks__category">
                             <div class="tags">
-                                <div class="categoryname"><span>${group.teamName}</span></div>
+                                <div class="categoryname"><span>${team.teamName}</span></div>
                                 <div class="buton__fixat">
                                     <div class="text">
                                         <a href="#">Join</a>
