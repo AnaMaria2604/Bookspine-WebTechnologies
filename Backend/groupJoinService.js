@@ -7,9 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('team-name').textContent =
                 data.team[0].teamName
             document.getElementById('moderator-link').textContent =
-                'Popescu Valentin'
-            document.getElementById('team-description').textContent =
-                data.team[0].description
+                data.moderator
+            document.getElementById(
+                'team-description'
+            ).textContent = `"${data.team[0].description}"`
 
             const blob = new Blob([new Uint8Array(data.team[0].photo.data)], {
                 type: 'image/jpeg',
@@ -18,22 +19,19 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('team-photo').src = imageUrl
 
             const bookList = document.getElementById('book-list')
-            data.books.forEach((book) => {
+            data.books.forEach((book, index) => {
                 const bookLink = document.createElement('a')
                 bookLink.href = `/book/${book.id}`
                 bookLink.textContent = book.title
                 bookList.appendChild(bookLink)
 
-                const separator = document.createElement('div')
-                separator.classList.add('text1')
-                separator.textContent = 'and'
-                bookList.appendChild(separator)
+                if (index < data.books.length - 1) {
+                    const separator = document.createElement('span')
+                    separator.classList.add('separator')
+                    separator.textContent = ' - '
+                    bookList.appendChild(separator)
+                }
             })
-
-            // Remove last separator
-            if (bookList.lastChild) {
-                bookList.removeChild(bookList.lastChild)
-            }
         })
         .catch((error) => {
             console.error('Error fetching group details:', error)

@@ -175,7 +175,6 @@ const server = http.createServer((req, res) => {
         handleGroupJoinPageRequest(req, res, groupId)
     } else if (req.method === 'GET' && req.url.startsWith('/api/group/')) {
         const groupId = req.url.split('/').pop()
-        console.log('here')
         handleGroupRequest(req, res, groupId)
     }
     // Verifică cererile pentru fișiere CSS

@@ -1,15 +1,15 @@
 $color: #ffaa8e;
-$background: #ACEAEC;
-$header: #01161E;
+$background: #aceaec;
+$header: #01161e;
 $footer: #0c3742;
 $body: #104547;
 $textcolor: #ffff;
 $button: #124559;
-$darkbutton: #0A2E36;
+$darkbutton: #0a2e36;
 $bordercolor: #2a3738;
 
 * {
-    font-family: 'Segoe UI', Verdana, sans-serif;
+    font-family: "Segoe UI", Verdana, sans-serif;
     background: none;
 }
 
@@ -81,17 +81,14 @@ body {
                         cursor: pointer;
                         font-size: 16px;
                         margin-left: 8px;
-
                     }
 
                     .search-button:hover {
                         background-color: $darkbutton;
-
                     }
                 }
             }
         }
-
     }
 
     .dropdown-container {
@@ -121,22 +118,24 @@ body {
         font-weight: bold;
     }
 
-
     .main {
         width: 100%;
+        display: flex;
+        flex-direction: column;
 
         .content {
             background-color: $body;
             border-radius: 20px;
+            align-self: center;
             margin-top: 150px;
-            margin-left: 10%;
-            margin-right: 10%;
+
             margin-bottom: 50px;
+            align-self: center;
             padding: 20px;
             width: 80%;
             display: flex;
             flex-direction: row;
-            justify-content: space-between;
+
             flex: 1;
 
             .left_part {
@@ -156,7 +155,6 @@ body {
                 }
 
                 .container {
-
                     display: flex;
                     flex-direction: column;
                     flex-wrap: wrap;
@@ -185,22 +183,21 @@ body {
                         font-weight: bold;
                         align-self: center;
                         padding: 10px;
-
                     }
                 }
-
             }
 
             .right_part {
                 margin-top: 10px;
                 padding: 20px;
+                padding-left: 5px;
                 display: flex;
                 flex-direction: column;
                 color: white;
 
                 .title {
                     padding: 10px;
-                    font-size: 25px;
+                    font-size: 30px;
                     font-weight: bold;
                     margin-bottom: 20px;
                 }
@@ -221,38 +218,41 @@ body {
 
                     a {
                         padding-left: 10px;
-                        color: $textcolor;
+                        color: white;
                         font-style: italic;
                     }
                 }
-
+                .descpr {
+                    font-size: 19px;
+                    padding: 10px;
+                }
                 .description {
                     padding: 10px;
                     font-size: 19px;
-
-                    .books {
-                        padding-top: 40px;
+                    font-style: italic;
+                }
+                .books {
+                    font-size: 19px;
+                    padding: 10px;
+                    padding-top: 40px;
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    .text1 {
                         display: flex;
                         flex-direction: row;
                         flex-wrap: wrap;
+                    }
 
-                        .text1 {
-                            display: flex;
-                            flex-direction: row;
-                            flex-wrap: wrap;
-                        }
-
-                        a {
-                            font-style: italic;
-                            padding-left: 10px;
-                            padding-right: 10px;
-                            color: $textcolor;
-                        }
+                    a {
+                        font-style: italic;
+                        padding-left: 10px;
+                        padding-right: 10px;
+                        color: $textcolor;
                     }
                 }
             }
         }
-
     }
 }
 
@@ -313,7 +313,6 @@ footer {
                     margin-bottom: 20px;
                 }
             }
-
         }
     }
 }
