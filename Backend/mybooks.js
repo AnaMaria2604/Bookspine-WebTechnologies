@@ -1,12 +1,12 @@
 const fs = require('fs')
 const path = require('path')
 
-console.log('account path')
+console.log('my books path')
 
-function handleMyAccount(req, res) {
+function handleMyBooks(req, res) {
     const filePath = path.join(
         __dirname,
-        '../Frontend/Account-Page/account.html'
+        '../Frontend/My-Books-Page/mybooks.html'
     )
 
     fs.readFile(filePath, (err, data) => {
@@ -20,5 +20,5 @@ function handleMyAccount(req, res) {
     })
 }
 module.exports = {
-    handleMyAccount,
+    handleMyBooks,
 }

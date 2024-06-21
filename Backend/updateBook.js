@@ -1,8 +1,6 @@
 const fs = require('fs')
 const path = require('path')
 
-console.log('update book path')
-
 const handleUpdateBook = (req, res, bookId) => {
     const filePath = path.join(
         __dirname,
