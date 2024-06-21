@@ -2,7 +2,6 @@ const fs = require('fs')
 const path = require('path')
 
 const handleGroupJoinPageRequest = (req, res) => {
-    console.log('group')
     const filePath = path.join(
         __dirname,
         '../Frontend/Group-Join-Page/groupjoin.html'
