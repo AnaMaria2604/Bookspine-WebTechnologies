@@ -125,9 +125,10 @@ body {
     .main {
 
         .content {
+            padding: 30px;
             background-color: $body;
             border-radius: 20px;
-            margin-top: 100px;
+            margin-top: 170px;
             margin-left: 10%;
             margin-right: 10%;
             margin-bottom: 50px;
@@ -153,14 +154,14 @@ body {
                     align-content: center;
 
                     .book_cover {
-                        height: 300px;
+                        height: 400px;
                         width: auto;
                         border-radius: 10px;
                     }
                 }
 
                 .container {
-
+                    padding-top: 20px;
                     display: flex;
                     flex-direction: column;
 
@@ -169,22 +170,36 @@ body {
                         font-weight: bold;
                         align-self: center;
                         padding: 10px;
+                        font-size: 25px;
                     }
 
                     .shelves {
                         padding: 10px;
                         display: flex;
-                        background-color: aliceblue;
+                        background-color: #102c38;
                         align-items: center;
-                        color: black;
+                        color: white;
                         border-radius: 20px;
                         width: auto;
                         flex-direction: column;
 
 
                         .shelf {
+                            color: white;
+                            font-size: 20px;
                             margin: 5px 0;
                             border: none;
+                        }
+
+                        .read {
+                            margin: 5px 0;
+                            border: none;
+
+                            a {
+                                text-decoration: none;
+                                font-size: 20px;
+                                color: white;
+                            }
                         }
 
                     }
