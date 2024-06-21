@@ -95,7 +95,7 @@ body .dropdown-menu li a {
   font-weight: bold;
 }
 body .page {
-  background-color: #15555a;
+  background-color: #01474d;
   padding: 50px;
   border-radius: 20px;
   margin: 5%;
@@ -178,9 +178,17 @@ body .page .opinion .text {
 }
 body .page .opinion textarea {
   color: white;
+  min-width: 40px;
   min-height: 40px;
   max-width: 450px;
-  border: 1px solid #052629;
+  background-color: #07373b;
+  border: 2px solid #052629;
+}
+body .page .opinion textarea::-moz-placeholder {
+  color: #000000;
+}
+body .page .opinion textarea::placeholder {
+  color: #000000;
 }
 body .page .opinion .text__box {
   width: 300px;
@@ -210,9 +218,15 @@ body .page .date .end__date .text {
   padding-right: 10px;
 }
 body .page .date .end__date input {
-  font-size: 15px;
   color: white;
-  border: 1px solid #052629;
+  background-color: #07373b;
+  border: 2px solid #052629;
+}
+body .page .date .end__date input::-moz-placeholder {
+  color: #000000;
+}
+body .page .date .end__date input::placeholder {
+  color: #000000;
 }
 body .page .button {
   display: flex;

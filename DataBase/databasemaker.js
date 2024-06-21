@@ -160,8 +160,10 @@ function initializeDatabase() {
           id  INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
           userId  INT NOT NULL,
           bookId  INT NOT NULL ,
-          startDate  DATE NOT NULL,
-          currentPageNumber  INT NOT NULL,
+          startDate  DATE,
+          currentPageNumber INT NOT NULL,
+          descr VARCHAR(400),
+          quote VARCHAR(400),
           FOREIGN KEY (userId) REFERENCES user(id),
           FOREIGN KEY (bookId) REFERENCES book(id)
          )
