@@ -70,6 +70,9 @@ const { handleTagsRequest } = require('./Backend/tags')
 const { handleGroupJoinPageRequest } = require('./Backend/groupjoin')
 
 const { handleGroupRequest } = require('./Backend/groupJoinFunction')
+const { handleGroupConvPageRequest } = require('./Backend/groupConv')
+const { handleGroupConvRequest } = require('./Backend/groupConvFunction')
+const { isUserLoggedIn } = require('./Backend/loginStatus')
 
 const { handleUpdateBook } = require('./Backend/updateBook')
 
@@ -191,11 +194,24 @@ const server = http.createServer((req, res) => {
     } else if (req.url === '/api/tags' && req.method === 'GET') {
         handleTagsRequest(req, res)
     } else if (req.method === 'GET' && req.url.startsWith('/group/')) {
-        const groupId = req.url.split('/').pop()
-        handleGroupJoinPageRequest(req, res, groupId)
+        handleGroupJoinPageRequest(req, res)
     } else if (req.method === 'GET' && req.url.startsWith('/api/group/')) {
         const groupId = req.url.split('/').pop()
         handleGroupRequest(req, res, groupId)
+    } else if (req.method === 'GET' && req.url.startsWith('/group-conv/')) {
+        handleGroupConvPageRequest(req, res)
+    } else if (req.method === 'GET' && req.url.startsWith('/api/group-conv/')) {
+        console.log('bun')
+        const parts = req.url.split('/')
+        const groupId = parts[3]
+        const bookId = parts[4]
+        console.log(groupId)
+        console.log(bookId)
+        handleGroupConvRequest(req, res, bookId, groupId)
+    } else if (req.url === '/api/check-auth') {
+        const loggedIn = isUserLoggedIn(req)
+        res.writeHead(200, { 'Content-Type': 'application/json' })
+        res.end(JSON.stringify({ isAuthenticated: loggedIn }))
     }
     // Verifică cererile pentru fișiere CSS
     else if (req.url.startsWith('/style/')) {
