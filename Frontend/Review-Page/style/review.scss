@@ -140,47 +140,47 @@ body {
             flex-direction: row;
             flex-wrap: wrap;
             align-items: center;
+            justify-content: center;
             color: $textcolor;
 
             .poza {
-                width: 180px;
-                height: 200px;
-                padding-top: 10px;
-                padding-left: 10px;
+                width: auto;
+                height: 250px;
                 float: left;
+                border-radius: 10px;
             }
 
             .text {
-                padding: 20px;
+                padding: 40px;
                 display: flex;
                 flex-direction: column;
                 flex-wrap: wrap;
-                align-items: center;
-                align-self: center;
+                padding-top: 110px;
 
                 .titlu {
                     display: flex;
-                    font-size: 20px;
+                    font-size: 25px;
                     font-weight: bold;
                 }
 
                 .autor {
                     display: flex;
+                    font-size: 15px;
                 }
             }
         }
 
         .rating {
             color: $textcolor;
-
             padding-left: 10px;
-            padding-top: 20px;
+            padding-top: 30px;
+            padding-bottom: 20px;
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
 
             .text {
-                font-size: 15px;
+                font-size: 22px;
                 padding-right: 5px;
             }
 
@@ -191,7 +191,7 @@ body {
             }
 
             .star {
-                font-size: 16px;
+                font-size: 23px;
                 cursor: pointer;
             }
 
@@ -206,15 +206,22 @@ body {
 
         .opinion {
             color: $textcolor;
-
             display: flex;
             flex-direction: column;
             flex-wrap: wrap;
-            padding: 20px 20px 10px 10px;
+            padding: 10px 20px 10px 10px;
 
             .text {
-                font-size: 15px;
+                font-size: 22px;
                 padding-bottom: 10px;
+            }
+
+            textarea {
+                color: white;
+                min-height: 40px;
+                max-width: 450px;
+                border: 1px solid #052629;
+
             }
 
             .text__box {
@@ -224,22 +231,22 @@ body {
                 border-radius: 5px;
                 font-size: 16px;
                 outline: none;
+                color: white;
             }
         }
 
         .date {
             color: $textcolor;
-
             display: flex;
             flex-direction: column;
             flex-wrap: wrap;
-
             margin-top: 10px;
             padding: 10px;
 
 
             .end__date {
                 .text {
+                    font-size: 20px;
                     padding-right: 10px;
                 }
 
@@ -248,6 +255,11 @@ body {
                 flex-direction: row;
                 flex-wrap: wrap;
 
+                input {
+                    font-size: 15px;
+                    color: white;
+                    border: 1px solid #052629;
+                }
             }
         }
 
@@ -327,4 +339,167 @@ footer {
     width: 100%;
     background: $footer;
     color: $textcolor;
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+    body {
+        .page {
+            .page__header {
+                .poza {
+                    height: 200px;
+                }
+
+                .text {
+                    margin: 0;
+                    padding-left: 5px;
+
+                    .titlu {
+                        font-size: 20px;
+                    }
+
+                    .autor {
+                        font-size: 13px;
+                    }
+                }
+            }
+
+            .rating {
+                padding-top: 20px;
+
+                .text {
+                    font-size: 20px;
+                }
+
+                .star {
+                    font-size: 21px;
+                }
+
+
+            }
+
+            .opinion {
+                padding: 10px 20px 10px 10px;
+
+                .text {
+                    font-size: 18px;
+                }
+
+                textarea {
+                    min-height: 40px;
+                    max-width: 300px;
+                }
+
+                .text__box {
+                    font-size: 16px;
+                }
+            }
+
+            .date {
+                .end__date {
+                    .text {
+                        font-size: 20px;
+                    }
+
+                    input {
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+    body {
+
+        .page {
+            justify-content: center;
+            align-items: center;
+
+            .page__header {
+                // justify-content: center;
+
+                .book-header {
+                    display: flex;
+                    flex-direction: column;
+
+                    .poza {
+                        height: 200px;
+
+                    }
+
+                    .text {
+                        margin: 0;
+                        padding-top: 30px;
+                        padding-left: 5px;
+                        // justify-content: center;
+
+                        .titlu {
+                            font-size: 20px;
+                        }
+
+                        .autor {
+                            font-size: 13px;
+                        }
+                    }
+                }
+            }
+
+            .rating {
+                margin: 0;
+                width: 100%;
+                padding: 0px;
+                padding-bottom: 20px;
+                padding-left: 10px;
+
+
+                .text {
+                    padding: 0;
+                    font-size: 20px;
+                }
+
+                .star {
+                    font-size: 21px;
+                }
+
+
+            }
+
+            .opinion {
+                padding: 10px 20px 10px 10px;
+
+                .text {
+                    font-size: 18px;
+                }
+
+                textarea {
+                    min-height: 40px;
+                    max-width: 200px;
+                }
+
+                .text__box {
+                    font-size: 16px;
+                }
+            }
+
+            .date {
+                .end__date {
+                    .text {
+                        font-size: 20px;
+                    }
+
+                    input {
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+    }
+
+    footer {
+        margin-top: 120px;
+    }
 }

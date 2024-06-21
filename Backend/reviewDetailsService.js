@@ -15,11 +15,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 const imageUrl = URL.createObjectURL(blob)
                 const bookElement = document.createElement('div')
                 bookElement.innerHTML = `
-                <div>
+                <div class="book-header">
                     <img class="poza" alt="" src="${imageUrl}">
                     <div class="text">
                         <div class="titlu">${book.title}</div>
-                        <div class="autor">${book.author}</div>
+                        <div class="autor">by ${book.author}</div>
                     </div>
                 </div>`
                 details.appendChild(bookElement)
