@@ -125,14 +125,20 @@ body {
         margin-top: 50px;
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
-        position: relative;
-        align-items: flex-start;
+        justify-content: center;
+
 
         .partea__stanga {
             display: flex;
             flex-direction: column;
-            padding-left: 170px;
+            justify-content: center;
+            align-items: center;
+
+            .title {
+                align-self: center;
+                font-size: 40px;
+                font-weight: 900;
+            }
 
             .item {
                 margin-top: 20px;
@@ -141,7 +147,7 @@ body {
                 background-color: $body;
                 border-radius: 20px;
                 padding: 20px;
-                width: 700px;
+                width: 80%;
 
                 .user_content {
                     display: flex;
@@ -162,64 +168,8 @@ body {
                 }
             }
 
-            &::after {
-                content: '';
-                position: absolute;
-                top: 40px;
-                bottom: 15px;
-                left: 57%;
-                width: 3px;
-                padding-left: 3px;
-                padding-right: 3px;
-                background-color: $bordercolor;
-            }
         }
 
-        .partea__dreapta {
-            margin-top: 200px;
-            margin-right: 10%;
-            width: 25%;
-
-            .form-group {
-                background-color: $body;
-                border-radius: 20px;
-                margin-bottom: 20px;
-                padding: 20px;
-                display: flex;
-                color: $textcolor;
-                flex-direction: column;
-
-                label {
-                    align-self: center;
-                    font-weight: bold;
-                    margin-bottom: 20px;
-                }
-
-                textarea {
-                    align-self: center;
-                    width: 90%;
-                    height: 200px;
-                    resize: vertical;
-                    padding: 10px;
-                }
-
-                input[type="submit"] {
-                    align-self: center;
-                    margin-top: 50px;
-                    padding: 10px 20px;
-                    background-color: $button;
-                    color: $textcolor;
-                    border: none;
-                    border-radius: 5px;
-                    cursor: pointer;
-
-                    &:hover {
-                        background-color: $darkbutton;
-                    }
-                }
-            }
-
-        }
     }
 }
 
@@ -263,41 +213,44 @@ footer {
     color: $textcolor;
 }
 
-@media (min-width: 481px) and (max-width: 1595px) {
+@media (min-width: 481px) and (max-width: 767px) {
     body {
         .Containers {
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: 100%;
 
             .partea__stanga {
-                &::after {
-                    display: none;
-                }
-
-                margin:0px 0px 0px 0px;
+                justify-content: center;
+                align-items: center;
+                margin: 0px 0px 0px 0px;
                 padding: 0px 0px 0px 0px;
-                margin-left:5%;
-                margin-right:5%;
-                width:90%;
+
+                .title {
+                    font-size: 35px;
+                    font-weight: 900;
+                }
 
                 .item {
-                    width: 100%;
+                    width: 80%;
                     margin: 30px 0px 0px 0px;
                     padding: 0px 0px 0px 0px;
+                    padding: 20px;
+
+                    .user_content {
+                        .intrebare {
+                            font-size: 20px;
+                        }
+                    }
+
+                    .descriere {
+                        font-size: 17px;
+                        padding-left: 20px;
+                    }
                 }
 
             }
 
-            .partea__dreapta {
-
-                margin: 30px 0px 0px 0px;
-                padding: 0px 0px 0px 0px;
-                margin-left: 5%;
-                margin-right: 5%;
-                width: 90%;
-            }
         }
     }
 }
@@ -305,38 +258,40 @@ footer {
 @media (min-width: 320px) and (max-width: 480px) {
     body {
         .Containers {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
 
             .partea__stanga {
-                &::after {
-                    display: none;
-                }
-
-                margin:0px 0px 0px 0px;
+                justify-content: center;
+                align-items: center;
+                margin: 0px 0px 0px 0px;
                 padding: 0px 0px 0px 0px;
-                margin-left:5%;
-                margin-right:5%;
-                width:90%;
+
+                .title {
+                    font-size: 30px;
+                    font-weight: 900;
+
+                }
 
                 .item {
-                    width: 100%;
+                    width: 80%;
                     margin: 30px 0px 0px 0px;
                     padding: 0px 0px 0px 0px;
+                    padding: 20px;
+
+                    .user_content {
+                        .intrebare {
+                            font-size: 14px;
+                        }
+                    }
+
+                    .descriere {
+                        font-size: 12px;
+                        padding-left: 20px;
+                    }
                 }
 
             }
 
-            .partea__dreapta {
 
-                margin: 30px 0px 0px 0px;
-                padding: 0px 0px 0px 0px;
-                margin-left: 5%;
-                margin-right: 5%;
-                width: 90%;
-            }
         }
     }
 
