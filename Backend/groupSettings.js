@@ -3,10 +3,10 @@ const path = require('path')
 
 console.log('account path')
 
-function handleMyAccount(req, res) {
+function handleGroupSettings(req, res) {
     const filePath = path.join(
         __dirname,
-        '../Frontend/Account-Page/account.html'
+        '../Frontend/Group-Settings-Page/settings.html'
     )
 
     fs.readFile(filePath, (err, data) => {
@@ -20,5 +20,5 @@ function handleMyAccount(req, res) {
     })
 }
 module.exports = {
-    handleMyAccount,
+    handleGroupSettings,
 }

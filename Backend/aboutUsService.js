@@ -20,6 +20,4 @@ document.addEventListener('DOMContentLoaded', function () {
         .catch((error) => {
             console.error('Error fetching redirect URL:', error)
         })
-
-    console.log('buna ziua')
 })

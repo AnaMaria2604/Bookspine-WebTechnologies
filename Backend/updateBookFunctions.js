@@ -1,8 +1,6 @@
 const mysql = require('mysql')
 const pool = require('../DataBase/database')
 
-console.log('update book functions')
-
 function handleBookForUpdateRequest(req, res, bookId) {
     console.log('bookid in functions: ' + bookId)
     getBookRequestForUpdate(bookId, (error, results) => {

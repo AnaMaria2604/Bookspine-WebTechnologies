@@ -1,47 +1,33 @@
 const http = require('http')
-
 const path = require('path')
-
 const fs = require('fs')
-
 const initializeDatabase = require('./DataBase/databasemaker')
-
 const {
     handleCreateAccountRequest,
     handleCreateAccountSubmit,
 } = require('./Backend/createAccount')
-
 const { handleLoginRequest, handleLoginSubmission } = require('./Backend/login')
-
 const { handleIndexRequest } = require('./Backend/index')
-
 const {
     handlePopularBooksRequest,
     handleRecommendedBooksRequest,
 } = require('./Backend/getTenBooks')
-
 const {
     handleBookRequest,
     handleReviewRequest,
     handleUserReviewRequest,
 } = require('./Backend/showBookDetails')
-
 const { handlePageDetailsRequest } = require('./Backend/book')
-
 const {
     handleFavouriteRequest,
     handleFavouriteSubmission,
 } = require('./Backend/favourite')
-
 const {
     handleShelfWantToRead,
     handleShelfReading,
 } = require('./Backend/shelfForUser')
-
 const { handleReviewDetailsRequest } = require('./Backend/reviewBook')
-
 const { handleBookForReviewRequest } = require('./Backend/reviewBookFunctions')
-
 const {
     handleStatisticsRequest,
     getTop10Books,
@@ -49,39 +35,37 @@ const {
     exportCSV,
     exportDocBook,
 } = require('./Backend/statistics')
-
 const {
     handleSearchPageRequest,
     handleSearchRequest,
 } = require('./Backend/search')
-
 const { handleAboutUsPage } = require('./Backend/aboutUs')
-
 const { handleAboutUsButton } = require('./Backend/aboutUsFunctions')
-
 const { handleMainPage } = require('./Backend/mainPage')
-
 const { handleReview } = require('./Backend/reviewPostFunctions')
-
 const { Console } = require('console')
-
 const { handleTagsRequest } = require('./Backend/tags')
-
 const { handleGroupJoinPageRequest } = require('./Backend/groupjoin')
-
 const { handleGroupRequest } = require('./Backend/groupJoinFunction')
 const { handleGroupConvPageRequest } = require('./Backend/groupConv')
 const { handleGroupConvRequest } = require('./Backend/groupConvFunction')
 const { isUserLoggedIn } = require('./Backend/loginStatus')
-
 const { handleMyAccount } = require('./Backend/account')
 const { handleUpdateBook } = require('./Backend/updateBook')
-
 const { handleBookForUpdateRequest } = require('./Backend/updateBookFunctions')
-
 const { handleUpdate } = require('./Backend/updatePostFunctions')
-
 const { handleHelpPage } = require('./Backend/help')
+const { handleMyBooks } = require('./Backend/mybooks')
+const {
+    handleAccountDetails,
+    getNextGroupId,
+    handleLogout,
+} = require('./Backend/accountFunctions')
+const {
+    handleAccount,
+    //handleUploadPhoto,
+} = require('./Backend/accountSaveFunctions')
+const { handleGroupSettings } = require('./Backend/groupSettings')
 
 //initializeDatabase()
 
@@ -94,8 +78,12 @@ const server = http.createServer((req, res) => {
         handleLoginRequest(req, res)
     } else if (req.method === 'POST' && req.url === '/login') {
         handleLoginSubmission(req, res)
+    } else if (req.url === '/logout' && req.method === 'POST') {
+        handleLogout(req, res)
     } else if (req.method === 'GET' && req.url === '/') {
         handleIndexRequest(req, res)
+    } else if (req.method === 'GET' && req.url === '/mybooks') {
+        handleMyBooks(req, res)
     } else if (req.method === 'GET' && req.url === '/api/recommended-books') {
         handleRecommendedBooksRequest(req, res)
     } else if (req.method === 'GET' && req.url === '/api/popular-books') {
@@ -130,8 +118,12 @@ const server = http.createServer((req, res) => {
         handleBookForReviewRequest(req, res, bookId)
     } else if (req.method === 'GET' && req.url.startsWith('/aboutUs')) {
         handleAboutUsPage(req, res)
-    } else if (req.method === 'GET' && req.url.startsWith('/account')) {
+    } else if (req.method === 'GET' && req.url === '/account') {
         handleMyAccount(req, res)
+    } else if (req.method === 'GET' && req.url === '/accountDetails') {
+        handleAccountDetails(req, res)
+    } else if (req.method === 'POST' && req.url === '/saveDetails') {
+        handleAccount(req, res)
     } else if (req.method === 'POST' && req.url.startsWith('/post-review')) {
         handleReview(req, res)
     } else if (req.method === 'GET' && req.url.startsWith('/about-us-button')) {
@@ -149,7 +141,11 @@ const server = http.createServer((req, res) => {
         handleBookForUpdateRequest(req, res, bookId)
     } else if (req.method === 'POST' && req.url.startsWith('/post-update')) {
         handleUpdate(req, res)
-    } else if (req.url === '/top10books' && req.method === 'GET') {
+    }
+    // else if (req.url === '/uploadPhoto' && req.method === 'POST') {
+    //     handleUploadPhoto(req, res)
+    // }
+    else if (req.url === '/top10books' && req.method === 'GET') {
         getTop10Books((err, data) => {
             if (err) {
                 res.writeHead(500, { 'Content-Type': 'application/json' })
@@ -198,6 +194,20 @@ const server = http.createServer((req, res) => {
         handleTagsRequest(req, res)
     } else if (req.method === 'GET' && req.url.startsWith('/group/')) {
         handleGroupJoinPageRequest(req, res)
+    } else if (req.method === 'GET' && req.url.startsWith('/group-settings/')) {
+        handleGroupSettings(req, res)
+    } else if (req.url === '/nextGroupId' && req.method === 'GET') {
+        getNextGroupId((err, data) => {
+            if (err) {
+                res.writeHead(500, { 'Content-Type': 'application/json' })
+                res.end(
+                    JSON.stringify({ error: 'Failed to get next group ID' })
+                )
+            } else {
+                res.writeHead(200, { 'Content-Type': 'application/json' })
+                res.end(JSON.stringify(data))
+            }
+        })
     } else if (req.method === 'GET' && req.url.startsWith('/api/group/')) {
         const groupId = req.url.split('/').pop()
         handleGroupRequest(req, res, groupId)
