@@ -8,7 +8,7 @@ $button: #124559;
 $darkbutton: #0A2E36;
 $bordercolor: #2a3738;
 $challenge: #272D2D;
-$body2: #15555a;
+$body2: #01474d;
 $button2: #496264;
 
 * {
@@ -142,39 +142,40 @@ body {
             flex-direction: row;
             flex-wrap: wrap;
             align-items: center;
+            justify-content: center;
+            color: $textcolor;
 
             .poza {
-                width: 180px;
-                height: 200px;
-                padding-top: 10px;
-                padding-left: 10px;
+                width: auto;
+                height: 250px;
                 float: left;
+                border-radius: 10px;
             }
 
             .text {
-                padding: 20px;
+                padding: 40px;
                 display: flex;
                 flex-direction: column;
                 flex-wrap: wrap;
-                align-items: center;
-                align-self: center;
-                color: $textcolor;
+                padding-top: 110px;
 
                 .titlu {
                     display: flex;
-                    font-size: 20px;
+                    font-size: 25px;
                     font-weight: bold;
                 }
 
                 .autor {
                     display: flex;
+                    font-size: 15px;
                 }
             }
         }
 
         .update {
             padding-left: 10px;
-            padding-top: 20px;
+            padding-top: 30px;
+            padding-bottom: 20px;
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
@@ -184,20 +185,43 @@ body {
                 color: $textcolor;
                 align-content: center;
                 padding-right: 10px;
-                font-size: 12px;
+                font-size: 23px;
+            }
+
+            input {
+                color: white;
+                background-color: #07373b;
+                border: 2px solid #052629;
+            }
+
+            input::placeholder {
+                color: #000000;
             }
         }
 
         .opinion {
+            color: $textcolor;
             display: flex;
             flex-direction: column;
             flex-wrap: wrap;
-            padding: 20px 20px 10px 10px;
+            padding: 10px 20px 10px 10px;
 
             .text {
-                color: $textcolor;
-                font-size: 15px;
+                font-size: 22px;
                 padding-bottom: 10px;
+            }
+
+            textarea {
+                color: white;
+                min-width: 40px;
+                min-height: 40px;
+                max-width: 450px;
+                background-color: #07373b;
+                border: 2px solid #052629;
+            }
+
+            textarea::placeholder {
+                color: #000000;
             }
 
             .text__box {
@@ -207,10 +231,9 @@ body {
                 border-radius: 5px;
                 font-size: 16px;
                 outline: none;
+                color: white;
             }
         }
-
-
 
         .button {
             display: flex;
@@ -288,4 +311,109 @@ footer {
     width: 100%;
     background: $footer;
     color: $textcolor;
+}
+
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+    body {
+        .page {
+            .page__header {
+                .poza {
+                    height: 200px;
+                }
+
+                .text {
+                    margin: 0;
+                    padding-left: 5px;
+
+                    .titlu {
+                        font-size: 20px;
+                    }
+
+                    .autor {
+                        font-size: 13px;
+                    }
+                }
+            }
+
+            .opinion {
+                padding: 10px 20px 10px 10px;
+
+                .text {
+                    font-size: 18px;
+                }
+
+                textarea {
+                    min-height: 40px;
+                    max-width: 300px;
+                }
+
+                .text__box {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}
+
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+    body {
+
+        .page {
+            justify-content: center;
+            align-items: center;
+
+            .page__header {
+
+                .book-header {
+                    display: flex;
+                    flex-direction: column;
+
+                    .poza {
+                        height: 200px;
+
+                    }
+
+                    .text {
+                        margin: 0;
+                        padding-top: 30px;
+                        padding-left: 5px;
+                        // justify-content: center;
+
+                        .titlu {
+                            font-size: 20px;
+                        }
+
+                        .autor {
+                            font-size: 13px;
+                        }
+                    }
+                }
+            }
+
+            .opinion {
+                padding: 10px 20px 10px 10px;
+
+                .text {
+                    font-size: 18px;
+                }
+
+                textarea {
+                    min-height: 40px;
+                    max-width: 200px;
+                }
+
+                .text__box {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+    footer {
+        margin-top: 120px;
+    }
 }
