@@ -381,20 +381,20 @@ function populateDatabase(connection) {
 
     // Adăugăm citiri
     const readings = [
-        [1, 1, new Date('2024-01-01'), 50],
-        [2, 2, new Date('2024-02-01'), 100],
-        [3, 3, new Date('2024-03-01'), 150],
-        [4, 4, new Date('2024-04-01'), 200],
-        [5, 5, new Date('2024-05-01'), 250],
-        [6, 6, new Date('2024-06-01'), 300],
-        [7, 7, new Date('2024-07-01'), 350],
-        [8, 8, new Date('2024-08-01'), 400],
-        [9, 9, new Date('2024-09-01'), 450],
-        [10, 10, new Date('2024-10-01'), 500],
+        [1, 1, new Date('2024-01-01'), 0, ' ', ' '],
+        [2, 2, new Date('2024-02-01'), 0, ' ', ' '],
+        [3, 3, new Date('2024-03-01'), 0, ' ', ' '],
+        [4, 4, new Date('2024-04-01'), 0, ' ', ' '],
+        [5, 5, new Date('2024-05-01'), 0, ' ', ' '],
+        [6, 6, new Date('2024-06-01'), 0, ' ', ' '],
+        [7, 7, new Date('2024-07-01'), 0, ' ', ' '],
+        [8, 8, new Date('2024-08-01'), 0, ' ', ' '],
+        [9, 9, new Date('2024-09-01'), 0, ' ', ' '],
+        [10, 10, new Date('2024-10-01'), 0, ' ', ' '],
     ]
 
     connection.query(
-        'INSERT INTO reading (userId, bookId, startDate, currentPageNumber) VALUES ?',
+        'INSERT INTO reading (userId, bookId, startDate, currentPageNumber, descr, quote) VALUES ?',
         [readings],
         (err) => {
             if (err) {
