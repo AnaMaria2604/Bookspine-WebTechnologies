@@ -56,8 +56,16 @@ const { handleBookForUpdateRequest } = require('./Backend/updateBookFunctions')
 const { handleUpdate } = require('./Backend/updatePostFunctions')
 const { handleHelpPage } = require('./Backend/help')
 const { handleMyBooks } = require('./Backend/mybooks')
-const { handleAccountDetails } = require('./Backend/accountFunctions')
-const { handleAccount } = require('./Backend/accountSaveFunctions')
+const {
+    handleAccountDetails,
+    getNextGroupId,
+    handleLogout,
+} = require('./Backend/accountFunctions')
+const {
+    handleAccount,
+    //handleUploadPhoto,
+} = require('./Backend/accountSaveFunctions')
+const { handleGroupSettings } = require('./Backend/groupSettings')
 
 //initializeDatabase()
 
@@ -70,6 +78,8 @@ const server = http.createServer((req, res) => {
         handleLoginRequest(req, res)
     } else if (req.method === 'POST' && req.url === '/login') {
         handleLoginSubmission(req, res)
+    } else if (req.url === '/logout' && req.method === 'POST') {
+        handleLogout(req, res)
     } else if (req.method === 'GET' && req.url === '/') {
         handleIndexRequest(req, res)
     } else if (req.method === 'GET' && req.url === '/mybooks') {
@@ -131,7 +141,11 @@ const server = http.createServer((req, res) => {
         handleBookForUpdateRequest(req, res, bookId)
     } else if (req.method === 'POST' && req.url.startsWith('/post-update')) {
         handleUpdate(req, res)
-    } else if (req.url === '/top10books' && req.method === 'GET') {
+    }
+    // else if (req.url === '/uploadPhoto' && req.method === 'POST') {
+    //     handleUploadPhoto(req, res)
+    // }
+    else if (req.url === '/top10books' && req.method === 'GET') {
         getTop10Books((err, data) => {
             if (err) {
                 res.writeHead(500, { 'Content-Type': 'application/json' })
@@ -180,6 +194,20 @@ const server = http.createServer((req, res) => {
         handleTagsRequest(req, res)
     } else if (req.method === 'GET' && req.url.startsWith('/group/')) {
         handleGroupJoinPageRequest(req, res)
+    } else if (req.method === 'GET' && req.url.startsWith('/group-settings/')) {
+        handleGroupSettings(req, res)
+    } else if (req.url === '/nextGroupId' && req.method === 'GET') {
+        getNextGroupId((err, data) => {
+            if (err) {
+                res.writeHead(500, { 'Content-Type': 'application/json' })
+                res.end(
+                    JSON.stringify({ error: 'Failed to get next group ID' })
+                )
+            } else {
+                res.writeHead(200, { 'Content-Type': 'application/json' })
+                res.end(JSON.stringify(data))
+            }
+        })
     } else if (req.method === 'GET' && req.url.startsWith('/api/group/')) {
         const groupId = req.url.split('/').pop()
         handleGroupRequest(req, res, groupId)

@@ -37,75 +37,166 @@ function handleAccount(req, res) {
         jwt.verify(token, secretKey, (err, decodedToken) => {
             if (err) {
                 console.log('Error decoding token:', err.message)
+                res.writeHead(500, { 'Content-Type': 'application/json' })
+                res.end(JSON.stringify({ error: 'Error decoding token.' }))
                 return
             }
             email = decodedToken.email
-        })
-    }
 
-    let body = ''
-    req.on('data', (chunk) => {
-        body += chunk.toString()
-    })
+            let body = ''
+            req.on('data', (chunk) => {
+                body += chunk.toString()
+            })
 
-    req.on('end', () => {
-        const formData = JSON.parse(body)
-        const { about: aboutUser, quote: favQuote } = formData
+            req.on('end', () => {
+                try {
+                    const formData = JSON.parse(body)
+                    const {
+                        firstName,
+                        lastName,
+                        email: newEmail,
+                        password: pass1,
+                        confirmPassword: pass2,
+                        about: aboutUser,
+                        quote: favQuote,
+                    } = formData
 
-        // if (!bookId) {
-        //     console.error('Book ID is missing.')
-        //     res.write(JSON.stringify({ error: 'Book ID is required.' }))
-        //     res.end()
-        //     return
-        // }
+                    getIdUser(email, (err, result) => {
+                        if (err) {
+                            console.error('Error getting user ID:', err)
+                            res.writeHead(500, {
+                                'Content-Type': 'application/json',
+                            })
+                            res.end(
+                                JSON.stringify({
+                                    error: 'Error getting user ID.',
+                                })
+                            )
+                            return
+                        }
 
-        getIdUser(email, (err, result) => {
-            if (err) {
-                console.error('Error getting user ID:', err)
-                res.write(JSON.stringify({ error: 'Error getting user ID.' }))
-                res.end()
-                return
-            }
+                        const idUser = result[0].id
 
-            const idUser = result[0].id
+                        if (pass1 !== pass2) {
+                            console.log("The passwords don't match.")
+                            res.writeHead(400, {
+                                'Content-Type': 'application/json',
+                            })
+                            res.end(
+                                JSON.stringify({
+                                    error: 'Passwords do not match.',
+                                })
+                            )
+                            return
+                        }
 
-            saveDetails(aboutUser, favQuote, idUser, (error, results) => {
-                if (error) {
-                    res.writeHead(500, {
-                        'Content-Type': 'application/json',
+                        saveDetails(
+                            aboutUser,
+                            favQuote,
+                            idUser,
+                            firstName,
+                            lastName,
+                            newEmail,
+                            pass1,
+                            (error, results) => {
+                                if (error) {
+                                    console.error(
+                                        'Error saving details:',
+                                        error
+                                    )
+                                    res.writeHead(500, {
+                                        'Content-Type': 'application/json',
+                                    })
+                                    res.end(
+                                        JSON.stringify({
+                                            error: 'Internal Server Error.',
+                                        })
+                                    )
+                                } else {
+                                    res.writeHead(200, {
+                                        'Content-Type': 'application/json',
+                                    })
+                                    res.end(JSON.stringify(results))
+                                }
+                            }
+                        )
                     })
-                    console.log('save details')
-                    res.end(JSON.stringify({ error: 'Internal Server Error' }))
-                } else {
-                    res.writeHead(200, {
-                        'Content-Type': 'application/json',
-                    })
-                    res.end(JSON.stringify(results))
+                } catch (error) {
+                    console.error('Error parsing form data:', error)
+                    res.writeHead(400, { 'Content-Type': 'application/json' })
+                    res.end(
+                        JSON.stringify({ error: 'Error parsing form data.' })
+                    )
                 }
             })
         })
-    })
+    } else {
+        res.writeHead(401, { 'Content-Type': 'application/json' })
+        res.end(JSON.stringify({ error: 'Unauthorized.' }))
+    }
 }
 
-const saveDetails = (aboutUser, favQuote, userId, callback) => {
+const saveDetails = (
+    aboutUser,
+    favQuote,
+    userId,
+    firstName,
+    lastName,
+    newEmail,
+    pass1,
+    callback
+) => {
     console.log('save details function')
     pool.getConnection((err, connection) => {
         if (err) {
+            console.log('Error getting connection:', err)
             return callback(err, null)
         }
-        connection.query(
-            'UPDATE user SET description = ?, favQuote = ? WHERE id = ?',
-            [aboutUser, favQuote, userId],
-            (error, results) => {
-                connection.release()
-                if (error) {
-                    console.log('eroare')
-                    return callback(error, null)
-                }
-                console.log('e bine cica')
-                callback(null, results)
+
+        const params = []
+        let query = 'UPDATE user SET '
+
+        if (aboutUser !== undefined && aboutUser !== null && aboutUser !== '') {
+            query += `description = ?, `
+            params.push(aboutUser)
+        }
+        if (favQuote !== undefined && favQuote !== null && favQuote !== '') {
+            query += `favQuote = ?, `
+            params.push(favQuote)
+        }
+        if (lastName !== undefined && lastName !== null && lastName !== '') {
+            query += `lastName = ?, `
+            params.push(lastName)
+        }
+        if (firstName !== undefined && firstName !== null && firstName !== '') {
+            query += `firstName = ?, `
+            params.push(firstName)
+        }
+        if (newEmail !== undefined && newEmail !== null && newEmail !== '') {
+            query += `email = ?, `
+            params.push(newEmail)
+        }
+        if (pass1 !== undefined && pass1 !== null && pass1 !== '') {
+            query += `password = ?, `
+            params.push(pass1)
+        }
+
+        query = query.slice(0, -2)
+
+        query += ' WHERE id = ?'
+        params.push(userId)
+
+        connection.query(query, params, (error, results) => {
+            connection.release()
+
+            if (error) {
+                console.log('Error updating user details:', error)
+                return callback(error, null)
             }
-        )
+
+            console.log('User details updated successfully.')
+            callback(null, results)
+        })
     })
 }
 

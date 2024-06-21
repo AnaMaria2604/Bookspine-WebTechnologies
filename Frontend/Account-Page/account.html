@@ -29,7 +29,7 @@
                             <li><a href="../Reading-Challenge-Page/challenge.html">Challenges</a></li>
                             <li><a href="../Account-Page/account.html">Account</a></li>
                             <li><a href="../About-Us-Page/aboutus.html">About Us</a></li>
-                            <li><a href="../Help-Page/help.html">Help</a></li>
+                            <li><a href="/help">Help</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -42,16 +42,16 @@
         <div class="page__header">
             <div class="texts">
                 <div class="text">
-                    <div class="titlu"><a href="../Account-Page/account.html">Your profile</a></div>
+                    <div class="titlu">Your profile</div>
+                </div>
+                <div class="text" id="creare-grup">
+                    <!--butonul de create group-->
                 </div>
                 <div class="text">
-                    <a href="../Group-Settings-Page/settings.html">Create a group</a>
+                    <a href="/help">Help</a>
                 </div>
                 <div class="text">
-                    <a href="../Help-Page/help.html">Help</a>
-                </div>
-                <div class="text">
-                    <a href="../Index-Page/index.html">Log Out</a>
+                    <a href="/" id="logOut">Log Out</a>
                 </div>
             </div>
             <hr class="underline">
@@ -81,8 +81,7 @@
                         <div class="search-container">
                             <input type="text"
                                 placeholder="Each book I select undergoes a thorough examination, and only those that earn my highest praise receive the coveted five-star rating. "
-                                class="search-input"
-                                id="input1">
+                                class="search-input" id="input1">
                         </div>
                     </div>
                     <div class="container">
@@ -97,45 +96,53 @@
                 <div class="right_part">
                     <div class="continut">
                         <div class="title">Change settings</div>
-                        <div class="photo-upload">
+                        <!-- <div class="photo-upload">
                             <label for="photo">Change photo</label>
                             <input type="file" id="photo" name="photo" accept="image/*">
-                        </div>
+                            <label for="photo">Select an image:</label>
+                            <input type="file" id="photo" name="photo" accept="image/*">
+                            <button id="uploadButton">Upload</button>
+                        </div> -->
+                        <!-- <form id="uploadForm" enctype="multipart/form-data">
+                            <input type="file" id="photo" name="photo" accept="image/*">
+                            <button type="button" id="uploadButton">Încarcă imagine</button>
+                        </form> -->
 
                         <div class="container">
                             <div class="name_category">First Name:</div>
                             <div class="search-container">
-                                <input type="text" placeholder="First name" class="search-input">
+                                <input id="firstName" type="text" placeholder="First name" class="search-input">
                             </div>
                         </div>
                         <div class="container">
                             <div class="name_category">Last Name:</div>
                             <div class="search-container">
-                                <input type="text" placeholder="Last name" class="search-input">
+                                <input id="lastName" type="text" placeholder="Last name" class="search-input">
                             </div>
                         </div>
                         <div class="container">
                             <div class="name_category">Email:</div>
                             <div class="search-container">
-                                <input type="text" placeholder="E-mail" class="search-input">
+                                <input id="email" type="text" placeholder="E-mail" class="search-input">
                             </div>
                         </div>
                         <div class="container">
                             <div class="name_category">Password:</div>
                             <div class="search-container">
-                                <input type="text" placeholder="Password" class="search-input">
+                                <input id="pass" type="text" placeholder="Password" class="search-input">
                             </div>
                         </div>
                         <div class="container">
                             <div class="name_category">Confirm new password:</div>
                             <div class="search-container">
-                                <input type="text" placeholder="Password" class="search-input">
+                                <input id="pass2" type="text" placeholder="Password" class="search-input">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <button type="submit" class="search-button" id="save-button">Save</button>
+            <button type="submit" class="search-button" id="save-button"
+                onclick="window.location.href = '/mainpage';">Save</button>
 
         </div>
     </div>

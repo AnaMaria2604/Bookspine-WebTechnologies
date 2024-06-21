@@ -146,17 +146,80 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error('Error fetching account details:', error)
         })
 
+    fetch(`/nextGroupId`)
+        .then((response) => response.json())
+        .then((data) => {
+            const details = document.getElementById('creare-grup')
+            const idNou = data.nextGroupId
+            console.log('id: ' + idNou)
+
+            const groupElement = document.createElement('div')
+            groupElement.innerHTML = `
+                <div class="button">
+                    <a href="/group-settings/${idNou}">Create a group</a>
+                </div>`
+            details.appendChild(groupElement)
+        })
+        .catch((error) => {
+            console.error('Error fetching next group ID:', error)
+        })
+
+    document.getElementById('logOut').addEventListener('click', function () {
+        fetch('/logout', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            credentials: 'include',
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log('Success:', data)
+                // localStorage.removeItem('accessToken')
+                // localStorage.removeItem('refreshToken')
+                window.location.href = '/'
+            })
+            .catch((error) => {
+                console.error('Error:', error)
+            })
+    })
+
     const postbutton = document.getElementById('save-button')
     const about = document.getElementById('input1')
     const favquote = document.getElementById('quote')
+    const first = document.getElementById('firstName')
+    const last = document.getElementById('lastName')
+    const newEmail = document.getElementById('email')
+    const password = document.getElementById('pass')
+    const confirmPassword = document.getElementById('pass2')
 
     postbutton.addEventListener('click', function () {
         const reviewContent1 = about.value
         const reviewContent2 = favquote.value
-        console.log('input: ' + reviewContent1 + ' ' + reviewContent2)
-        
+        const firstName = first.value
+        const lastName = last.value
+        const email = newEmail.value
+        const pass1 = password.value
+        const pass2 = confirmPassword.value
 
-        //last name, firstname, email, password, descr, quote, photo
+        console.log(
+            'input: ' +
+                reviewContent1 +
+                ' ' +
+                reviewContent2 +
+                ' ' +
+                firstName +
+                ' ' +
+                lastName +
+                ' ' +
+                email +
+                ' ' +
+                pass1 +
+                ' ' +
+                pass2
+        )
+
+        //const photo = document.getElementById('photo').files[0]
 
         fetch(`/saveDetails`, {
             method: 'POST',
@@ -164,8 +227,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                password: pass1,
+                confirmPassword: pass2,
                 about: reviewContent1,
                 quote: reviewContent2,
+                //photo: photo,
             }),
         })
             .then((response) => response.json())
@@ -176,4 +245,25 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.error('Error:', error)
             })
     })
+
+    // document
+    //     .getElementById('uploadButton')
+    //     .addEventListener('click', function () {
+    //         const formData = new FormData()
+    //         const fileInput = document.getElementById('photo')
+    //         formData.append('photo', fileInput.files[0])
+
+    //         fetch('/uploadPhoto', {
+    //             method: 'POST',
+    //             body: formData,
+    //         })
+    //             .then((response) => response.json())
+    //             .then((data) => {
+    //                 console.log('Imagine încărcată:', data)
+    //                 // Aici poți actualiza interfața sau face alte acțiuni după încărcarea imaginii
+    //             })
+    //             .catch((error) => {
+    //                 console.error('Eroare la încărcarea imaginii:', error)
+    //             })
+    //     })
 })
