@@ -1,9 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
     const urlParts = window.location.pathname.split('/')
     const groupId = urlParts.pop() || urlParts.pop()
+
+    async function checkAuth() {
+        try {
+            const response = await fetch('/api/check-auth', {
+                method: 'GET',
+                credentials: 'include',
+            })
+            const data = await response.json()
+            return data.isAuthenticated
+        } catch (error) {
+            console.error('Error checking authentication:', error)
+            return false
+        }
+    }
+
     fetch(`/api/group/${groupId}`)
         .then((response) => response.json())
-        .then((data) => {
+        .then(async (data) => {
             document.getElementById('team-name').textContent =
                 data.team[0].teamName
             document.getElementById('moderator-link').textContent =
@@ -32,6 +47,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     bookList.appendChild(separator)
                 }
             })
+
+            const joinButton = document.querySelector('.shelves a')
+            const isLoggedIn = await checkAuth()
+
+            if (isLoggedIn) {
+                joinButton.href = `/group-conv/${groupId}/1`
+            } else {
+                joinButton.href = '/login'
+            }
         })
         .catch((error) => {
             console.error('Error fetching group details:', error)

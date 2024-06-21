@@ -37,94 +37,29 @@
     </nav>
   </header>
   <div class="main">
-    <!--Va fi titlu cartii pe care o alegem din stanga-->
     <div class="left_part">
-      <div class="groupname">UAIC reading club</div>
+      <div id="group-name" class="groupname"></div>
       <div class="books">
         <div class="name">Our books</div>
-        <a href="../Book-Page/bookpage.html">Book1</a>
-        <a href="../Book-Page/bookpage.html">Book2</a>
-        <a href="../Book-Page/bookpage.html">Book3</a>
-        <a href="../Book-Page/bookpage.html">Book4</a>
-        <a href="../Book-Page/bookpage.html">Book5</a>
+        <div id="book-links"></div>
       </div>
       <div class="settings"><a href="../Group-Settings-Page/settings.html">Settings</a></div>
     </div>
     <div class="middle_part">
-      <div class="title">Pride and Prejudice</div>
-      <div class="container">
-        <div class="item">
-          <div class="user_content">
-            <div class="userphoto"><img src="../Images/userphoto.jpg" alt="Imagine"></div>
-            <a href="../User-Profile-Page/userprofile.html">Ionescu</a>
-          </div>
-          <div class="descriere">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </div>
-        </div>
-        <div class="item">
-          <div class="user_content">
-            <div class="userphoto"><img src="../Images/userphoto.jpg" alt="Imagine"></div>
-            <a href="../User-Profile-Page/userprofile.html">Georgescu</a>
-          </div>
-          <div class="descriere">
-            Nulla facilisi. Sed commodo fermentum tellus, ac varius metus
-            porta vel. Nam sodales sapien id arcu vehicula, vel convallis dui
-            fermentum. Nullam interdum volutpat sapien sit amet faucibus. Duis
-            quis nunc eu lacus finibus aliquam. Nullam accumsan, nulla ut
-            aliquam euismod, velit odio ultricies elit, a condimentum dui
-            neque sit amet justo. Sed posuere tempor nisi, eget facilisis
-            ipsum pharetra sit amet. Phasellus sed tellus a quam vehicula
-            convallis. Integer quis efficitur quam. Sed id justo ultricies,
-            tincidunt leo eu, dictum tellus. Ut lacinia nisi id lectus
-            ultrices, nec pharetra libero vulputate. Cras vel suscipit ex. Sed
-            sit amet nisl vitae magna convallis egestas. Sed scelerisque
-            tincidunt justo, eget gravida est ultricies ut. Sed euismod
-            lacinia orci. Sed id dolor auctor, suscipit ex eget, tincidunt
-            libero.
-          </div>
-        </div>
-        <div class="item">
-          <div class="user_content">
-            <div class="userphoto"><img src="../Images/userphoto.jpg" alt="Imagine"></div>
-            <a href="../User-Profile-Page/userprofile.html">Vasilescu</a>
-          </div>
-          <div class="descriere">
-            Sed id dolor auctor, suscipit ex eget, tincidunt libero.
-          </div>
-        </div>
-        <div class="item">
-          <div class="user_content">
-            <div class="userphoto"><img src="../Images/userphoto.jpg" alt="Imagine"></div>
-            <a href="../User-Profile-Page/userprofile.html">Popescu</a>
-          </div>
-          <div class="descriere">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </div>
-        </div>
-        <div class="item">
-          <div class="user_content">
-            <div class="userphoto"><img src="../Images/userphoto.jpg" alt="Imagine"></div>
-            <a href="../User-Profile-Page/userprofile.html">Andriescu</a>
-          </div>
-          <div class="descriere">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </div>
-        </div>
-      </div>
+      <div id="book-title" class="title"></div>
+      <div id="conversations" class="container"></div>
     </div>
-
     <div class="right_part">
       <form>
         <div class="form-group">
           <label for="custom-label">Write your opinion:</label>
           <textarea id="custom-label" name="custom-label" placeholder="Enter your text here"></textarea>
-
           <input type="submit" value="Submit">
         </div>
       </form>
     </div>
   </div>
+
   <footer>
     <p>
       ©BookSpine-2024 All rights are reserved<br>
@@ -132,6 +67,7 @@
       Bolohan Constantin-Sebastian and Ursache Ana-Maria
     </p>
   </footer>
+  <script src="../../Backend/groupConvService.js"></script>
 </body>
 
 </html>
