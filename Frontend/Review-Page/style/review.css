@@ -95,7 +95,7 @@ body .dropdown-menu li a {
   font-weight: bold;
 }
 body .page {
-  background-color: #15555a;
+  background-color: #01474d;
   padding: 50px;
   border-radius: 20px;
   margin: 5%;
@@ -111,41 +111,42 @@ body .page .page__header {
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   color: white;
 }
 body .page .page__header .poza {
-  width: 180px;
-  height: 200px;
-  padding-top: 10px;
-  padding-left: 10px;
+  width: auto;
+  height: 250px;
   float: left;
+  border-radius: 10px;
 }
 body .page .page__header .text {
-  padding: 20px;
+  padding: 40px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  align-items: center;
-  align-self: center;
+  padding-top: 110px;
 }
 body .page .page__header .text .titlu {
   display: flex;
-  font-size: 20px;
+  font-size: 25px;
   font-weight: bold;
 }
 body .page .page__header .text .autor {
   display: flex;
+  font-size: 15px;
 }
 body .page .rating {
   color: white;
   padding-left: 10px;
-  padding-top: 20px;
+  padding-top: 30px;
+  padding-bottom: 20px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
 body .page .rating .text {
-  font-size: 15px;
+  font-size: 22px;
   padding-right: 5px;
 }
 body .page .rating .stars {
@@ -154,7 +155,7 @@ body .page .rating .stars {
   justify-content: center;
 }
 body .page .rating .star {
-  font-size: 16px;
+  font-size: 23px;
   cursor: pointer;
 }
 body .page .rating .one,
@@ -169,11 +170,25 @@ body .page .opinion {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  padding: 20px 20px 10px 10px;
+  padding: 10px 20px 10px 10px;
 }
 body .page .opinion .text {
-  font-size: 15px;
+  font-size: 22px;
   padding-bottom: 10px;
+}
+body .page .opinion textarea {
+  color: white;
+  min-width: 40px;
+  min-height: 40px;
+  max-width: 450px;
+  background-color: #07373b;
+  border: 2px solid #052629;
+}
+body .page .opinion textarea::-moz-placeholder {
+  color: #000000;
+}
+body .page .opinion textarea::placeholder {
+  color: #000000;
 }
 body .page .opinion .text__box {
   width: 300px;
@@ -182,6 +197,7 @@ body .page .opinion .text__box {
   border-radius: 5px;
   font-size: 16px;
   outline: none;
+  color: white;
 }
 body .page .date {
   color: white;
@@ -198,7 +214,19 @@ body .page .date .end__date {
   flex-wrap: wrap;
 }
 body .page .date .end__date .text {
+  font-size: 20px;
   padding-right: 10px;
+}
+body .page .date .end__date input {
+  color: white;
+  background-color: #07373b;
+  border: 2px solid #052629;
+}
+body .page .date .end__date input::-moz-placeholder {
+  color: #000000;
+}
+body .page .date .end__date input::placeholder {
+  color: #000000;
 }
 body .page .button {
   display: flex;
@@ -270,4 +298,108 @@ footer {
   width: 100%;
   background: #0c3742;
   color: white;
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  body .page .page__header .poza {
+    height: 200px;
+  }
+  body .page .page__header .text {
+    margin: 0;
+    padding-left: 5px;
+  }
+  body .page .page__header .text .titlu {
+    font-size: 20px;
+  }
+  body .page .page__header .text .autor {
+    font-size: 13px;
+  }
+  body .page .rating {
+    padding-top: 20px;
+  }
+  body .page .rating .text {
+    font-size: 20px;
+  }
+  body .page .rating .star {
+    font-size: 21px;
+  }
+  body .page .opinion {
+    padding: 10px 20px 10px 10px;
+  }
+  body .page .opinion .text {
+    font-size: 18px;
+  }
+  body .page .opinion textarea {
+    min-height: 40px;
+    max-width: 300px;
+  }
+  body .page .opinion .text__box {
+    font-size: 16px;
+  }
+  body .page .date .end__date .text {
+    font-size: 20px;
+  }
+  body .page .date .end__date input {
+    font-size: 15px;
+  }
+}
+@media (min-width: 320px) and (max-width: 480px) {
+  body .page {
+    justify-content: center;
+    align-items: center;
+  }
+  body .page .page__header .book-header {
+    display: flex;
+    flex-direction: column;
+  }
+  body .page .page__header .book-header .poza {
+    height: 200px;
+  }
+  body .page .page__header .book-header .text {
+    margin: 0;
+    padding-top: 30px;
+    padding-left: 5px;
+  }
+  body .page .page__header .book-header .text .titlu {
+    font-size: 20px;
+  }
+  body .page .page__header .book-header .text .autor {
+    font-size: 13px;
+  }
+  body .page .rating {
+    margin: 0;
+    width: 100%;
+    padding: 0px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+  }
+  body .page .rating .text {
+    padding: 0;
+    font-size: 20px;
+  }
+  body .page .rating .star {
+    font-size: 21px;
+  }
+  body .page .opinion {
+    padding: 10px 20px 10px 10px;
+  }
+  body .page .opinion .text {
+    font-size: 18px;
+  }
+  body .page .opinion textarea {
+    min-height: 40px;
+    max-width: 200px;
+  }
+  body .page .opinion .text__box {
+    font-size: 16px;
+  }
+  body .page .date .end__date .text {
+    font-size: 20px;
+  }
+  body .page .date .end__date input {
+    font-size: 15px;
+  }
+  footer {
+    margin-top: 120px;
+  }
 }/*# sourceMappingURL=review.css.map */

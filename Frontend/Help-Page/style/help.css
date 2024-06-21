@@ -98,14 +98,18 @@ body .Containers {
   margin-top: 50px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  position: relative;
-  align-items: flex-start;
+  justify-content: center;
 }
 body .Containers .partea__stanga {
   display: flex;
   flex-direction: column;
-  padding-left: 170px;
+  justify-content: center;
+  align-items: center;
+}
+body .Containers .partea__stanga .title {
+  align-self: center;
+  font-size: 40px;
+  font-weight: 900;
 }
 body .Containers .partea__stanga .item {
   margin-top: 20px;
@@ -114,7 +118,7 @@ body .Containers .partea__stanga .item {
   background-color: #104547;
   border-radius: 20px;
   padding: 20px;
-  width: 700px;
+  width: 80%;
 }
 body .Containers .partea__stanga .item .user_content {
   display: flex;
@@ -130,56 +134,6 @@ body .Containers .partea__stanga .item .user_content .intrebare {
 body .Containers .partea__stanga .item .descriere {
   color: white;
   padding-left: 30px;
-}
-body .Containers .partea__stanga::after {
-  content: "";
-  position: absolute;
-  top: 40px;
-  bottom: 15px;
-  left: 57%;
-  width: 3px;
-  padding-left: 3px;
-  padding-right: 3px;
-  background-color: #2a3738;
-}
-body .Containers .partea__dreapta {
-  margin-top: 200px;
-  margin-right: 10%;
-  width: 25%;
-}
-body .Containers .partea__dreapta .form-group {
-  background-color: #104547;
-  border-radius: 20px;
-  margin-bottom: 20px;
-  padding: 20px;
-  display: flex;
-  color: white;
-  flex-direction: column;
-}
-body .Containers .partea__dreapta .form-group label {
-  align-self: center;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-body .Containers .partea__dreapta .form-group textarea {
-  align-self: center;
-  width: 90%;
-  height: 200px;
-  resize: vertical;
-  padding: 10px;
-}
-body .Containers .partea__dreapta .form-group input[type=submit] {
-  align-self: center;
-  margin-top: 50px;
-  padding: 10px 20px;
-  background-color: #124559;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-body .Containers .partea__dreapta .form-group input[type=submit]:hover {
-  background-color: #0A2E36;
 }
 
 body::before {
@@ -222,63 +176,58 @@ footer {
   color: white;
 }
 
-@media (min-width: 481px) and (max-width: 1595px) {
+@media (min-width: 481px) and (max-width: 767px) {
   body .Containers {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
   }
   body .Containers .partea__stanga {
+    justify-content: center;
+    align-items: center;
     margin: 0px 0px 0px 0px;
     padding: 0px 0px 0px 0px;
-    margin-left: 5%;
-    margin-right: 5%;
-    width: 90%;
   }
-  body .Containers .partea__stanga::after {
-    display: none;
+  body .Containers .partea__stanga .title {
+    font-size: 35px;
+    font-weight: 900;
   }
   body .Containers .partea__stanga .item {
-    width: 100%;
+    width: 80%;
     margin: 30px 0px 0px 0px;
     padding: 0px 0px 0px 0px;
+    padding: 20px;
   }
-  body .Containers .partea__dreapta {
-    margin: 30px 0px 0px 0px;
-    padding: 0px 0px 0px 0px;
-    margin-left: 5%;
-    margin-right: 5%;
-    width: 90%;
+  body .Containers .partea__stanga .item .user_content .intrebare {
+    font-size: 20px;
+  }
+  body .Containers .partea__stanga .item .descriere {
+    font-size: 17px;
+    padding-left: 20px;
   }
 }
 @media (min-width: 320px) and (max-width: 480px) {
-  body .Containers {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-  }
   body .Containers .partea__stanga {
+    justify-content: center;
+    align-items: center;
     margin: 0px 0px 0px 0px;
     padding: 0px 0px 0px 0px;
-    margin-left: 5%;
-    margin-right: 5%;
-    width: 90%;
   }
-  body .Containers .partea__stanga::after {
-    display: none;
+  body .Containers .partea__stanga .title {
+    font-size: 30px;
+    font-weight: 900;
   }
   body .Containers .partea__stanga .item {
-    width: 100%;
+    width: 80%;
     margin: 30px 0px 0px 0px;
     padding: 0px 0px 0px 0px;
+    padding: 20px;
   }
-  body .Containers .partea__dreapta {
-    margin: 30px 0px 0px 0px;
-    padding: 0px 0px 0px 0px;
-    margin-left: 5%;
-    margin-right: 5%;
-    width: 90%;
+  body .Containers .partea__stanga .item .user_content .intrebare {
+    font-size: 14px;
+  }
+  body .Containers .partea__stanga .item .descriere {
+    font-size: 12px;
+    padding-left: 20px;
   }
 }/*# sourceMappingURL=help.css.map */

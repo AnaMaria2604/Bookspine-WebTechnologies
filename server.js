@@ -64,13 +64,24 @@ const { handleMainPage } = require('./Backend/mainPage')
 const { handleReview } = require('./Backend/reviewPostFunctions')
 
 const { Console } = require('console')
+
 const { handleTagsRequest } = require('./Backend/tags')
 
 const { handleGroupJoinPageRequest } = require('./Backend/groupjoin')
+
 const { handleGroupRequest } = require('./Backend/groupJoinFunction')
 const { handleGroupConvPageRequest } = require('./Backend/groupConv')
 const { handleGroupConvRequest } = require('./Backend/groupConvFunction')
 const { isUserLoggedIn } = require('./Backend/loginStatus')
+
+const { handleUpdateBook } = require('./Backend/updateBook')
+
+const { handleBookForUpdateRequest } = require('./Backend/updateBookFunctions')
+
+const { handleUpdate } = require('./Backend/updatePostFunctions')
+
+const { handleHelpPage } = require('./Backend/help')
+
 //initializeDatabase()
 
 const server = http.createServer((req, res) => {
@@ -126,6 +137,15 @@ const server = http.createServer((req, res) => {
         handleStatisticsRequest(req, res)
     } else if (req.method === 'GET' && req.url === '/mainpage') {
         handleMainPage(req, res)
+    } else if (req.method === 'GET' && req.url === '/help') {
+        handleHelpPage(req, res)
+    } else if (req.method === 'GET' && req.url.startsWith('/book-update/')) {
+        handleUpdateBook(req, res)
+    } else if (req.method === 'GET' && req.url.startsWith('/update/')) {
+        const bookId = req.url.split('/').pop()
+        handleBookForUpdateRequest(req, res, bookId)
+    } else if (req.method === 'POST' && req.url.startsWith('/post-update')) {
+        handleUpdate(req, res)
     } else if (req.url === '/top10books' && req.method === 'GET') {
         getTop10Books((err, data) => {
             if (err) {
