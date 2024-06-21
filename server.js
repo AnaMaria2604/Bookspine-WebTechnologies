@@ -77,6 +77,8 @@ const { handleBookForUpdateRequest } = require('./Backend/updateBookFunctions')
 
 const { handleUpdate } = require('./Backend/updatePostFunctions')
 
+const { handleHelpPage } = require('./Backend/help')
+
 //initializeDatabase()
 
 const server = http.createServer((req, res) => {
@@ -132,6 +134,8 @@ const server = http.createServer((req, res) => {
         handleStatisticsRequest(req, res)
     } else if (req.method === 'GET' && req.url === '/mainpage') {
         handleMainPage(req, res)
+    } else if (req.method === 'GET' && req.url === '/help') {
+        handleHelpPage(req, res)
     } else if (req.method === 'GET' && req.url.startsWith('/book-update/')) {
         handleUpdateBook(req, res)
     } else if (req.method === 'GET' && req.url.startsWith('/update/')) {
