@@ -32,10 +32,7 @@ function setFooterPosition() {
         footer.style.left = '0'
         footer.style.width = '100%'
     } else {
-        footer.style.position = ''
-        footer.style.bottom = ''
-        footer.style.left = ''
-        footer.style.width = ''
+        footer.style.position = 'static'
     }
 }
 
