@@ -1,7 +1,6 @@
 const fs = require('fs')
 const path = require('path')
 
-console.log('account path')
 
 function handleMyAccount(req, res) {
     const filePath = path.join(

@@ -79,6 +79,7 @@ const { handleReadingCh } = require('./Backend/readingch')
 const { handleReadingChallenges } = require('./Backend/readingchFunctions')
 const { handleDeleteBtn } = require('./Backend/readingchDeteleFunctions')
 const { handleupdateChallenge } = require('./Backend/readingchEditFunctions')
+const { handleUserAccount } = require('./Backend/useraccount')
 
 //initializeDatabase()
 
@@ -95,6 +96,9 @@ const server = http.createServer((req, res) => {
         handleLogout(req, res)
     } else if (req.method === 'GET' && req.url === '/') {
         handleIndexRequest(req, res)
+    } else if (req.method === 'GET' && req.url.startsWith('/user-account/')) {
+        const userId = req.url.split('/').pop()
+        handleUserAccount(req, res, userId)
     } else if (req.method === 'GET' && req.url.startsWith('/mybooks/')) {
         handleMyBooks(req, res)
     } else if (req.method === 'GET' && req.url === '/api/recommended-books') {
@@ -235,40 +239,30 @@ const server = http.createServer((req, res) => {
     } else if (req.method === 'GET' && req.url.startsWith('/group-conv/')) {
         handleGroupConvPageRequest(req, res)
     } else if (req.method === 'POST' && req.url.startsWith('/group-conv/')) {
-        console.log('here')
         const parts = req.url.split('/')
         const groupId = parts[2]
         const bookId = parts[3]
-        console.log(groupId)
-        console.log(bookId)
         handleGroupConversationSubmit(req, res, bookId, groupId)
     } else if (req.method === 'GET' && req.url.startsWith('/api/group-conv/')) {
-        console.log('bun')
         const parts = req.url.split('/')
         const groupId = parts[3]
         const bookId = parts[4]
-        console.log(groupId)
-        console.log(bookId)
         handleGroupConvRequest(req, res, bookId, groupId)
     } else if (req.url === '/api/check-auth') {
         const loggedIn = isUserLoggedIn(req)
-        console.log('server' + loggedIn)
         res.writeHead(200, { 'Content-Type': 'application/json' })
         res.end(JSON.stringify({ isAuthenticated: loggedIn }))
     } else if (req.method === 'GET' && req.url === '/api/mybooks/read') {
-        console.log('in server da')
         handleMyBooksRead(req, res)
     } else if (
         req.method === 'GET' &&
         req.url === '/api/mybooks/currently-reading'
     ) {
-        console.log('in server da2')
         handleMyBooksCurrentlyReading(req, res)
     } else if (
         req.method === 'GET' &&
         req.url === '/api/mybooks/want-to-read'
     ) {
-        console.log('in server da3')
         handleMyBooksWantToRead(req, res)
     }
     // Verifică cererile pentru fișiere CSS
