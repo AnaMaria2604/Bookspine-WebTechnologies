@@ -1,4 +1,3 @@
-const mysql = require('mysql')
 const pool = require('../DataBase/database')
 
 function handleGroupConvRequest(req, res, bookId, groupId) {
@@ -14,9 +13,11 @@ function handleGroupConvRequest(req, res, bookId, groupId) {
     })
 }
 
-const getGroupDetails = (bookId, groupId, callback) => {
+function getGroupDetails(bookId, groupId, callback) {
+    console.log(bookId)
     pool.getConnection((err, connection) => {
         if (err) {
+            connection.release()
             return callback(err, null)
         }
 
@@ -26,6 +27,7 @@ const getGroupDetails = (bookId, groupId, callback) => {
             [groupId],
             (error, teamResults) => {
                 if (error) {
+                    console.log('Error fetching team details:', error)
                     connection.release()
                     return callback(error, null)
                 }
@@ -43,83 +45,142 @@ const getGroupDetails = (bookId, groupId, callback) => {
 
                 const moderatorId = teamResults[0].moderatorId
 
-                // Step 2: Fetch bookIds related to groupId
+                // Step 2: Fetch moderator email
                 connection.query(
-                    'SELECT bookId FROM teambooks WHERE teamId = ?',
-                    [parseInt(groupId, 10)],
-                    (error, teambookResults) => {
+                    'SELECT email FROM user WHERE id = ?',
+                    [moderatorId],
+                    (error, emailResult) => {
                         if (error) {
+                            console.log(
+                                'Error fetching moderator email:',
+                                error
+                            )
                             connection.release()
                             return callback(error, null)
                         }
 
-                        const bookIds = teambookResults.map((row) => row.bookId)
+                        const moderatorEmail =
+                            emailResult.length > 0 ? emailResult[0].email : null
 
+                        // Step 3: Fetch bookIds related to groupId
                         connection.query(
-                            'SELECT id, title FROM book WHERE id IN (?)',
-                            [bookIds],
-                            (error, bookResults) => {
+                            'SELECT bookId FROM teambooks WHERE teamId = ?',
+                            [parseInt(groupId, 10)],
+                            (error, teambookResults) => {
                                 if (error) {
+                                    console.log(
+                                        'Error fetching bookIds:',
+                                        error
+                                    )
                                     connection.release()
                                     return callback(error, null)
                                 }
 
-                                // If no books found, return empty conversations array
-                                if (bookResults.length === 0) {
-                                    connection.release()
-                                    return callback(null, {
-                                        team: teamResults,
-                                        books: [],
-                                        moderator: moderatorId,
-                                        conversations: [],
-                                        users: [],
-                                    })
-                                }
+                                const bookIds = teambookResults.map(
+                                    (row) => row.bookId
+                                )
 
-                                // Step 4: Fetch conversations related to bookId and groupId
+                                // Step 4: Fetch book details
                                 connection.query(
-                                    'SELECT * FROM teamConv WHERE bookId = ? AND teamId = ?',
-                                    [
-                                        parseInt(bookId, 10),
-                                        parseInt(groupId, 10),
-                                    ],
-                                    (error, convResults) => {
+                                    'SELECT id, title FROM book WHERE id IN (?)',
+                                    [bookIds],
+                                    (error, bookResults) => {
                                         if (error) {
+                                            console.log(
+                                                'Error fetching book details:',
+                                                error
+                                            )
                                             connection.release()
                                             return callback(error, null)
                                         }
 
-                                        const userIds = convResults.map(
-                                            (row) => row.userId
-                                        )
-                                        if (userIds.length == 0) {
+                                        // If no books found, return empty conversations array
+                                        if (bookResults.length === 0) {
                                             connection.release()
                                             return callback(null, {
                                                 team: teamResults,
-                                                books: bookResults,
-                                                moderator: moderatorId,
+                                                books: [],
+                                                moderator: moderatorEmail,
                                                 conversations: [],
                                                 users: [],
                                             })
                                         }
-                                        // Step 5: Fetch users related to userIds
+
+                                        // Step 5: Fetch conversations related to bookId and groupId
                                         connection.query(
-                                            'SELECT * FROM user WHERE id IN (?)',
-                                            [userIds],
-                                            (error, userConvResults) => {
-                                                connection.release()
+                                            'SELECT * FROM teamconv WHERE bookId = ? AND teamId = ?',
+                                            [
+                                                parseInt(bookId, 10),
+                                                parseInt(groupId, 10),
+                                            ],
+                                            (error, convResults) => {
                                                 if (error) {
+                                                    console.log(
+                                                        'Error fetching conversations:',
+                                                        error
+                                                    )
+                                                    connection.release()
                                                     return callback(error, null)
                                                 }
 
-                                                const combinedResults = {
-                                                    team: teamResults,
-                                                    books: bookResults,
-                                                    moderator: moderatorId,
-                                                    conversations: convResults,
-                                                    users: userConvResults,
+                                                const userIds = convResults.map(
+                                                    (row) => row.userId
+                                                )
+
+                                                // Step 6: Fetch users related to userIds if userIds is not empty
+                                                if (userIds.length > 0) {
+                                                    connection.query(
+                                                        'SELECT * FROM user WHERE id IN (?)',
+                                                        [userIds],
+                                                        (
+                                                            error,
+                                                            userConvResults
+                                                        ) => {
+                                                            connection.release()
+                                                            if (error) {
+                                                                console.log(
+                                                                    'Error fetching users:',
+                                                                    error
+                                                                )
+                                                                return callback(
+                                                                    error,
+                                                                    null
+                                                                )
+                                                            }
+
+                                                            const combinedResults =
+                                                                {
+                                                                    team: teamResults,
+                                                                    books: bookResults,
+                                                                    moderator:
+                                                                        moderatorEmail,
+                                                                    conversations:
+                                                                        convResults,
+                                                                    users: userConvResults,
+                                                                }
+                                                            callback(
+                                                                null,
+                                                                combinedResults
+                                                            )
+                                                        }
+                                                    )
+                                                } else {
+                                                    // No userIds found, return empty users array
+                                                    connection.release()
+                                                    const combinedResults = {
+                                                        team: teamResults,
+                                                        books: bookResults,
+                                                        moderator:
+                                                            moderatorEmail,
+                                                        conversations:
+                                                            convResults,
+                                                        users: [],
+                                                    }
+                                                    callback(
+                                                        null,
+                                                        combinedResults
+                                                    )
                                                 }
-                                                callback(null, combinedResults)
                                             }
                                         )
                                     }
