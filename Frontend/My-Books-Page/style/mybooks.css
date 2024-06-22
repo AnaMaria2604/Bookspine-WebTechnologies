@@ -4,7 +4,7 @@
 }
 
 body {
-  background-color: #ACEAEC;
+  background-color: #aceaec;
   display: flex;
   flex-direction: column;
   margin: 0;
@@ -13,7 +13,7 @@ body {
 body .header {
   top: 0;
   left: 0;
-  background-color: #01161E;
+  background-color: #01161e;
   margin: 0;
 }
 body .header .navbar {
@@ -70,7 +70,7 @@ body .header .navbar__links ul li .search-button {
   margin-left: 8px;
 }
 body .header .navbar__links ul li .search-button:hover {
-  background-color: #0A2E36;
+  background-color: #0a2e36;
 }
 body .dropdown-container {
   position: absolute;
@@ -79,7 +79,7 @@ body .dropdown-container {
   display: none;
 }
 body .dropdown-menu {
-  background-color: #01161E;
+  background-color: #01161e;
   padding: 10px;
   border: 1px solid #2a3738;
   list-style-type: none;
@@ -101,35 +101,11 @@ body .header2 {
   flex-direction: row;
 }
 body .header2 .Logo {
-  padding-left: 11%;
+  padding-left: 7.5%;
   align-self: center;
-  color: #01161E;
+  color: black;
   font-weight: bold;
   font-size: 1.8rem;
-}
-body .header2 .search-container {
-  align-self: center;
-  padding-left: 20%;
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-}
-body .header2 .search-container input {
-  background-color: white;
-  margin-right: 5%;
-  border-color: black;
-  outline: none;
-  border-radius: 3px;
-}
-body .header2 .search-container button {
-  background-color: #124559;
-  color: white;
-  border-color: #2a3738;
-  border-radius: 3px;
-  cursor: pointer;
-}
-body .header2 .search-container button:hover {
-  background-color: #0A2E36;
 }
 body .horizontal-line {
   border: 1px solid black;
@@ -139,12 +115,15 @@ body .horizontal-line {
 body .main {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
+  width: 90%;
 }
 body .main .left_part {
+  margin-top: 50px;
   display: flex;
-  justify-content: space-between;
-  margin-left: 10%;
   flex-direction: column;
+  width: 20%;
+  min-width: 20%;
 }
 body .main .left_part .continut {
   color: white;
@@ -157,6 +136,7 @@ body .main .left_part .continut {
 body .main .left_part .continut .sectiune {
   display: flex;
   flex-direction: column;
+  align-self: center;
 }
 body .main .left_part .continut .sectiune .sectiune__tags {
   display: flex;
@@ -164,40 +144,49 @@ body .main .left_part .continut .sectiune .sectiune__tags {
   font-style: italic;
 }
 body .main .left_part .continut .sectiune .sectiune__tags a {
+  align-self: center;
   margin-bottom: 10px;
   color: white;
 }
 body .main .right_part {
+  margin-top: 50px;
   display: flex;
   margin-left: 5%;
-  border-collapse: collapse;
+  width: 60%;
+  align-items: center;
+}
+body .main .book-container {
   width: 100%;
-  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
-body .main .right_part th,
-body .main .right_part td {
-  border-bottom: 1px solid black;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  padding: 4px;
-  text-align: left;
-  padding: 8px 16px;
-}
-body .main .right_part th {
-  background-color: #3e8c9c;
-}
-body .main .right_part td .star {
+body .main .book-box {
+  background-color: #15555a;
+  color: white;
+  width: 100%;
+  padding: 20px;
   display: flex;
   flex-direction: row;
+  gap: 50px;
+  border-radius: 10px;
 }
-body .main .right_part td .star .poza {
-  height: 20px;
-  width: 20px;
+body .main .book-cover {
+  align-self: flex-start;
+  width: 200px;
+  height: 250px;
+  border-radius: 5px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
-body .main .right_part img {
-  max-width: 100%;
-  height: 150px;
+body .main .book-details {
+  align-self: center;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+body .main .book-details li {
+  margin-bottom: 5px;
 }
 
 body::before {
@@ -250,67 +239,53 @@ footer {
     margin-right: 5%;
   }
   body .header2 .Logo {
-    padding-left: 10%;
     align-self: center;
-    color: white;
+    color: black;
     font-weight: bold;
-    font-size: 15px;
-  }
-  body .header2 .search-container {
+    font-size: 25px;
     align-self: center;
-    padding-left: 5%;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
   }
-  body .header2 .search-container input {
-    background-color: white;
-    color: black;
-    border-color: black;
-    outline: none;
-    border-radius: 3px;
-  }
-  body .header2 .search-container button {
-    background-color: white;
-    color: black;
-    border-color: black;
-    border-radius: 3px;
-    cursor: pointer;
-  }
-  body .header2 .search-container button:hover {
-    background-color: grey;
+  body .horizontal-line {
+    background-color: pink;
   }
   body .main {
+    align-self: center;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  body .main .left_part,
-  body .main .right_part {
-    margin-left: 5%;
-    margin-right: 5%;
-    width: 90%;
-  }
   body .main .left_part {
+    padding: 0 0 0 0;
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
+    width: 60%;
+    padding-left: 20px;
+    align-self: center;
   }
-  body .main .left_part .Bookshelf {
-    width: 27%;
+  body .main .left_part .continut {
+    width: 100%;
   }
-  body .main .left_part .ReadingActivity {
-    width: 35%;
-    margin-left: 4%;
-    margin-right: 4%;
+  body .main .book-container,
+  body .main .book-box {
+    align-self: center;
+    margin: 0 0 0 0;
   }
-  body .main .left_part .AddBook {
-    width: 20%;
+  body .main .book-cover {
+    align-self: flex-start;
+    width: 100px;
+    height: 150px;
+    border-radius: 5px;
+    -o-object-fit: cover;
+       object-fit: cover;
   }
-  body .main .right_part td:nth-last-child(-n+4),
-  body .main .right_part th:nth-last-child(-n+4) {
-    display: none;
+  body .main .book-details {
+    align-self: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  body .main .book-details li {
+    margin-bottom: 5px;
   }
 }
 @media (min-width: 320px) and (max-width: 480px) {
@@ -323,71 +298,54 @@ footer {
     margin-right: 5%;
   }
   body .header2 .header2 .Logo {
-    padding-left: 10%;
     align-self: center;
     color: white;
     font-weight: bold;
     font-size: 15px;
   }
-  body .header2 .header2 .search-container {
-    align-self: center;
-    padding-left: 5%;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-  }
-  body .header2 .header2 .search-container input {
-    background-color: white;
-    color: black;
-    border-color: black;
-    outline: none;
-    border-radius: 3px;
-  }
-  body .header2 .header2 .search-container button {
-    background-color: white;
-    color: black;
-    border-color: black;
-    border-radius: 3px;
-    cursor: pointer;
-  }
-  body .header2 .header2 .search-container button:hover {
-    background-color: grey;
-  }
   body .main {
+    align-self: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-  body .main .left_part,
-  body .main .right_part {
-    margin-left: 5%;
-    margin-right: 5%;
-    width: 90%;
+    align-self: center;
   }
   body .main .left_part {
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
-    width: 90%;
+    width: 60%;
+    align-self: center;
+    padding-left: 10px;
   }
-  body .main .left_part .Bookshelf {
-    width: 27%;
+  body .main .left_part .continut {
+    width: 100%;
   }
-  body .main .left_part .ReadingActivity {
-    width: 35%;
-    margin-left: 4%;
-    margin-right: 4%;
+  body .main .book-container,
+  body .main .book-box {
+    align-self: center;
+    margin: 0 0 0 0;
   }
-  body .main .left_part .AddBook {
-    width: 20%;
+  body .main .book-box {
+    display: flex;
+    flex-direction: column;
   }
-  body .main .right_part img {
-    height: 50px;
-    width: auto;
+  body .main .book-cover {
+    align-self: center;
+    width: 80px;
+    height: 120px;
+    border-radius: 5px;
+    -o-object-fit: cover;
+       object-fit: cover;
   }
-  body .main .right_part td:nth-last-child(-n+4),
-  body .main .right_part th:nth-last-child(-n+4) {
-    display: none;
+  body .main .book-details {
+    align-self: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  body .main .book-details li {
+    margin-bottom: 5px;
   }
 }/*# sourceMappingURL=mybooks.css.map */

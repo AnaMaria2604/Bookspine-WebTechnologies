@@ -69,7 +69,11 @@ const {
     //handleUploadPhoto,
 } = require('./Backend/accountSaveFunctions')
 const { handleGroupSettings } = require('./Backend/groupSettings')
-
+const {
+    handleMyBooksRead,
+    handleMyBooksCurrentlyReading,
+    handleMyBooksWantToRead,
+} = require('./Backend/mybooksFunction')
 //initializeDatabase()
 
 const server = http.createServer((req, res) => {
@@ -85,7 +89,7 @@ const server = http.createServer((req, res) => {
         handleLogout(req, res)
     } else if (req.method === 'GET' && req.url === '/') {
         handleIndexRequest(req, res)
-    } else if (req.method === 'GET' && req.url === '/mybooks') {
+    } else if (req.method === 'GET' && req.url.startsWith('/mybooks/')) {
         handleMyBooks(req, res)
     } else if (req.method === 'GET' && req.url === '/api/recommended-books') {
         handleRecommendedBooksRequest(req, res)
@@ -237,6 +241,21 @@ const server = http.createServer((req, res) => {
         console.log('server' + loggedIn)
         res.writeHead(200, { 'Content-Type': 'application/json' })
         res.end(JSON.stringify({ isAuthenticated: loggedIn }))
+    } else if (req.method === 'GET' && req.url === '/api/mybooks/read') {
+        console.log('in server da')
+        handleMyBooksRead(req, res)
+    } else if (
+        req.method === 'GET' &&
+        req.url === '/api/mybooks/currently-reading'
+    ) {
+        console.log('in server da2')
+        handleMyBooksCurrentlyReading(req, res)
+    } else if (
+        req.method === 'GET' &&
+        req.url === '/api/mybooks/want-to-read'
+    ) {
+        console.log('in server da3')
+        handleMyBooksWantToRead(req, res)
     }
     // Verifică cererile pentru fișiere CSS
     else if (req.url.startsWith('/style/')) {
