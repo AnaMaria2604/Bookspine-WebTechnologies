@@ -15,22 +15,6 @@ function initializeDatabase() {
         console.log('Conectat cu succes la baza de date MySQL!')
     })
 
-    //toate tabelele si modificarile facute vor fi aici:
-    //     connection.query(
-    //         `
-    //     ALTER TABLE user
-    //     DROP COLUMN readingChallengeId,
-    //     ADD COLUMN status VARCHAR(20) NOT NULL
-
-    //   `,
-    //         (err) => {
-    //             if (err) {
-    //                 console.error('Eroare la crearea tabelei:', err)
-    //                 throw err
-    //             }
-    //             console.log('Tabela a fost creată cu succes!')
-    //         }
-    //     )
     connection.query(
         `
   CREATE TABLE IF NOT EXISTS book  (
@@ -48,24 +32,6 @@ function initializeDatabase() {
       cover MEDIUMBLOB
      )
 `,
-        (err) => {
-            if (err) {
-                console.error('Eroare la crearea tabelei:', err)
-                throw err
-            }
-            console.log('Tabela a fost creată cu succes!')
-        }
-    )
-
-    connection.query(
-        `
-      CREATE TABLE IF NOT EXISTS readingchallenge (
-          id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-          numberOfBooks INT NOT NULL,
-          currentNumberOfBooks  INT NOT NULL,
-          type VARCHAR(45) NOT NULL
-            )
-    `,
         (err) => {
             if (err) {
                 console.error('Eroare la crearea tabelei:', err)
@@ -96,6 +62,27 @@ function initializeDatabase() {
             console.log('Tabela a fost creată cu succes!')
         }
     )
+
+    connection.query(
+        `
+      CREATE TABLE IF NOT EXISTS readingchallenge (
+          id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+          userId INT NOT NULL ,
+          numberOfBooks INT NOT NULL,
+          currentNumberOfBooks  INT NOT NULL,
+          type VARCHAR(45) NOT NULL, 
+          FOREIGN KEY (userId) REFERENCES user(id)
+            )
+    `,
+        (err) => {
+            if (err) {
+                console.error('Eroare la crearea tabelei:', err)
+                throw err
+            }
+            console.log('Tabela a fost creată cu succes!')
+        }
+    )
+
     connection.query(
         `
        CREATE TABLE IF NOT EXISTS team(
@@ -135,24 +122,24 @@ function initializeDatabase() {
         }
     )
 
-    connection.query(
-        `
-      CREATE TABLE IF NOT EXISTS userreadingch (
-          id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-          userId INT NOT NULL,
-          readingchallengeId INT NOT NULL,
-          FOREIGN KEY (userId) REFERENCES user(id),
-          FOREIGN KEY (readingchallengeId) REFERENCES readingchallenge(id)
-      )
-    `,
-        (err) => {
-            if (err) {
-                console.error('Eroare la crearea tabelei:', err)
-                throw err
-            }
-            console.log('Tabela a fost creată cu succes!')
-        }
-    )
+    // connection.query(
+    //     `
+    //   CREATE TABLE IF NOT EXISTS userreadingch (
+    //       id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    //       userId INT NOT NULL,
+    //       readingchallengeId INT NOT NULL,
+    //       FOREIGN KEY (userId) REFERENCES user(id),
+    //       FOREIGN KEY (readingchallengeId) REFERENCES readingchallenge(id)
+    //   )
+    // `,
+    //     (err) => {
+    //         if (err) {
+    //             console.error('Eroare la crearea tabelei:', err)
+    //             throw err
+    //         }
+    //         console.log('Tabela a fost creată cu succes!')
+    //     }
+    // )
 
     connection.query(
         `

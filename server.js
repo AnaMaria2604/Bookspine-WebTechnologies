@@ -74,6 +74,12 @@ const {
     handleMyBooksCurrentlyReading,
     handleMyBooksWantToRead,
 } = require('./Backend/mybooksFunction')
+
+const { handleReadingCh } = require('./Backend/readingch')
+const { handleReadingChallenges } = require('./Backend/readingchFunctions')
+const { handleDeleteBtn } = require('./Backend/readingchDeteleFunctions')
+const { handleupdateChallenge } = require('./Backend/readingchEditFunctions')
+
 //initializeDatabase()
 
 const server = http.createServer((req, res) => {
@@ -98,6 +104,14 @@ const server = http.createServer((req, res) => {
     } else if (req.method === 'GET' && req.url.startsWith('/book/')) {
         const bookId = req.url.split('/').pop()
         handlePageDetailsRequest(req, res, bookId)
+    } else if (req.method === 'GET' && req.url === '/readingch') {
+        handleReadingCh(req, res)
+    } else if (req.method === 'GET' && req.url === '/reading-details') {
+        handleReadingChallenges(req, res)
+    } else if (req.method === 'POST' && req.url === '/delete-challenge') {
+        handleDeleteBtn(req, res)
+    } else if (req.method === 'POST' && req.url === '/update-challenge') {
+        handleupdateChallenge(req, res)
     } else if (req.method === 'GET' && req.url.startsWith('/api/book/')) {
         const bookId = req.url.split('/').pop()
         handleBookRequest(req, res, bookId)

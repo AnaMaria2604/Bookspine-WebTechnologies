@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 <div class="name">${userDetails.lastName} ${userDetails.firstName}</div>
                             </div>
                             <div class="bookshelves">
+                            <div class="title">Your shelfs:</div>
                                 <div class="carte">
                                     <a href="/mybooks">Read</a>
                                 </div>
