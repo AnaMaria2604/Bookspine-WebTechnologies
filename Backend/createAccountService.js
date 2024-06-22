@@ -1,5 +1,21 @@
 const pool = require('../DataBase/database')
 const bcrypt = require('bcrypt')
+const fs = require('fs')
+const path = require('path')
+
+function readImage(imagePath, callback) {
+    fs.readFile(imagePath, (err, data) => {
+        if (err) {
+            return callback(
+                new Error(
+                    `Error reading image at ${imagePath}: ${err.message}`
+                ),
+                null
+            )
+        }
+        callback(null, data)
+    })
+}
 
 function checkEmailExists(email, callback) {
     const sql = 'SELECT id FROM user WHERE email = ?'
@@ -25,12 +41,6 @@ function createAccount(
     confirmPassword,
     res
 ) {
-    console.log(lastName)
-    console.log(firstName)
-    console.log(email)
-    console.log(password)
-    console.log(confirmPassword)
-
     if (password !== confirmPassword) {
         res.writeHead(400, { 'Content-Type': 'application/json' })
         return res.end(JSON.stringify({ message: 'Passwords do not match' }))
@@ -53,34 +63,59 @@ function createAccount(
                     JSON.stringify({ message: 'Error hashing password' })
                 )
             }
-            const sql =
-                'INSERT INTO user (firstName,lastName, email, password) VALUES (?, ?, ?, ?)'
-            pool.getConnection((err, connection) => {
+
+            const defaultPhotoPath = path.join(
+                __dirname,
+                'imageDef',
+                'default.jpg'
+            )
+            readImage(defaultPhotoPath, (err, defaultPhoto) => {
                 if (err) {
+                    console.error(err.message)
                     res.writeHead(500, { 'Content-Type': 'application/json' })
-                    return res.end(JSON.stringify({ message: 'Server error' }))
+                    return res.end(
+                        JSON.stringify({ message: 'Error reading photo' })
+                    )
                 }
-                connection.query(
-                    sql,
-                    [firstName, lastName, email, hashedPassword],
-                    (err, results) => {
-                        connection.release()
-                        if (err) {
-                            res.writeHead(500, {
-                                'Content-Type': 'application/json',
-                            })
-                            return res.end(
-                                JSON.stringify({
-                                    message: 'Error creating account',
-                                })
-                            )
-                        }
-                        // res.writeHead(201, { 'Content-Type': 'application/json' });
-                        // res.end(JSON.stringify({ message: 'Account created successfully' }));
-                        res.writeHead(302, { Location: '/login' })
-                        res.end()
+
+                const sql =
+                    'INSERT INTO user (firstName, lastName, email, password, photo) VALUES (?, ?, ?, ?, ?)'
+
+                pool.getConnection((err, connection) => {
+                    if (err) {
+                        res.writeHead(500, {
+                            'Content-Type': 'application/json',
+                        })
+                        return res.end(
+                            JSON.stringify({ message: 'Server error' })
+                        )
                     }
-                )
+                    connection.query(
+                        sql,
+                        [
+                            firstName,
+                            lastName,
+                            email,
+                            hashedPassword,
+                            defaultPhoto,
+                        ],
+                        (err, results) => {
+                            connection.release()
+                            if (err) {
+                                res.writeHead(500, {
+                                    'Content-Type': 'application/json',
+                                })
+                                return res.end(
+                                    JSON.stringify({
+                                        message: 'Error creating account',
+                                    })
+                                )
+                            }
+                            res.writeHead(302, { Location: '/login' })
+                            res.end()
+                        }
+                    )
+                })
             })
         })
     })
