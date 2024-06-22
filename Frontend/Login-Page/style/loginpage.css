@@ -4,7 +4,7 @@
 }
 
 body {
-  background-color: #ACEAEC;
+  background-color: #aceaec;
   display: flex;
   flex-direction: column;
   margin: 0;
@@ -12,7 +12,7 @@ body {
 body .header {
   top: 0;
   left: 0;
-  background-color: #01161E;
+  background-color: #01161e;
   margin: 0;
 }
 body .header .navbar {
@@ -69,7 +69,7 @@ body .header .navbar__links ul li .search-button {
   margin-left: 8px;
 }
 body .header .navbar__links ul li .search-button:hover {
-  background-color: #0A2E36;
+  background-color: #0a2e36;
 }
 body .dropdown-container {
   position: absolute;
@@ -78,7 +78,7 @@ body .dropdown-container {
   display: none;
 }
 body .dropdown-menu {
-  background-color: #01161E;
+  background-color: #01161e;
   padding: 10px;
   border: 1px solid #2a3738;
   list-style-type: none;
@@ -117,26 +117,31 @@ body .AuthentificationContainer h2 {
 }
 body .AuthentificationContainer .formGroup {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-bottom: 30px;
   margin-top: 30px;
 }
 body .AuthentificationContainer .formGroup label {
+  align-self: flex-start;
   display: block;
   margin-bottom: 0px;
   color: white;
   font-weight: bold;
   font-size: 20px;
+  margin-left: 0px;
+  padding-left: 10%;
 }
-body .AuthentificationContainer .formGroup input[type=text],
 body .AuthentificationContainer .formGroup input[type=email],
 body .AuthentificationContainer .formGroup input[type=password] {
   margin-left: 20px;
   margin-top: 0;
   background-color: white;
-  width: 50%;
+  width: 80%;
+  border-radius: 20px;
+  height: 30px;
+  border: none;
 }
 body .AuthentificationContainer button[type=submit] {
   font-size: 17px;
@@ -150,7 +155,7 @@ body .AuthentificationContainer button[type=submit] {
   cursor: pointer;
 }
 body .AuthentificationContainer button[type=submit]:hover {
-  background-color: #0A2E36;
+  background-color: #0a2e36;
 }
 body .AuthentificationContainer .accountButton {
   display: flex;
@@ -161,7 +166,7 @@ body .AuthentificationContainer .accountButton {
 }
 body .AuthentificationContainer .accountButton a {
   font-size: 15px;
-  color: #ACEAEC;
+  color: #aceaec;
 }
 body .AuthentificationContainer .text {
   display: flex;
