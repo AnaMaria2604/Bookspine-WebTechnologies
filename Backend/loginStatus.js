@@ -1,20 +1,21 @@
 const jwt = require('jsonwebtoken')
 const cookie = require('cookie')
 
-function isUserLoggedIn(req, res) {
+function isUserLoggedIn(req) {
     const token = getTokenFromCookie(req)
     if (!token) {
-        return false
+        return null // Return null if no token is found
     }
 
     const secretKey =
         'cfc1fffcd77355620d863b573349ee9cfb7b8552335aaf93e88abc52d147ef5e'
     try {
         const decodedToken = jwt.verify(token, secretKey)
-        return !!decodedToken.email // Return true if email exists in decoded token
+        console.log('aaaicici' + decodedToken.email)
+        return decodedToken.email || null // Return email if valid token, otherwise null
     } catch (err) {
         console.log('Error decoding token:', err.message)
-        return false
+        return null // Return null if token verification fails
     }
 }
 

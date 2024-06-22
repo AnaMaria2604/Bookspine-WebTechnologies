@@ -4,7 +4,7 @@
 }
 
 body {
-  background-color: #ACEAEC;
+  background-color: #aceaec;
   display: flex;
   flex-direction: column;
   margin: 0;
@@ -12,7 +12,7 @@ body {
 body .header {
   top: 0;
   left: 0;
-  background-color: #01161E;
+  background-color: #01161e;
   margin: 0;
 }
 body .header .navbar {
@@ -69,7 +69,7 @@ body .header .navbar__links ul li .search-button {
   margin-left: 8px;
 }
 body .header .navbar__links ul li .search-button:hover {
-  background-color: #0A2E36;
+  background-color: #0a2e36;
 }
 body .dropdown-container {
   position: absolute;
@@ -78,7 +78,7 @@ body .dropdown-container {
   display: none;
 }
 body .dropdown-menu {
-  background-color: #01161E;
+  background-color: #01161e;
   padding: 10px;
   border: 1px solid #2a3738;
   list-style-type: none;
@@ -114,6 +114,7 @@ body .main .left_part .groupname {
   margin-bottom: 20px;
 }
 body .main .left_part .books {
+  background-color: pink;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -122,15 +123,18 @@ body .main .left_part .books {
   border-radius: 20px;
   width: 100%;
 }
-body .main .left_part .books .name {
+body .main .left_part .books .book-links {
+  display: flex;
+  flex-direction: column;
   color: white;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: bold;
   padding: 20px;
+  align-self: center;
 }
-body .main .left_part .books a {
+body .main .left_part .books .a {
   color: white;
-  font-size: 20px;
+  font-size: 15px;
   padding: 10px;
 }
 body .main .left_part .settings {
@@ -160,6 +164,7 @@ body .main .middle_part .title {
 body .main .middle_part .container {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 body .main .middle_part .container .item {
   margin-top: 30px;
@@ -185,7 +190,7 @@ body .main .middle_part .container .item .user_content .userphoto {
 }
 body .main .middle_part .container .item .descriere {
   color: white;
-  padding: 0px 20px 20px 20px;
+  padding: 0px 0px 20px 20px;
 }
 body .main .right_part {
   margin-top: 50px;
@@ -224,7 +229,7 @@ body .main .right_part .form-group input[type=submit] {
   cursor: pointer;
 }
 body .main .right_part .form-group input[type=submit]:hover {
-  background-color: #0A2E36;
+  background-color: #0a2e36;
 }
 
 body::before {

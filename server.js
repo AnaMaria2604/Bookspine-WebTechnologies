@@ -47,7 +47,10 @@ const { Console } = require('console')
 const { handleTagsRequest } = require('./Backend/tags')
 const { handleGroupJoinPageRequest } = require('./Backend/groupjoin')
 const { handleGroupRequest } = require('./Backend/groupJoinFunction')
-const { handleGroupConvPageRequest } = require('./Backend/groupConv')
+const {
+    handleGroupConvPageRequest,
+    handleGroupConversationSubmit,
+} = require('./Backend/groupConv')
 const { handleGroupConvRequest } = require('./Backend/groupConvFunction')
 const { isUserLoggedIn } = require('./Backend/loginStatus')
 const { handleMyAccount } = require('./Backend/account')
@@ -213,6 +216,14 @@ const server = http.createServer((req, res) => {
         handleGroupRequest(req, res, groupId)
     } else if (req.method === 'GET' && req.url.startsWith('/group-conv/')) {
         handleGroupConvPageRequest(req, res)
+    } else if (req.method === 'POST' && req.url.startsWith('/group-conv/')) {
+        console.log('here')
+        const parts = req.url.split('/')
+        const groupId = parts[2]
+        const bookId = parts[3]
+        console.log(groupId)
+        console.log(bookId)
+        handleGroupConversationSubmit(req, res, bookId, groupId)
     } else if (req.method === 'GET' && req.url.startsWith('/api/group-conv/')) {
         console.log('bun')
         const parts = req.url.split('/')
@@ -223,6 +234,7 @@ const server = http.createServer((req, res) => {
         handleGroupConvRequest(req, res, bookId, groupId)
     } else if (req.url === '/api/check-auth') {
         const loggedIn = isUserLoggedIn(req)
+        console.log('server' + loggedIn)
         res.writeHead(200, { 'Content-Type': 'application/json' })
         res.end(JSON.stringify({ isAuthenticated: loggedIn }))
     }
