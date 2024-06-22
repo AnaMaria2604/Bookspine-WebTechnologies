@@ -1,10 +1,10 @@
 const fs = require('fs')
 const path = require('path')
 
-function handleReadingCh(req, res) {
+function handleUserAccount(req, res, userId) {
     const filePath = path.join(
         __dirname,
-        '../Frontend/Reading-Challenge-Page/challenge.html'
+        '../Frontend/User-Profile-Page/userprofile.html'
     )
 
     fs.readFile(filePath, (err, data) => {
@@ -18,5 +18,5 @@ function handleReadingCh(req, res) {
     })
 }
 module.exports = {
-    handleReadingCh,
+    handleUserAccount,
 }

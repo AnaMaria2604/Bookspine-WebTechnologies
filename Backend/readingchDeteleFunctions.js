@@ -4,11 +4,7 @@ const jwt = require('jsonwebtoken')
 const cookie = require('cookie')
 const pool = require('../DataBase/database')
 
-console.log('reading ch functions')
-
-// Funcția de ștergere a unei provocări din baza de date
 const deleteChallenge = (chId, callback) => {
-    console.log('id: ' + chId)
     pool.getConnection((err, connection) => {
         if (err) {
             console.error('Error getting database connection:', err)
@@ -33,15 +29,12 @@ function handleDeleteBtn(req, res) {
     let body = ''
     req.on('data', (chunk) => {
         body += chunk.toString()
-        console.log('Received chunk:', chunk.toString())
     })
 
     req.on('end', () => {
-        console.log('Full request body:', body)
         try {
             const parsedBody = JSON.parse(body)
             const chId = parsedBody.id
-            console.log('Challenge ID to delete:', chId)
 
             deleteChallenge(chId, (error, results) => {
                 if (error) {

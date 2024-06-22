@@ -1,8 +1,6 @@
 const fs = require('fs')
 const path = require('path')
 
-console.log('my books path')
-
 function handleMyBooks(req, res) {
     const filePath = path.join(
         __dirname,

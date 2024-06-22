@@ -1,4 +1,3 @@
-console.log('indexService')
 document.addEventListener('DOMContentLoaded', function () {
     fetch('/api/recommended-books')
         .then((response) => response.json())
@@ -34,7 +33,6 @@ document.addEventListener('DOMContentLoaded', function () {
         .then((data) => {
             const popularContainer = document.getElementById('popular_books')
             data.forEach((book) => {
-                console.log(book.cover)
                 const blob = new Blob([new Uint8Array(book.cover.data)], {
                     type: 'image/jpeg',
                 })

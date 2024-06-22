@@ -74,8 +74,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const userEmail = await checkAuth() // Așteaptă autentificarea utilizatorului
         const moderatorId = data.moderator // Presupunând că serverul returnează ID-ul moderatorului grupului
-        console.log(moderatorId)
-        console.log(userEmail)
+        
         // Verifică dacă utilizatorul autentificat este moderatorul
         if (userEmail === moderatorId) {
             const settingsElement = document.querySelector('.settings')

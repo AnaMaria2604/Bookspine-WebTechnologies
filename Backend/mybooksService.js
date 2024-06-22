@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM fully loaded and parsed')
     const urlParts = window.location.pathname.split('/')
     const category = urlParts.pop() || urlParts.pop()
     if (category === 'read') {
@@ -15,11 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     document.getElementById('books-container')
 
                 data.books.forEach((book, index) => {
-                    console.log('SUNT in READ, cartea' + book.title)
                     const bookBox = document.createElement('div')
                     bookBox.classList.add('book-box')
 
-                    // Adaugă imaginea cărții
                     const coverImage = document.createElement('img')
                     const blob = new Blob([new Uint8Array(book.cover.data)], {
                         type: 'image/jpeg',
@@ -30,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     coverImage.classList.add('book-cover')
                     bookBox.appendChild(coverImage)
 
-                    // Creează lista cu detaliile cărții
                     const bookDetails = document.createElement('ul')
                     bookDetails.classList.add('book-details')
 

@@ -19,7 +19,6 @@ const getIdUser = (email, callback) => {
                 if (error) {
                     return callback(error, null)
                 }
-                console.log(result)
                 callback(null, result)
             }
         )
@@ -47,7 +46,6 @@ const deleteFavouriteGenres = (idUser, callback) => {
 }
 
 const getIdsofGenres = (favouriteGenres, callback) => {
-    console.log('getid')
     pool.getConnection((err, connection) => {
         if (err) {
             return callback(err, null)
@@ -55,10 +53,8 @@ const getIdsofGenres = (favouriteGenres, callback) => {
 
         const genreIds = []
         let remainingQueries = favouriteGenres.length
-        console.log(favouriteGenres)
 
         for (const genreTitle of favouriteGenres) {
-            console.log(`Querying for genre: ${genreTitle}`)
             connection.query(
                 'SELECT id FROM genre WHERE genreTitle = ?',
                 [genreTitle],
@@ -78,7 +74,6 @@ const getIdsofGenres = (favouriteGenres, callback) => {
 
                     if (remainingQueries === 0) {
                         connection.release()
-                        console.log(genreIds)
                         callback(null, genreIds)
                     }
                 }
@@ -138,7 +133,6 @@ function handleFavouriteRequest(req, res) {
 }
 
 function handleFavouriteSubmission(req, res) {
-    console.log('handleReq')
     const token = getTokenFromCookie(req)
     let email
 
@@ -161,9 +155,6 @@ function handleFavouriteSubmission(req, res) {
 
     req.on('end', () => {
         const formData = querystring.parse(body)
-        console.log('Form data:', formData)
-
-        console.log('Email:', email)
 
         getIdUser(email, (err, result) => {
             if (err) {
@@ -175,7 +166,6 @@ function handleFavouriteSubmission(req, res) {
             }
 
             const idUser = result[0].id
-            console.log('ID utilizator:', idUser)
 
             deleteFavouriteGenres(idUser, (err) => {
                 if (err) {
@@ -188,7 +178,6 @@ function handleFavouriteSubmission(req, res) {
                 if (!Array.isArray(favouriteGenres)) {
                     favouriteGenres = [favouriteGenres]
                 }
-                console.log('Genuri favorite selectate:', favouriteGenres)
 
                 getIdsofGenres(favouriteGenres, (err, genreIds) => {
                     if (err) {
@@ -198,7 +187,6 @@ function handleFavouriteSubmission(req, res) {
                         )
                         return
                     }
-                    console.log('ID-urile genurilor favorite:', genreIds)
 
                     saveFavouriteGenres(idUser, genreIds, (err, results) => {
                         if (err) {

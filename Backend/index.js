@@ -3,7 +3,6 @@ const path = require('path')
 const { getPopularBooks, getRecommendedBooks } = require('./getTenBooks')
 
 const handleIndexRequest = (req, res) => {
-    console.log('index')
     const filePath = path.join(__dirname, '../Frontend/Index-Page/index.html')
 
     fs.readFile(filePath, (err, data) => {

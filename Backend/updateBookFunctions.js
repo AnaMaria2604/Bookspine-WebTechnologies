@@ -2,7 +2,6 @@ const mysql = require('mysql')
 const pool = require('../DataBase/database')
 
 function handleBookForUpdateRequest(req, res, bookId) {
-    console.log('bookid in functions: ' + bookId)
     getBookRequestForUpdate(bookId, (error, results) => {
         if (error) {
             res.writeHead(500, { 'Content-Type': 'application/json' })

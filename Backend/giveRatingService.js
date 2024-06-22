@@ -39,11 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     postbutton.addEventListener('click', function () {
         const reviewContent = textinput.value
         const dateContent = date.value
-        console.log(
-            'input: ' + currentRating + ' ' + reviewContent + ' ' + dateContent
-        )
-        console.log('book id in service: ' + bookId)
-
+        
         fetch(`/post-review`, {
             method: 'POST',
             headers: {

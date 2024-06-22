@@ -5,8 +5,6 @@ const cookie = require('cookie')
 const querystring = require('querystring')
 const pool = require('../DataBase/database')
 
-console.log('account functions')
-
 function getIdUser(email, callback) {
     pool.getConnection((err, connection) => {
         if (err) {
@@ -240,7 +238,6 @@ const getNextGroupId = (callback) => {
                 }
 
                 let nextId = results[0].maxId + 1
-                console.log('nextId ' + nextId)
                 callback(null, { nextGroupId: nextId })
             }
         )
