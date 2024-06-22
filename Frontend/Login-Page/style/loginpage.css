@@ -152,6 +152,17 @@ body .AuthentificationContainer button[type=submit] {
 body .AuthentificationContainer button[type=submit]:hover {
   background-color: #0A2E36;
 }
+body .AuthentificationContainer .accountButton {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-self: center;
+  padding-top: 20px;
+}
+body .AuthentificationContainer .accountButton a {
+  font-size: 15px;
+  color: #ACEAEC;
+}
 body .AuthentificationContainer .text {
   display: flex;
   flex-direction: row;
@@ -160,7 +171,7 @@ body .AuthentificationContainer .text {
   padding-top: 20px;
 }
 body .AuthentificationContainer .text a {
-  font-size: 15px;
+  font-size: 12px;
   color: white;
 }
 
