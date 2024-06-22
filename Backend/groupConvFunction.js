@@ -1,7 +1,6 @@
 const pool = require('../DataBase/database')
 
 function handleGroupConvRequest(req, res, bookId, groupId) {
-    console.log('Fetching group details...')
     getGroupDetails(bookId, groupId, (error, results) => {
         if (error) {
             res.writeHead(500, { 'Content-Type': 'application/json' })
@@ -14,7 +13,6 @@ function handleGroupConvRequest(req, res, bookId, groupId) {
 }
 
 function getGroupDetails(bookId, groupId, callback) {
-    console.log(bookId)
     pool.getConnection((err, connection) => {
         if (err) {
             connection.release()

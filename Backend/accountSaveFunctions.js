@@ -6,7 +6,6 @@ const querystring = require('querystring')
 const pool = require('../DataBase/database')
 const bcrypt = require('bcrypt')
 
-console.log('account save functions')
 
 function getIdUser(email, callback) {
     pool.getConnection((err, connection) => {
@@ -104,8 +103,6 @@ function handleAccount(req, res) {
                                 return
                             }
 
-                            console.log(pass1)
-                            console.log(hashedPassword)
                             saveDetails(
                                 aboutUser,
                                 favQuote,
@@ -163,7 +160,6 @@ const saveDetails = (
     pass1,
     callback
 ) => {
-    console.log('save details function')
     pool.getConnection((err, connection) => {
         if (err) {
             console.log('Error getting connection:', err)

@@ -72,7 +72,6 @@ function addToReading(userId, bookId, callback) {
 }
 
 function handleShelfReading(req, res) {
-    console.log('handleReq')
 
     const token = getTokenFromCookie(req)
     let email
@@ -96,10 +95,7 @@ function handleShelfReading(req, res) {
 
     req.on('end', () => {
         const formData = querystring.parse(body)
-        console.log('Form data:', formData)
-        console.log('Email:', email)
         const bookId = formData.bookId
-        console.log('Book ID:', bookId)
 
         if (!bookId) {
             console.error('Book ID is missing.')
@@ -117,7 +113,6 @@ function handleShelfReading(req, res) {
             }
 
             const idUser = result[0].id
-            console.log('User ID for shelf:', idUser)
 
             addToReading(idUser, bookId, (err) => {
                 if (err) {
@@ -141,7 +136,6 @@ function handleShelfReading(req, res) {
 }
 
 function handleShelfWantToRead(req, res) {
-    console.log('handleReqWantToRead')
 
     const token = getTokenFromCookie(req)
     let email
@@ -165,10 +159,7 @@ function handleShelfWantToRead(req, res) {
 
     req.on('end', () => {
         const formData = querystring.parse(body)
-        console.log('Form data:', formData)
-        console.log('Email:', email)
         const bookId = formData.bookId
-        console.log('Book ID:', bookId)
 
         if (!bookId) {
             console.error('Book ID is missing.')
@@ -186,7 +177,6 @@ function handleShelfWantToRead(req, res) {
             }
 
             const idUser = result[0].id
-            console.log('User ID for shelf:', idUser)
 
             addToWantToRead(idUser, bookId, (err) => {
                 if (err) {

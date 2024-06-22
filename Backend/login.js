@@ -36,11 +36,11 @@ function handleLoginSubmission(req, res) {
                 res
             )
 
-            console.log('Authentication successful:', { token, user, userType }) // Log pentru depanare
+            console.log('Authentication successful') // Log pentru depanare
 
             res.setHeader('Content-Type', 'text/html')
             if (userType === 'user') {
-                console.log("Redirecționare utilizator de tip 'user'")
+                console.log("Redirecționare  de tip 'user'")
                 res.writeHead(302, { Location: '/favourite-genres' })
                 res.end()
             } else {

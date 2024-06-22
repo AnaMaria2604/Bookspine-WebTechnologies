@@ -19,8 +19,6 @@ const getMyBooksRead = (id, callback) => {
                     return callback(error, null)
                 }
 
-                // Afișează bookIds folosind JSON.stringify
-                console.log('bookIds: ' + JSON.stringify(bookIds))
 
                 if (bookIds.length === 0) {
                     connection.release()
@@ -68,9 +66,6 @@ const getMyBooksCurrentlyReading = (id, callback) => {
                     connection.release()
                     return callback(error, null)
                 }
-
-                // Afișează bookIds folosind JSON.stringify
-                console.log('bookIds: ' + JSON.stringify(bookIds))
 
                 if (bookIds.length === 0) {
                     connection.release()
@@ -122,8 +117,6 @@ const getMyBooksWantToRead = (id, callback) => {
                     return callback(error, null)
                 }
 
-                // Afișează bookIds folosind JSON.stringify
-                console.log('bookIds: ' + JSON.stringify(bookIds))
 
                 if (bookIds.length === 0) {
                     connection.release()
@@ -155,7 +148,6 @@ const getMyBooksWantToRead = (id, callback) => {
     })
 }
 function handleMyBooksRead(req, res) {
-    console.log('aici')
     const token = getTokenFromCookie(req)
     let email
 

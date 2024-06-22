@@ -1,4 +1,3 @@
-console.log('update book service')
 
 document.addEventListener('DOMContentLoaded', function () {
     const urlParts = window.location.pathname.split('/')
@@ -13,17 +12,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const reviewContent1 = textinput1.value
         const reviewContent2 = textinput2.value
         const numberContent = pageNumber.value
-
-        console.log(
-            'input: ' +
-                bookId +
-                ' ' +
-                reviewContent1 +
-                ' ' +
-                reviewContent2 +
-                ' ' +
-                numberContent
-        )
 
         fetch(`/post-update`, {
             method: 'POST',

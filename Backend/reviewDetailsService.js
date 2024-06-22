@@ -1,4 +1,3 @@
-console.log('reviewservice')
 
 document.addEventListener('DOMContentLoaded', function () {
     const urlParts = window.location.pathname.split('/')

@@ -4,8 +4,6 @@ const jwt = require('jsonwebtoken')
 const cookie = require('cookie')
 const pool = require('../DataBase/database')
 
-console.log('reading ch functions')
-
 function getIdUser(email, callback) {
     pool.getConnection((err, connection) => {
         if (err) {
@@ -74,7 +72,6 @@ function getTokenFromCookie(req) {
 }
 
 function handleReadingChallenges(req, res) {
-    console.log('in handle read ch')
     const token = getTokenFromCookie(req)
     let email
 
@@ -105,7 +102,6 @@ function handleReadingChallenges(req, res) {
             }
 
             const idUser = result[0].id
-            console.log(idUser)
 
             getUserDetails(idUser, (error, userDetails) => {
                 if (error) {
@@ -128,7 +124,6 @@ function handleReadingChallenges(req, res) {
                         userDetails: userDetails,
                         challenges: challenges,
                     }
-                    console.log(response)
                     res.writeHead(200, { 'Content-Type': 'application/json' })
                     res.end(JSON.stringify(response))
                 })

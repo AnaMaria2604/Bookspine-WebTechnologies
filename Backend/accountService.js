@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', function () {
     fetch(`/accountDetails`)
         .then((response) => response.json())
         .then((data) => {
-            console.log(data)
 
             const userDetailsElement = document.getElementById('user-details')
             if (data.userDetails) {
@@ -152,7 +151,6 @@ document.addEventListener('DOMContentLoaded', function () {
         .then((data) => {
             const details = document.getElementById('creare-grup')
             const idNou = data.nextGroupId
-            console.log('id: ' + idNou)
 
             const groupElement = document.createElement('div')
             groupElement.innerHTML = `
@@ -176,8 +174,6 @@ document.addEventListener('DOMContentLoaded', function () {
             .then((response) => response.json())
             .then((data) => {
                 console.log('Success:', data)
-                // localStorage.removeItem('accessToken')
-                // localStorage.removeItem('refreshToken')
                 window.location.href = '/'
             })
             .catch((error) => {
@@ -202,25 +198,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const email = newEmail.value
         const pass1 = password.value
         const pass2 = confirmPassword.value
-
-        console.log(
-            'input: ' +
-                reviewContent1 +
-                ' ' +
-                reviewContent2 +
-                ' ' +
-                firstName +
-                ' ' +
-                lastName +
-                ' ' +
-                email +
-                ' ' +
-                pass1 +
-                ' ' +
-                pass2
-        )
-
-        //const photo = document.getElementById('photo').files[0]
 
         fetch(`/saveDetails`, {
             method: 'POST',

@@ -17,7 +17,6 @@ function handleSearchPageRequest(req, res) {
 function handleSearchRequest(req, res) {
     const parsedUrl = url.parse(req.url, true)
     const query = parsedUrl.query.q || ''
-    console.log(query)
     if (!query) {
         res.writeHead(400, { 'Content-Type': 'application/json' })
         res.end(JSON.stringify({ error: 'Query parameter is required' }))
@@ -58,15 +57,13 @@ function handleSearchRequest(req, res) {
                 res.end(JSON.stringify({ error: 'Failed to query books' }))
                 return
             }
-            //console.log(bookResults)
-            // Execută interogarea pentru grupuri
+            
             connection.query(
                 groupQuery,
                 groupQueryValues,
                 (groupErr, groupResults) => {
                     connection.release()
                     if (groupErr) {
-                        console.log('aicisasaa')
                         res.writeHead(500, {
                             'Content-Type': 'application/json',
                         })
@@ -75,10 +72,8 @@ function handleSearchRequest(req, res) {
                         )
                         return
                     }
-                    console.log(groupResults)
                     // Verifică dacă rezultatele sunt goale
                     if (bookResults.length === 0 && groupResults.length === 0) {
-                        console.log('aici')
                         res.writeHead(200, {
                             'Content-Type': 'application/json',
                         })
@@ -89,7 +84,6 @@ function handleSearchRequest(req, res) {
                             books: bookResults,
                             teams: groupResults,
                         }
-                        console.log(result.books)
 
                         res.writeHead(200, {
                             'Content-Type': 'application/json',

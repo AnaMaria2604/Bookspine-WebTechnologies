@@ -60,9 +60,7 @@ const handleGroupConvPageRequest = (req, res) => {
 }
 
 const handleGroupConversationSubmit = (req, res, bookId, groupId) => {
-    console.log('In handleGroupConversationSubmit')
-    console.log('groupId:', groupId)
-    console.log('bookId:', bookId)
+    
     let body = ''
 
     // Ascultăm evenimentul 'data' pentru a colecta corpul cererii

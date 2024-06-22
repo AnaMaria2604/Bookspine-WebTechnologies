@@ -11,7 +11,6 @@ function isUserLoggedIn(req) {
         'cfc1fffcd77355620d863b573349ee9cfb7b8552335aaf93e88abc52d147ef5e'
     try {
         const decodedToken = jwt.verify(token, secretKey)
-        console.log('aaaicici' + decodedToken.email)
         return decodedToken.email || null // Return email if valid token, otherwise null
     } catch (err) {
         console.log('Error decoding token:', err.message)
