@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken')
 const cookie = require('cookie')
 const querystring = require('querystring')
 const pool = require('../DataBase/database')
+const bcrypt = require('bcrypt')
 
 console.log('account save functions')
 
@@ -90,36 +91,52 @@ function handleAccount(req, res) {
                             return
                         }
 
-                        saveDetails(
-                            aboutUser,
-                            favQuote,
-                            idUser,
-                            firstName,
-                            lastName,
-                            newEmail,
-                            pass1,
-                            (error, results) => {
-                                if (error) {
-                                    console.error(
-                                        'Error saving details:',
-                                        error
-                                    )
-                                    res.writeHead(500, {
-                                        'Content-Type': 'application/json',
+                        bcrypt.hash(pass1, 10, (err, hashedPassword) => {
+                            if (err) {
+                                res.writeHead(500, {
+                                    'Content-Type': 'application/json',
+                                })
+                                res.end(
+                                    JSON.stringify({
+                                        message: 'Error hashing password',
                                     })
-                                    res.end(
-                                        JSON.stringify({
-                                            error: 'Internal Server Error.',
-                                        })
-                                    )
-                                } else {
-                                    res.writeHead(200, {
-                                        'Content-Type': 'application/json',
-                                    })
-                                    res.end(JSON.stringify(results))
-                                }
+                                )
+                                return
                             }
-                        )
+
+                            console.log(pass1)
+                            console.log(hashedPassword)
+                            saveDetails(
+                                aboutUser,
+                                favQuote,
+                                idUser,
+                                firstName,
+                                lastName,
+                                newEmail,
+                                hashedPassword,
+                                (error, results) => {
+                                    if (error) {
+                                        console.error(
+                                            'Error saving details:',
+                                            error
+                                        )
+                                        res.writeHead(500, {
+                                            'Content-Type': 'application/json',
+                                        })
+                                        res.end(
+                                            JSON.stringify({
+                                                error: 'Internal Server Error.',
+                                            })
+                                        )
+                                    } else {
+                                        res.writeHead(200, {
+                                            'Content-Type': 'application/json',
+                                        })
+                                        res.end(JSON.stringify(results))
+                                    }
+                                }
+                            )
+                        })
                     })
                 } catch (error) {
                     console.error('Error parsing form data:', error)
