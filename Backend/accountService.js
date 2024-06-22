@@ -246,25 +246,4 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.error('Error:', error)
             })
     })
-
-    // document
-    //     .getElementById('uploadButton')
-    //     .addEventListener('click', function () {
-    //         const formData = new FormData()
-    //         const fileInput = document.getElementById('photo')
-    //         formData.append('photo', fileInput.files[0])
-
-    //         fetch('/uploadPhoto', {
-    //             method: 'POST',
-    //             body: formData,
-    //         })
-    //             .then((response) => response.json())
-    //             .then((data) => {
-    //                 console.log('Imagine încărcată:', data)
-    //                 // Aici poți actualiza interfața sau face alte acțiuni după încărcarea imaginii
-    //             })
-    //             .catch((error) => {
-    //                 console.error('Eroare la încărcarea imaginii:', error)
-    //             })
-    //     })
 })
