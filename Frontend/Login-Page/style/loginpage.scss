@@ -146,13 +146,11 @@ body {
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            margin-bottom: 30px;
             margin-top: 30px;
 
             label {
                 align-self: flex-start;
                 display: block;
-                margin-bottom: 0px;
                 color: white;
                 font-weight: bold;
                 font-size: 20px;
@@ -162,14 +160,14 @@ body {
 
             input[type="email"],
             input[type="password"] {
-                margin-left: 20px;
                 margin-top: 0;
-                background-color: white;
                 width: 80%;
                 border-radius: 20px;
                 height: 30px;
-                // align-self: flex-start;
-                border: none;
+                padding-left: 20px;
+                color: white;
+                background-color: #07373b;
+                border: 2px solid #052629;
             }
         }
 
