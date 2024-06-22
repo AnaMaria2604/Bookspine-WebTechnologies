@@ -96,7 +96,6 @@ body .dropdown-menu li a {
 }
 body .challenges {
   display: flex;
-  padding: 50px;
   margin-right: 30px;
   align-content: center;
   align-items: center;
@@ -107,7 +106,6 @@ body .challenges .articol {
   width: 90%;
   flex-direction: column;
   padding: 10px;
-  background-color: #15555a;
   border-radius: 20px;
 }
 body .challenges .articol .subclass {
@@ -136,17 +134,63 @@ body .challenges .articol .subclass .buttons .text a {
 }
 body .challenges .articol .format {
   display: flex;
+  flex-direction: column;
 }
-body .challenges .articol .format .format__poza {
+body .challenges .articol .format .ch {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  background-color: #15555a;
+  border-radius: 20px;
+  padding: 20px;
+  gap: 10px;
+}
+body .challenges .articol .format .ch .format__poza {
   height: 100px;
   width: 100px;
+  border-radius: 50%;
 }
-body .challenges .articol .format .format__text {
+body .challenges .articol .format .ch .format__text {
+  display: flex;
+  flex-direction: column;
   color: white;
-  font-size: 15px;
+  font-weight: 600;
+  font-size: 25px;
   padding-top: 30px;
   padding-left: 20px;
-  align-items: center;
+}
+body .challenges .articol .format .ch .format__text .butoane {
+  padding-top: 5px;
+  gap: 10px;
+  display: flex;
+  border: none;
+  flex-direction: row;
+}
+body .challenges .articol .format .ch .format__text .butoane button {
+  color: #ACEAEC;
+  border: none;
+}
+body .challenges .articol .format .ch .format__text .edit-form {
+  display: flex;
+  flex-direction: row;
+  color: white;
+  font-weight: 400;
+  font-size: 20px;
+  padding-top: 30px;
+}
+body .challenges .articol .format .ch .format__text .edit-form input {
+  color: #ACEAEC;
+  font-size: 15px;
+  background-color: #07373b;
+  border: 2px solid #052629;
+}
+body .challenges .articol .format .ch .format__text .edit-form .save-btn {
+  padding-top: 5px;
+  display: flex;
+  border: none;
+  display: flex;
+  flex-direction: row;
+  color: #ACEAEC;
 }
 body .challenges > .articol {
   margin-bottom: 30px;
@@ -159,7 +203,7 @@ body .readingchallenge {
   margin-top: 10px;
   margin-left: 40px;
   margin-right: 40px;
-  background-color: #1e3137;
+  background-color: #002d2f;
   align-self: center;
   justify-content: space-between;
 }
@@ -185,12 +229,13 @@ body .readingchallenge .banner .textbanner {
 body .readingchallenge .statistici {
   display: block;
   text-align: left;
-  background-color: #ACEAEC;
+  background-color: #025161;
   border-radius: 2px;
   padding: 10px 20px;
   margin: 10px;
   width: auto;
   height: 70%;
+  color: #ffffff;
 }
 body .readingchallenge .statistici table {
   margin-top: 10px;
@@ -252,47 +297,91 @@ footer {
   color: white;
 }
 
-@media (min-width: 481px) and (max-width: 960px) {
+@media (min-width: 481px) and (max-width: 880px) {
   body {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 30px;
+  }
+  body .challenges .articol .format .ch {
+    align-items: center;
+    justify-content: end;
+  }
+  body .challenges .articol .format .ch .format__poza {
+    padding: 0px;
+    height: 100px;
+    width: 200px;
+  }
+  body .challenges .articol .format .ch .format__text {
+    padding: 10px;
+    font-size: 17px;
+    float: left;
+  }
+  body .challenges .articol .format .ch .format__text .butoane {
+    padding-top: 20px;
+    float: left;
+    width: 100%;
+  }
+  body .challenges .articol .format .ch .format__text .butoane button {
+    color: #ACEAEC;
+    border: none;
+  }
+  body .challenges .articol .format .ch .format__text .edit-form {
+    font-size: 15px;
+    width: 100%;
+  }
+  body .challenges .articol .format .ch .format__text .edit-form input {
+    padding: 10px;
+    font-size: 10px;
+    height: 10px;
+  }
+  body .challenges .articol .format .ch .format__text .edit-form .save-btn {
+    padding: 10px;
   }
   body .readingchallenge {
-    margin-left: 5%;
-    margin-right: 5%;
-    width: 90%;
-  }
-  body .readingchallenge .statistici {
-    display: none;
+    margin: 0px;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
   }
   body .readingchallenge .banner {
+    justify-content: center;
+    align-self: center;
     color: white;
     font-weight: bold;
     display: flex;
     flex-direction: row;
   }
   body .readingchallenge .banner .poza {
-    width: 100px;
-    height: 50px;
-    padding-top: 10px;
+    width: auto;
+    padding: 0;
+    height: 30px;
     padding-left: 10px;
     float: left;
     align-self: center;
   }
+  body .readingchallenge .banner span {
+    padding: 0px;
+  }
   body .readingchallenge .banner .textbanner {
     color: white;
-    font-size: 25px;
+    font-size: 20px;
+    padding: 0px;
     float: left;
-    padding-top: 40px;
     padding-left: 20px;
+  }
+  body .readingchallenge .statistici {
+    display: none;
+  }
+  body .challenges {
+    margin: 0px;
   }
   body .challenges .articol {
     display: flex;
-    width: 90%;
+    width: 80%;
     flex-direction: column;
-    padding: 10px;
     background-color: #15555a;
     border-radius: 20px;
   }
@@ -343,66 +432,126 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 10px;
+  }
+  body .challenges .articol .format .ch {
+    align-items: center;
+    justify-content: end;
+  }
+  body .challenges .articol .format .ch .format__poza {
+    padding: 0px;
+    height: 100px;
+    width: 100px;
+  }
+  body .challenges .articol .format .ch .format__text {
+    padding: 10px;
+    font-size: 13px;
+    float: left;
+  }
+  body .challenges .articol .format .ch .format__text .butoane {
+    padding-top: 20px;
+    float: left;
+    width: 100%;
+  }
+  body .challenges .articol .format .ch .format__text .butoane button {
+    color: #ACEAEC;
+    border: none;
+  }
+  body .challenges .articol .format .ch .format__text .edit-form {
+    font-size: 12px;
+    width: 100%;
+  }
+  body .challenges .articol .format .ch .format__text .edit-form input {
+    padding: 10px;
+    font-size: 10px;
+    height: 8px;
+  }
+  body .challenges .articol .format .ch .format__text .edit-form .save-btn {
+    font-size: 10px;
+    padding: 10px;
   }
   body .readingchallenge {
-    margin-left: 5%;
-    margin-right: 5%;
-    width: 90%;
-  }
-  body .readingchallenge .statistici {
-    display: none;
+    margin: 0px;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
   }
   body .readingchallenge .banner {
+    justify-content: center;
+    align-self: center;
     color: white;
     font-weight: bold;
     display: flex;
     flex-direction: row;
   }
   body .readingchallenge .banner .poza {
-    width: 100px;
-    height: 50px;
-    padding-top: 10px;
+    width: auto;
+    padding: 0;
+    height: 30px;
     padding-left: 10px;
     float: left;
     align-self: center;
   }
+  body .readingchallenge .banner span {
+    padding: 0px;
+  }
   body .readingchallenge .banner .textbanner {
     color: white;
-    font-size: 23px;
+    font-size: 15px;
+    padding: 0px;
     float: left;
-    padding-top: 40px;
     padding-left: 20px;
   }
+  body .readingchallenge .statistici {
+    display: none;
+  }
   body .challenges {
-    margin-left: 5%;
-    margin-right: 5%;
-    width: 90%;
+    margin: 0px;
+  }
+  body .challenges .articol {
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+    background-color: #15555a;
+    border-radius: 20px;
   }
   body .challenges .articol .subclass {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    padding-left: 30px;
+    padding-left: 100px;
   }
   body .challenges .articol .subclass .carti .carti__poza {
     width: 80px;
     height: 100px;
     padding-top: 10px;
     padding-left: 10px;
-    margin-left: 0px;
     float: left;
+  }
+  body .challenges .articol .subclass .buttons {
+    display: flex;
+    align-items: center;
+  }
+  body .challenges .articol .subclass .buttons .text {
+    padding-top: 10px;
+    padding-left: 20px;
+    font-size: 15px;
+  }
+  body .challenges .articol .subclass .buttons .text a {
+    color: white;
   }
   body .challenges .articol .format {
     display: flex;
   }
   body .challenges .articol .format .format__poza {
-    height: 50px;
-    width: 50px;
+    padding-top: 20px;
+    height: 100px;
+    width: 100px;
   }
   body .challenges .articol .format .format__text {
     color: white;
     font-size: 10px;
-    padding-top: 0px;
+    padding-top: 30px;
     padding-left: 20px;
     align-items: center;
   }

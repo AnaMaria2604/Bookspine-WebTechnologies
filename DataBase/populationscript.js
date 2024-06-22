@@ -262,20 +262,20 @@ function populateDatabase(connection) {
 
     // Adăugăm provocări de lectură
     const readingChallenges = [
-        [10, 3, 'Annual Reading Challenge'],
-        [20, 5, 'Monthly Reading Challenge'],
-        [15, 10, 'Summer Reading Challenge'],
-        [5, 1, 'Winter Reading Challenge'],
-        [50, 20, '50 Book Challenge'],
-        [12, 4, '12 Month, 12 Books Challenge'],
-        [30, 15, '30 Book Challenge'],
-        [25, 10, 'Quarterly Reading Challenge'],
-        [7, 2, 'Weekly Reading Challenge'],
-        [3, 0, 'Weekend Reading Challenge'],
+        [10, 10, 3, 'Annual Reading Challenge'],
+        [10, 20, 5, 'Monthly Reading Challenge'],
+        [1, 15, 10, 'Annual Reading Challenge'],
+        [4, 5, 1, 'Monthly Reading Challenge'],
+        [6, 50, 20, 'Annual Reading Challenge'],
+        [2, 12, 4, 'Monthly Reading Challenge'],
+        [9, 30, 15, 'Annual Reading Challenge'],
+        [8, 25, 10, 'Monthly Reading Challenge'],
+        [8, 7, 2, 'Annual Reading Challenge'],
+        [7, 3, 0, 'Monthly Reading Challenge'],
     ]
 
     connection.query(
-        'INSERT INTO readingchallenge (numberOfBooks, currentNumberOfBooks, type) VALUES ?',
+        'INSERT INTO readingchallenge (userId, numberOfBooks, currentNumberOfBooks, type) VALUES ?',
         [readingChallenges],
         (err) => {
             if (err) {
