@@ -152,6 +152,17 @@ body .RegistrationContainer button[type=submit] {
 body .RegistrationContainer button[type=submit]:hover {
   background-color: #0A2E36;
 }
+body .RegistrationContainer .accountButton {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-self: center;
+  padding-top: 20px;
+}
+body .RegistrationContainer .accountButton a {
+  font-size: 15px;
+  color: #ACEAEC;
+}
 
 body::before {
   background-image: url(../../Images/bookimg3.jpg);
