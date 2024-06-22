@@ -151,6 +151,7 @@ function initializeDatabase() {
           currentPageNumber INT NOT NULL,
           descr VARCHAR(400),
           quote VARCHAR(400),
+          updateDate VARCHAR(200) NOT NULL,
           FOREIGN KEY (userId) REFERENCES user(id),
           FOREIGN KEY (bookId) REFERENCES book(id)
          )
@@ -212,6 +213,7 @@ function initializeDatabase() {
           reviewDescription  VARCHAR(200),
           rating  INT,
           date  DATE NOT NULL,
+          reviewDate VARCHAR(200) NOT NULL,
           FOREIGN KEY (userId) REFERENCES user(id),
           FOREIGN KEY (bookId) REFERENCES book(id)
        )

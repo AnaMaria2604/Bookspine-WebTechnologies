@@ -81,13 +81,14 @@ function handleReview(req, res) {
 }
 
 const postReview = (bookId, userId, rating, text, date, callback) => {
+    const reviewdate = new Date()
     pool.getConnection((err, connection) => {
         if (err) {
             return callback(err, null)
         }
         connection.query(
-            'INSERT INTO review (userId,bookId, reviewDescription, rating, date) VALUES (?, ?, ?, ?,?)',
-            [userId, bookId, text, rating, date],
+            'INSERT INTO review (userId,bookId, reviewDescription, rating, date,reviewDate) VALUES (?, ?, ?, ?,?,?)',
+            [userId, bookId, text, rating, date, reviewdate.toString()],
             (error, results) => {
                 connection.release()
                 if (error) {

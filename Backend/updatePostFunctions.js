@@ -99,13 +99,14 @@ function handleUpdate(req, res) {
 }
 
 const postUpdate = (userId, bookId, pageNr, descr, quote, callback) => {
+    const data = new Date()
     pool.getConnection((err, connection) => {
         if (err) {
             return callback(err, null)
         }
         connection.query(
-            'INSERT INTO reading (userId, bookId, currentPageNumber, descr, quote) VALUES (?, ?, ?, ?, ?)',
-            [userId, bookId, pageNr, descr, quote],
+            'INSERT INTO reading (userId, bookId, currentPageNumber, descr, quote,updateDate) VALUES (?, ?, ?, ?, ?,?)',
+            [userId, bookId, pageNr, descr, quote, data.toString()],
             (error, results) => {
                 connection.release()
                 if (error) {

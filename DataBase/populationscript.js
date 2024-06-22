@@ -378,23 +378,23 @@ function populateDatabase(connection) {
             console.log('Știrile au fost inserate cu succes!')
         }
     )
-
+    const data = new Date()
     // Adăugăm citiri
     const readings = [
-        [1, 1, new Date('2024-01-01'), 0, ' ', ' '],
-        [2, 2, new Date('2024-02-01'), 0, ' ', ' '],
-        [3, 3, new Date('2024-03-01'), 0, ' ', ' '],
-        [4, 4, new Date('2024-04-01'), 0, ' ', ' '],
-        [5, 5, new Date('2024-05-01'), 0, ' ', ' '],
-        [6, 6, new Date('2024-06-01'), 0, ' ', ' '],
-        [7, 7, new Date('2024-07-01'), 0, ' ', ' '],
-        [8, 8, new Date('2024-08-01'), 0, ' ', ' '],
-        [9, 9, new Date('2024-09-01'), 0, ' ', ' '],
-        [10, 10, new Date('2024-10-01'), 0, ' ', ' '],
+        [1, 1, new Date('2024-01-01'), 0, ' ', ' ', data.toString()],
+        [2, 2, new Date('2024-02-01'), 0, ' ', ' ', data.toString()],
+        [3, 3, new Date('2024-03-01'), 0, ' ', ' ', data.toString()],
+        [4, 4, new Date('2024-04-01'), 0, ' ', ' ', data.toString()],
+        [5, 5, new Date('2024-05-01'), 0, ' ', ' ', data.toString()],
+        [6, 6, new Date('2024-06-01'), 0, ' ', ' ', data.toString()],
+        [7, 7, new Date('2024-07-01'), 0, ' ', ' ', data.toString()],
+        [8, 8, new Date('2024-08-01'), 0, ' ', ' ', data.toString()],
+        [9, 9, new Date('2024-09-01'), 0, ' ', ' ', data.toString()],
+        [10, 10, new Date('2024-10-01'), 0, ' ', ' ', data.toString()],
     ]
 
     connection.query(
-        'INSERT INTO reading (userId, bookId, startDate, currentPageNumber, descr, quote) VALUES ?',
+        'INSERT INTO reading (userId, bookId, startDate, currentPageNumber, descr, quote,updateDate) VALUES ?',
         [readings],
         (err) => {
             if (err) {
@@ -456,24 +456,67 @@ function populateDatabase(connection) {
             console.log('Dorințele de lectură au fost inserate cu succes!')
         }
     )
+    const dataa = new Date()
 
     // Adăugăm recenzii
     const reviews = [
-        [1, 2, 'An amazing read!', 5, new Date('2023-01-09')],
-        [2, 3, 'Very interesting.', 2, new Date('2023-02-07')],
-        [3, 4, 'It was okay.', 5, new Date('2023-03-10')],
-        [4, 5, 'Not my cup of tea.', 4, new Date('2023-01-03')],
-        [5, 6, "Didn't enjoy it.", 3, new Date('2023-05-03')],
-        [6, 7, 'Absolutely loved it!', 1, new Date('2023-07-02')],
-        [7, 8, 'Great book!', 5, new Date('2023-09-18')],
-        [8, 9, 'It was decent.', 3, new Date('2023-10-15')],
-        [9, 10, 'Could have been better.', 3, new Date('2023-02-10')],
-        [10, 1, 'Not worth the time.,', 4, new Date('2023-03-09')],
-        [4, 2, 'An amazing read!!!!!!', 5, new Date('2023-01-10')],
+        [1, 2, 'An amazing read!', 5, new Date('2023-01-09'), dataa.toString()],
+        [
+            2,
+            3,
+            'Very interesting.',
+            2,
+            new Date('2023-02-07'),
+            dataa.toString(),
+        ],
+        [3, 4, 'It was okay.', 5, new Date('2023-03-10'), dataa.toString()],
+        [
+            4,
+            5,
+            'Not my cup of tea.',
+            4,
+            new Date('2023-01-03'),
+            dataa.toString(),
+        ],
+        [5, 6, "Didn't enjoy it.", 3, new Date('2023-05-03'), dataa.toString()],
+        [
+            6,
+            7,
+            'Absolutely loved it!',
+            1,
+            new Date('2023-07-02'),
+            dataa.toString(),
+        ],
+        [7, 8, 'Great book!', 5, new Date('2023-09-18'), dataa.toString()],
+        [8, 9, 'It was decent.', 3, new Date('2023-10-15'), dataa.toString()],
+        [
+            9,
+            10,
+            'Could have been better.',
+            3,
+            new Date('2023-02-10'),
+            dataa.toString(),
+        ],
+        [
+            10,
+            1,
+            'Not worth the time.,',
+            4,
+            new Date('2023-03-09'),
+            dataa.toString(),
+        ],
+        [
+            4,
+            2,
+            'An amazing read!!!!!!',
+            5,
+            new Date('2023-01-10'),
+            dataa.toString(),
+        ],
     ]
 
     connection.query(
-        'INSERT INTO review (userId, bookId, reviewDescription,rating, date) VALUES ?',
+        'INSERT INTO review (userId, bookId, reviewDescription,rating, date,reviewDate ) VALUES ?',
         [reviews],
         (err) => {
             if (err) {

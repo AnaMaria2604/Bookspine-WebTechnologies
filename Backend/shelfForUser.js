@@ -51,15 +51,15 @@ function addToReading(userId, bookId, callback) {
     const month = String(currentDate.getMonth() + 1).padStart(2, '0')
     const day = String(currentDate.getDate()).padStart(2, '0')
     const startDate = `${year}-${month}-${day}`
-
+    const data = new Date()
     pool.getConnection((err, connection) => {
         if (err) {
             return callback(err, null)
         }
 
         connection.query(
-            'INSERT INTO reading (userId, bookId, startDate, currentPageNumber) VALUES (?, ?,?,0)',
-            [userId, bookId, startDate],
+            'INSERT INTO reading (userId, bookId, startDate, currentPageNumber,updateDate) VALUES (?, ?,?,0,?)',
+            [userId, bookId, startDate, data.toString()],
             (error, result) => {
                 connection.release()
                 if (error) {
