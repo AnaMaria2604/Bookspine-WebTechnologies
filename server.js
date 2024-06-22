@@ -79,6 +79,7 @@ const { handleReadingCh } = require('./Backend/readingch')
 const { handleReadingChallenges } = require('./Backend/readingchFunctions')
 const { handleDeleteBtn } = require('./Backend/readingchDeteleFunctions')
 const { handleupdateChallenge } = require('./Backend/readingchEditFunctions')
+const { handleRSSRequest } = require('./Backend/rss')
 
 //initializeDatabase()
 
@@ -270,6 +271,8 @@ const server = http.createServer((req, res) => {
     ) {
         console.log('in server da3')
         handleMyBooksWantToRead(req, res)
+    } else if (req.url === '/rss') {
+        handleRSSRequest(req, res)
     }
     // Verifică cererile pentru fișiere CSS
     else if (req.url.startsWith('/style/')) {
