@@ -4,15 +4,13 @@
 }
 
 body {
-  background-color: #ACEAEC;
+  background-color: #aceaec;
   display: flex;
   flex-direction: column;
   margin: 0;
 }
 body .header {
-  top: 0;
-  left: 0;
-  background-color: #01161E;
+  background-color: #01161e;
   margin: 0;
 }
 body .header .navbar {
@@ -69,34 +67,10 @@ body .header .navbar__links ul li .search-button {
   margin-left: 8px;
 }
 body .header .navbar__links ul li .search-button:hover {
-  background-color: #0A2E36;
-}
-body .dropdown-container {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  display: none;
-}
-body .dropdown-menu {
-  background-color: #01161E;
-  padding: 10px;
-  border: 1px solid #2a3738;
-  list-style-type: none;
-  margin: 0;
-  position: relative;
-  z-index: 1;
-}
-body .dropdown-menu li {
-  padding: 5px 0;
-}
-body .dropdown-menu li a {
-  color: white;
-  font-size: 17px;
-  font-weight: bold;
+  background-color: #0a2e36;
 }
 body .main {
   display: flex;
-  justify-content: space-between;
   flex-direction: row;
   width: 100%;
 }
@@ -109,10 +83,11 @@ body .main .left_part {
   flex-basis: calc(20% - 20px);
 }
 body .main .left_part .wantToRead {
+  color: white;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  background-color: #77cad4;
+  background-color: #104547;
   border-radius: 20px;
   margin-bottom: 50px;
   padding-left: 10px;
@@ -136,7 +111,8 @@ body .main .left_part .wantToRead .books .image img {
   width: 70px;
 }
 body .main .left_part .challenge {
-  background-color: #77cad4;
+  color: white;
+  background-color: #104547;
   border-radius: 20px;
   padding-left: 10px;
   display: flex;
@@ -160,22 +136,36 @@ body .main .left_part .challenge .content img {
   width: 70px;
 }
 body .main .left_part .currentlyReading {
-  padding-left: 10px;
-  background-color: #77cad4;
-  border-radius: 20px;
+  color: white;
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
+  background-color: #104547;
+  border-radius: 20px;
+  margin-bottom: 50px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 body .main .left_part .currentlyReading .titlu {
+  padding: 5px;
   align-self: center;
-  padding: 5px;
 }
-body .main .left_part .currentlyReading img {
+body .main .left_part .currentlyReading .books {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-gap: 0px;
+}
+body .main .left_part .currentlyReading .books .image {
   padding: 5px;
+  text-align: center;
+}
+body .main .left_part .currentlyReading .books .image img {
   height: 100px;
   width: 70px;
 }
 body .main .middle_part {
+  color: white;
+  margin-left: 10%;
   margin-top: 50px;
   flex-basis: calc(50% - 20px);
   display: flex;
@@ -185,7 +175,8 @@ body .main .middle_part {
 body .main .middle_part .titlu {
   align-self: center;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 30px;
+  color: #01161e;
 }
 body .main .middle_part .update {
   display: flex;
@@ -195,20 +186,19 @@ body .main .middle_part .update .item {
   margin-top: 50px;
   display: flex;
   flex-direction: column;
-  background-color: #77cad4;
+  background-color: #104547;
   border-radius: 20px;
 }
 body .main .middle_part .update .item .user_content {
   display: flex;
   flex-direction: row;
   gap: 5px;
-  padding: 5px;
+  padding: 10px;
+  padding-left: 30px;
 }
-body .main .middle_part .update .item .user_content .userphoto {
-  height: 30px;
-  width: 30px;
-  border-radius: 50%;
-  overflow: hidden;
+body .main .middle_part .update .item .user_content a {
+  color: white;
+  font-weight: bold;
 }
 body .main .middle_part .update .item .descriere {
   padding-left: 30px;
@@ -216,81 +206,14 @@ body .main .middle_part .update .item .descriere {
 body .main .middle_part .update .item .actions {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-}
-body .main .middle_part .update .item .actions .like_button {
-  border: none;
   padding: 10px;
-  padding-left: 20px;
+  color: white;
+  justify-content: flex-end;
 }
-body .main .middle_part .update .item .actions .review {
+body .main .middle_part .update .item .actions a {
+  color: white;
   padding: 10px;
   padding-right: 20px;
-}
-body .main .right_part {
-  margin-top: 50px;
-  margin-right: 40px;
-  flex-basis: calc(20% - 20px);
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  padding: 20px;
-  gap: 10px;
-}
-body .main .right_part .titlu {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  align-self: center;
-  font-weight: bold;
-  font-size: 20px;
-}
-body .main .right_part .container {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-}
-body .main .right_part .container .item {
-  flex-grow: 1;
-  background-color: #77cad4;
-  padding: 10px;
-  text-align: center;
-  border-radius: 20px;
-  margin-bottom: 30px;
-}
-body .main .right_part .container .top {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  align-items: center;
-}
-body .main .right_part .container .top .titlu1 {
-  align-self: center;
-  font-weight: bold;
-  font-size: 20px;
-  margin-bottom: 20px;
-}
-body .main .right_part .container .top .book {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-}
-body .main .right_part .container .top .book .content {
-  background-color: #3e8c9c;
-  border-radius: 20px;
-  padding: 20px 80px 20px 80px;
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 10px;
-  align-items: center;
-}
-body .main .right_part .container .top .book .content .titlu {
-  font-size: 13px;
-}
-body .main .right_part .container .top .book .content img {
-  padding-right: 10px;
-  height: 100px;
-  width: 70px;
 }
 
 body::before {
@@ -342,14 +265,10 @@ footer {
     flex-direction: column;
   }
   body .main .left_part,
-  body .main .right_part,
   body .main .middle_part {
     width: 90%;
     margin-left: 5%;
     margin-right: 5%;
-  }
-  body .main .right_part {
-    padding: 0px 0px 0px 0px;
   }
 }
 @media (min-width: 320px) and (max-width: 480px) {
@@ -361,13 +280,9 @@ footer {
     flex-direction: column;
   }
   body .main .left_part,
-  body .main .right_part,
   body .main .middle_part {
     width: 90%;
     margin-left: 5%;
     margin-right: 5%;
-  }
-  body .main .right_part {
-    padding: 0px 0px 0px 0px;
   }
 }/*# sourceMappingURL=mainpage.css.map */

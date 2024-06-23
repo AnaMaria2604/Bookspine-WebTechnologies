@@ -41,7 +41,7 @@ const {
 } = require('./Backend/search')
 const { handleAboutUsPage } = require('./Backend/aboutUs')
 const { handleAboutUsButton } = require('./Backend/aboutUsFunctions')
-const { handleMainPage } = require('./Backend/mainPage')
+const { handleMainPage, handleMainRequest } = require('./Backend/mainPage')
 const { handleReview } = require('./Backend/reviewPostFunctions')
 const { Console } = require('console')
 const { handleTagsRequest } = require('./Backend/tags')
@@ -158,6 +158,9 @@ const server = http.createServer((req, res) => {
         handleStatisticsRequest(req, res)
     } else if (req.method === 'GET' && req.url === '/mainpage') {
         handleMainPage(req, res)
+        
+    } else if (req.method === 'GET' && req.url === '/api/mainpage') {
+        handleMainRequest(req, res)
     } else if (req.method === 'GET' && req.url === '/help') {
         handleHelpPage(req, res)
     } else if (req.method === 'GET' && req.url.startsWith('/book-update/')) {
