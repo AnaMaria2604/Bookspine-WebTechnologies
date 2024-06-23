@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const postbutton = document.getElementById('save-button')
+    const deletebutton = document.getElementById('delete-button')
     const titlu = document.getElementById('input1')
     const descr = document.getElementById('input2')
 
@@ -26,6 +27,30 @@ document.addEventListener('DOMContentLoaded', function () {
             })
             .catch((error) => {
                 console.error('Error:', error)
+            })
+    })
+
+    deletebutton.addEventListener('click', function () {
+        const urlParts = window.location.pathname.split('/')
+        const groupId = urlParts.pop() || urlParts.pop()
+
+        fetch(`/delete/group/${groupId}`, { method: 'DELETE' })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok')
+                }
+                const contentType = response.headers.get('content-type')
+                if (!contentType || !contentType.includes('application/json')) {
+                    throw new Error('Response is not in JSON format')
+                }
+                return response.json()
+            })
+            .then((data) => {
+                userDiv.remove()
+                console.log('User deleted successfully:', data)
+            })
+            .catch((error) => {
+                console.error('Error deleting user:', error)
             })
     })
 })
