@@ -153,6 +153,50 @@ body .page__body .main .middle_part .container .search-button {
 body .page__body .main .middle_part .container .search-button:hover {
   background-color: #0A2E36;
 }
+body .page__body .main .middle_part .cartiDisponibile {
+  display: flex;
+  flex-direction: column;
+}
+body .page__body .main .middle_part .cartiDisponibile .title {
+  font-size: 20px;
+  font-weight: 700;
+}
+body .page__body .main .middle_part .cartiDisponibile .carti {
+  justify-content: center;
+  align-self: center;
+  width: 100%;
+  border-radius: 20px;
+  padding: 20px;
+  background-color: #033844;
+}
+body .page__body .main .middle_part .cartiDisponibile .carti .details {
+  justify-content: center;
+  align-self: center;
+  font-size: 15px;
+  color: white;
+}
+body .page__body .main .middle_part .cartiDisponibile .inputs {
+  justify-content: center;
+  align-self: center;
+}
+body .page__body .main .middle_part .cartiDisponibile .inputs .search-input {
+  margin-top: 20px;
+  width: auto;
+}
+body .page__body .main .middle_part .cartiDisponibile .inputs input {
+  color: white;
+  min-width: 20px;
+  min-height: 20px;
+  max-width: 50px;
+  background-color: #03838f;
+  border: 2px solid #044b52;
+}
+body .page__body .main .middle_part .cartiDisponibile .inputs input::-moz-placeholder {
+  color: white;
+}
+body .page__body .main .middle_part .cartiDisponibile .inputs input::placeholder {
+  color: white;
+}
 body .page__body .main .middle_part .show {
   display: block;
 }
@@ -163,6 +207,9 @@ body .page__body .main .middle_part .buttons {
   gap: 20px;
   margin-top: 20px;
 }
+body .page__body .main .middle_part .buttons .buttons__first {
+  margin-top: 40px;
+}
 body .page__body .main .middle_part .buttons .buttons__first button {
   padding: 4px 20px;
   background-color: #124559;
@@ -171,6 +218,9 @@ body .page__body .main .middle_part .buttons .buttons__first button {
   border-radius: 4px;
   cursor: pointer;
   font-size: 18px;
+}
+body .page__body .main .middle_part .buttons .buttons__second {
+  margin-top: 40px;
 }
 body .page__body .main .middle_part .buttons .buttons__second a {
   font-weight: 500;

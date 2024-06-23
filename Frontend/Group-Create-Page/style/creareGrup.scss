@@ -151,6 +151,8 @@ body {
                     flex-direction: column;
                     margin-bottom: 20px;
 
+
+
                     .name_category {
                         font-size: 20px;
                         font-weight: bold;
@@ -191,6 +193,56 @@ body {
                     }
                 }
 
+                .cartiDisponibile {
+                    display: flex;
+                    flex-direction: column;
+                    // justify-content: center;
+                    // align-self: center;
+
+                    .title {
+                        font-size: 20px;
+                        font-weight: 700;
+                    }
+
+                    .carti {
+                        justify-content: center;
+                        align-self: center;
+                        width: 100%;
+                        border-radius: 20px;
+                        padding: 20px;
+                        background-color: #033844;
+
+                        .details {
+                            justify-content: center;
+                            align-self: center;
+                            font-size: 15px;
+                            color: white;
+                        }
+                    }
+
+                    .inputs {
+                        justify-content: center;
+                        align-self: center;
+
+                        .search-input {
+                            margin-top: 20px;
+                            width: auto;
+                        }
+
+                        input {
+                            color: white;
+                            min-width: 20px;
+                            min-height: 20px;
+                            max-width: 50px;
+                            background-color: #03838f;
+                            border: 2px solid #044b52;
+                        }
+
+                        input::placeholder {
+                            color: white;
+                        }
+                    }
+                }
 
                 .show {
                     display: block;
@@ -205,6 +257,8 @@ body {
                     margin-top: 20px;
 
                     .buttons__first {
+                        margin-top: 40px;
+
                         button {
                             padding: 4px 20px;
                             background-color: $button;
@@ -217,6 +271,8 @@ body {
                     }
 
                     .buttons__second {
+                        margin-top: 40px;
+
                         a {
                             font-weight: 500;
                             color: $darkbutton;
