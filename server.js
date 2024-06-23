@@ -80,7 +80,21 @@ const { handleReadingChallenges } = require('./Backend/readingchFunctions')
 const { handleDeleteBtn } = require('./Backend/readingchDeteleFunctions')
 const { handleupdateChallenge } = require('./Backend/readingchEditFunctions')
 const { handleRSSRequest } = require('./Backend/rss')
-const { handleUserAccount } = require('./Backend/useraccount')
+const { handleUserAccount } = require('./Backend/User-Profile/useraccount')
+const {
+    handleUserDetails,
+} = require('./Backend/User-Profile/useraccountFunctions')
+
+const {
+    handleShelves,
+    getBooks,
+} = require('./Backend/User-Profile/useraccountShelfFunctions')
+
+const {
+    getBookTitle,
+    getReviewDetails,
+    getReadingDetails,
+} = require('./Backend/User-Profile/useraccountReviewFunctions')
 
 //initializeDatabase()
 
@@ -100,6 +114,76 @@ const server = http.createServer((req, res) => {
     } else if (req.method === 'GET' && req.url.startsWith('/user-account/')) {
         const userId = req.url.split('/').pop()
         handleUserAccount(req, res, userId)
+    } else if (
+        req.method === 'GET' &&
+        req.url.startsWith('/user-account-details/')
+    ) {
+        const userId = req.url.split('/').pop()
+        handleUserDetails(req, res, userId)
+    } else if (
+        req.method === 'GET' &&
+        req.url.startsWith('/user-account-read/')
+    ) {
+        const userId = req.url.split('/').pop()
+        getBooks('alreadyread', userId, (error, covers) => {
+            if (error) {
+                res.writeHead(500, { 'Content-Type': 'application/json' })
+                res.end(JSON.stringify({ error: 'Internal Server Error' }))
+            } else {
+                res.writeHead(200, { 'Content-Type': 'application/json' })
+                res.end(JSON.stringify({ read: covers }))
+            }
+        })
+    } else if (
+        req.method === 'GET' &&
+        req.url.startsWith('/user-account-reading/')
+    ) {
+        const userId = req.url.split('/').pop()
+        getBooks('reading', userId, (error, covers) => {
+            if (error) {
+                res.writeHead(500, { 'Content-Type': 'application/json' })
+                res.end(JSON.stringify({ error: 'Internal Server Error' }))
+            } else {
+                res.writeHead(200, { 'Content-Type': 'application/json' })
+                res.end(JSON.stringify({ reading: covers }))
+            }
+        })
+    } else if (
+        req.method === 'GET' &&
+        req.url.startsWith('/user-account-wanttoread/')
+    ) {
+        const userId = req.url.split('/').pop()
+        getBooks('wanttoread', userId, (error, covers) => {
+            if (error) {
+                res.writeHead(500, { 'Content-Type': 'application/json' })
+                res.end(JSON.stringify({ error: 'Internal Server Error' }))
+            } else {
+                res.writeHead(200, { 'Content-Type': 'application/json' })
+                res.end(JSON.stringify({ wantToRead: covers }))
+            }
+        })
+    } else if (req.url.startsWith('/user-account-reviews/')) {
+        const userId = req.url.split('/').pop()
+        getReviewDetails(userId, (error, details) => {
+            if (error) {
+                res.writeHead(500, { 'Content-Type': 'application/json' })
+                res.end(JSON.stringify({ error: 'Internal Server Error' }))
+            } else {
+                res.writeHead(200, { 'Content-Type': 'application/json' })
+                res.end(JSON.stringify({ reviews: details }))
+            }
+        })
+    } else if (req.url.startsWith('/user-account-reading-details/')) {
+        const userId = req.url.split('/').pop()
+        getReadingDetails(userId, (error, details) => {
+            if (error) {
+                res.writeHead(500, { 'Content-Type': 'application/json' })
+                res.end(JSON.stringify({ error: 'Internal Server Error' }))
+            } else {
+                res.writeHead(200, { 'Content-Type': 'application/json' })
+                res.end(JSON.stringify({ readingDetails: details }))
+            }
+        })
     } else if (req.method === 'GET' && req.url.startsWith('/mybooks/')) {
         handleMyBooks(req, res)
     } else if (req.method === 'GET' && req.url === '/api/recommended-books') {

@@ -4,7 +4,7 @@ const path = require('path')
 function handleUserAccount(req, res, userId) {
     const filePath = path.join(
         __dirname,
-        '../Frontend/User-Profile-Page/userprofile.html'
+        '../../Frontend/User-Profile-Page/userprofile.html'
     )
 
     fs.readFile(filePath, (err, data) => {
