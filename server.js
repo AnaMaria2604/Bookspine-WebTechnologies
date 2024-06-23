@@ -101,6 +101,7 @@ const {
     handleDeleteUser,
     handleDeleteGroup,
 } = require('./Backend/admin')
+const { handleNotFoundPage } = require('./Backend/notfound')
 //initializeDatabase()
 
 const server = http.createServer((req, res) => {
@@ -448,8 +449,8 @@ const server = http.createServer((req, res) => {
         })
     } else {
         res.statusCode = 404
-        res.setHeader('Content-Type', 'text/plain')
-        res.end('Not Found')
+        res.setHeader('Content-Type', 'text/html')
+        handleNotFoundPage(req, res)
     }
 })
 
