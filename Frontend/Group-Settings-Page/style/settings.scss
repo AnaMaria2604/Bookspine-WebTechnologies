@@ -206,9 +206,12 @@ body {
                     margin-top: 20px;
 
                     .buttons__zero {
-                        font-weight: 500;
-                        color: $darkbutton;
-                        font-size: 0.8rem;
+                        a {
+                            font-weight: 500;
+                            color: $darkbutton;
+                            font-size: 0.8rem;
+                            text-decoration: none;
+                        }
                     }
 
                     .buttons__first {
