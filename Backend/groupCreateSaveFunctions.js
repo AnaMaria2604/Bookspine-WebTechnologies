@@ -50,7 +50,12 @@ function handleSave(req, res) {
             req.on('end', () => {
                 try {
                     const formData = JSON.parse(body)
-                    const { title: title, description: description } = formData
+                    const {
+                        title: title,
+                        description: description,
+                        alegeri: alegeriFacute,
+                        groupId: groupId,
+                    } = formData
 
                     getIdUser(email, (err, result) => {
                         if (err) {
@@ -72,10 +77,10 @@ function handleSave(req, res) {
                             title,
                             idUser,
                             description,
-                            (error, results) => {
+                            (error, teamResult) => {
                                 if (error) {
                                     console.error(
-                                        'Error saving details:',
+                                        'Error saving team details:',
                                         error
                                     )
                                     res.writeHead(500, {
@@ -87,10 +92,43 @@ function handleSave(req, res) {
                                         })
                                     )
                                 } else {
-                                    res.writeHead(200, {
-                                        'Content-Type': 'application/json',
-                                    })
-                                    res.end(JSON.stringify(results))
+                                    const teamId = teamResult.insertId
+                                    const bookIds =
+                                        Object.values(alegeriFacute).map(Number)
+                                    saveTeamBooks(
+                                        teamId,
+                                        bookIds,
+                                        (error, booksResult) => {
+                                            if (error) {
+                                                console.error(
+                                                    'Error saving team books:',
+                                                    error
+                                                )
+                                                res.writeHead(500, {
+                                                    'Content-Type':
+                                                        'application/json',
+                                                })
+                                                res.end(
+                                                    JSON.stringify({
+                                                        error: 'Internal Server Error.',
+                                                    })
+                                                )
+                                            } else {
+                                                res.writeHead(200, {
+                                                    'Content-Type':
+                                                        'application/json',
+                                                })
+                                                res.end(
+                                                    JSON.stringify({
+                                                        success: true,
+                                                        teamId: teamId,
+                                                        booksResult:
+                                                            booksResult,
+                                                    })
+                                                )
+                                            }
+                                        }
+                                    )
                                 }
                             }
                         )
@@ -169,6 +207,53 @@ const saveTeamDetails = (teamName, moderatorId, description, callback) => {
             }
 
             console.log('Team details inserted successfully.')
+            callback(null, results)
+        })
+    })
+}
+
+const saveTeamBooks = (teamId, bookIds, callback) => {
+    pool.getConnection((err, connection) => {
+        if (err) {
+            console.error('Error getting connection:', err)
+            return callback(err, null)
+        }
+
+        if (!Array.isArray(bookIds) || bookIds.length === 0) {
+            const error = new Error('Invalid bookIds array')
+            console.error(error.message)
+            connection.release()
+            return callback(error, null)
+        }
+
+        const validBookIds = bookIds.filter((bookId) => {
+            return bookId !== null && bookId !== undefined && bookId !== 0
+        })
+
+        if (validBookIds.length === 0) {
+            console.log('No valid bookIds to insert.')
+            connection.release()
+            return callback(null, [])
+        }
+
+        const params = []
+        let query = 'INSERT INTO teambooks (teamId, bookId) VALUES '
+        const placeholders = validBookIds.map(() => '(?, ?)').join(', ')
+        query += placeholders
+
+        validBookIds.forEach((bookId) => {
+            params.push(teamId, bookId)
+        })
+
+        connection.query(query, params, (error, results) => {
+            connection.release()
+
+            if (error) {
+                console.error('Error inserting teambooks details:', error)
+                return callback(error, null)
+            }
+
+            console.log('Teambooks details inserted successfully.')
             callback(null, results)
         })
     })
