@@ -1,4 +1,4 @@
-const pool=require("../DataBase/database")
+const pool = require('../DataBase/database')
 function handleTagsRequest(req, res) {
     // Obține conexiunea din pool
     pool.getConnection((err, connection) => {
@@ -16,12 +16,13 @@ function handleTagsRequest(req, res) {
             authorResults,
             publisherResults,
             publicationYearResults,
-            collectionYearResults
+            collectionYearResults,
+            editionResults
         let queriesCompleted = 0
 
         const checkAndRespond = () => {
             queriesCompleted++
-            if (queriesCompleted === 5) {
+            if (queriesCompleted === 6) {
                 // Avem 5 interogări
                 connection.release()
                 const result = {
@@ -34,6 +35,7 @@ function handleTagsRequest(req, res) {
                     collections: collectionYearResults.map(
                         (row) => row.collection
                     ),
+                    editions: editionResults.map((row) => row.edition),
                 }
                 res.writeHead(200, { 'Content-Type': 'application/json' })
                 res.end(JSON.stringify(result))
@@ -46,6 +48,7 @@ function handleTagsRequest(req, res) {
         const publisherQuery = 'SELECT DISTINCT publisher FROM book'
         const publicationYearQuery = 'SELECT DISTINCT year FROM book'
         const collectionYearQuery = 'SELECT DISTINCT collection FROM book'
+        const editionQuery = 'SELECT DISTINCT edition FROM book'
 
         connection.query(genreQuery, (err, results) => {
             if (err) {
@@ -105,6 +108,18 @@ function handleTagsRequest(req, res) {
                 return
             }
             collectionYearResults = results
+            checkAndRespond()
+        })
+        connection.query(editionQuery, (err, results) => {
+            if (err) {
+                connection.release()
+                res.writeHead(500, { 'Content-Type': 'application/json' })
+                res.end(
+                    JSON.stringify({ error: 'Failed to query collections' })
+                )
+                return
+            }
+            editionResults = results
             checkAndRespond()
         })
     })
