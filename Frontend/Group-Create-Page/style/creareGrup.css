@@ -160,14 +160,8 @@ body .page__body .main .middle_part .buttons {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
   gap: 20px;
   margin-top: 20px;
-}
-body .page__body .main .middle_part .buttons .buttons__zero {
-  font-weight: 500;
-  color: #0A2E36;
-  font-size: 0.8rem;
 }
 body .page__body .main .middle_part .buttons .buttons__first button {
   padding: 4px 20px;
@@ -182,7 +176,6 @@ body .page__body .main .middle_part .buttons .buttons__second a {
   font-weight: 500;
   color: #0A2E36;
   font-size: 0.8rem;
-  text-decoration: none;
 }
 
 body::before {
@@ -223,4 +216,4 @@ footer {
   width: 100%;
   background: #0c3742;
   color: white;
-}/*# sourceMappingURL=settings.css.map */
+}/*# sourceMappingURL=creareGrup.css.map */

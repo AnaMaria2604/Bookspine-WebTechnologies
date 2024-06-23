@@ -68,13 +68,12 @@ const {
     handleAccount,
     //handleUploadPhoto,
 } = require('./Backend/accountSaveFunctions')
-const { handleGroupSettings } = require('./Backend/groupSettings')
+const { handleCreateGroup } = require('./Backend/groupCreate')
 const {
     handleMyBooksRead,
     handleMyBooksCurrentlyReading,
     handleMyBooksWantToRead,
 } = require('./Backend/mybooksFunction')
-
 const { handleReadingCh } = require('./Backend/readingch')
 const { handleReadingChallenges } = require('./Backend/readingchFunctions')
 const { handleDeleteBtn } = require('./Backend/readingchDeteleFunctions')
@@ -84,17 +83,21 @@ const { handleUserAccount } = require('./Backend/User-Profile/useraccount')
 const {
     handleUserDetails,
 } = require('./Backend/User-Profile/useraccountFunctions')
-
 const {
     handleShelves,
     getBooks,
 } = require('./Backend/User-Profile/useraccountShelfFunctions')
-
 const {
     getBookTitle,
     getReviewDetails,
     getReadingDetails,
 } = require('./Backend/User-Profile/useraccountReviewFunctions')
+const {
+    handleSave,
+    handleBookTitle,
+} = require('./Backend/groupCreateSaveFunctions')
+const { handleSettingsGroup } = require('./Backend/groupSettings')
+const { handleUpdates } = require('./Backend/groupSettingsSaveFunctions')
 const {
     handleAdminPageRequest,
     handleAllUsersAndGroupsRequest,
@@ -312,8 +315,14 @@ const server = http.createServer((req, res) => {
         handleTagsRequest(req, res)
     } else if (req.method === 'GET' && req.url.startsWith('/group/')) {
         handleGroupJoinPageRequest(req, res)
-    } else if (req.method === 'GET' && req.url.startsWith('/group-settings/')) {
-        handleGroupSettings(req, res)
+    } else if (req.method === 'GET' && req.url.startsWith('/create-group/')) {
+        handleCreateGroup(req, res)
+    } else if (req.method === 'POST' && req.url === '/save-created-group') {
+        handleSave(req, res)
+    } else if (req.method === 'GET' && req.url.startsWith('/settings-group/')) {
+        handleSettingsGroup(req, res)
+    } else if (req.method === 'POST' && req.url === '/update-group-settings') {
+        handleUpdates(req, res)
     } else if (req.url === '/nextGroupId' && req.method === 'GET') {
         getNextGroupId((err, data) => {
             if (err) {
