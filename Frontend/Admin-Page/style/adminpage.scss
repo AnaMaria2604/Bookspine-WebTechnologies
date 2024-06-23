@@ -1,20 +1,18 @@
 $color: #ffaa8e;
-$background: #ACEAEC;
-$header: #01161E;
+$background: #aceaec;
+$header: #01161e;
 $footer: #0c3742;
 $body: #104547;
 $textcolor: #ffff;
 $button: #124559;
-$darkbutton: #0A2E36;
+$darkbutton: #0a2e36;
 $bordercolor: #2a3738;
-$challenge: #272D2D;
+$challenge: #272d2d;
 $body2: #15555a;
 $button2: #496264;
 
-
-
 * {
-    font-family: 'Segoe UI', Verdana, sans-serif;
+    font-family: "Segoe UI", Verdana, sans-serif;
     background: none;
     margin: 0;
     padding: 0;
@@ -89,82 +87,55 @@ body {
                         cursor: pointer;
                         font-size: 16px;
                         margin-left: 8px;
-
                     }
 
                     .search-button:hover {
                         background-color: $darkbutton;
-
                     }
                 }
             }
         }
-
     }
 
     .main {
         .container {
             display: flex;
             flex-direction: column;
-
-            .container1,
-            .container2 {
-                margin-top: 50px;
-                margin-left: auto;
-                margin-right: auto;
-                background-color: $darkbutton;
-                padding: 20px;
-                border-radius: 20px;
-                color: white;
-                width: 60%;
-
-                .name {
-                    text-align: center;
-                    padding: 20px;
-                    font-weight: bold;
-                    font-size: 17px;
-                    margin-bottom: 20px;
-                }
-
-                .request {
-                    background-color: $body2;
-                    border-radius: 20px;
-                    display: flex;
-                    flex-direction: column;
-                    margin-bottom: 30px;
-                    padding: 20px;
-
-                    .answer {
-                        display: flex;
-                        flex-direction: row;
-                        justify-content: space-between;
-                        margin-top: 10px;
-
-                        a {
-                            color: white;
-
-                        }
-
-                        .options {
-                            display: flex;
-                            flex-direction: row;
-
-                            .accept {
-                                color: green;
-                            }
-
-                            .decline {
-                                color: red;
-                            }
-                        }
-                    }
-                }
-            }
-
-            .container2 {
-                margin-bottom: 20px;
-                /* Adăugare spațiu după .container2 */
-            }
+        }
+        .container1,
+        .container2 {
+            margin-top: 50px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: $body; /* exemplu pentru $darkbutton */
+            padding: 20px;
+            border-radius: 20px;
+            color: black;
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+        }
+        .name {
+            align-self: center;
+            margin-bottom: 20px;
+        }
+        .item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #ccc; /* exemplu pentru a se potrivi cu $darkbutton */
+        }
+        .delete-button {
+            cursor: pointer;
+            color: red;
+        }
+        .container2 {
+            margin-bottom: 20px;
+            /* Adăugare spațiu după .container2 */
         }
     }
 
@@ -180,7 +151,6 @@ body {
         background: $footer;
         color: $textcolor;
     }
-
 }
 
 body::before {
@@ -222,7 +192,6 @@ body::after {
 
     .main {
         .container {
-
             .container1,
             .container2 {
                 width: 90%;
@@ -242,7 +211,6 @@ body::after {
 
     .main {
         .container {
-
             .container1,
             .container2 {
                 width: 90%;

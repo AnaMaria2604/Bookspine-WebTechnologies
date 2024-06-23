@@ -8,14 +8,14 @@
 }
 
 body {
-  background-color: #ACEAEC;
+  background-color: #aceaec;
   display: flex;
   flex-direction: column;
 }
 body .header {
   top: 0;
   left: 0;
-  background-color: #01161E;
+  background-color: #01161e;
   margin: 0;
   padding: 20px;
 }
@@ -73,65 +73,44 @@ body .header .navbar__links ul li .search-button {
   margin-left: 8px;
 }
 body .header .navbar__links ul li .search-button:hover {
-  background-color: #0A2E36;
+  background-color: #0a2e36;
 }
 body .main .container {
   display: flex;
   flex-direction: column;
 }
-body .main .container .container1,
-body .main .container .container2 {
+body .main .container1,
+body .main .container2 {
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
-  background-color: #0A2E36;
+  background-color: #104547; /* exemplu pentru $darkbutton */
   padding: 20px;
   border-radius: 20px;
-  color: white;
+  color: black;
   width: 60%;
-}
-body .main .container .container1 .name,
-body .main .container .container2 .name {
-  text-align: center;
-  padding: 20px;
-  font-weight: bold;
-  font-size: 17px;
-  margin-bottom: 20px;
-}
-body .main .container .container1 .request,
-body .main .container .container2 .request {
-  background-color: #15555a;
-  border-radius: 20px;
   display: flex;
   flex-direction: column;
-  margin-bottom: 30px;
-  padding: 20px;
 }
-body .main .container .container1 .request .answer,
-body .main .container .container2 .request .answer {
+body .main .name {
+  align-self: center;
+  margin-bottom: 20px;
+}
+body .main .item {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  margin-top: 10px;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #ccc; /* exemplu pentru a se potrivi cu $darkbutton */
 }
-body .main .container .container1 .request .answer a,
-body .main .container .container2 .request .answer a {
-  color: white;
-}
-body .main .container .container1 .request .answer .options,
-body .main .container .container2 .request .answer .options {
-  display: flex;
-  flex-direction: row;
-}
-body .main .container .container1 .request .answer .options .accept,
-body .main .container .container2 .request .answer .options .accept {
-  color: green;
-}
-body .main .container .container1 .request .answer .options .decline,
-body .main .container .container2 .request .answer .options .decline {
+body .main .delete-button {
+  cursor: pointer;
   color: red;
 }
-body .main .container .container2 {
+body .main .container2 {
   margin-bottom: 20px;
   /* Adăugare spațiu după .container2 */
 }
