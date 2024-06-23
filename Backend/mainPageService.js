@@ -20,8 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Populate Challenge section
             const challengeTitle = document.getElementById('challengeTitle')
-            challengeTitle.textContent = `I want to read ${data.readingch[0].numberOfBooks} books this year.`
-
+            if (data.readingch[0] != null) {
+                challengeTitle.textContent = `I want to read ${data.readingch[0].numberOfBooks} books this year.`
+            } else {
+                challengeTitle.textContent = `I want to read 0 books this year.`
+            }
             // Populate Currently Reading section
             const currentlyReadingBooks = document.getElementById(
                 'currentlyReadingBooks'
