@@ -179,7 +179,7 @@ body {
                 }
             }
 
-            .carti>.carte {
+            .carti > .carte {
                 margin-right: 10px;
             }
         }
@@ -273,15 +273,19 @@ footer {
                 padding: 0px 0px 0px 0px;
                 margin: 0px 0px 0px 0px;
 
-                width: 100%;
+                width: 90%;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                justify-content: center;
 
                 .section {
+                    //  padding: 0 0 0 0;
+                    margin: 0 0 0 0;
                     display: flex;
                     flex-direction: row;
                     flex-wrap: wrap;
+                    align-self: center;
                 }
             }
         }
@@ -306,15 +310,18 @@ footer {
                 padding: 0px 0px 0px 0px;
                 margin: 0px 0px 0px 0px;
 
-                width: 100%;
+                width: 90%;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
 
                 .section {
+                    //padding: 0 0 0 0;
+                    margin: 0 0 0 0;
                     display: flex;
                     flex-direction: row;
                     flex-wrap: wrap;
+                    align-self: center;
                 }
             }
         }

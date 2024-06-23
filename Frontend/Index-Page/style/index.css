@@ -234,15 +234,18 @@ footer {
   body .bodypage .stanga {
     padding: 0px 0px 0px 0px;
     margin: 0px 0px 0px 0px;
-    width: 100%;
+    width: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
   }
   body .bodypage .stanga .section {
+    margin: 0 0 0 0;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    align-self: center;
   }
 }
 @media (min-width: 320px) and (max-width: 480px) {
@@ -260,14 +263,16 @@ footer {
   body .bodypage .stanga {
     padding: 0px 0px 0px 0px;
     margin: 0px 0px 0px 0px;
-    width: 100%;
+    width: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
   body .bodypage .stanga .section {
+    margin: 0 0 0 0;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    align-self: center;
   }
 }/*# sourceMappingURL=index.css.map */
