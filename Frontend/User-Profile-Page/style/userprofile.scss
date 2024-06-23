@@ -125,20 +125,24 @@ body {
 
 
     main {
-        margin-top: 90px;
+        margin-top: 20px;
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
         gap: 10%;
-        width: 100%;
 
         .left_part {
-            width: 25%;
-            margin-top: 50px;
+            width: 50%;
+            margin-top: 40px;
             display: flex;
             flex-direction: column;
-            margin-left: 50px;
             align-items: center;
+            background-color: #01161E;
+            padding: 40px 20px;
+            justify-content: center;
+            border-radius: 20px;
 
             .user_content {
                 .userphoto {
@@ -150,82 +154,117 @@ body {
                 }
 
                 .name {
-                    font-size: 25px;
+                    justify-content: center;
+                    color: white;
+                    font-size: 30px;
+                    font-weight: 800;
+                }
+            }
+
+
+            .middle_part {
+                background-color: $body;
+                padding: 30px;
+                border-radius: 20px;
+                margin-top: 30px;
+                display: flex;
+                flex-direction: column;
+                //width: 60%;
+
+                .container {
+                    display: flex;
+                    flex-direction: column;
+                    margin-bottom: 30px;
+                    margin-top: 30px;
+                }
+
+                .name_category {
+                    color: white;
+                    font-size: 20px;
                     font-weight: bold;
                 }
-            }
 
-            .bookshelves {
-
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-
-                .carte {
-                    padding: 10px;
+                .answer_category {
+                    color: white;
+                    margin-left: 15px;
                 }
+
+
             }
         }
 
-        .middle_part {
-            background-color: $body;
-            padding: 30px;
-            border-radius: 20px;
-            margin-top: 30px;
+        .newMiddle {
             display: flex;
             flex-direction: column;
-            width: 60%;
+            justify-content: center;
+            align-content: center;
+            margin-top: 40px;
+            background-color: #002725;
+            border-radius: 20px;
+            padding: 20px;
+            width: 90%;
 
-            .container {
+
+            .shelves {
                 display: flex;
                 flex-direction: column;
-                margin-bottom: 30px;
-                margin-top: 30px;
-            }
 
-            .name_category {
-                color: white;
-                font-size: 18px;
-                font-weight: bold;
-            }
-
-            .answer_category {
-                color: white;
-                margin-left: 20px;
-            }
-
-
-        }
-
-        .right_part {
-            width: 25%;
-            margin-right: 50px;
-            margin-top: 50px;
-            color: $textcolor;
-
-            .challenge {
-                background-color: $challenge;
-                border-radius: 20px;
-                padding: 20px;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-
-                .content {
+                .text {
+                    padding: 20px;
                     display: flex;
-                    flex-direction: row;
-                    align-items: center;
-                    color: $textcolor;
+                    flex-direction: column;
+                    margin-bottom: 20px;
+                    font-size: 30px;
+                    font-weight: 700;
+                    color: black;
+                    background-color: #03635e;
+                    border-radius: 20px;
 
-                    img {
-                        padding: 10px;
-                        height: 100px;
-                        width: 70px;
+                    .covers {
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        margin-top: 10px;
+                        gap: 10px;
+
+                        img {
+                            width: 80px;
+                            height: auto;
+                            border-radius: 10px;
+                        }
                     }
                 }
             }
 
+            .update {
+                margin-top: 30px;
+                display: flex;
+                flex-direction: column;
+
+                .reviews {
+                    margin-top: 20px;
+                    padding: 20px;
+                    border-radius: 20px;
+                    color: white;
+                    background-color: #003b42;
+                    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+                    font-size: 30px;
+                    font-weight: 700;
+                    word-wrap: break-word;
+
+                    p {
+                        word-wrap: break-word;
+                        font-size: 20px;
+                        font-weight: 400;
+                        color: white;
+                        margin-bottom: 5px;
+                        padding-bottom: 5px;
+                        border-bottom: 1px solid #07363a;
+                    }
+                }
+            }
         }
+
     }
 }
 
@@ -273,59 +312,140 @@ footer {
 
 @media (min-width: 481px) and (max-width: 767px) {
 
-    .main {
+    main {
+        margin-top: 20px;
         display: flex;
         flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
         align-items: center;
-
-        .left_part,
-        .middle_part,
-        .right_part {
-            margin-left: 5%;
-            margin-right: 5%;
-            width: 90%;
-
-        }
+        gap: 10%;
 
         .left_part {
-            width: 25%;
-            margin-top: 50px;
+            width: 50%;
+            margin-top: 40px;
             display: flex;
             flex-direction: column;
-            margin-left: 50px;
+            align-items: center;
+            background-color: #01161E;
+            padding: 40px 20px;
+            justify-content: center;
+            border-radius: 20px;
 
             .user_content {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-
                 .userphoto {
                     img {
-                        height: 150px;
-                        width: 150px;
+                        height: 200px;
+                        width: 200px;
                         border-radius: 50%;
                     }
                 }
 
                 .name {
-
-                    font-size: 15px;
-                    font-weight: bold;
+                    justify-content: center;
+                    color: white;
+                    font-size: 30px;
+                    font-weight: 800;
                 }
             }
 
-            .bookshelves {
 
+            .middle_part {
+                background-color: $body;
+                padding: 30px;
+                border-radius: 20px;
+                margin-top: 30px;
                 display: flex;
                 flex-direction: column;
-                align-items: center;
+                //width: 60%;
 
-                .carte {
-                    padding: 10px;
+                .container {
+                    display: flex;
+                    flex-direction: column;
+                    margin-bottom: 30px;
+                    margin-top: 30px;
                 }
+
+                .name_category {
+                    color: white;
+                    font-size: 20px;
+                    font-weight: bold;
+                }
+
+                .answer_category {
+                    color: white;
+                    margin-left: 15px;
+                }
+
+
             }
         }
 
+        .newMiddle {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+            margin-top: 40px;
+            background-color: #002725;
+            border-radius: 20px;
+            padding: 20px;
+            width: 90%;
+
+
+            .shelves {
+                display: flex;
+                flex-direction: column;
+
+                .text {
+                    padding: 20px 20px 20px 20px;
+                    display: flex;
+                    flex-direction: column;
+                    margin-bottom: 20px;
+                    font-size: 30px;
+                    font-weight: 700;
+                    color: black;
+                    background-color: #03635e;
+                    border-radius: 20px;
+
+                    .covers {
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        margin-top: 10px;
+                        gap: 10px;
+
+                        img {
+                            width: 80px;
+                            height: auto;
+                            border-radius: 10px;
+                        }
+                    }
+                }
+            }
+
+            .update {
+                display: flex;
+                flex-direction: column;
+                margin-top: 30px;
+
+                .reviews {
+                    padding: 20px;
+                    font-size: 30px;
+
+
+                    p {
+                        word-wrap: break-word;
+                        font-size: 20px;
+                        font-weight: 400;
+                        color: white;
+                        margin-bottom: 5px;
+                        padding-bottom: 5px;
+                        border-bottom: 1px solid #07363a;
+                    }
+                }
+            }
+        }
 
     }
 
@@ -333,59 +453,141 @@ footer {
 
 @media (min-width: 320px) and (max-width: 480px) {
 
-    .main {
+    main {
+        margin-top: 20px;
         display: flex;
         flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
         align-items: center;
-
-        .left_part,
-        .middle_part,
-        .right_part {
-            margin-left: 5%;
-            margin-right: 5%;
-            width: 90%;
-
-        }
+        gap: 10%;
 
         .left_part {
-            width: 25%;
-            margin-top: 50px;
+            width: 50%;
+            margin-top: 40px;
             display: flex;
             flex-direction: column;
-            margin-left: 50px;
+            align-items: center;
+            background-color: #01161E;
+            padding: 40px 20px;
+            justify-content: center;
+            border-radius: 20px;
 
             .user_content {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-
                 .userphoto {
                     img {
-                        height: 150px;
-                        width: 150px;
+                        height: 200px;
+                        width: 200px;
                         border-radius: 50%;
                     }
                 }
 
                 .name {
-
-                    font-size: 15px;
-                    font-weight: bold;
+                    justify-content: center;
+                    color: white;
+                    font-size: 30px;
+                    font-weight: 800;
                 }
             }
 
-            .bookshelves {
 
+            .middle_part {
+                background-color: $body;
+                padding: 30px;
+                border-radius: 20px;
+                margin-top: 30px;
                 display: flex;
                 flex-direction: column;
-                align-items: center;
+                //width: 60%;
 
-                .carte {
-                    padding: 10px;
+                .container {
+                    display: flex;
+                    flex-direction: column;
+                    margin-bottom: 30px;
+                    margin-top: 30px;
+                }
+
+                .name_category {
+                    color: white;
+                    font-size: 20px;
+                    font-weight: bold;
+                }
+
+                .answer_category {
+                    color: white;
+                    margin-left: 15px;
+                }
+
+
+            }
+        }
+
+        .newMiddle {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+            margin-top: 40px;
+            background-color: #002725;
+            border-radius: 20px;
+            padding: 20px;
+            width: 90%;
+
+
+            .shelves {
+                display: flex;
+                flex-direction: column;
+
+                .text {
+                    padding: 20px 20px 20px 20px;
+                    display: flex;
+                    flex-direction: column;
+                    margin-bottom: 20px;
+                    font-size: 30px;
+                    font-weight: 700;
+                    color: black;
+                    background-color: #03635e;
+                    border-radius: 20px;
+
+                    .covers {
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        margin-top: 10px;
+                        gap: 10px;
+
+                        img {
+                            width: 80px;
+                            height: auto;
+                            border-radius: 10px;
+                        }
+                    }
+                }
+            }
+
+            .update {
+                display: flex;
+                flex-direction: column;
+                margin-top: 30px;
+
+                .reviews {
+                    padding: 20px;
+                    font-size: 30px;
+
+
+                    p {
+                        word-wrap: break-word;
+                        font-size: 20px;
+                        font-weight: 400;
+                        color: white;
+                        margin-bottom: 5px;
+                        padding-bottom: 5px;
+                        border-bottom: 1px solid #07363a;
+                    }
                 }
             }
         }
 
-
     }
+
 }

@@ -95,20 +95,24 @@ body .dropdown-menu li a {
   font-weight: bold;
 }
 body main {
-  margin-top: 90px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: 10%;
-  width: 100%;
-}
-body main .left_part {
-  width: 25%;
-  margin-top: 50px;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
-  margin-left: 50px;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
+  gap: 10%;
+}
+body main .left_part {
+  width: 50%;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #01161E;
+  padding: 40px 20px;
+  justify-content: center;
+  border-radius: 20px;
 }
 body main .left_part .user_content .userphoto img {
   height: 200px;
@@ -116,65 +120,96 @@ body main .left_part .user_content .userphoto img {
   border-radius: 50%;
 }
 body main .left_part .user_content .name {
-  font-size: 25px;
-  font-weight: bold;
+  justify-content: center;
+  color: white;
+  font-size: 30px;
+  font-weight: 800;
 }
-body main .left_part .bookshelves {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-body main .left_part .bookshelves .carte {
-  padding: 10px;
-}
-body main .middle_part {
+body main .left_part .middle_part {
   background-color: #104547;
   padding: 30px;
   border-radius: 20px;
   margin-top: 30px;
   display: flex;
   flex-direction: column;
-  width: 60%;
 }
-body main .middle_part .container {
+body main .left_part .middle_part .container {
   display: flex;
   flex-direction: column;
   margin-bottom: 30px;
   margin-top: 30px;
 }
-body main .middle_part .name_category {
+body main .left_part .middle_part .name_category {
   color: white;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
 }
-body main .middle_part .answer_category {
+body main .left_part .middle_part .answer_category {
   color: white;
-  margin-left: 20px;
+  margin-left: 15px;
 }
-body main .right_part {
-  width: 25%;
-  margin-right: 50px;
-  margin-top: 50px;
-  color: white;
-}
-body main .right_part .challenge {
-  background-color: #272D2D;
+body main .newMiddle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  margin-top: 40px;
+  background-color: #002725;
   border-radius: 20px;
+  padding: 20px;
+  width: 90%;
+}
+body main .newMiddle .shelves {
+  display: flex;
+  flex-direction: column;
+}
+body main .newMiddle .shelves .text {
   padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  margin-bottom: 20px;
+  font-size: 30px;
+  font-weight: 700;
+  color: black;
+  background-color: #03635e;
+  border-radius: 20px;
 }
-body main .right_part .challenge .content {
+body main .newMiddle .shelves .text .covers {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  color: white;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  gap: 10px;
 }
-body main .right_part .challenge .content img {
-  padding: 10px;
-  height: 100px;
-  width: 70px;
+body main .newMiddle .shelves .text .covers img {
+  width: 80px;
+  height: auto;
+  border-radius: 10px;
+}
+body main .newMiddle .update {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+}
+body main .newMiddle .update .reviews {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 20px;
+  color: white;
+  background-color: #003b42;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  font-size: 30px;
+  font-weight: 700;
+  word-wrap: break-word;
+}
+body main .newMiddle .update .reviews p {
+  word-wrap: break-word;
+  font-size: 20px;
+  font-weight: 400;
+  color: white;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #07363a;
 }
 
 body::before {
@@ -218,88 +253,226 @@ footer {
 }
 
 @media (min-width: 481px) and (max-width: 767px) {
-  .main {
+  main {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+  }
+  main .left_part {
+    width: 50%;
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #01161E;
+    padding: 40px 20px;
+    justify-content: center;
+    border-radius: 20px;
   }
-  .main .left_part,
-  .main .middle_part,
-  .main .right_part {
-    margin-left: 5%;
-    margin-right: 5%;
-    width: 90%;
-  }
-  .main .left_part {
-    width: 25%;
-    margin-top: 50px;
-    display: flex;
-    flex-direction: column;
-    margin-left: 50px;
-  }
-  .main .left_part .user_content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .main .left_part .user_content .userphoto img {
-    height: 150px;
-    width: 150px;
+  main .left_part .user_content .userphoto img {
+    height: 200px;
+    width: 200px;
     border-radius: 50%;
   }
-  .main .left_part .user_content .name {
-    font-size: 15px;
-    font-weight: bold;
+  main .left_part .user_content .name {
+    justify-content: center;
+    color: white;
+    font-size: 30px;
+    font-weight: 800;
   }
-  .main .left_part .bookshelves {
+  main .left_part .middle_part {
+    background-color: #104547;
+    padding: 30px;
+    border-radius: 20px;
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
-    align-items: center;
   }
-  .main .left_part .bookshelves .carte {
-    padding: 10px;
+  main .left_part .middle_part .container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    margin-top: 30px;
+  }
+  main .left_part .middle_part .name_category {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  main .left_part .middle_part .answer_category {
+    color: white;
+    margin-left: 15px;
+  }
+  main .newMiddle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    margin-top: 40px;
+    background-color: #002725;
+    border-radius: 20px;
+    padding: 20px;
+    width: 90%;
+  }
+  main .newMiddle .shelves {
+    display: flex;
+    flex-direction: column;
+  }
+  main .newMiddle .shelves .text {
+    padding: 20px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    font-size: 30px;
+    font-weight: 700;
+    color: black;
+    background-color: #03635e;
+    border-radius: 20px;
+  }
+  main .newMiddle .shelves .text .covers {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    gap: 10px;
+  }
+  main .newMiddle .shelves .text .covers img {
+    width: 80px;
+    height: auto;
+    border-radius: 10px;
+  }
+  main .newMiddle .update {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+  }
+  main .newMiddle .update .reviews {
+    padding: 20px;
+    font-size: 30px;
+  }
+  main .newMiddle .update .reviews p {
+    word-wrap: break-word;
+    font-size: 20px;
+    font-weight: 400;
+    color: white;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #07363a;
   }
 }
 @media (min-width: 320px) and (max-width: 480px) {
-  .main {
+  main {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+  }
+  main .left_part {
+    width: 50%;
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #01161E;
+    padding: 40px 20px;
+    justify-content: center;
+    border-radius: 20px;
   }
-  .main .left_part,
-  .main .middle_part,
-  .main .right_part {
-    margin-left: 5%;
-    margin-right: 5%;
-    width: 90%;
-  }
-  .main .left_part {
-    width: 25%;
-    margin-top: 50px;
-    display: flex;
-    flex-direction: column;
-    margin-left: 50px;
-  }
-  .main .left_part .user_content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .main .left_part .user_content .userphoto img {
-    height: 150px;
-    width: 150px;
+  main .left_part .user_content .userphoto img {
+    height: 200px;
+    width: 200px;
     border-radius: 50%;
   }
-  .main .left_part .user_content .name {
-    font-size: 15px;
-    font-weight: bold;
+  main .left_part .user_content .name {
+    justify-content: center;
+    color: white;
+    font-size: 30px;
+    font-weight: 800;
   }
-  .main .left_part .bookshelves {
+  main .left_part .middle_part {
+    background-color: #104547;
+    padding: 30px;
+    border-radius: 20px;
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
-    align-items: center;
   }
-  .main .left_part .bookshelves .carte {
-    padding: 10px;
+  main .left_part .middle_part .container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    margin-top: 30px;
+  }
+  main .left_part .middle_part .name_category {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  main .left_part .middle_part .answer_category {
+    color: white;
+    margin-left: 15px;
+  }
+  main .newMiddle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    margin-top: 40px;
+    background-color: #002725;
+    border-radius: 20px;
+    padding: 20px;
+    width: 90%;
+  }
+  main .newMiddle .shelves {
+    display: flex;
+    flex-direction: column;
+  }
+  main .newMiddle .shelves .text {
+    padding: 20px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    font-size: 30px;
+    font-weight: 700;
+    color: black;
+    background-color: #03635e;
+    border-radius: 20px;
+  }
+  main .newMiddle .shelves .text .covers {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    gap: 10px;
+  }
+  main .newMiddle .shelves .text .covers img {
+    width: 80px;
+    height: auto;
+    border-radius: 10px;
+  }
+  main .newMiddle .update {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+  }
+  main .newMiddle .update .reviews {
+    padding: 20px;
+    font-size: 30px;
+  }
+  main .newMiddle .update .reviews p {
+    word-wrap: break-word;
+    font-size: 20px;
+    font-weight: 400;
+    color: white;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #07363a;
   }
 }/*# sourceMappingURL=userprofile.css.map */
