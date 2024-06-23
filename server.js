@@ -98,7 +98,12 @@ const {
 } = require('./Backend/groupCreateSaveFunctions')
 const { handleSettingsGroup } = require('./Backend/groupSettings')
 const { handleUpdates } = require('./Backend/groupSettingsSaveFunctions')
-
+const {
+    handleAdminPageRequest,
+    handleAllUsersAndGroupsRequest,
+    handleDeleteUser,
+    handleDeleteGroup,
+} = require('./Backend/admin')
 //initializeDatabase()
 
 const server = http.createServer((req, res) => {
@@ -362,7 +367,21 @@ const server = http.createServer((req, res) => {
         handleMyBooksWantToRead(req, res)
     } else if (req.url === '/rss') {
         handleRSSRequest(req, res)
+    } else if (req.method === 'GET' && req.url === '/admin') {
+        handleAdminPageRequest(req, res)
+    } else if (req.method === 'GET' && req.url === '/all-users-groups') {
+        handleAllUsersAndGroupsRequest(req, res)
+    } else if (req.method === 'DELETE' && req.url.startsWith('/delete/user/')) {
+        const userId = req.url.split('/').pop()
+        handleDeleteUser(req, res, userId)
+    } else if (
+        req.method === 'DELETE' &&
+        req.url.startsWith('/delete/group/')
+    ) {
+        const groupId = req.url.split('/').pop()
+        handleDeleteGroup(req, res, groupId)
     }
+
     // Verifică cererile pentru fișiere CSS
     else if (req.url.startsWith('/style/')) {
         const filePath = path.join(__dirname, 'Frontend/Register-Page', req.url)

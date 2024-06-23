@@ -44,14 +44,15 @@ async function authenticateUser(email, password, res) {
             if (match) {
                 const token = jwt.sign(
                     { email },
-                    'cfc1fffcd77355620d863b573349ee9cfb7b8552335aaf93e88abc52d147ef5e'
+                    'cfc1fffcd77355620d863b573349ee9cfb7b8552335aaf93e88abc52d147ef5e',
+                    { expiresIn: '2100s' }
                 ) /*key*/
                 // Adăugare token în antetul răspunsului HTTP
                 res.setHeader('Authorization', 'Bearer ' + token)
 
                 // Setarea cookie-ului în răspunsul HTTP
                 const cookieToken = cookie.serialize('token', token, {
-                    maxAge: 600, // durata de viață a cookie-ului în secunde
+                    maxAge: 2100, // durata de viață a cookie-ului în secunde
                     httpOnly: true,
                 })
                 res.setHeader('Set-Cookie', cookieToken)
