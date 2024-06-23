@@ -194,7 +194,11 @@ const server = http.createServer((req, res) => {
             }
         })
     } else if (req.method === 'GET' && req.url.startsWith('/mybooks/')) {
-        handleMyBooks(req, res)
+        if (isUserLoggedIn(req)) handleMyBooks(req, res)
+        else {
+            res.writeHead(302, { Location: '/login' })
+            res.end()
+        }
     } else if (req.method === 'GET' && req.url === '/api/recommended-books') {
         handleRecommendedBooksRequest(req, res)
     } else if (req.method === 'GET' && req.url === '/api/popular-books') {
@@ -214,7 +218,11 @@ const server = http.createServer((req, res) => {
         const bookId = req.url.split('/').pop()
         handleBookRequest(req, res, bookId)
     } else if (req.method === 'GET' && req.url === '/favourite-genres') {
-        handleFavouriteRequest(req, res)
+        if (isUserLoggedIn(req)) handleFavouriteRequest(req, res)
+        else {
+            res.writeHead(302, { Location: '/login' })
+            res.end()
+        }
     } else if (req.method === 'POST' && req.url === '/favourite-submission') {
         handleFavouriteSubmission(req, res)
     } else if (req.method === 'GET' && req.url.startsWith('/api/review/')) {
@@ -231,14 +239,22 @@ const server = http.createServer((req, res) => {
     } else if (req.method === 'POST' && req.url === '/addToReading') {
         handleShelfReading(req, res)
     } else if (req.method === 'GET' && req.url.startsWith('/review-bookId/')) {
-        handleReviewDetailsRequest(req, res)
+        if (isUserLoggedIn(req)) handleReviewDetailsRequest(req, res)
+        else {
+            res.writeHead(302, { Location: '/login' })
+            res.end()
+        }
     } else if (req.method === 'GET' && req.url.startsWith('/review-book/')) {
         const bookId = req.url.split('/').pop()
         handleBookForReviewRequest(req, res, bookId)
     } else if (req.method === 'GET' && req.url.startsWith('/aboutUs')) {
         handleAboutUsPage(req, res)
     } else if (req.method === 'GET' && req.url === '/account') {
-        handleMyAccount(req, res)
+        if (isUserLoggedIn(req)) handleMyAccount(req, res)
+        else {
+            res.writeHead(302, { Location: '/login' })
+            res.end()
+        }
     } else if (req.method === 'GET' && req.url === '/accountDetails') {
         handleAccountDetails(req, res)
     } else if (req.method === 'POST' && req.url === '/saveDetails') {
@@ -250,13 +266,21 @@ const server = http.createServer((req, res) => {
     } else if (req.method === 'GET' && req.url === '/statistics') {
         handleStatisticsRequest(req, res)
     } else if (req.method === 'GET' && req.url === '/mainpage') {
-        handleMainPage(req, res)
+        if (isUserLoggedIn(req)) handleMainPage(req, res)
+        else {
+            res.writeHead(302, { Location: '/login' })
+            res.end()
+        }
     } else if (req.method === 'GET' && req.url === '/api/mainpage') {
         handleMainRequest(req, res)
     } else if (req.method === 'GET' && req.url === '/help') {
         handleHelpPage(req, res)
     } else if (req.method === 'GET' && req.url.startsWith('/book-update/')) {
-        handleUpdateBook(req, res)
+        if (isUserLoggedIn(req)) handleUpdateBook(req, res)
+        else {
+            res.writeHead(302, { Location: '/login' })
+            res.end()
+        }
     } else if (req.method === 'GET' && req.url.startsWith('/update/')) {
         const bookId = req.url.split('/').pop()
         handleBookForUpdateRequest(req, res, bookId)
@@ -273,16 +297,6 @@ const server = http.createServer((req, res) => {
                 res.end(
                     JSON.stringify({ error: 'Failed to fetch top 10 books' })
                 )
-            } else {
-                res.writeHead(200, { 'Content-Type': 'application/json' })
-                res.end(JSON.stringify(data))
-            }
-        })
-    } else if (req.url === '/topauthor' && req.method === 'GET') {
-        getTopAuthor((err, data) => {
-            if (err) {
-                res.writeHead(500, { 'Content-Type': 'application/json' })
-                res.end(JSON.stringify({ error: 'Failed to fetch top author' }))
             } else {
                 res.writeHead(200, { 'Content-Type': 'application/json' })
                 res.end(JSON.stringify(data))
@@ -307,7 +321,6 @@ const server = http.createServer((req, res) => {
             }
         })
     } else if (req.url.startsWith('/search') && req.method === 'GET') {
-        // Gestionarea cererilor de căutare
         handleSearchPageRequest(req, res)
     } else if (req.url.startsWith('/api/search') && req.method === 'GET') {
         handleSearchRequest(req, res)
@@ -316,11 +329,19 @@ const server = http.createServer((req, res) => {
     } else if (req.method === 'GET' && req.url.startsWith('/group/')) {
         handleGroupJoinPageRequest(req, res)
     } else if (req.method === 'GET' && req.url.startsWith('/create-group/')) {
-        handleCreateGroup(req, res)
+        if (isUserLoggedIn(req)) handleCreateGroup(req, res)
+        else {
+            res.writeHead(302, { Location: '/login' })
+            res.end()
+        }
     } else if (req.method === 'POST' && req.url === '/save-created-group') {
         handleSave(req, res)
     } else if (req.method === 'GET' && req.url.startsWith('/settings-group/')) {
-        handleSettingsGroup(req, res)
+        if (isUserLoggedIn(req)) handleSettingsGroup(req, res)
+        else {
+            res.writeHead(302, { Location: '/login' })
+            res.end()
+        }
     } else if (req.method === 'POST' && req.url === '/update-group-settings') {
         handleUpdates(req, res)
     } else if (req.url === '/nextGroupId' && req.method === 'GET') {
@@ -339,12 +360,35 @@ const server = http.createServer((req, res) => {
         const groupId = req.url.split('/').pop()
         handleGroupRequest(req, res, groupId)
     } else if (req.method === 'GET' && req.url.startsWith('/group-conv/')) {
-        handleGroupConvPageRequest(req, res)
+        const parts = req.url.split('/')
+        const groupId = parts[2]
+        const bookId = parts[3]
+        if (bookId == null || groupId == null) {
+            res.statusCode = 404
+            res.setHeader('Content-Type', 'text/html')
+            handleNotFoundPage(req, res)
+            return
+        }
+        if (isUserLoggedIn(req)) handleGroupConvPageRequest(req, res)
+        else {
+            res.writeHead(302, { Location: '/login' })
+            res.end()
+        }
     } else if (req.method === 'POST' && req.url.startsWith('/group-conv/')) {
         const parts = req.url.split('/')
         const groupId = parts[2]
         const bookId = parts[3]
-        handleGroupConversationSubmit(req, res, bookId, groupId)
+        if (bookId == null || groupId == null) {
+            res.statusCode = 404
+            res.setHeader('Content-Type', 'text/html')
+            handleNotFoundPage(req, res)
+            return
+        }
+        if (isUserLoggedIn(req)) handleGroupConversationSubmit(req, res)
+        else {
+            res.writeHead(302, { Location: '/login' })
+            res.end()
+        }
     } else if (req.method === 'GET' && req.url.startsWith('/api/group-conv/')) {
         const parts = req.url.split('/')
         const groupId = parts[3]
@@ -368,8 +412,13 @@ const server = http.createServer((req, res) => {
         handleMyBooksWantToRead(req, res)
     } else if (req.url === '/rss') {
         handleRSSRequest(req, res)
-    } else if (req.method === 'GET' && req.url === '/admin') {
-        handleAdminPageRequest(req, res)
+    } //trebuie buton
+    else if (req.method === 'GET' && req.url === '/admin') {
+        if (isUserLoggedIn(req)) handleAdminPageRequest(req, res)
+        else {
+            res.writeHead(302, { Location: '/login' })
+            res.end()
+        }
     } else if (req.method === 'GET' && req.url === '/all-users-groups') {
         handleAllUsersAndGroupsRequest(req, res)
     } else if (req.method === 'DELETE' && req.url.startsWith('/delete/user/')) {

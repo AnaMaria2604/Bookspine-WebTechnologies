@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken')
 const cookie = require('cookie')
 
 function isUserLoggedIn(req) {
+    console.log('check')
     const token = getTokenFromCookie(req)
     if (!token) {
         return null // Return null if no token is found
