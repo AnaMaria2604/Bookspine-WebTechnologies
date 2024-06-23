@@ -41,32 +41,43 @@
 
     <main class="main">
         <div class="left_part">
-            <div class="user_content">
-                <div class="userphoto"> <img src="../Images/userphoto.jpg" alt=""></div>
-                <div class="name">Popescu Valentin </div>
+            <div class="user_content" id="detalii">
+                <!-- detalii user-->
             </div>
-            <div class="bookshelves">
+            <!-- <div class="bookshelves">
                 <div class="carte"><a href="../My-Books-Page/mybooks.html">Read</a></div>
                 <div class="carte"><a href="../My-Books-Page/mybooks.html">Reading</a></div>
                 <div class="carte"><a href="../My-Books-Page/mybooks.html">Want to Read</a></div>
 
+            </div> -->
+            <div class="middle_part" id="aboutAndQuote">
+                <!-- detalii user-->
             </div>
         </div>
-        <div class="middle_part">
-            <div class="container">
-                <div class="name_category">About</div>
-                <div class="answer_category">Each book I select undergoes a thorough examination, and only those
-                    that earn my highest praise receive the coveted five-star rating. My reviews are more than just
-                    critiques; they're heartfelt expressions of admiration for the artistry and craftsmanship that
-                    authors pour into their work.</div>
-            </div>
-            <div class="container">
-                <div class="name_category">Favorite quote</div>
-                <div class="answer_category">“A room without books is like a body without a soul.”</div>
+
+        <div class="newMiddle">
+            <div class="shelves">
+                <div class="text">Read:
+                    <div class="covers" id="read"></div>
+                </div>
+                <div class="text">Reading:
+                    <div class="covers" id="reading"></div>
+                </div>
+
+                <div class="text">Want to read:
+                    <div class="covers" id="wantToRead"></div>
+
+                </div>
             </div>
 
+            <div class="update" id="updates">
+                <div class="reviews" id="reviews">Reviews:</div>
+                <div class="reviews" id="readingDetails">Updates:</div>
+                <!--aici vor fi update urile si review urile -->
+            </div>
         </div>
-        <div class="right_part">
+
+        <!-- <div class="right_part">
             <div class="challenge">
                 2024-Reading challenge
                 <div class="content">
@@ -74,7 +85,7 @@
                     I want to read 10 books this year.
                 </div>
             </div>
-        </div>
+        </div> -->
     </main>
     <footer>
         <p>©BookSpine-2024 All rights are reserved<br>
@@ -82,6 +93,9 @@
             Bolohan Constantin-Sebastian and Ursache Ana-Maria
         </p>
     </footer>
+    <script src="../../Backend/User-Profile/useraccountService.js"></script>
+    <script src="../../Backend/User-Profile/useraccountShelfService.js"></script>
+    <script src="../../Backend/User-Profile/useraccountReviewsService.js"></script>
 </body>
 
 </html>
