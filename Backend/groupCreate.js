@@ -1,10 +1,10 @@
 const fs = require('fs')
 const path = require('path')
 
-function handleSettingsGroup(req, res) {
+function handleCreateGroup(req, res) {
     const filePath = path.join(
         __dirname,
-        '../Frontend/Group-Settings-Page/settings.html'
+        '../Frontend/Group-Create-Page/creareGrup.html'
     )
 
     fs.readFile(filePath, (err, data) => {
@@ -18,5 +18,5 @@ function handleSettingsGroup(req, res) {
     })
 }
 module.exports = {
-    handleSettingsGroup,
+    handleCreateGroup,
 }

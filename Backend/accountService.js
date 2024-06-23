@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', function () {
     fetch(`/accountDetails`)
         .then((response) => response.json())
         .then((data) => {
-
             const userDetailsElement = document.getElementById('user-details')
             if (data.userDetails) {
                 const userDetails = data.userDetails
@@ -155,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const groupElement = document.createElement('div')
             groupElement.innerHTML = `
                 <div class="button">
-                    <a href="/group-settings/${idNou}">Create a group</a>
+                    <a href="/create-group/${idNou}">Create a group</a>
                 </div>`
             details.appendChild(groupElement)
         })
