@@ -105,6 +105,8 @@ const {
     handleDeleteGroup,
 } = require('./Backend/admin')
 const { handleNotFoundPage } = require('./Backend/notfound')
+const { handle } = require('./Backend/groupCreateListFunction')
+
 //initializeDatabase()
 
 const server = http.createServer((req, res) => {
@@ -368,6 +370,8 @@ const server = http.createServer((req, res) => {
         handleMyBooksWantToRead(req, res)
     } else if (req.url === '/rss') {
         handleRSSRequest(req, res)
+    } else if (req.url === '/getbooks') {
+        handle(req, res)
     } else if (req.method === 'GET' && req.url === '/admin') {
         handleAdminPageRequest(req, res)
     } else if (req.method === 'GET' && req.url === '/all-users-groups') {
