@@ -84,4 +84,22 @@ document.addEventListener('DOMContentLoaded', function () {
         .catch((error) => {
             console.error('Error fetching data:', error)
         })
+    document
+        .getElementById('logout-button')
+        .addEventListener('click', function () {
+            fetch('/logout', {
+                method: 'POST',
+                credentials: 'same-origin',
+            })
+                .then((response) => {
+                    if (response.ok) {
+                        window.location.href = '/' // Redirect to the home page after logout
+                    } else {
+                        console.error('Logout failed')
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error:', error)
+                })
+        })
 })

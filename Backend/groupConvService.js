@@ -4,6 +4,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         const bookId = urlParts.pop()
         const groupId = urlParts.pop()
 
+        function changeLocation() {
+            window.location.href = `/settings-group/${groupId}`
+        }
+
         async function checkAuth() {
             try {
                 const response = await fetch('/api/check-auth', {
@@ -74,11 +78,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const userEmail = await checkAuth() // Așteaptă autentificarea utilizatorului
         const moderatorId = data.moderator // Presupunând că serverul returnează ID-ul moderatorului grupului
-        
+
         // Verifică dacă utilizatorul autentificat este moderatorul
         if (userEmail === moderatorId) {
             const settingsElement = document.querySelector('.settings')
             settingsElement.style.display = 'block'
+            settingsElement.addEventListener('click', changeLocation) // Attach the click event listener
         }
     } catch (error) {
         console.error('Error fetching data:', error)

@@ -24,7 +24,7 @@ function verifyIfIsAdmin(req, callback) {
     const token = getTokenFromCookie(req)
 
     if (!token) {
-        return callback(null, null) // Return null for both error and result
+        return callback(null, false) // Return false if no token
     }
 
     try {
@@ -32,11 +32,11 @@ function verifyIfIsAdmin(req, callback) {
             'cfc1fffcd77355620d863b573349ee9cfb7b8552335aaf93e88abc52d147ef5e'
         const decodedToken = jwt.verify(token, secretKey)
         const email = decodedToken.email
-
+        console.log(email)
         pool.getConnection((err, connection) => {
             if (err) {
                 console.error('Error getting connection:', err)
-                return callback(err, null)
+                return callback(err, false)
             }
 
             const query = 'SELECT id FROM admin WHERE email = ?'
@@ -45,19 +45,19 @@ function verifyIfIsAdmin(req, callback) {
 
                 if (error) {
                     console.error('Error executing query:', error)
-                    return callback(error, null)
+                    return callback(error, false)
                 }
 
                 if (results.length > 0) {
-                    return callback(null, results[0].id) // Return the admin id if found
+                    return callback(null, email) // Return the email if found
                 } else {
-                    return callback(null, null) // Return null if no admin found
+                    return callback(null, false) // Return false if no admin found
                 }
             })
         })
     } catch (error) {
         console.error('Error verifying token:', error)
-        return callback(error, null)
+        return callback(error, false)
     }
 }
 

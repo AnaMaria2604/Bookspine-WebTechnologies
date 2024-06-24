@@ -41,7 +41,7 @@ function handleLoginSubmission(req, res) {
             res.setHeader('Content-Type', 'text/html')
             if (userType === 'user') {
                 console.log("Redirecționare  de tip 'user'")
-                res.writeHead(302, { Location: '/favourite-genres' })
+                res.writeHead(302, { Location: '/mainpage' })
                 res.end()
             } else {
                 console.log('Redirecționare utilizator non-user')
