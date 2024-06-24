@@ -33,6 +33,48 @@ function checkEmailExists(email, callback) {
     })
 }
 
+function addAnnualReadingCh(userId, callback) {
+    const sql =
+        'INSERT INTO readingchallenge (userId, numberOfBooks, currentNumberOfBooks, type) VALUES (?,?,?,?)'
+    pool.getConnection((err, connection) => {
+        if (err) {
+            return callback(err, null)
+        }
+        connection.query(
+            sql,
+            [userId, 0, 0, 'Annual Reading Challenge'],
+            (err, results) => {
+                connection.release()
+                if (err) {
+                    return callback(err, null)
+                }
+                callback(null, results.insertId)
+            }
+        )
+    })
+}
+
+function addMonthlyReadingCh(userId, callback) {
+    const sql =
+        'INSERT INTO readingchallenge (userId, numberOfBooks, currentNumberOfBooks, type) VALUES (?,?,?,?)'
+    pool.getConnection((err, connection) => {
+        if (err) {
+            return callback(err, null)
+        }
+        connection.query(
+            sql,
+            [userId, 0, 0, 'Monthly Reading Challenge'],
+            (err, results) => {
+                connection.release()
+                if (err) {
+                    return callback(err, null)
+                }
+                callback(null, results.insertId)
+            }
+        )
+    })
+}
+
 function createAccount(
     lastName,
     firstName,
@@ -100,8 +142,8 @@ function createAccount(
                             defaultPhoto,
                         ],
                         (err, results) => {
-                            connection.release()
                             if (err) {
+                                connection.release()
                                 res.writeHead(500, {
                                     'Content-Type': 'application/json',
                                 })
@@ -111,8 +153,25 @@ function createAccount(
                                     })
                                 )
                             }
-                            res.writeHead(302, { Location: '/login' })
-                            res.end()
+
+                            const userId = results.insertId
+
+                            addAnnualReadingCh(userId, (err) => {
+                                if (err) {
+                                    console.error(err.message)
+                                }
+
+                                addMonthlyReadingCh(userId, (err) => {
+                                    connection.release()
+                                    if (err) {
+                                        console.error(err.message)
+                                    }
+                                    res.writeHead(302, {
+                                        Location: '/login',
+                                    })
+                                    res.end()
+                                })
+                            })
                         }
                     )
                 })

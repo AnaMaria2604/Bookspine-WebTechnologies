@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function () {
     fetch(`/reading-details`)
         .then((response) => response.json())
@@ -29,8 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         You've read ${challenge.currentNumberOfBooks} out of the ${challenge.numberOfBooks}
                         books you decided to read for ${challenge.type}.
                         <div class="butoane">
-                            <button class="edit-btn">Edit</button>
-                            <button class="delete-btn">Delete</button>
+                            <button class="edit-btn">Edit reading challenge!</button>
                         </div>
                         <form class="edit-form" style="display: none;">
                             <label>Edit number of books:</label>
@@ -40,35 +38,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     </div>
                 `
                 details.appendChild(bookElement)
-
-                const deleteBtn = bookElement.querySelector('.delete-btn')
-                deleteBtn.addEventListener('click', function () {
-                    const chId = challenge.id
-                    console.log('Deleting challenge with ID:', chId)
-
-                    fetch('/delete-challenge', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({ id: chId }),
-                    })
-                        .then((response) => response.json())
-                        .then((data) => {
-                            if (data.success) {
-                                console.log('Challenge deleted successfully')
-                                bookElement.remove()
-                            } else {
-                                console.error(
-                                    'Failed to delete challenge:',
-                                    data.message
-                                )
-                            }
-                        })
-                        .catch((error) => {
-                            console.error('Failed to delete challenge:', error)
-                        })
-                })
 
                 const editBtn = bookElement.querySelector('.edit-btn')
                 const editForm = bookElement.querySelector('.edit-form')
