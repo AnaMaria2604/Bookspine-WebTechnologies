@@ -120,6 +120,7 @@ body .main .left_part {
   flex-basis: calc(20% - 20px);
 }
 body .main .left_part .wantToRead {
+  padding: 20px;
   color: white;
   display: flex;
   justify-content: space-between;
@@ -131,6 +132,8 @@ body .main .left_part .wantToRead {
   padding-right: 10px;
 }
 body .main .left_part .wantToRead .titlu {
+  font-size: 20px;
+  font-weight: 800;
   padding: 5px;
   align-self: center;
 }
@@ -148,6 +151,7 @@ body .main .left_part .wantToRead .books .image img {
   width: 70px;
 }
 body .main .left_part .challenge {
+  padding: 20px;
   color: white;
   background-color: #104547;
   border-radius: 20px;
@@ -158,6 +162,8 @@ body .main .left_part .challenge {
   margin-bottom: 50px;
 }
 body .main .left_part .challenge .titlu {
+  font-size: 15px;
+  font-weight: 500;
   padding: 5px;
   align-self: center;
 }
@@ -173,6 +179,7 @@ body .main .left_part .challenge .content img {
   width: 70px;
 }
 body .main .left_part .currentlyReading {
+  padding: 20px;
   color: white;
   display: flex;
   justify-content: space-between;
@@ -184,6 +191,8 @@ body .main .left_part .currentlyReading {
   padding-right: 10px;
 }
 body .main .left_part .currentlyReading .titlu {
+  font-size: 20px;
+  font-weight: 800;
   padding: 5px;
   align-self: center;
 }
@@ -213,6 +222,7 @@ body .main .middle_part .titlu {
   align-self: center;
   font-weight: bold;
   font-size: 30px;
+  font-weight: 700;
   color: #01161e;
 }
 body .main .middle_part .update {
@@ -225,6 +235,7 @@ body .main .middle_part .update .item {
   flex-direction: column;
   background-color: #104547;
   border-radius: 20px;
+  padding: 20px;
 }
 body .main .middle_part .update .item .user_content {
   display: flex;
@@ -238,6 +249,7 @@ body .main .middle_part .update .item .user_content a {
   font-weight: bold;
 }
 body .main .middle_part .update .item .descriere {
+  font-style: italic;
   padding-left: 30px;
 }
 body .main .middle_part .update .item .actions {

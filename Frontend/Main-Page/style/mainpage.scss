@@ -148,6 +148,7 @@ body {
             flex-basis: calc(20% - 20px);
 
             .wantToRead {
+                padding: 20px;
                 color: white;
                 display: flex;
                 justify-content: space-between;
@@ -159,6 +160,8 @@ body {
                 padding-right: 10px;
 
                 .titlu {
+                    font-size: 20px;
+                    font-weight: 800;
                     padding: 5px;
                     align-self: center;
                 }
@@ -181,6 +184,7 @@ body {
             }
 
             .challenge {
+                padding: 20px;
                 color: white;
                 background-color: $body;
                 border-radius: 20px;
@@ -190,6 +194,8 @@ body {
                 justify-content: space-between;
 
                 .titlu {
+                    font-size: 15px;
+                    font-weight: 500;
                     padding: 5px;
                     align-self: center;
                 }
@@ -211,6 +217,7 @@ body {
             }
 
             .currentlyReading {
+                padding: 20px;
                 color: white;
                 display: flex;
                 justify-content: space-between;
@@ -222,6 +229,8 @@ body {
                 padding-right: 10px;
 
                 .titlu {
+                    font-size: 20px;
+                    font-weight: 800;
                     padding: 5px;
                     align-self: center;
                 }
@@ -257,6 +266,7 @@ body {
                 align-self: center;
                 font-weight: bold;
                 font-size: 30px;
+                font-weight: 700;
                 color: #01161e;
             }
 
@@ -270,11 +280,9 @@ body {
                     flex-direction: column;
                     background-color: $body;
                     border-radius: 20px;
-                    // background-color: pink;
+                    padding: 20px;
 
                     .user_content {
-                        // background-color: pink;
-                        // padding-left: 10px;
                         display: flex;
                         flex-direction: row;
                         gap: 5px;
@@ -289,6 +297,7 @@ body {
                     }
 
                     .descriere {
+                        font-style: italic;
                         padding-left: 30px;
                     }
 
@@ -299,6 +308,7 @@ body {
                         color: white;
                         // align-items: flex-end;
                         justify-content: flex-end;
+
                         a {
                             color: white;
                             padding: 10px;

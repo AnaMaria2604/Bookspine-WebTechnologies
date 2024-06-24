@@ -143,6 +143,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     ).toLocaleDateString()}`
                     bookDetails.appendChild(dateReadItem)
 
+                    const updateButton = document.createElement('a')
+                    updateButton.href = `/book-update/${book.id}`
+                    updateButton.textContent = 'Make an update on this book'
+                    updateButton.classList.add('update-button')
+                    bookDetails.appendChild(updateButton)
+
                     // Adaugă lista cu detaliile în containerul pentru carte
                     bookBox.appendChild(bookDetails)
 

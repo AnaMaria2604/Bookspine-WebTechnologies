@@ -183,7 +183,7 @@ body .main .book-box {
   gap: 50px;
   border-radius: 10px;
 }
-body .main .book-cover {
+body .main .book-box .book-cover {
   align-self: flex-start;
   width: 200px;
   height: 250px;
@@ -191,14 +191,28 @@ body .main .book-cover {
   -o-object-fit: cover;
      object-fit: cover;
 }
-body .main .book-details {
+body .main .book-box .book-details {
   align-self: center;
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
-body .main .book-details li {
+body .main .book-box .book-details li {
   margin-bottom: 5px;
+}
+body .main .book-box .book-details .update-button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #003336;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: 500;
+  text-align: center;
+}
+body .main .book-box .book-details .update-button:hover {
+  background-color: #01232c;
 }
 
 body::before {
