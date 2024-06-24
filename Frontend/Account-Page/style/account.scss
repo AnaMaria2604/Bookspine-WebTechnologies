@@ -33,11 +33,13 @@ body {
             align-items: center;
             position: relative;
             margin: 0 10px;
+
             .first {
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
                 margin-left: 10px;
+
                 .logo {
                     img {
                         width: 25px;
@@ -53,6 +55,7 @@ body {
                     text-decoration: none;
                 }
             }
+
             &__links {
                 display: flex;
                 flex-direction: column;
@@ -71,6 +74,7 @@ body {
                         font-weight: bold;
                         text-decoration: none;
                     }
+
                     .search-container {
                         display: flex;
                         align-items: center;
@@ -198,6 +202,7 @@ body {
                     display: flex;
                     flex-direction: column;
                     margin-left: 50px;
+                    margin-top: 40px;
                     align-items: center;
                     justify-content: center;
 
@@ -225,9 +230,13 @@ body {
                                         align-self: center;
                                     }
 
-                                    height: 150px;
-                                    width: 150px;
-                                    border-radius: 50%;
+                                    aspect-ratio: 1;
+                                    background-size: cover;
+                                    background-position: center;
+                                    object-fit: cover;
+                                    border-radius: 100%;
+                                    width: 200px;
+                                    height: 200px;
                                 }
                             }
 
@@ -290,6 +299,8 @@ body {
                             width: 90%;
                             border-radius: 20px;
                             background-color: $body;
+                            gap: 15px;
+
 
                             .componenta {
                                 display: flex;
@@ -297,9 +308,13 @@ body {
                                 margin-bottom: 15px;
 
                                 img {
-                                    height: 60px;
-                                    width: 60px;
-                                    border-radius: 50%;
+                                    aspect-ratio: 1;
+                                    background-size: cover;
+                                    background-position: center;
+                                    object-fit: cover;
+                                    border-radius: 100%;
+                                    width: 80px;
+                                    height: 80px;
                                 }
 
                                 a {
@@ -432,7 +447,7 @@ body {
                                     background-color: $darkbutton;
                                 }
 
-                                & + input[type="file"]::after {
+                                &+input[type="file"]::after {
                                     content: "Choose file";
                                     display: inline-block;
                                     padding: 3px 5px;
@@ -601,9 +616,11 @@ body::after {
                 justify-content: center;
                 margin-top: 10px;
                 text-align: center;
+
                 ul {
                     margin-top: 20px;
                 }
+
                 ul li {
                     display: block;
                     margin: 5px;
@@ -611,6 +628,7 @@ body::after {
                 }
             }
         }
+
         .page__body {
             margin: 0px 0px 0px 0px;
             display: flex;
@@ -744,9 +762,11 @@ body::after {
                 justify-content: center;
                 margin-top: 10px;
                 text-align: center;
+
                 ul {
                     margin-top: 20px;
                 }
+
                 ul li {
                     display: block;
                     margin: 5px;
@@ -754,6 +774,7 @@ body::after {
                 }
             }
         }
+
         .page__body {
             .page__header {
                 .underline {

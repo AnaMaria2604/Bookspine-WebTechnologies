@@ -158,9 +158,14 @@ body .challenges .articol .format .ch {
   gap: 10px;
 }
 body .challenges .articol .format .ch .format__poza {
-  height: 100px;
+  aspect-ratio: 1;
+  background-size: cover;
+  background-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 100%;
   width: 100px;
-  border-radius: 50%;
+  height: 100px;
 }
 body .challenges .articol .format .ch .format__text {
   display: flex;

@@ -189,10 +189,14 @@ body .pagina .main__body .page__body .browse .grupuri .mybooks__categorie {
   flex-direction: row;
 }
 body .pagina .main__body .page__body .browse .grupuri .mybooks__categorie .poza {
-  height: 100px;
+  aspect-ratio: 1;
+  background-size: cover;
+  background-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 100%;
   width: 100px;
-  border-radius: 10px;
-  float: left;
+  height: 100px;
 }
 body .pagina .main__body .page__body .browse .grupuri .mybooks__categorie .mybooks__category {
   display: flex;

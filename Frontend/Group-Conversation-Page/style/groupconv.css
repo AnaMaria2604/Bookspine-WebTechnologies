@@ -126,7 +126,6 @@ body .main .left_part .groupname {
   margin-bottom: 20px;
 }
 body .main .left_part .books {
-  background-color: pink;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -140,14 +139,23 @@ body .main .left_part .books .book-links {
   flex-direction: column;
   color: white;
   font-size: 15px;
-  font-weight: bold;
+  font-weight: 400;
   padding: 20px;
   align-self: center;
+  justify-content: center;
+  gap: 10px;
 }
-body .main .left_part .books .a {
+body .main .left_part .books .book-links .a {
   color: white;
   font-size: 15px;
-  padding: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 5px;
+}
+body .main .left_part .books .name {
+  padding-top: 20px;
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
 }
 body .main .left_part .settings {
   display: flex;
@@ -195,9 +203,14 @@ body .main .middle_part .container .item .user_content {
   padding: 20px;
 }
 body .main .middle_part .container .item .user_content .userphoto {
-  height: 30px;
-  width: 30px;
-  border-radius: 50%;
+  aspect-ratio: 1;
+  background-size: cover;
+  background-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 100%;
+  width: 35px;
+  height: 35px;
   overflow: hidden;
 }
 body .main .middle_part .container .item .descriere {
