@@ -178,6 +178,10 @@ body .main .left_part .challenge .content img {
   height: 100px;
   width: 70px;
 }
+body .main .left_part .challenge .content .text {
+  display: flex;
+  flex-direction: column;
+}
 body .main .left_part .currentlyReading {
   padding: 20px;
   color: white;
