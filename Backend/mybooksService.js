@@ -66,8 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     // Adaugă lista cu detaliile în containerul pentru carte
                     bookBox.appendChild(bookDetails)
-
-                    // Adaugă dreptunghiul pentru carte în containerul general
                     booksContainer.appendChild(bookBox)
                 })
             })
@@ -89,8 +87,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 data.books.forEach((book, index) => {
                     const bookBox = document.createElement('div')
                     bookBox.classList.add('book-box')
-
-                    // Adaugă imaginea cărții
                     const coverImage = document.createElement('img')
                     const blob = new Blob([new Uint8Array(book.cover.data)], {
                         type: 'image/jpeg',
@@ -101,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     coverImage.classList.add('book-cover')
                     bookBox.appendChild(coverImage)
 
-                    // Creează lista cu detaliile cărții
+                
                     const bookDetails = document.createElement('ul')
                     bookDetails.classList.add('book-details')
 
@@ -151,8 +147,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     // Adaugă lista cu detaliile în containerul pentru carte
                     bookBox.appendChild(bookDetails)
-
-                    // Adaugă dreptunghiul pentru carte în containerul general
                     booksContainer.appendChild(bookBox)
                 })
             })
@@ -175,7 +169,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     const bookBox = document.createElement('div')
                     bookBox.classList.add('book-box')
 
-                    // Adaugă imaginea cărții
                     const coverImage = document.createElement('img')
                     const blob = new Blob([new Uint8Array(book.cover.data)], {
                         type: 'image/jpeg',

@@ -56,7 +56,7 @@ const getChallenges = (userId, callback) => {
                 if (error) {
                     return callback(error, null)
                 }
-                callback(null, results) // Returnează toate challenge-urile pentru utilizatorul dat
+                callback(null, results)
             }
         )
     })

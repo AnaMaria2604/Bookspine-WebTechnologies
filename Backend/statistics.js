@@ -23,16 +23,16 @@ const handleStatisticsRequest = (req, res) => {
 const getTop10Books = (callback) => {
     pool.getConnection((err, connection) => {
         if (err) {
-            return callback(err, null) // Return error if unable to get connection
+            return callback(err, null) 
         }
         connection.query(
             'SELECT id, title, author,genre,year,rating FROM book  ORDER BY rating DESC LIMIT 10',
             (error, results) => {
-                connection.release() // Release connection back to the pool
+                connection.release()
                 if (error) {
-                    return callback(error, null) // Pass error to callback
+                    return callback(error, null) 
                 }
-                callback(null, results) // Pass results to callback
+                callback(null, results) 
             }
         )
     })

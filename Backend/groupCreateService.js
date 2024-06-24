@@ -43,7 +43,6 @@ document.addEventListener('DOMContentLoaded', function () {
             alg3: alg3,
             alg4: alg4,
         }
-        console.log(alegeriFacute)
 
         fetch(`/save-created-group`, {
             method: 'POST',

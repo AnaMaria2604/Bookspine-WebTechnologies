@@ -36,7 +36,7 @@ function handleLoginSubmission(req, res) {
                 res
             )
 
-            console.log('Authentication successful') // Log pentru depanare
+            console.log('Authentication successful')
 
             res.setHeader('Content-Type', 'text/html')
             if (userType === 'user') {
@@ -49,7 +49,7 @@ function handleLoginSubmission(req, res) {
                 res.end()
             }
         } catch (error) {
-            console.error('Authentication failed:', error) // Log pentru depanare
+            console.error('Authentication failed:', error)
 
             res.setHeader('Content-Type', 'text/html')
             res.end(`

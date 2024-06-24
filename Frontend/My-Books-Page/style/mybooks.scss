@@ -31,7 +31,6 @@ body {
 
         .navbar {
             display: flex;
-            // flex-direction: row;
             justify-content: space-between;
             align-items: center;
             position: relative;
@@ -164,8 +163,7 @@ body {
         .left_part {
             margin-top: 50px;
             display: flex;
-            //   justify-content: space-between;
-            //margin-left: 5%;
+
             flex-direction: column;
             width: 20%;
             min-width: 20%;
@@ -214,36 +212,32 @@ body {
         }
 
         .book-box {
-            background-color: $body2; // Folosește culoarea definită pentru fundalul dreptunghiului
-            color: white; // Culoarea textului în dreptunghi
-            width: 100%; // Lățimea dreptunghiului pentru fiecare carte
-            padding: 20px; // Spațierea interior a dreptunghiului
+            background-color: $body2;
+            color: white;
+            width: 100%;
+            padding: 20px;
             display: flex;
             flex-direction: row;
-            gap: 50px; // Spațiu între imagine și detaliile cărții
-            border-radius: 10px; // Rotunjirea marginilor
+            gap: 50px;
+            border-radius: 10px;
 
-
-            // Stilizare pentru imaginea cărții
             .book-cover {
                 align-self: flex-start;
-                width: 200px; // Lățimea imaginii cărții
-                height: 250px; // Înălțimea se ajustează automat pentru a menține proporțiile
-                border-radius: 5px; // Rotunjirea marginilor imaginii
-                object-fit: cover; // Asigură că imaginea se potrivește în întregime în spațiul alocat
+                width: 200px;
+                height: 250px;
+                border-radius: 5px;
+                object-fit: cover;
             }
 
-            // Stilizare pentru lista cu detaliile cărții
             .book-details {
                 align-self: center;
-                list-style-type: none; // Elimină stilul implicit al listei
-                padding: 0; // Elimină padding-ul implicit
-                margin: 0; // Elimină margin-ul implicit
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
 
                 li {
-                    margin-bottom: 5px; // Spațiu între fiecare detaliu al cărții
+                    margin-bottom: 5px;
                 }
-
 
                 .update-button {
                     display: inline-block;
@@ -258,9 +252,8 @@ body {
                 }
 
                 .update-button:hover {
-                    background-color: #01232c
+                    background-color: #01232c;
                 }
-
             }
         }
     }
@@ -371,26 +364,24 @@ footer {
             .book-box {
                 align-self: center;
                 margin: 0 0 0 0;
-                // padding: 0 0 0 0;
             }
 
             .book-cover {
                 align-self: flex-start;
-                width: 100px; // Lățimea imaginii cărții
-                height: 150px; // Înălțimea se ajustează automat pentru a menține proporțiile
-                border-radius: 5px; // Rotunjirea marginilor imaginii
-                object-fit: cover; // Asigură că imaginea se potrivește în întregime în spațiul alocat
+                width: 100px;
+                height: 150px;
+                border-radius: 5px;
+                object-fit: cover;
             }
 
-            // Stilizare pentru lista cu detaliile cărții
             .book-details {
                 align-self: center;
-                list-style-type: none; // Elimină stilul implicit al listei
-                padding: 0; // Elimină padding-ul implicit
-                margin: 0; // Elimină margin-ul implicit
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
 
                 li {
-                    margin-bottom: 5px; // Spațiu între fiecare detaliu al cărții
+                    margin-bottom: 5px;
                 }
             }
         }
@@ -428,7 +419,6 @@ footer {
                 margin-right: 5%;
 
                 .Logo {
-                    // padding-left: 10%;
                     align-self: center;
                     color: white;
                     font-weight: bold;
@@ -462,7 +452,6 @@ footer {
             .book-box {
                 align-self: center;
                 margin: 0 0 0 0;
-                // padding: 0 0 0 0;
             }
 
             .book-box {
@@ -472,21 +461,20 @@ footer {
 
             .book-cover {
                 align-self: center;
-                width: 80px; // Lățimea imaginii cărții
-                height: 120px; // Înălțimea se ajustează automat pentru a menține proporțiile
-                border-radius: 5px; // Rotunjirea marginilor imaginii
-                object-fit: cover; // Asigură că imaginea se potrivește în întregime în spațiul alocat
+                width: 80px;
+                height: 120px;
+                border-radius: 5px;
+                object-fit: cover;
             }
 
-            // Stilizare pentru lista cu detaliile cărții
             .book-details {
                 align-self: center;
-                list-style-type: none; // Elimină stilul implicit al listei
-                padding: 0; // Elimină padding-ul implicit
-                margin: 0; // Elimină margin-ul implicit
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
 
                 li {
-                    margin-bottom: 5px; // Spațiu între fiecare detaliu al cărții
+                    margin-bottom: 5px;
                 }
             }
         }

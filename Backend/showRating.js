@@ -35,7 +35,6 @@ function initStars(number) {
             console.error('starContainer element not found.')
             return
         }
-        //const number = parseInt(starContainer.getAttribute('data-number'));
         showStars(number)
     })
 }

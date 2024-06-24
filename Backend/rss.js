@@ -158,8 +158,6 @@ const handleRSSRequest = (req, res) => {
             res.writeHead(500, { 'Content-Type': 'application/json' })
             res.end(JSON.stringify({ error: 'Internal Server Error' }))
         } else {
-            // Extragem rezultatele pentru recenzii și lecturi
-            console.log(results)
             const { reviews, readings } = results
             const rssFeed = generateRSS(reviews, readings)
             res.writeHead(200, { 'Content-Type': 'application/rss+xml' })

@@ -75,7 +75,7 @@ const handleGroupConversationSubmit = (req, res, bookId, groupId) => {
             const { review: text } = formData
 
             // Verificăm dacă utilizatorul este autentificat
-            const userEmail = await isUserLoggedIn(req) // Presupunând că isUserLoggedIn primește req
+            const userEmail = await isUserLoggedIn(req) 
 
             if (!userEmail) {
                 throw new Error('User not authenticated')
@@ -90,9 +90,8 @@ const handleGroupConversationSubmit = (req, res, bookId, groupId) => {
                     return
                 }
 
-                const idUser = result[0].id // Presupunând că obții ID-ul utilizatorului din rezultat
+                const idUser = result[0].id 
 
-                // Presupunând că ai o funcție postReview care inserează recenzia în baza de date
                 postReview(groupId, bookId, idUser, text, (error, results) => {
                     if (error) {
                         console.error('Error posting review:', error)

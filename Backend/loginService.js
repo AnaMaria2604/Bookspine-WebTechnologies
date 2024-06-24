@@ -44,9 +44,9 @@ async function authenticateUser(email, password, res) {
             if (match) {
                 const token = jwt.sign(
                     { email },
-                    'cfc1fffcd77355620d863b573349ee9cfb7b8552335aaf93e88abc52d147ef5e',
+                    'cfc1fffcd77355620d863b573349ee9cfb7b8552335aaf93e88abc52d147ef5e' /*key*/,
                     { expiresIn: '2100s' }
-                ) /*key*/
+                )
                 // Adăugare token în antetul răspunsului HTTP
                 res.setHeader('Authorization', 'Bearer ' + token)
 

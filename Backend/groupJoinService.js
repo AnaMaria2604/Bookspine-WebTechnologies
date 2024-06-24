@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                     throw new Error('Failed to authenticate')
                 }
                 const data = await response.json()
-                console.log(data.isAuthenticated)
                 return data.isAuthenticated // Return email if authenticated, otherwise null
             } catch (error) {
                 console.error('Error checking authentication:', error)

@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                     throw new Error('Failed to authenticate')
                 }
                 const data = await response.json()
-                console.log(data.isAuthenticated)
                 return data.isAuthenticated // Return email if authenticated, otherwise null
             } catch (error) {
                 console.error('Error checking authentication:', error)
@@ -77,13 +76,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         })
 
         const userEmail = await checkAuth() // Așteaptă autentificarea utilizatorului
-        const moderatorId = data.moderator // Presupunând că serverul returnează ID-ul moderatorului grupului
+        const moderatorId = data.moderator 
 
         // Verifică dacă utilizatorul autentificat este moderatorul
         if (userEmail === moderatorId) {
             const settingsElement = document.querySelector('.settings')
             settingsElement.style.display = 'block'
-            settingsElement.addEventListener('click', changeLocation) // Attach the click event listener
+            settingsElement.addEventListener('click', changeLocation) // atasare event listener la click
+            
         }
     } catch (error) {
         console.error('Error fetching data:', error)

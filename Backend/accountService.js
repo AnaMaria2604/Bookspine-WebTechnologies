@@ -211,7 +211,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 confirmPassword: pass2,
                 about: reviewContent1,
                 quote: reviewContent2,
-                //photo: photo,
             }),
         })
             .then((response) => response.json())

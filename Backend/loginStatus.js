@@ -1,12 +1,11 @@
 const jwt = require('jsonwebtoken')
 const cookie = require('cookie')
-const pool = require('../DataBase/database') // Importați pool-ul de conexiuni la baza de date
+const pool = require('../DataBase/database') 
 
 function isUserLoggedIn(req) {
-    console.log('check')
     const token = getTokenFromCookie(req)
     if (!token) {
-        return null // Return null if no token is found
+        return null 
     }
 
     const secretKey =
@@ -32,7 +31,6 @@ function verifyIfIsAdmin(req, callback) {
             'cfc1fffcd77355620d863b573349ee9cfb7b8552335aaf93e88abc52d147ef5e'
         const decodedToken = jwt.verify(token, secretKey)
         const email = decodedToken.email
-        console.log(email)
         pool.getConnection((err, connection) => {
             if (err) {
                 console.error('Error getting connection:', err)

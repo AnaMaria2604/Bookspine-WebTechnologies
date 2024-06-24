@@ -93,7 +93,6 @@ const saveTeamDetails = (teamName, groupId, description, callback) => {
             params.push(description)
         }
 
-        // Remove the trailing comma and space
         query = query.slice(0, -2)
 
         query += ' WHERE id = ?'

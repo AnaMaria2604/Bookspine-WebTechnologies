@@ -1,4 +1,3 @@
-@charset "UTF-8";
 * {
   font-family: "Segoe UI", Verdana, sans-serif;
   background: none;
@@ -82,7 +81,6 @@ body .main .item {
   border: 1px solid #a0ffef;
   border-radius: 5px;
   background-color: #cdfff7;
-  /* exemplu pentru a se potrivi cu $darkbutton */
 }
 body .main .delete-button {
   cursor: pointer;
@@ -91,7 +89,6 @@ body .main .delete-button {
 }
 body .main .container2 {
   margin-bottom: 20px;
-  /* Adăugare spațiu după .container2 */
 }
 body footer {
   display: flex;

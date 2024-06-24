@@ -49,11 +49,6 @@ function updateShelf(shelfId, books) {
     }
 
     const shelf = document.getElementById(shelfId)
-    // if (!shelf) {
-    //     console.error(`Shelf element with ID ${shelfId} not found`)
-    //     return
-    // }
-
     books.forEach((book) => {
         if (book && book.id && book.cover) {
             const bookCover = document.createElement('img')

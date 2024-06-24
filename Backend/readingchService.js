@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', function () {
     fetch(`/reading-details`)
         .then((response) => response.json())
         .then((data) => {
-            console.log('Datele primite de la server:', data)
 
             const userDetails = data.userDetails
             if (!userDetails || !userDetails.photo) {

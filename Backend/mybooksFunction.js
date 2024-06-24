@@ -76,7 +76,7 @@ const getMyBooksCurrentlyReading = (id, callback) => {
                     })
                 }
 
-                // Extrage doar valorile ID-urilor
+                
                 const bookIdValues = bookIds.map((row) => row.bookId)
                 const bookNrPage = bookIds.map((row) => row.currentPageNumber)
                 const bookStartDate = bookIds.map((row) => row.startDate)
@@ -125,7 +125,7 @@ const getMyBooksWantToRead = (id, callback) => {
                     })
                 }
 
-                // Extrage doar valorile ID-urilor
+                
                 const bookIdValues = bookIds.map((row) => row.bookId)
 
                 connection.query(

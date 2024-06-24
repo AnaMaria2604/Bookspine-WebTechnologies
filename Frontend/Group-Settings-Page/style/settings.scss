@@ -26,7 +26,6 @@ body {
 
         .navbar {
             display: flex;
-            // flex-direction: row;
             justify-content: space-between;
             align-items: center;
             position: relative;
@@ -140,8 +139,6 @@ body {
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            //width: 90%;
-
             .left_part {
                 font-size: 40px;
                 font-weight: 1000;
@@ -149,7 +146,7 @@ body {
 
             .middle_part {
                 margin-top: 50px;
-                // padding-left: 80px;
+              
                 display: flex;
                 flex-direction: column;
                 width: 80%;

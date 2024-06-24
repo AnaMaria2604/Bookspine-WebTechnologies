@@ -19,7 +19,6 @@ const handleMainPage = (req, res) => {
     })
 }
 const getDetailsAndUpdates = (id, callback) => {
-    console.log('Starting getDetailsAndUpdates')
     pool.getConnection((err, connection) => {
         if (err) {
             console.error('Error getting connection:', err)
@@ -33,7 +32,7 @@ const getDetailsAndUpdates = (id, callback) => {
         let wantToReadBookIds
         let currentlyReadingBookIds
 
-        // First, fetch wanttoread bookIds
+        // fetch wanttoread bookIds
         connection.query(wantToReadQuery, [id], (error, wantToReadBooks) => {
             if (error) {
                 console.error('Error executing wantToReadQuery:', error)
@@ -43,7 +42,7 @@ const getDetailsAndUpdates = (id, callback) => {
 
             wantToReadBookIds = wantToReadBooks.map((row) => row.bookId)
 
-            // Next, fetch currentlyreading bookIds
+            //fetch currentlyreading bookIds
             connection.query(
                 currentlyReadingQuery,
                 [id],
@@ -262,7 +261,6 @@ const fetchReviewsReadingsAndReadingch = (userId, connection, callback) => {
     })
 }
 
-
 const handleMainRequest = (req, res) => {
     const token = getTokenFromCookie(req)
 
@@ -280,7 +278,6 @@ const handleMainRequest = (req, res) => {
 
         getIdUser(email, (err, idResult) => {
             if (err) {
-                console.log('here1')
                 res.writeHead(500, { 'Content-Type': 'application/json' })
                 res.end(JSON.stringify({ error: 'Internal Server Error' }))
                 return
@@ -295,7 +292,6 @@ const handleMainRequest = (req, res) => {
             const id = idResult[0].id
             getDetailsAndUpdates(id, (error, results) => {
                 if (error) {
-                    console.log('here2')
                     res.writeHead(500, { 'Content-Type': 'application/json' })
                     res.end(JSON.stringify({ error: 'Internal Server Error' }))
                     return
@@ -306,7 +302,6 @@ const handleMainRequest = (req, res) => {
             })
         })
     } catch (error) {
-        console.log('here3')
         console.error('Error:', error.message)
         res.writeHead(500, { 'Content-Type': 'application/json' })
         res.end(JSON.stringify({ error: 'Internal Server Error' }))

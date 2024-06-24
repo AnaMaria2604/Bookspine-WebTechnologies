@@ -1,9 +1,8 @@
 const pool = require('../DataBase/database')
 function handleTagsRequest(req, res) {
-    // Obține conexiunea din pool
+   
     pool.getConnection((err, connection) => {
         if (err) {
-            console.log('eroare pool')
             res.writeHead(500, { 'Content-Type': 'application/json' })
             res.end(
                 JSON.stringify({ error: 'Failed to get database connection' })
@@ -11,7 +10,7 @@ function handleTagsRequest(req, res) {
             return
         }
 
-        // Variabile pentru a stoca rezultatele
+        
         let genreResults,
             authorResults,
             publisherResults,
@@ -23,7 +22,7 @@ function handleTagsRequest(req, res) {
         const checkAndRespond = () => {
             queriesCompleted++
             if (queriesCompleted === 6) {
-                // Avem 5 interogări
+              
                 connection.release()
                 const result = {
                     categories: genreResults.map((row) => row.genre),
@@ -42,7 +41,7 @@ function handleTagsRequest(req, res) {
             }
         }
 
-        // Interogare pentru cărți
+      
         const genreQuery = `SELECT DISTINCT genre FROM book`
         const authorQuery = 'SELECT DISTINCT author FROM book'
         const publisherQuery = 'SELECT DISTINCT publisher FROM book'

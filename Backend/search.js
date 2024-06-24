@@ -26,7 +26,6 @@ function handleSearchRequest(req, res) {
     // Obține conexiunea din pool
     pool.getConnection((err, connection) => {
         if (err) {
-            console.log('eroare pool')
             res.writeHead(500, { 'Content-Type': 'application/json' })
             res.end(
                 JSON.stringify({ error: 'Failed to get database connection' })
@@ -49,7 +48,7 @@ function handleSearchRequest(req, res) {
         // Interogare pentru grupuri
         const groupQuery = `SELECT id,teamName,photo FROM team WHERE teamName LIKE ?`
         const groupQueryValues = [`%${query}%`]
-        // Execută interogarea pentru cărți
+   
         connection.query(bookQuery, bookQueryValues, (bookErr, bookResults) => {
             if (bookErr) {
                 connection.release()

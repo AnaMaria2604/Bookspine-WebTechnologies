@@ -30,7 +30,6 @@ body {
 
         .navbar {
             display: flex;
-            // flex-direction: row;
             justify-content: space-between;
             align-items: center;
             position: relative;
@@ -295,7 +294,6 @@ body {
 
                         a {
                             color: $textcolor;
-                            //  font-size: 17px;
                             font-weight: bold;
                         }
                     }
@@ -310,7 +308,7 @@ body {
                         flex-direction: row;
                         padding: 10px;
                         color: white;
-                        // align-items: flex-end;
+                      
                         justify-content: flex-end;
 
                         a {
