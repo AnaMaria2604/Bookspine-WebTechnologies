@@ -92,6 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 'Publication year'
             )
             populateTags('collection-section', data.collections, 'Collections')
+            populateTags('edition-section', data.editions, 'Editions')
         })
         .catch((error) => console.error('Error fetching tags:', error))
 })

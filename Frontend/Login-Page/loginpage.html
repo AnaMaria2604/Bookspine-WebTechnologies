@@ -13,21 +13,35 @@
 
   <header class="header">
     <nav class="navbar">
-      <a href="../Index-Page/index.html"> Boo </a>
+      <div class="first">
+        <div class="logo">
+          <img src="../../Frontend/Images/bookspine.png" alt="logo">
+        </div>
+
+        <a href="/mainpage"> BookSpine </a>
+        <div class="logo">
+          <a href="/rss">
+            <img src="../../Frontend/Images/rss.png" alt="rss">
+          </a>
+        </div>
+      </div>
       <div class="navbar__links">
         <ul>
           <li>
             <div class="search-container">
-              <input type="text" placeholder="" class="search-input">
-              <button type="submit" class="search-button">Search</button>
+              <input type="text" placeholder="" class="search-input" id="search-input">
+              <button type="submit" class="search-button" id="search-button">Search</button>
             </div>
           </li>
           <li class="dropdown">
             <a href="#" id="dropdown-toggle">Menu</a>
             <ul class="dropdown-menu" id="dropdown-menu">
-              <li><a href="../Login-Register-Page/loginpage.html">Account</a></li>
-              <li><a href="../About-Us-Page/aboutus.html">About Us</a></li>
-              <li><a href="../Help-Page/help.html">Help</a></li>
+              <li><a href="/account">Account</a></li>
+              <li><a href="/mybooks/">My books</a></li>
+              <li><a href="/readingch">Challenges</a></li>
+              <li><a href="/statistics">Statistics</a></li>
+              <li><a href="/aboutUs">About Us</a></li>
+              <li><a href="/help">Help</a></li>
             </ul>
           </li>
         </ul>
@@ -67,6 +81,7 @@
       Bolohan Constantin-Sebastian and Ursache Ana-Maria
     </p>
   </footer>
+  <script src="../../Backend/searchRedirect.js"></script>
 </body>
 
 </html>

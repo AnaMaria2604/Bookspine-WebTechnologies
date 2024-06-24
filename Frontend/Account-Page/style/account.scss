@@ -1,16 +1,16 @@
 $color: #ffaa8e;
-$background: #ACEAEC;
-$header: #01161E;
+$background: #aceaec;
+$header: #01161e;
 $footer: #0c3742;
 $body: #104547;
 $textcolor: #ffff;
 $button: #124559;
-$darkbutton: #0A2E36;
+$darkbutton: #0a2e36;
 $bordercolor: #2a3738;
 $continut: #b1d2d6;
 
 * {
-    font-family: 'Segoe UI', Verdana, sans-serif;
+    font-family: "Segoe UI", Verdana, sans-serif;
     background: none;
 }
 
@@ -23,23 +23,36 @@ body {
     .header {
         top: 0;
         left: 0;
-        background-color: $header;
         margin: 0;
+        background-color: $header;
 
         .navbar {
             display: flex;
+            // flex-direction: row;
             justify-content: space-between;
             align-items: center;
             position: relative;
             margin: 0 10px;
+            .first {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                margin-left: 10px;
+                .logo {
+                    img {
+                        width: 25px;
+                        height: 25px;
+                    }
+                }
 
-            a {
-                color: $textcolor;
-                font-size: 20px;
-                padding-left: 10px;
-                font-weight: bold;
+                a {
+                    color: $textcolor;
+                    font-size: 20px;
+                    padding-left: 10px;
+                    font-weight: bold;
+                    text-decoration: none;
+                }
             }
-
             &__links {
                 display: flex;
                 flex-direction: column;
@@ -56,8 +69,8 @@ body {
                         color: $textcolor;
                         font-size: 17px;
                         font-weight: bold;
+                        text-decoration: none;
                     }
-
                     .search-container {
                         display: flex;
                         align-items: center;
@@ -82,17 +95,14 @@ body {
                         cursor: pointer;
                         font-size: 16px;
                         margin-left: 8px;
-
                     }
 
                     .search-button:hover {
                         background-color: $darkbutton;
-
                     }
                 }
             }
         }
-
     }
 
     .dropdown-container {
@@ -121,7 +131,6 @@ body {
         font-size: 17px;
         font-weight: bold;
     }
-
 
     .page__body {
         margin-top: 50px;
@@ -155,15 +164,12 @@ body {
                     }
 
                     .button {
-
                         a {
                             font-size: 14px;
                             font-weight: 600;
                         }
                     }
                 }
-
-
             }
 
             .underline {
@@ -194,7 +200,6 @@ body {
                     margin-left: 50px;
                     align-items: center;
                     justify-content: center;
-
 
                     .user {
                         justify-content: center;
@@ -258,7 +263,6 @@ body {
                                 a {
                                     color: white;
                                     font-weight: 400;
-
                                 }
                             }
                         }
@@ -296,7 +300,6 @@ body {
                                     height: 60px;
                                     width: 60px;
                                     border-radius: 50%;
-
                                 }
 
                                 a {
@@ -359,14 +362,13 @@ body {
                             cursor: pointer;
                             font-size: 12px;
                             margin-left: 8px;
-
                         }
 
                         .search-button:hover {
                             background-color: $darkbutton;
-
                         }
                     }
+
 
                     .buttons {
                         margin-top: 40px;
@@ -430,7 +432,7 @@ body {
                                     background-color: $darkbutton;
                                 }
 
-                                &+input[type="file"]::after {
+                                & + input[type="file"]::after {
                                     content: "Choose file";
                                     display: inline-block;
                                     padding: 3px 5px;
@@ -445,7 +447,6 @@ body {
                                 }
                             }
                         }
-
 
                         .container {
                             display: flex;
@@ -495,14 +496,11 @@ body {
                                 cursor: pointer;
                                 font-size: 12px;
                                 margin-left: 8px;
-
                             }
 
                             .search-button:hover {
                                 background-color: $darkbutton;
-
                             }
-
                         }
 
                         .button {
@@ -521,12 +519,10 @@ body {
                                 cursor: pointer;
                                 font-size: 12px;
                                 margin-left: 8px;
-
                             }
 
                             .search-button:hover {
                                 background-color: $darkbutton;
-
                             }
                         }
                     }
@@ -545,12 +541,10 @@ body {
                 font-weight: 600;
                 margin-top: 20px;
                 width: 10%;
-
             }
 
             .save:hover {
                 background-color: $darkbutton;
-
             }
         }
     }
@@ -598,6 +592,25 @@ body::after {
 
 @media (min-width: 481px) and (max-width: 1200px) {
     body {
+        .header .navbar {
+            flex-direction: column;
+            margin-top: 20px;
+
+            .navbar__links {
+                flex-direction: row;
+                justify-content: center;
+                margin-top: 10px;
+                text-align: center;
+                ul {
+                    margin-top: 20px;
+                }
+                ul li {
+                    display: block;
+                    margin: 5px;
+                    padding: 0;
+                }
+            }
+        }
         .page__body {
             margin: 0px 0px 0px 0px;
             display: flex;
@@ -632,20 +645,14 @@ body::after {
                         }
 
                         .button {
-
                             a {
                                 font-size: 12px;
                                 font-weight: 600;
                             }
                         }
                     }
-
-
                 }
-
             }
-
-
 
             .main {
                 .parts {
@@ -661,7 +668,6 @@ body::after {
                         margin-right: 5%;
                         width: 90%;
                         align-self: center;
-
                     }
 
                     .left_part {
@@ -676,7 +682,6 @@ body::after {
                                 flex-direction: column;
                                 align-items: center;
                                 margin-bottom: 40px;
-
 
                                 .userphoto {
                                     margin-top: 20px;
@@ -694,22 +699,18 @@ body::after {
                                 }
                             }
                         }
-
                     }
 
                     .middle_part {
                         .container {
                             margin-bottom: 0px;
 
-
                             .search-container {
                                 margin: 0px;
                                 padding: 0px;
                             }
-
                         }
                     }
-
                 }
 
                 .search-button {
@@ -722,21 +723,37 @@ body::after {
                     border-radius: 4px;
                     cursor: pointer;
                     font-size: 20px;
-
-
                 }
 
                 .search-button:hover {
                     background-color: $darkbutton;
                 }
             }
-
         }
     }
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
     body {
+        .header .navbar {
+            flex-direction: column;
+            margin-top: 20px;
+
+            .navbar__links {
+                flex-direction: row;
+                justify-content: center;
+                margin-top: 10px;
+                text-align: center;
+                ul {
+                    margin-top: 20px;
+                }
+                ul li {
+                    display: block;
+                    margin: 5px;
+                    padding: 0;
+                }
+            }
+        }
         .page__body {
             .page__header {
                 .underline {
@@ -759,7 +776,6 @@ body::after {
                         .titlu {
                             font-size: 15px;
                             margin: 0px;
-
                         }
 
                         .button {
@@ -789,7 +805,6 @@ body::after {
                         margin-right: 5%;
                         width: 90%;
                         align-self: center;
-
                     }
 
                     .left_part {
@@ -804,7 +819,6 @@ body::after {
                                 flex-direction: column;
                                 align-items: center;
                                 margin-bottom: 40px;
-
 
                                 .userphoto {
                                     margin-top: 20px;
@@ -822,19 +836,16 @@ body::after {
                                 }
                             }
                         }
-
                     }
 
                     .middle_part {
                         .container {
                             margin-bottom: 0px;
 
-
                             .search-container {
                                 margin: 0px;
                                 padding: 0px;
                             }
-
                         }
                     }
 
@@ -856,16 +867,13 @@ body::after {
                                 cursor: pointer;
                                 font-size: 12px;
                                 margin-left: 8px;
-
                             }
 
                             .search-button:hover {
                                 background-color: $darkbutton;
-
                             }
                         }
                     }
-
                 }
 
                 .search-button {
@@ -878,15 +886,12 @@ body::after {
                     border-radius: 4px;
                     cursor: pointer;
                     font-size: 20px;
-
-
                 }
 
                 .search-button:hover {
                     background-color: $darkbutton;
                 }
             }
-
         }
     }
 }

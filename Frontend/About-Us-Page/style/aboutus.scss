@@ -1,15 +1,15 @@
 $color: #ffaa8e;
-$background: #ACEAEC;
-$header: #01161E;
+$background: #aceaec;
+$header: #01161e;
 $footer: #0c3742;
 $body: #104547;
 $textcolor: #ffff;
 $button: #124559;
-$darkbutton: #0A2E36;
+$darkbutton: #0a2e36;
 $bordercolor: #2a3738;
 
 * {
-    font-family: 'Segoe UI', Verdana, sans-serif;
+    font-family: "Segoe UI", Verdana, sans-serif;
     background: none;
 }
 
@@ -27,18 +27,31 @@ body {
 
         .navbar {
             display: flex;
+            // flex-direction: row;
             justify-content: space-between;
             align-items: center;
             position: relative;
             margin: 0 10px;
+            .first {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                margin-left: 10px;
+                .logo {
+                    img {
+                        width: 25px;
+                        height: 25px;
+                    }
+                }
 
-            a {
-                color: $textcolor;
-                font-size: 20px;
-                padding-left: 10px;
-                font-weight: bold;
+                a {
+                    color: $textcolor;
+                    font-size: 20px;
+                    padding-left: 10px;
+                    font-weight: bold;
+                    text-decoration: none;
+                }
             }
-
             &__links {
                 display: flex;
                 flex-direction: column;
@@ -55,8 +68,8 @@ body {
                         color: $textcolor;
                         font-size: 17px;
                         font-weight: bold;
+                        text-decoration: none;
                     }
-
                     .search-container {
                         display: flex;
                         align-items: center;
@@ -81,17 +94,14 @@ body {
                         cursor: pointer;
                         font-size: 16px;
                         margin-left: 8px;
-
                     }
 
                     .search-button:hover {
                         background-color: $darkbutton;
-
                     }
                 }
             }
         }
-
     }
 
     .dropdown-container {
@@ -120,7 +130,6 @@ body {
         font-size: 17px;
         font-weight: bold;
     }
-
 
     .aboutus {
         display: flex;
@@ -200,19 +209,20 @@ footer {
     color: $textcolor;
 }
 
-
-
 @media (min-width: 481px) and (max-width: 767px) {
     body {
         .header .navbar {
             flex-direction: column;
+            margin-top: 20px;
 
             .navbar__links {
                 flex-direction: row;
                 justify-content: center;
                 margin-top: 10px;
                 text-align: center;
-
+                ul {
+                    margin-top: 20px;
+                }
                 ul li {
                     display: block;
                     margin: 5px;
@@ -236,17 +246,21 @@ footer {
 @media (min-width: 320px) and (max-width: 480px) {
     body {
         .header .navbar {
+            flex-direction: column;
+            margin-top: 20px;
+
             .navbar__links {
+                flex-direction: row;
+                justify-content: center;
+                margin-top: 10px;
+                text-align: center;
+                ul {
+                    margin-top: 20px;
+                }
                 ul li {
+                    display: block;
+                    margin: 5px;
                     padding: 0;
-                }
-
-                .search-input {
-                    width: 70%;
-                }
-
-                .search-button {
-                    font-size: 14px;
                 }
             }
         }
@@ -254,11 +268,11 @@ footer {
         .aboutus .descriere {
             margin-left: 20px;
             margin-right: 20px;
-            font-size: 16px;
+            font-size: 18px;
         }
 
         .aboutus .buton {
-            width: 70%;
+            width: 50%;
         }
     }
 }
