@@ -75,6 +75,94 @@ function addMonthlyReadingCh(userId, callback) {
     })
 }
 
+function getDefaultPhotoPath(firstLetter) {
+    let photoFileName
+    switch (firstLetter.toLowerCase()) {
+        case 'a':
+            photoFileName = 'pozaA.jpg'
+            break
+        case 'b':
+            photoFileName = 'pozaB.jpg'
+            break
+        case 'c':
+            photoFileName = 'pozaC.jpg'
+            break
+        case 'd':
+            photoFileName = 'pozaD.jpg'
+            break
+        case 'e':
+            photoFileName = 'pozaE.jpg'
+            break
+        case 'f':
+            photoFileName = 'pozaF.jpg'
+            break
+        case 'g':
+            photoFileName = 'pozaG.jpg'
+            break
+        case 'h':
+            photoFileName = 'pozaH.jpg'
+            break
+        case 'i':
+            photoFileName = 'pozaI.jpg'
+            break
+        case 'j':
+            photoFileName = 'pozaJ.jpg'
+            break
+        case 'k':
+            photoFileName = 'pozaK.jpg'
+            break
+        case 'l':
+            photoFileName = 'pozaL.jpg'
+            break
+        case 'm':
+            photoFileName = 'pozaM.jpg'
+            break
+        case 'n':
+            photoFileName = 'pozaN.jpg'
+            break
+        case 'o':
+            photoFileName = 'pozaO.jpg'
+            break
+        case 'p':
+            photoFileName = 'pozaP.jpg'
+            break
+        case 'q':
+            photoFileName = 'pozaQ.jpg'
+            break
+        case 'r':
+            photoFileName = 'pozaR.jpg'
+            break
+        case 's':
+            photoFileName = 'pozaS.jpg'
+            break
+        case 't':
+            photoFileName = 'pozaT.jpg'
+            break
+        case 'u':
+            photoFileName = 'pozaU.jpg'
+            break
+        case 'v':
+            photoFileName = 'pozaV.jpg'
+            break
+        case 'w':
+            photoFileName = 'pozaW.jpg'
+            break
+        case 'x':
+            photoFileName = 'pozaX.jpg'
+            break
+        case 'y':
+            photoFileName = 'pozaY.jpg'
+            break
+        case 'z':
+            photoFileName = 'pozaZ.jpg'
+            break
+        default:
+            photoFileName = 'default.jpg'
+            break
+    }
+    return path.join(__dirname, 'imageDef', photoFileName)
+}
+
 function createAccount(
     lastName,
     firstName,
@@ -106,11 +194,9 @@ function createAccount(
                 )
             }
 
-            const defaultPhotoPath = path.join(
-                __dirname,
-                'imageDef',
-                'default.jpg'
-            )
+            const firstLetter = firstName.charAt(0)
+            const defaultPhotoPath = getDefaultPhotoPath(firstLetter)
+
             readImage(defaultPhotoPath, (err, defaultPhoto) => {
                 if (err) {
                     console.error(err.message)
@@ -155,20 +241,31 @@ function createAccount(
                             }
 
                             const userId = results.insertId
-
                             addAnnualReadingCh(userId, (err) => {
                                 if (err) {
-                                    console.error(err.message)
+                                    console.error(
+                                        'Error adding annual reading challenge:',
+                                        err
+                                    )
                                 }
-
                                 addMonthlyReadingCh(userId, (err) => {
                                     connection.release()
                                     if (err) {
-                                        console.error(err.message)
+                                        console.error(
+                                            'Error adding monthly reading challenge:',
+                                            err
+                                        )
+                                        res.writeHead(500, {
+                                            'Content-Type': 'application/json',
+                                        })
+                                        return res.end(
+                                            JSON.stringify({
+                                                message:
+                                                    'Error adding reading challenge',
+                                            })
+                                        )
                                     }
-                                    res.writeHead(302, {
-                                        Location: '/login',
-                                    })
+                                    res.writeHead(302, { Location: '/login' })
                                     res.end()
                                 })
                             })
