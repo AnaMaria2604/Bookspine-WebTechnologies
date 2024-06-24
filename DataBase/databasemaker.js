@@ -110,25 +110,6 @@ function initializeDatabase() {
 
     connection.query(
         `
-        CREATE TABLE IF NOT EXISTS news (
-            id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-            userId INT NOT NULL,
-            bookId INT NOT NULL,
-            FOREIGN KEY (userId) REFERENCES user(id) ON DELETE CASCADE,
-            FOREIGN KEY (bookId) REFERENCES book(id) ON DELETE CASCADE
-        )
-    `,
-        (err) => {
-            if (err) {
-                console.error('Eroare la crearea tabelei news:', err)
-                throw err
-            }
-            console.log('Tabela news a fost creată cu succes!')
-        }
-    )
-
-    connection.query(
-        `
         CREATE TABLE IF NOT EXISTS reading (
             id  INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
             userId  INT NOT NULL,

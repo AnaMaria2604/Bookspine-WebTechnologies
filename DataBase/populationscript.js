@@ -8,6 +8,29 @@ function populateDatabase(connection) {
         return fs.readFileSync(filePath)
     }
 
+    const admin = [
+        [
+            'ana.ursache@asii.ro',
+            '$2b$10$CJj/HJezD53YvFyJi62FXen3PRj1xVZJB8LSii9IlN6XBXEoMzbdK',
+        ],
+        [
+            'sebastian.bolohan97@gmail.com',
+            '$2b$10$CJj/HJezD53YvFyJi62FXen3PRj1xVZJB8LSii9IlN6XBXEoMzbdK',
+        ],
+    ]
+
+    connection.query(
+        'INSERT INTO admin (email, password) VALUES ?',
+        [admin],
+        (err) => {
+            if (err) {
+                console.error('Eroare la inserarea adminilor:', err)
+                throw err
+            }
+            console.log('Adminii au fost inserați cu succes!')
+        }
+    )
+
     // Adăugăm utilizatori
     const users = [
         [
@@ -315,7 +338,13 @@ function populateDatabase(connection) {
             1,
             'A team for those who love books.',
             readImage(
-                path.resolve(__dirname, '..', 'Backend', 'groupsImages', '1.jpg')
+                path.resolve(
+                    __dirname,
+                    '..',
+                    'Backend',
+                    'groupsImages',
+                    '1.jpg'
+                )
             ),
         ],
         [
@@ -323,7 +352,13 @@ function populateDatabase(connection) {
             2,
             'Discussing all things science fiction.',
             readImage(
-                path.resolve(__dirname, '..', 'Backend', 'groupsImages', '2.jpg')
+                path.resolve(
+                    __dirname,
+                    '..',
+                    'Backend',
+                    'groupsImages',
+                    '2.jpg'
+                )
             ),
         ],
         [
@@ -331,7 +366,13 @@ function populateDatabase(connection) {
             3,
             'Exploring classic literature.',
             readImage(
-                path.resolve(__dirname, '..', 'Backend', 'groupsImages', '3.jpg')
+                path.resolve(
+                    __dirname,
+                    '..',
+                    'Backend',
+                    'groupsImages',
+                    '3.jpg'
+                )
             ),
         ],
         [
@@ -339,7 +380,13 @@ function populateDatabase(connection) {
             4,
             'For fans of fantasy books.',
             readImage(
-                path.resolve(__dirname, '..', 'Backend', 'groupsImages', '4.jpg')
+                path.resolve(
+                    __dirname,
+                    '..',
+                    'Backend',
+                    'groupsImages',
+                    '4.jpg'
+                )
             ),
         ],
         [
@@ -347,7 +394,13 @@ function populateDatabase(connection) {
             5,
             'Solving mysteries one book at a time.',
             readImage(
-                path.resolve(__dirname, '..', 'Backend', 'groupsImages', '5.jpg')
+                path.resolve(
+                    __dirname,
+                    '..',
+                    'Backend',
+                    'groupsImages',
+                    '5.jpg'
+                )
             ),
         ],
         [
@@ -355,7 +408,13 @@ function populateDatabase(connection) {
             6,
             'For those who love romance novels.',
             readImage(
-                path.resolve(__dirname, '..', 'Backend', 'groupsImages', '6.jpg')
+                path.resolve(
+                    __dirname,
+                    '..',
+                    'Backend',
+                    'groupsImages',
+                    '6.jpg'
+                )
             ),
         ],
         [
@@ -363,7 +422,13 @@ function populateDatabase(connection) {
             7,
             'Reading and discussing biographies.',
             readImage(
-                path.resolve(__dirname, '..', 'Backend', 'groupsImages', '7.jpg')
+                path.resolve(
+                    __dirname,
+                    '..',
+                    'Backend',
+                    'groupsImages',
+                    '7.jpg'
+                )
             ),
         ],
         [
@@ -371,7 +436,13 @@ function populateDatabase(connection) {
             8,
             'For those who appreciate poetry.',
             readImage(
-                path.resolve(__dirname, '..', 'Backend', 'groupsImages', '8.jpg')
+                path.resolve(
+                    __dirname,
+                    '..',
+                    'Backend',
+                    'groupsImages',
+                    '8.jpg'
+                )
             ),
         ],
     ]
@@ -865,6 +936,37 @@ function populateDatabase(connection) {
                 throw err
             }
             console.log('Inserted into teamconversation table successfully.')
+        }
+    )
+
+    const teamuser = [
+        [1, 5],
+        [1, 4],
+        [2, 7],
+        [2, 5],
+        [3, 1],
+        [3, 3],
+        [4, 2],
+        [4, 6],
+        [5, 1],
+        [5, 6],
+        [6, 2],
+        [6, 3],
+        [7, 4],
+        [7, 1],
+        [8, 4],
+        [8, 8],
+    ]
+
+    connection.query(
+        'INSERT INTO teamusers (teamId, userId) VALUES ?',
+        [teamuser],
+        (err) => {
+            if (err) {
+                console.error('Error inserting users into groups:', err)
+                throw err
+            }
+            console.log('Users have been successfully inserted into groups!')
         }
     )
 }
