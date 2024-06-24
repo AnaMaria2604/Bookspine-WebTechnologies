@@ -1,16 +1,16 @@
 $color: #ffaa8e;
-$background: #ACEAEC;
-$header: #01161E;
+$background: #aceaec;
+$header: #01161e;
 $footer: #0c3742;
 $body: #104547;
 $textcolor: #ffff;
 $button: #124559;
-$darkbutton: #0A2E36;
+$darkbutton: #0a2e36;
 $bordercolor: #2a3738;
 $body4: #77cad4;
 
 * {
-    font-family: 'Segoe UI', Verdana, sans-serif;
+    font-family: "Segoe UI", Verdana, sans-serif;
     background: none;
 }
 
@@ -19,27 +19,39 @@ body {
     display: flex;
     flex-direction: column;
     margin: 0;
-
     .header {
         top: 0;
         left: 0;
-        background-color: $header;
         margin: 0;
+        background-color: $header;
 
         .navbar {
             display: flex;
+            // flex-direction: row;
             justify-content: space-between;
             align-items: center;
             position: relative;
             margin: 0 10px;
+            .first {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                margin-left: 10px;
+                .logo {
+                    img {
+                        width: 25px;
+                        height: 25px;
+                    }
+                }
 
-            a {
-                color: $textcolor;
-                font-size: 20px;
-                padding-left: 10px;
-                font-weight: bold;
+                a {
+                    color: $textcolor;
+                    font-size: 20px;
+                    padding-left: 10px;
+                    font-weight: bold;
+                    text-decoration: none;
+                }
             }
-
             &__links {
                 display: flex;
                 flex-direction: column;
@@ -56,8 +68,8 @@ body {
                         color: $textcolor;
                         font-size: 17px;
                         font-weight: bold;
+                        text-decoration: none;
                     }
-
                     .search-container {
                         display: flex;
                         align-items: center;
@@ -82,17 +94,14 @@ body {
                         cursor: pointer;
                         font-size: 16px;
                         margin-left: 8px;
-
                     }
 
                     .search-button:hover {
                         background-color: $darkbutton;
-
                     }
                 }
             }
         }
-
     }
 
     .dropdown-container {
@@ -123,20 +132,24 @@ body {
     }
 
     .main {
-
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
         .content {
-            padding: 30px;
+            width: 80%;
+            // padding: 30px;
             background-color: $body;
             border-radius: 20px;
             margin-top: 170px;
-            margin-left: 10%;
-            margin-right: 10%;
-            margin-bottom: 50px;
-            width: 80%;
+            //margin-left: 10%;
+            // margin-right: 10%;
+            // margin-bottom: 50px;
+            //  width: 80%;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            flex: 1;
+            // flex: 1;
 
             .left_part {
                 display: flex;
@@ -183,7 +196,6 @@ body {
                         width: auto;
                         flex-direction: column;
 
-
                         .shelf {
                             color: white;
                             font-size: 20px;
@@ -201,7 +213,6 @@ body {
                                 color: white;
                             }
                         }
-
                     }
 
                     .text {
@@ -209,7 +220,6 @@ body {
                         align-self: center;
                         padding: 10px;
                         margin-top: 30px;
-
                     }
 
                     .stars {
@@ -230,9 +240,7 @@ body {
                     .five {
                         color: rgb(255, 255, 0);
                     }
-
                 }
-
             }
 
             .right_part {
@@ -291,7 +299,7 @@ body {
                     }
 
                     .item {
-                        background-color: #0A2E36;
+                        background-color: #0a2e36;
 
                         // width: 100%;
 
@@ -339,7 +347,6 @@ body {
                     margin-bottom: 20px;
                 }
 
-
                 .item {
                     padding: 10px;
                     display: flex;
@@ -365,15 +372,10 @@ body {
                     .descriere {
                         padding-left: 30px;
                     }
-
                 }
-
-
-
             }
         }
     }
-
 }
 
 footer {
@@ -387,7 +389,6 @@ footer {
     background: $footer;
     color: $textcolor;
 }
-
 
 body::before {
     background-image: url(../../Images/bookimg3.jpg);
@@ -417,16 +418,36 @@ body::after {
     pointer-events: none;
 }
 
-@media (min-width: 481px) and (max-width: 1241px) {
+@media (min-width: 481px) and (max-width: 720px) {
     body {
+        .header .navbar {
+            flex-direction: column;
+            margin-top: 20px;
+
+            .navbar__links {
+                flex-direction: row;
+                justify-content: center;
+                margin-top: 10px;
+                text-align: center;
+                ul {
+                    margin-top: 20px;
+                }
+                ul li {
+                    display: block;
+                    margin: 5px;
+                    padding: 0;
+                }
+            }
+        }
         .main {
+            width: 100%;
             .content {
+                width: 90%;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
 
                 .right_part {
-
                     .showrating {
                         align-self: center;
                     }
@@ -437,21 +458,22 @@ body::after {
                         margin: 0px;
                     }
 
-
                     .elements {
                         align-self: center;
                         justify-content: center;
-                        background-color: #0A2E36;
+                        background-color: #0a2e36;
                         padding: 20px;
                         border-radius: 20px;
                     }
                 }
 
                 .left_part {
-                    img {
-                        align-self: center;
-                        height: 200px;
-                        width: auto;
+                    .book_cover {
+                        img {
+                            align-self: center;
+                            height: 200px;
+                            width: 150px;
+                        }
                     }
 
                     .container {
@@ -477,9 +499,27 @@ body::after {
     }
 }
 
-
 @media (min-width: 320px) and (max-width: 480px) {
     body {
+        .header .navbar {
+            flex-direction: column;
+            margin-top: 20px;
+
+            .navbar__links {
+                flex-direction: row;
+                justify-content: center;
+                margin-top: 10px;
+                text-align: center;
+                ul {
+                    margin-top: 20px;
+                }
+                ul li {
+                    display: block;
+                    margin: 5px;
+                    padding: 0;
+                }
+            }
+        }
         .main {
             .content {
                 display: flex;
@@ -492,7 +532,7 @@ body::after {
                     .elements {
                         align-self: center;
                         justify-content: center;
-                        background-color: #0A2E36;
+                        background-color: #0a2e36;
                         padding: 20px;
                         border-radius: 10px;
 
@@ -505,8 +545,6 @@ body::after {
                         .published {
                             font-size: 14px;
                         }
-
-
                     }
 
                     .reviews {
@@ -551,22 +589,20 @@ body::after {
                         margin: 0px;
                     }
 
-
                     .elements {
                         align-self: center;
                         justify-content: center;
-                        background-color: #0A2E36;
+                        background-color: #0a2e36;
                         padding: 20px;
                         border-radius: 20px;
                     }
                 }
 
                 .left_part {
-
                     img {
                         align-self: center;
-                        height: 200px;
-                        width: auto;
+                        height: 150px;
+                        width: 100px;
                     }
 
                     .container {
@@ -577,8 +613,6 @@ body::after {
                                 margin: 5px 0;
                                 border: none;
                             }
-
-
                         }
 
                         .star {

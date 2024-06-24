@@ -209,7 +209,11 @@ const server = http.createServer((req, res) => {
         const bookId = req.url.split('/').pop()
         handlePageDetailsRequest(req, res, bookId)
     } else if (req.method === 'GET' && req.url === '/readingch') {
-        handleReadingCh(req, res)
+        if (isUserLoggedIn(req)) handleReadingCh(req, res)
+        else {
+            res.writeHead(302, { Location: '/login' })
+            res.end()
+        }
     } else if (req.method === 'GET' && req.url === '/reading-details') {
         handleReadingChallenges(req, res)
     } else if (req.method === 'POST' && req.url === '/delete-challenge') {
@@ -270,7 +274,7 @@ const server = http.createServer((req, res) => {
     } else if (req.method === 'GET' && req.url === '/mainpage') {
         if (isUserLoggedIn(req)) handleMainPage(req, res)
         else {
-            res.writeHead(302, { Location: '/login' })
+            res.writeHead(302, { Location: '/' })
             res.end()
         }
     } else if (req.method === 'GET' && req.url === '/api/mainpage') {
