@@ -5,16 +5,15 @@ const generateRSS = (reviews, readings) => {
     let rssFeed = `<?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
 <channel>
-    <title>Recenzii și Lecturi</title>
-    <description>Ultimele recenzii pentru cărți și lecturi</description>
+    <title>Recenzii si Lecturi</title>
+    <description>Ultimele recenzii pentru carti si lecturi</description>
     <link>http://localhost:3000</link>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
     <pubDate>${new Date().toUTCString()}</pubDate>
     <ttl>1800</ttl>`
 
-    // Adăugăm noutățile pentru recenzii
     reviews.forEach((review) => {
-        const reviewLink = `http://localhost:3000/book/${review.bookId}` // Link-ul pentru recenzie
+        const reviewLink = `http://localhost:3000/book/${review.bookId}`
 
         rssFeed += `
     <item>
@@ -23,7 +22,7 @@ const generateRSS = (reviews, readings) => {
         }</title>
         <description>${review.reviewDescription}</description>
         <link>${reviewLink}</link>
-        <guid>${reviewLink}</guid> <!-- Folosește linkul recenziei ca și GUID -->
+        <guid>${reviewLink}</guid> 
         <pubDate>${new Date(review.date).toUTCString()}</pubDate>
     </item>`
     })
@@ -34,12 +33,12 @@ const generateRSS = (reviews, readings) => {
 
         rssFeed += `
     <item>
-        <title>Lectură: ${reading.bookTitle} - Citită de ${
+        <title>Lectura: ${reading.bookTitle} - Citita de ${
             reading.user.lastName
         } ${reading.user.firstName}</title>
         <description>${reading.descr}</description>
         <link>${readingLink}</link>
-        <guid>${readingLink}</guid> <!-- Folosește linkul lecturii ca și GUID -->
+        <guid>${readingLink}</guid> 
         <pubDate>${new Date(reading.updateDate).toUTCString()}</pubDate>
     </item>`
     })

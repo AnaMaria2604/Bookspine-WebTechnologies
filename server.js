@@ -52,7 +52,7 @@ const {
     handleGroupConversationSubmit,
 } = require('./Backend/groupConv')
 const { handleGroupConvRequest } = require('./Backend/groupConvFunction')
-const { isUserLoggedIn } = require('./Backend/loginStatus')
+const { isUserLoggedIn, verifyIfIsAdmin } = require('./Backend/loginStatus')
 const { handleMyAccount } = require('./Backend/account')
 const { handleUpdateBook } = require('./Backend/updateBook')
 const { handleBookForUpdateRequest } = require('./Backend/updateBookFunctions')
@@ -272,8 +272,18 @@ const server = http.createServer((req, res) => {
     } else if (req.method === 'GET' && req.url === '/statistics') {
         handleStatisticsRequest(req, res)
     } else if (req.method === 'GET' && req.url === '/mainpage') {
-        if (isUserLoggedIn(req)) handleMainPage(req, res)
-        else {
+        if (isUserLoggedIn(req)) {
+            verifyIfIsAdmin(req, (error, adminEmail) => {
+                if (error) {
+                    console.error('Error:', error)
+                } else if (adminEmail) {
+                    res.writeHead(302, { Location: '/admin' })
+                    res.end()
+                } else {
+                    handleMainPage(req, res)
+                }
+            })
+        } else {
             res.writeHead(302, { Location: '/' })
             res.end()
         }
@@ -381,16 +391,20 @@ const server = http.createServer((req, res) => {
             res.end()
         }
     } else if (req.method === 'POST' && req.url.startsWith('/group-conv/')) {
+        console.log('herereeee')
         const parts = req.url.split('/')
         const groupId = parts[2]
         const bookId = parts[3]
+        console.log(groupId)
+        console.log(bookId)
         if (bookId == null || groupId == null) {
             res.statusCode = 404
             res.setHeader('Content-Type', 'text/html')
             handleNotFoundPage(req, res)
             return
         }
-        if (isUserLoggedIn(req)) handleGroupConversationSubmit(req, res)
+        if (isUserLoggedIn(req))
+            handleGroupConversationSubmit(req, res, bookId,groupId)
         else {
             res.writeHead(302, { Location: '/login' })
             res.end()
@@ -420,8 +434,22 @@ const server = http.createServer((req, res) => {
         handleRSSRequest(req, res)
     } //trebuie buton
     else if (req.method === 'GET' && req.url === '/admin') {
-        if (isUserLoggedIn(req)) handleAdminPageRequest(req, res)
-        else {
+        if (isUserLoggedIn(req)) {
+            if (isUserLoggedIn(req)) {
+                verifyIfIsAdmin(req, (error, adminEmail) => {
+                    if (error) {
+                        console.error('Error:', error)
+                        res.writeHead(500, { 'Content-Type': 'text/plain' })
+                        res.end('Internal Server Error')
+                    } else if (adminEmail) {
+                        handleAdminPageRequest(req, res)
+                    } else {
+                        res.writeHead(302, { Location: '/mainpage' })
+                        res.end()
+                    }
+                })
+            }
+        } else {
             res.writeHead(302, { Location: '/login' })
             res.end()
         }

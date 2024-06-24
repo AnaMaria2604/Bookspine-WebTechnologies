@@ -22,127 +22,53 @@ const handleAdminPageRequest = (req, res) => {
     })
 }
 
-function verifyIfIsAdmin(email, callback) {
+const handleAllUsersAndGroupsRequest = (req, res) => {
     pool.getConnection((err, connection) => {
         if (err) {
             console.error('Error getting connection:', err)
-            return callback(err, null)
+            res.writeHead(500, { 'Content-Type': 'application/json' })
+            res.end(JSON.stringify({ error: 'Internal Server Error' }))
+            return
         }
 
-        const query = 'SELECT id FROM admin WHERE email = ?'
-        connection.query(query, [email], (error, results) => {
-            connection.release()
-
-            if (error) {
-                console.error('Error executing query:', error)
-                return callback(error, null)
-            }
-
-            if (results.length > 0) {
-                return callback(null, true)
-            } else {
-                return callback(null, false)
-            }
-        })
-    })
-}
-const handleAllUsersAndGroupsRequest = (req, res) => {
-    const token = getTokenFromCookie(req)
-
-    if (!token) {
-        res.writeHead(401, { 'Content-Type': 'application/json' })
-        res.end(JSON.stringify({ error: 'Unauthorized' }))
-        return
-    }
-
-    try {
-        const secretKey =
-            'cfc1fffcd77355620d863b573349ee9cfb7b8552335aaf93e88abc52d147ef5e'
-        const decodedToken = jwt.verify(token, secretKey)
-        const email = decodedToken.email
-
-        verifyIfIsAdmin(email, (error, isAdmin) => {
-            if (error) {
+        const queryUsers = 'SELECT id, email AS userEmail FROM user'
+        connection.query(queryUsers, (errorUsers, resultsUsers) => {
+            if (errorUsers) {
+                connection.release()
+                console.error('Error executing query (users):', errorUsers)
                 res.writeHead(500, { 'Content-Type': 'application/json' })
                 res.end(JSON.stringify({ error: 'Internal Server Error' }))
                 return
             }
 
-            if (!isAdmin) {
-                res.writeHead(403, { 'Content-Type': 'application/json' })
-                res.end(JSON.stringify({ error: 'Forbidden' }))
-                return
-            }
+            const queryTeams = 'SELECT id, teamName FROM team'
+            connection.query(queryTeams, (errorTeams, resultsTeams) => {
+                connection.release()
 
-            pool.getConnection((err, connection) => {
-                if (err) {
-                    console.error('Error getting connection:', err)
+                if (errorTeams) {
+                    console.error('Error executing query (teams):', errorTeams)
                     res.writeHead(500, { 'Content-Type': 'application/json' })
                     res.end(JSON.stringify({ error: 'Internal Server Error' }))
                     return
                 }
 
-                const queryUsers = 'SELECT id, email AS userEmail FROM user'
-                connection.query(queryUsers, (errorUsers, resultsUsers) => {
-                    if (errorUsers) {
-                        connection.release()
-                        console.error(
-                            'Error executing query (users):',
-                            errorUsers
-                        )
-                        res.writeHead(500, {
-                            'Content-Type': 'application/json',
-                        })
-                        res.end(
-                            JSON.stringify({ error: 'Internal Server Error' })
-                        )
-                        return
-                    }
+                // Construim răspunsul final
+                const response = {
+                    users: resultsUsers.map((user) => ({
+                        id: user.id,
+                        email: user.userEmail,
+                    })),
+                    teams: resultsTeams.map((team) => ({
+                        id: team.id,
+                        teamName: team.teamName,
+                    })),
+                }
 
-                    const queryTeams = 'SELECT id, teamName FROM team'
-                    connection.query(queryTeams, (errorTeams, resultsTeams) => {
-                        connection.release()
-
-                        if (errorTeams) {
-                            console.error(
-                                'Error executing query (teams):',
-                                errorTeams
-                            )
-                            res.writeHead(500, {
-                                'Content-Type': 'application/json',
-                            })
-                            res.end(
-                                JSON.stringify({
-                                    error: 'Internal Server Error',
-                                })
-                            )
-                            return
-                        }
-
-                        // Construim răspunsul final
-                        const response = {
-                            users: resultsUsers.map((user) => ({
-                                id: user.id,
-                                email: user.userEmail,
-                            })),
-                            teams: resultsTeams.map((team) => ({
-                                id: team.id,
-                                teamName: team.teamName,
-                            })),
-                        }
-
-                        res.writeHead(200, {
-                            'Content-Type': 'application/json',
-                        })
-                        res.end(JSON.stringify(response))
-                    })
-                })
+                res.writeHead(200, { 'Content-Type': 'application/json' })
+                res.end(JSON.stringify(response))
             })
         })
-    } catch (error) {
-        res.writeHead(401, { 'Content-Type': 'application/json' })
-        res.end(JSON.stringify({ error: 'Unauthorized' }))
-    }
+    })
 }
 
 const handleDeleteUser = (req, res, userId) => {
@@ -369,15 +295,6 @@ function handleDeleteGroup(req, res, groupId) {
                 })
         })
     })
-}
-
-function getTokenFromCookie(req) {
-    const cookies = req.headers.cookie
-    if (cookies) {
-        const parsedCookies = cookie.parse(cookies)
-        return parsedCookies.token
-    }
-    return null
 }
 module.exports = {
     handleAdminPageRequest,
