@@ -49,7 +49,7 @@ function handleLoginSubmission(req, res) {
                 res.end()
             }
         } catch (error) {
-            console.error('Authentication failed:', error)
+            //            console.error('Authentication failed:', error)
 
             res.setHeader('Content-Type', 'text/html')
             res.end(`

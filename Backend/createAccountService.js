@@ -172,8 +172,7 @@ function createAccount(
     res
 ) {
     if (password !== confirmPassword) {
-        res.writeHead(400, { 'Content-Type': 'application/json' })
-        return res.end(JSON.stringify({ message: 'Passwords do not match' }))
+        throw new Error('Passwords do not match')
     }
 
     checkEmailExists(email, (err, emailExists) => {
