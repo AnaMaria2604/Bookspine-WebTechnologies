@@ -404,7 +404,7 @@ const server = http.createServer((req, res) => {
             return
         }
         if (isUserLoggedIn(req))
-            handleGroupConversationSubmit(req, res, bookId,groupId)
+            handleGroupConversationSubmit(req, res, bookId, groupId)
         else {
             res.writeHead(302, { Location: '/login' })
             res.end()
