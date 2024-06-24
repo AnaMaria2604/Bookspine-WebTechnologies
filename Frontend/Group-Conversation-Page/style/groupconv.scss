@@ -18,6 +18,7 @@ body {
     display: flex;
     flex-direction: column;
     margin: 0;
+
     .header {
         top: 0;
         left: 0;
@@ -31,11 +32,13 @@ body {
             align-items: center;
             position: relative;
             margin: 0 10px;
+
             .first {
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
                 margin-left: 10px;
+
                 .logo {
                     img {
                         width: 25px;
@@ -51,6 +54,7 @@ body {
                     text-decoration: none;
                 }
             }
+
             &__links {
                 display: flex;
                 flex-direction: column;
@@ -69,6 +73,7 @@ body {
                         font-weight: bold;
                         text-decoration: none;
                     }
+
                     .search-container {
                         display: flex;
                         align-items: center;
@@ -151,7 +156,6 @@ body {
             }
 
             .books {
-                background-color: pink;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -165,15 +169,27 @@ body {
                     flex-direction: column;
                     color: $textcolor;
                     font-size: 15px;
-                    font-weight: bold;
+                    font-weight: 400;
                     padding: 20px;
                     align-self: center;
+                    justify-content: center;
+                    gap: 10px;
+
+
+                    .a {
+                        color: $textcolor;
+                        font-size: 15px;
+                        padding-bottom: 10px;
+                        margin-bottom: 5px;
+                    }
+
                 }
 
-                .a {
-                    color: $textcolor;
-                    font-size: 15px;
-                    padding: 10px;
+                .name {
+                    padding-top: 20px;
+                    font-size: 20px;
+                    font-weight: 700;
+                    color: white;
                 }
             }
 
@@ -228,9 +244,13 @@ body {
                         padding: 20px;
 
                         .userphoto {
-                            height: 30px;
-                            width: 30px;
-                            border-radius: 50%;
+                            aspect-ratio: 1;
+                            background-size: cover;
+                            background-position: center;
+                            object-fit: cover;
+                            border-radius: 100%;
+                            width: 35px;
+                            height: 35px;
                             overflow: hidden;
                         }
                     }
@@ -341,9 +361,11 @@ footer {
                 justify-content: center;
                 margin-top: 10px;
                 text-align: center;
+
                 ul {
                     margin-top: 20px;
                 }
+
                 ul li {
                     display: block;
                     margin: 5px;
@@ -351,6 +373,7 @@ footer {
                 }
             }
         }
+
         .main {
             display: flex;
             flex-direction: column;
@@ -397,9 +420,11 @@ footer {
                 justify-content: center;
                 margin-top: 10px;
                 text-align: center;
+
                 ul {
                     margin-top: 20px;
                 }
+
                 ul li {
                     display: block;
                     margin: 5px;
@@ -407,6 +432,7 @@ footer {
                 }
             }
         }
+
         .main {
             display: flex;
             flex-direction: column;

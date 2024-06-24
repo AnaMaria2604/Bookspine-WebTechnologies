@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 userDiv.classList.add('item')
 
                 const emailDiv = document.createElement('div')
+                emailDiv.classList.add('text')
                 emailDiv.textContent = user.email
 
                 const deleteButton = document.createElement('div')
@@ -54,6 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 teamDiv.classList.add('item')
 
                 const teamNameDiv = document.createElement('div')
+                teamNameDiv.classList.add('text')
                 teamNameDiv.textContent = team.teamName
 
                 const deleteButton = document.createElement('div')

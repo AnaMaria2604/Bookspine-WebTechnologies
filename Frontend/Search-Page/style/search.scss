@@ -19,6 +19,7 @@ body {
     display: flex;
     flex-direction: column;
     margin: 0;
+
     .header {
         top: 0;
         left: 0;
@@ -32,11 +33,13 @@ body {
             align-items: center;
             position: relative;
             margin: 0 10px;
+
             .first {
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
                 margin-left: 10px;
+
                 .logo {
                     img {
                         width: 25px;
@@ -52,6 +55,7 @@ body {
                     text-decoration: none;
                 }
             }
+
             &__links {
                 display: flex;
                 flex-direction: column;
@@ -70,6 +74,7 @@ body {
                         font-weight: bold;
                         text-decoration: none;
                     }
+
                     .search-container {
                         display: flex;
                         align-items: center;
@@ -206,7 +211,7 @@ body {
                         }
                     }
 
-                    .grupuri > .mybooks__categorie {
+                    .grupuri>.mybooks__categorie {
                         margin-top: 10px;
                     }
                 }
@@ -230,10 +235,13 @@ body {
                             flex-direction: row;
 
                             .poza {
-                                height: 100px;
+                                aspect-ratio: 1;
+                                background-size: cover;
+                                background-position: center;
+                                object-fit: cover;
+                                border-radius: 100%;
                                 width: 100px;
-                                border-radius: 10px;
-                                float: left;
+                                height: 100px;
                             }
 
                             .mybooks__category {
@@ -286,14 +294,14 @@ body {
                                     }
                                 }
 
-                                .group__updates > .text {
+                                .group__updates>.text {
                                     margin-right: 8px;
                                 }
                             }
                         }
                     }
 
-                    .grupuri > .mybooks__categorie {
+                    .grupuri>.mybooks__categorie {
                         margin-top: 10px;
                     }
                 }
@@ -382,6 +390,7 @@ footer {
 @media (min-width: 320px) and (max-width: 480px) {
     body {
         width: 100%;
+
         .header .navbar {
             flex-direction: column;
             margin-top: 20px;
@@ -391,9 +400,11 @@ footer {
                 justify-content: center;
                 margin-top: 10px;
                 text-align: center;
+
                 ul {
                     margin-top: 20px;
                 }
+
                 ul li {
                     display: block;
                     margin: 5px;
@@ -401,6 +412,7 @@ footer {
                 }
             }
         }
+
         .pagina {
             display: flex;
             flex-direction: column-reverse;
@@ -476,7 +488,7 @@ footer {
                             }
                         }
 
-                        .grupuri > .mybooks__categorie {
+                        .grupuri>.mybooks__categorie {
                             margin-top: 10px;
                         }
                     }

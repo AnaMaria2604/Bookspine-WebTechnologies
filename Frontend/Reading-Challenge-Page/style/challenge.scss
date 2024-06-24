@@ -34,11 +34,13 @@ body {
       align-items: center;
       position: relative;
       margin: 0 10px;
+
       .first {
         display: flex;
         flex-direction: row;
         justify-content: center;
         margin-left: 10px;
+
         .logo {
           img {
             width: 25px;
@@ -54,6 +56,7 @@ body {
           text-decoration: none;
         }
       }
+
       &__links {
         display: flex;
         flex-direction: column;
@@ -72,6 +75,7 @@ body {
             font-weight: bold;
             text-decoration: none;
           }
+
           .search-container {
             display: flex;
             align-items: center;
@@ -194,9 +198,13 @@ body {
           gap: 10px;
 
           .format__poza {
-            height: 100px;
+            aspect-ratio: 1;
+            background-size: cover;
+            background-position: center;
+            object-fit: cover;
+            border-radius: 100%;
             width: 100px;
-            border-radius: 50%;
+            height: 100px;
           }
 
           .format__text {
@@ -251,7 +259,7 @@ body {
     }
   }
 
-  .challenges > .articol {
+  .challenges>.articol {
     margin-bottom: 30px;
   }
 
@@ -376,9 +384,11 @@ footer {
         justify-content: center;
         margin-top: 10px;
         text-align: center;
+
         ul {
           margin-top: 20px;
         }
+
         ul li {
           display: block;
           margin: 5px;
@@ -386,6 +396,7 @@ footer {
         }
       }
     }
+
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -572,6 +583,7 @@ footer {
     flex-direction: column;
     align-items: center;
     gap: 10px;
+
     .header .navbar {
       flex-direction: column;
       margin-top: 20px;
@@ -581,9 +593,11 @@ footer {
         justify-content: center;
         margin-top: 10px;
         text-align: center;
+
         ul {
           margin-top: 20px;
         }
+
         ul li {
           display: block;
           margin: 5px;
@@ -591,6 +605,7 @@ footer {
         }
       }
     }
+
     .challenges {
       .articol {
         .format {

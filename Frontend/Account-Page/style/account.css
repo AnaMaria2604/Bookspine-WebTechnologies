@@ -163,6 +163,7 @@ body .page__body .main .parts .left_part {
   display: flex;
   flex-direction: column;
   margin-left: 50px;
+  margin-top: 40px;
   align-items: center;
   justify-content: center;
 }
@@ -183,9 +184,14 @@ body .page__body .main .parts .left_part .user .user_content .userphoto {
   align-self: center;
 }
 body .page__body .main .parts .left_part .user .user_content .userphoto img {
-  height: 150px;
-  width: 150px;
-  border-radius: 50%;
+  aspect-ratio: 1;
+  background-size: cover;
+  background-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 100%;
+  width: 200px;
+  height: 200px;
 }
 body .page__body .main .parts .left_part .user .user_content .userphoto img .cover-photo {
   display: flex;
@@ -244,6 +250,7 @@ body .page__body .main .parts .left_part .groups .groups__card {
   width: 90%;
   border-radius: 20px;
   background-color: #104547;
+  gap: 15px;
 }
 body .page__body .main .parts .left_part .groups .groups__card .componenta {
   display: flex;
@@ -251,9 +258,14 @@ body .page__body .main .parts .left_part .groups .groups__card .componenta {
   margin-bottom: 15px;
 }
 body .page__body .main .parts .left_part .groups .groups__card .componenta img {
-  height: 60px;
-  width: 60px;
-  border-radius: 50%;
+  aspect-ratio: 1;
+  background-size: cover;
+  background-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 100%;
+  width: 80px;
+  height: 80px;
 }
 body .page__body .main .parts .left_part .groups .groups__card .componenta a {
   padding-left: 10px;
@@ -320,7 +332,7 @@ body .page__body .main .parts .middle_part .buttons {
 }
 body .page__body .main .parts .middle_part .buttons a {
   font-weight: 700;
-  color: #0A2E36;
+  color: #0a2e36;
   font-size: 16px;
 }
 body .page__body .main .parts .right_part {
@@ -465,8 +477,7 @@ body .page__body .main .save {
   width: 10%;
 }
 body .page__body .main .save:hover {
-  background-color: #0A2E36;
-
+  background-color: #0a2e36;
 }
 
 footer {
