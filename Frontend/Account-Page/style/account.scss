@@ -207,7 +207,19 @@ body {
                             align-self: center;
 
                             .userphoto {
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                align-self: center;
+
                                 img {
+                                    .cover-photo {
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content: center;
+                                        align-self: center;
+                                    }
+
                                     height: 150px;
                                     width: 150px;
                                     border-radius: 50%;
@@ -218,7 +230,7 @@ body {
                                 display: flex;
                                 flex-direction: column;
                                 justify-content: center;
-                                align-self: center;
+                                align-content: center;
                                 font-size: 25px;
                                 font-weight: bold;
                             }
@@ -356,6 +368,18 @@ body {
                         }
                     }
 
+                    .buttons {
+                        margin-top: 40px;
+                        display: flex;
+                        flex-direction: column;
+                        align-self: center;
+
+                        a {
+                            font-weight: 700;
+                            color: $darkbutton;
+                            font-size: 16px;
+                        }
+                    }
                 }
 
                 .right_part {
@@ -509,7 +533,7 @@ body {
                 }
             }
 
-            .search-button {
+            .save {
                 align-self: center;
                 padding: 5px 10px;
                 background-color: $button;
@@ -517,13 +541,14 @@ body {
                 border: none;
                 border-radius: 4px;
                 cursor: pointer;
-                font-size: 16px;
+                font-size: 23px;
+                font-weight: 600;
                 margin-top: 20px;
                 width: 10%;
 
             }
 
-            .search-button:hover {
+            .save:hover {
                 background-color: $darkbutton;
 
             }
