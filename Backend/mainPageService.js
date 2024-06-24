@@ -50,12 +50,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 item.classList.add('item')
                 item.innerHTML = `
             <div class="user_content">
-             <div class="id">#id${review.user.id}</div>
-              <a href="/ruta-user-profilee">${review.user.lastName} ${review.user.firstName} </a>
+              <a href="/user-account/${review.user.id}">${review.user.lastName} ${review.user.firstName} </a>
+            <div class="id">#id${review.user.id}</div>
               <div class="action">reviews</div>
               <div class="titlucarte">${review.bookTitle}</div>
             </div>
-            <div class="descriere">${review.reviewDescription}</div>
+            <div class="descriere">"${review.reviewDescription}"</div>
             <div class="actions">
               <div class="review"><a href="/book/${review.bookId}">See the complete review</a></div>
             </div>
@@ -67,13 +67,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 item.classList.add('item')
                 item.innerHTML = `
             <div class="user_content">
-             <div class="id">#${reading.user.id}</div>
-              <a href="../User-Profile-Page/userprofile.html">${reading.user.lastName} ${reading.user.firstName} </a>
+              <a href="/user-account/${reading.user.id}">${reading.user.lastName} ${reading.user.firstName} </a>
+              <div class="id">#id${reading.user.id}</div>
               <div class="action">finished the </div>
               <div class="titlucarte">${reading.bookTitle}</div>
             </div>
-            <div class="descriere">${reading.descr}</div>
-           
+            <div class="descriere">"${reading.descr}"</div>
           `
                 updates.appendChild(item)
             })
