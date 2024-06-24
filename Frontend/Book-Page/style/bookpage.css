@@ -4,7 +4,7 @@
 }
 
 body {
-  background-color: #ACEAEC;
+  background-color: #aceaec;
   display: flex;
   flex-direction: column;
   margin: 0;
@@ -12,8 +12,8 @@ body {
 body .header {
   top: 0;
   left: 0;
-  background-color: #01161E;
   margin: 0;
+  background-color: #01161e;
 }
 body .header .navbar {
   display: flex;
@@ -22,11 +22,22 @@ body .header .navbar {
   position: relative;
   margin: 0 10px;
 }
-body .header .navbar a {
+body .header .navbar .first {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-left: 10px;
+}
+body .header .navbar .first .logo img {
+  width: 25px;
+  height: 25px;
+}
+body .header .navbar .first a {
   color: white;
   font-size: 20px;
   padding-left: 10px;
   font-weight: bold;
+  text-decoration: none;
 }
 body .header .navbar__links {
   display: flex;
@@ -44,6 +55,7 @@ body .header .navbar__links ul li a {
   color: white;
   font-size: 17px;
   font-weight: bold;
+  text-decoration: none;
 }
 body .header .navbar__links ul li .search-container {
   display: flex;
@@ -69,7 +81,7 @@ body .header .navbar__links ul li .search-button {
   margin-left: 8px;
 }
 body .header .navbar__links ul li .search-button:hover {
-  background-color: #0A2E36;
+  background-color: #0a2e36;
 }
 body .dropdown-container {
   position: absolute;
@@ -78,7 +90,7 @@ body .dropdown-container {
   display: none;
 }
 body .dropdown-menu {
-  background-color: #01161E;
+  background-color: #01161e;
   padding: 10px;
   border: 1px solid #2a3738;
   list-style-type: none;
@@ -94,19 +106,20 @@ body .dropdown-menu li a {
   font-size: 17px;
   font-weight: bold;
 }
+body .main {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
 body .main .content {
-  padding: 30px;
+  width: 80%;
   background-color: #104547;
   border-radius: 20px;
   margin-top: 170px;
-  margin-left: 10%;
-  margin-right: 10%;
-  margin-bottom: 50px;
-  width: 80%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  flex: 1;
 }
 body .main .content .left_part {
   display: flex;
@@ -235,7 +248,7 @@ body .main .content .right_part .reviews .section_text {
   margin-bottom: 10px;
 }
 body .main .content .right_part .reviews .item {
-  background-color: #0A2E36;
+  background-color: #0a2e36;
 }
 body .main .content .right_part .reviews .item .user_content {
   display: flex;
@@ -338,8 +351,30 @@ body::after {
   pointer-events: none;
 }
 
-@media (min-width: 481px) and (max-width: 1241px) {
+@media (min-width: 481px) and (max-width: 720px) {
+  body .header .navbar {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  body .header .navbar .navbar__links {
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10px;
+    text-align: center;
+  }
+  body .header .navbar .navbar__links ul {
+    margin-top: 20px;
+  }
+  body .header .navbar .navbar__links ul li {
+    display: block;
+    margin: 5px;
+    padding: 0;
+  }
+  body .main {
+    width: 100%;
+  }
   body .main .content {
+    width: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -355,14 +390,14 @@ body::after {
   body .main .content .right_part .elements {
     align-self: center;
     justify-content: center;
-    background-color: #0A2E36;
+    background-color: #0a2e36;
     padding: 20px;
     border-radius: 20px;
   }
-  body .main .content .left_part img {
+  body .main .content .left_part .book_cover img {
     align-self: center;
     height: 200px;
-    width: auto;
+    width: 150px;
   }
   body .main .content .left_part .container .star {
     align-self: center;
@@ -380,6 +415,24 @@ body::after {
   }
 }
 @media (min-width: 320px) and (max-width: 480px) {
+  body .header .navbar {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  body .header .navbar .navbar__links {
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10px;
+    text-align: center;
+  }
+  body .header .navbar .navbar__links ul {
+    margin-top: 20px;
+  }
+  body .header .navbar .navbar__links ul li {
+    display: block;
+    margin: 5px;
+    padding: 0;
+  }
   body .main .content {
     display: flex;
     flex-direction: column;
@@ -391,7 +444,7 @@ body::after {
   body .main .content .right_part .elements {
     align-self: center;
     justify-content: center;
-    background-color: #0A2E36;
+    background-color: #0a2e36;
     padding: 20px;
     border-radius: 10px;
   }
@@ -437,14 +490,14 @@ body::after {
   body .main .content .right_part .elements {
     align-self: center;
     justify-content: center;
-    background-color: #0A2E36;
+    background-color: #0a2e36;
     padding: 20px;
     border-radius: 20px;
   }
   body .main .content .left_part img {
     align-self: center;
-    height: 200px;
-    width: auto;
+    height: 150px;
+    width: 100px;
   }
   body .main .content .left_part .container .shelves {
     font-size: 12px;

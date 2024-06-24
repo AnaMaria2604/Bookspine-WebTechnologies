@@ -4,7 +4,7 @@
 }
 
 body {
-  background-color: #ACEAEC;
+  background-color: #aceaec;
   display: flex;
   flex-direction: column;
   margin: 0;
@@ -12,8 +12,8 @@ body {
 body .header {
   top: 0;
   left: 0;
-  background-color: #01161E;
   margin: 0;
+  background-color: #01161e;
 }
 body .header .navbar {
   display: flex;
@@ -22,11 +22,22 @@ body .header .navbar {
   position: relative;
   margin: 0 10px;
 }
-body .header .navbar a {
+body .header .navbar .first {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-left: 10px;
+}
+body .header .navbar .first .logo img {
+  width: 25px;
+  height: 25px;
+}
+body .header .navbar .first a {
   color: white;
   font-size: 20px;
   padding-left: 10px;
   font-weight: bold;
+  text-decoration: none;
 }
 body .header .navbar__links {
   display: flex;
@@ -44,6 +55,7 @@ body .header .navbar__links ul li a {
   color: white;
   font-size: 17px;
   font-weight: bold;
+  text-decoration: none;
 }
 body .header .navbar__links ul li .search-container {
   display: flex;
@@ -69,7 +81,7 @@ body .header .navbar__links ul li .search-button {
   margin-left: 8px;
 }
 body .header .navbar__links ul li .search-button:hover {
-  background-color: #0A2E36;
+  background-color: #0a2e36;
 }
 body .dropdown-container {
   position: absolute;
@@ -78,7 +90,7 @@ body .dropdown-container {
   display: none;
 }
 body .dropdown-menu {
-  background-color: #01161E;
+  background-color: #01161e;
   padding: 10px;
   border: 1px solid #2a3738;
   list-style-type: none;
@@ -286,7 +298,7 @@ body .page__body .main .parts .middle_part .container .search-button {
   margin-left: 8px;
 }
 body .page__body .main .parts .middle_part .container .search-button:hover {
-  background-color: #0A2E36;
+  background-color: #0a2e36;
 }
 body .page__body .main .parts .right_part {
   display: flex;
@@ -327,23 +339,23 @@ body .page__body .main .parts .right_part .continut .photo-upload label {
   cursor: pointer;
   padding: 3px 5px;
   border-radius: 4px;
-  background-color: #01161E;
+  background-color: #01161e;
   color: white;
 }
 body .page__body .main .parts .right_part .continut .photo-upload label:hover {
-  background-color: #0A2E36;
+  background-color: #0a2e36;
 }
 body .page__body .main .parts .right_part .continut .photo-upload label + input[type=file]::after {
   content: "Choose file";
   display: inline-block;
   padding: 3px 5px;
   border-radius: 4px;
-  background-color: #01161E;
+  background-color: #01161e;
   cursor: pointer;
   margin-left: 10px;
 }
 body .page__body .main .parts .right_part .continut .photo-upload label + input[type=file]::after:hover {
-  background-color: #0A2E36;
+  background-color: #0a2e36;
 }
 body .page__body .main .parts .right_part .continut .container {
   display: flex;
@@ -384,7 +396,7 @@ body .page__body .main .parts .right_part .continut .container .search-button {
   flex-wrap: wrap;
   align-content: center;
   padding: 4px 10px;
-  background-color: #01161E;
+  background-color: #01161e;
   color: white;
   border: none;
   width: 20%;
@@ -394,7 +406,7 @@ body .page__body .main .parts .right_part .continut .container .search-button {
   margin-left: 8px;
 }
 body .page__body .main .parts .right_part .continut .container .search-button:hover {
-  background-color: #0A2E36;
+  background-color: #0a2e36;
 }
 body .page__body .main .parts .right_part .continut .button {
   align-self: center;
@@ -405,7 +417,7 @@ body .page__body .main .parts .right_part .continut .button .search-button {
   flex-wrap: wrap;
   align-content: center;
   padding: 4px 10px;
-  background-color: #01161E;
+  background-color: #01161e;
   color: white;
   border: none;
   border-radius: 4px;
@@ -414,7 +426,7 @@ body .page__body .main .parts .right_part .continut .button .search-button {
   margin-left: 8px;
 }
 body .page__body .main .parts .right_part .continut .button .search-button:hover {
-  background-color: #0A2E36;
+  background-color: #0a2e36;
 }
 body .page__body .main .search-button {
   align-self: center;
@@ -429,7 +441,7 @@ body .page__body .main .search-button {
   width: 10%;
 }
 body .page__body .main .search-button:hover {
-  background-color: #0A2E36;
+  background-color: #0a2e36;
 }
 
 footer {
@@ -473,6 +485,24 @@ body::after {
 }
 
 @media (min-width: 481px) and (max-width: 1200px) {
+  body .header .navbar {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  body .header .navbar .navbar__links {
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10px;
+    text-align: center;
+  }
+  body .header .navbar .navbar__links ul {
+    margin-top: 20px;
+  }
+  body .header .navbar .navbar__links ul li {
+    display: block;
+    margin: 5px;
+    padding: 0;
+  }
   body .page__body {
     margin: 0px 0px 0px 0px;
     display: flex;
@@ -566,10 +596,28 @@ body::after {
     font-size: 20px;
   }
   body .page__body .main .search-button:hover {
-    background-color: #0A2E36;
+    background-color: #0a2e36;
   }
 }
 @media (min-width: 320px) and (max-width: 480px) {
+  body .header .navbar {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  body .header .navbar .navbar__links {
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10px;
+    text-align: center;
+  }
+  body .header .navbar .navbar__links ul {
+    margin-top: 20px;
+  }
+  body .header .navbar .navbar__links ul li {
+    display: block;
+    margin: 5px;
+    padding: 0;
+  }
   body .page__body .page__header .underline {
     display: none;
   }
@@ -653,7 +701,7 @@ body::after {
     flex-wrap: wrap;
     align-content: center;
     padding: 4px 10px;
-    background-color: #01161E;
+    background-color: #01161e;
     color: white;
     border: none;
     border-radius: 4px;
@@ -662,7 +710,7 @@ body::after {
     margin-left: 8px;
   }
   body .page__body .main .parts .right_part .button .search-button:hover {
-    background-color: #0A2E36;
+    background-color: #0a2e36;
   }
   body .page__body .main .search-button {
     width: auto;
@@ -676,6 +724,6 @@ body::after {
     font-size: 20px;
   }
   body .page__body .main .search-button:hover {
-    background-color: #0A2E36;
+    background-color: #0a2e36;
   }
 }/*# sourceMappingURL=account.css.map */

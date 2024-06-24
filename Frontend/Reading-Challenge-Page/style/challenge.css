@@ -4,7 +4,7 @@
 }
 
 body {
-  background-color: #ACEAEC;
+  background-color: #aceaec;
   display: flex;
   flex-direction: column;
   margin: 0;
@@ -12,8 +12,8 @@ body {
 body .header {
   top: 0;
   left: 0;
-  background-color: #01161E;
   margin: 0;
+  background-color: #01161e;
 }
 body .header .navbar {
   display: flex;
@@ -22,11 +22,22 @@ body .header .navbar {
   position: relative;
   margin: 0 10px;
 }
-body .header .navbar a {
+body .header .navbar .first {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-left: 10px;
+}
+body .header .navbar .first .logo img {
+  width: 25px;
+  height: 25px;
+}
+body .header .navbar .first a {
   color: white;
   font-size: 20px;
   padding-left: 10px;
   font-weight: bold;
+  text-decoration: none;
 }
 body .header .navbar__links {
   display: flex;
@@ -44,6 +55,7 @@ body .header .navbar__links ul li a {
   color: white;
   font-size: 17px;
   font-weight: bold;
+  text-decoration: none;
 }
 body .header .navbar__links ul li .search-container {
   display: flex;
@@ -69,7 +81,7 @@ body .header .navbar__links ul li .search-button {
   margin-left: 8px;
 }
 body .header .navbar__links ul li .search-button:hover {
-  background-color: #0A2E36;
+  background-color: #0a2e36;
 }
 body .dropdown-container {
   position: absolute;
@@ -78,7 +90,7 @@ body .dropdown-container {
   display: none;
 }
 body .dropdown-menu {
-  background-color: #01161E;
+  background-color: #01161e;
   padding: 10px;
   border: 1px solid #2a3738;
   list-style-type: none;
@@ -167,7 +179,7 @@ body .challenges .articol .format .ch .format__text .butoane {
   flex-direction: row;
 }
 body .challenges .articol .format .ch .format__text .butoane button {
-  color: #ACEAEC;
+  color: #aceaec;
   border: none;
 }
 body .challenges .articol .format .ch .format__text .edit-form {
@@ -179,7 +191,7 @@ body .challenges .articol .format .ch .format__text .edit-form {
   padding-top: 30px;
 }
 body .challenges .articol .format .ch .format__text .edit-form input {
-  color: #ACEAEC;
+  color: #aceaec;
   font-size: 15px;
   background-color: #07373b;
   border: 2px solid #052629;
@@ -190,7 +202,7 @@ body .challenges .articol .format .ch .format__text .edit-form .save-btn {
   border: none;
   display: flex;
   flex-direction: row;
-  color: #ACEAEC;
+  color: #aceaec;
 }
 body .challenges > .articol {
   margin-bottom: 30px;
@@ -305,6 +317,24 @@ footer {
     align-items: center;
     gap: 30px;
   }
+  body .header .navbar {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  body .header .navbar .navbar__links {
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10px;
+    text-align: center;
+  }
+  body .header .navbar .navbar__links ul {
+    margin-top: 20px;
+  }
+  body .header .navbar .navbar__links ul li {
+    display: block;
+    margin: 5px;
+    padding: 0;
+  }
   body .challenges .articol .format .ch {
     align-items: center;
     justify-content: end;
@@ -325,7 +355,7 @@ footer {
     width: 100%;
   }
   body .challenges .articol .format .ch .format__text .butoane button {
-    color: #ACEAEC;
+    color: #aceaec;
     border: none;
   }
   body .challenges .articol .format .ch .format__text .edit-form {
@@ -434,6 +464,24 @@ footer {
     align-items: center;
     gap: 10px;
   }
+  body .header .navbar {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  body .header .navbar .navbar__links {
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10px;
+    text-align: center;
+  }
+  body .header .navbar .navbar__links ul {
+    margin-top: 20px;
+  }
+  body .header .navbar .navbar__links ul li {
+    display: block;
+    margin: 5px;
+    padding: 0;
+  }
   body .challenges .articol .format .ch {
     align-items: center;
     justify-content: end;
@@ -454,7 +502,7 @@ footer {
     width: 100%;
   }
   body .challenges .articol .format .ch .format__text .butoane button {
-    color: #ACEAEC;
+    color: #aceaec;
     border: none;
   }
   body .challenges .articol .format .ch .format__text .edit-form {

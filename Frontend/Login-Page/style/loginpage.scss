@@ -18,27 +18,39 @@ body {
     display: flex;
     flex-direction: column;
     margin: 0;
-
     .header {
         top: 0;
         left: 0;
-        background-color: $header;
         margin: 0;
+        background-color: $header;
 
         .navbar {
             display: flex;
+            // flex-direction: row;
             justify-content: space-between;
             align-items: center;
             position: relative;
             margin: 0 10px;
+            .first {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                margin-left: 10px;
+                .logo {
+                    img {
+                        width: 25px;
+                        height: 25px;
+                    }
+                }
 
-            a {
-                color: $textcolor;
-                font-size: 20px;
-                padding-left: 10px;
-                font-weight: bold;
+                a {
+                    color: $textcolor;
+                    font-size: 20px;
+                    padding-left: 10px;
+                    font-weight: bold;
+                    text-decoration: none;
+                }
             }
-
             &__links {
                 display: flex;
                 flex-direction: column;
@@ -55,8 +67,8 @@ body {
                         color: $textcolor;
                         font-size: 17px;
                         font-weight: bold;
+                        text-decoration: none;
                     }
-
                     .search-container {
                         display: flex;
                         align-items: center;
@@ -257,6 +269,25 @@ footer {
 
 @media (min-width: 768px) and (max-width: 1300px) {
     body {
+        .header .navbar {
+            flex-direction: column;
+            margin-top: 20px;
+
+            .navbar__links {
+                flex-direction: row;
+                justify-content: center;
+                margin-top: 10px;
+                text-align: center;
+                ul {
+                    margin-top: 20px;
+                }
+                ul li {
+                    display: block;
+                    margin: 5px;
+                    padding: 0;
+                }
+            }
+        }
         .AuthentificationContainer {
             margin-top: 20%;
         }
@@ -265,6 +296,25 @@ footer {
 
 @media (min-width: 481px) and (max-width: 767px) {
     body {
+        .header .navbar {
+            flex-direction: column;
+            margin-top: 20px;
+
+            .navbar__links {
+                flex-direction: row;
+                justify-content: center;
+                margin-top: 10px;
+                text-align: center;
+                ul {
+                    margin-top: 20px;
+                }
+                ul li {
+                    display: block;
+                    margin: 5px;
+                    padding: 0;
+                }
+            }
+        }
         .AuthentificationContainer {
             margin-top: 30%;
         }
@@ -273,6 +323,25 @@ footer {
 
 @media (min-width: 320px) and (max-width: 480px) {
     body {
+        .header .navbar {
+            flex-direction: column;
+            margin-top: 20px;
+
+            .navbar__links {
+                flex-direction: row;
+                justify-content: center;
+                margin-top: 10px;
+                text-align: center;
+                ul {
+                    margin-top: 20px;
+                }
+                ul li {
+                    display: block;
+                    margin: 5px;
+                    padding: 0;
+                }
+            }
+        }
         .AuthentificationContainer {
             margin-top: 50%;
 

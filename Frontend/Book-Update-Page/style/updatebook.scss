@@ -1,18 +1,18 @@
 $color: #ffaa8e;
-$background: #ACEAEC;
-$header: #01161E;
+$background: #aceaec;
+$header: #01161e;
 $footer: #0c3742;
 $body: #104547;
 $textcolor: #ffff;
 $button: #124559;
-$darkbutton: #0A2E36;
+$darkbutton: #0a2e36;
 $bordercolor: #2a3738;
-$challenge: #272D2D;
+$challenge: #272d2d;
 $body2: #01474d;
 $button2: #496264;
 
 * {
-    font-family: 'Segoe UI', Verdana, sans-serif;
+    font-family: "Segoe UI", Verdana, sans-serif;
     background: none;
 }
 
@@ -21,27 +21,39 @@ body {
     display: flex;
     flex-direction: column;
     margin: 0;
-
     .header {
         top: 0;
         left: 0;
-        background-color: $header;
         margin: 0;
+        background-color: $header;
 
         .navbar {
             display: flex;
+            // flex-direction: row;
             justify-content: space-between;
             align-items: center;
             position: relative;
             margin: 0 10px;
+            .first {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                margin-left: 10px;
+                .logo {
+                    img {
+                        width: 25px;
+                        height: 25px;
+                    }
+                }
 
-            a {
-                color: $textcolor;
-                font-size: 20px;
-                padding-left: 10px;
-                font-weight: bold;
+                a {
+                    color: $textcolor;
+                    font-size: 20px;
+                    padding-left: 10px;
+                    font-weight: bold;
+                    text-decoration: none;
+                }
             }
-
             &__links {
                 display: flex;
                 flex-direction: column;
@@ -58,8 +70,8 @@ body {
                         color: $textcolor;
                         font-size: 17px;
                         font-weight: bold;
+                        text-decoration: none;
                     }
-
                     .search-container {
                         display: flex;
                         align-items: center;
@@ -84,17 +96,14 @@ body {
                         cursor: pointer;
                         font-size: 16px;
                         margin-left: 8px;
-
                     }
 
                     .search-button:hover {
                         background-color: $darkbutton;
-
                     }
                 }
             }
         }
-
     }
 
     .dropdown-container {
@@ -123,7 +132,6 @@ body {
         font-size: 17px;
         font-weight: bold;
     }
-
 
     .page {
         background-color: $body2;
@@ -313,10 +321,27 @@ footer {
     color: $textcolor;
 }
 
-
 @media (min-width: 481px) and (max-width: 767px) {
-
     body {
+        .header .navbar {
+            flex-direction: column;
+            margin-top: 20px;
+
+            .navbar__links {
+                flex-direction: row;
+                justify-content: center;
+                margin-top: 10px;
+                text-align: center;
+                ul {
+                    margin-top: 20px;
+                }
+                ul li {
+                    display: block;
+                    margin: 5px;
+                    padding: 0;
+                }
+            }
+        }
         .page {
             .page__header {
                 .poza {
@@ -357,24 +382,38 @@ footer {
     }
 }
 
-
 @media (min-width: 320px) and (max-width: 480px) {
-
     body {
+        .header .navbar {
+            flex-direction: column;
+            margin-top: 20px;
 
+            .navbar__links {
+                flex-direction: row;
+                justify-content: center;
+                margin-top: 10px;
+                text-align: center;
+                ul {
+                    margin-top: 20px;
+                }
+                ul li {
+                    display: block;
+                    margin: 5px;
+                    padding: 0;
+                }
+            }
+        }
         .page {
             justify-content: center;
             align-items: center;
 
             .page__header {
-
                 .book-header {
                     display: flex;
                     flex-direction: column;
 
                     .poza {
                         height: 200px;
-
                     }
 
                     .text {
