@@ -14,16 +14,16 @@ function populateDatabase(connection) {
             'John',
             'Doe',
             'john.doe@example.com',
-            'password123',
+            '$10$8KHCUcF9ZflFhx8o00N4vOL/ln9k5f0icsMwfONR5LiVBQ1O40ABG',
             'I love reading mystery novels.',
             'To be, or not to be, that is the question.',
-            readImage(path.join(__dirname, 'userImages', '1.jpg')),
+            readImage(path.join(__dirname, 'userImages', '3.jpg')),
         ],
         [
             'Jane',
             'Smith',
             'jane.smith@example.com',
-            'password456',
+            '$10$8KHCUcF9ZflFhx8o00N4vOL/ln9k5f0icsMwfONR5LiVBQ1O40ABG',
             'Avid reader of science fiction.',
             'The only limit to our realization of tomorrow is our doubts of today.',
             readImage(path.join(__dirname, 'userImages', '2.jpg')),
@@ -32,16 +32,16 @@ function populateDatabase(connection) {
             'Alice',
             'Johnson',
             'alice.johnson@example.com',
-            'password789',
+            '$10$8KHCUcF9ZflFhx8o00N4vOL/ln9k5f0icsMwfONR5LiVBQ1O40ABG',
             'Enjoys historical fiction.',
             'History is a vast early warning system.',
-            readImage(path.join(__dirname, 'userImages', '3.jpg')),
+            readImage(path.join(__dirname, 'userImages', '1.jpg')),
         ],
         [
             'Bob',
             'Brown',
             'bob.brown@example.com',
-            'password012',
+            '$10$8KHCUcF9ZflFhx8o00N4vOL/ln9k5f0icsMwfONR5LiVBQ1O40ABG',
             'Fan of fantasy books.',
             'Not all those who wander are lost.',
             readImage(path.join(__dirname, 'userImages', '4.jpg')),
@@ -50,7 +50,7 @@ function populateDatabase(connection) {
             'Charlie',
             'Davis',
             'charlie.davis@example.com',
-            'password345',
+            '$10$8KHCUcF9ZflFhx8o00N4vOL/ln9k5f0icsMwfONR5LiVBQ1O40ABG',
             'Reading thrillers is my hobby.',
             'The truth is rarely pure and never simple.',
             readImage(path.join(__dirname, 'userImages', '5.jpg')),
@@ -59,7 +59,7 @@ function populateDatabase(connection) {
             'Diana',
             'Garcia',
             'diana.garcia@example.com',
-            'password678',
+            '$10$8KHCUcF9ZflFhx8o00N4vOL/ln9k5f0icsMwfONR5LiVBQ1O40ABG',
             'Loves classic literature.',
             'It is never too late to be what you might have been.',
             readImage(path.join(__dirname, 'userImages', '6.jpg')),
@@ -68,7 +68,7 @@ function populateDatabase(connection) {
             'Eve',
             'Martinez',
             'eve.martinez@example.com',
-            'password901',
+            '$10$8KHCUcF9ZflFhx8o00N4vOL/ln9k5f0icsMwfONR5LiVBQ1O40ABG',
             'Interested in biographies.',
             "Life is what happens when you're busy making other plans.",
             readImage(path.join(__dirname, 'userImages', '7.jpg')),
@@ -77,7 +77,7 @@ function populateDatabase(connection) {
             'Frank',
             'Wilson',
             'frank.wilson@example.com',
-            'password234',
+            '$10$8KHCUcF9ZflFhx8o00N4vOL/ln9k5f0icsMwfONR5LiVBQ1O40ABG',
             'Reading non-fiction books.',
             'Knowledge is power.',
             readImage(path.join(__dirname, 'userImages', '8.jpg')),
@@ -86,16 +86,16 @@ function populateDatabase(connection) {
             'Grace',
             'Lee',
             'grace.lee@example.com',
-            'password567',
+            '$10$8KHCUcF9ZflFhx8o00N4vOL/ln9k5f0icsMwfONR5LiVBQ1O40ABG',
             'Passionate about poetry.',
             'Poetry is when an emotion has found its thought and the thought has found words.',
             readImage(path.join(__dirname, 'userImages', '9.jpg')),
         ],
         [
-            'Hank',
+            'Marry',
             'Clark',
             'hank.clark@example.com',
-            'password890',
+            '$10$8KHCUcF9ZflFhx8o00N4vOL/ln9k5f0icsMwfONR5LiVBQ1O40ABG',
             'Loves adventure stories.',
             'Adventure is worthwhile in itself.',
             readImage(path.join(__dirname, 'userImages', '10.jpg')),
@@ -262,16 +262,35 @@ function populateDatabase(connection) {
 
     // Adăugăm provocări de lectură
     const readingChallenges = [
-        [10, 10, 3, 'Annual Reading Challenge'],
-        [10, 20, 5, 'Monthly Reading Challenge'],
-        [1, 15, 10, 'Annual Reading Challenge'],
-        [4, 5, 1, 'Monthly Reading Challenge'],
-        [6, 50, 20, 'Annual Reading Challenge'],
-        [2, 12, 4, 'Monthly Reading Challenge'],
-        [9, 30, 15, 'Annual Reading Challenge'],
-        [8, 25, 10, 'Monthly Reading Challenge'],
-        [8, 7, 2, 'Annual Reading Challenge'],
-        [7, 3, 0, 'Monthly Reading Challenge'],
+        [1, 10, 3, 'Annual Reading Challenge'],
+        [1, 20, 5, 'Monthly Reading Challenge'],
+
+        [2, 10, 7, 'Annual Reading Challenge'],
+        [2, 20, 14, 'Monthly Reading Challenge'],
+
+        [3, 20, 12, 'Annual Reading Challenge'],
+        [3, 10, 5, 'Monthly Reading Challenge'],
+
+        [4, 12, 3, 'Annual Reading Challenge'],
+        [4, 20, 9, 'Monthly Reading Challenge'],
+
+        [5, 10, 9, 'Annual Reading Challenge'],
+        [5, 10, 2, 'Monthly Reading Challenge'],
+
+        [6, 30, 26, 'Annual Reading Challenge'],
+        [6, 7, 5, 'Monthly Reading Challenge'],
+
+        [7, 15, 8, 'Annual Reading Challenge'],
+        [7, 4, 2, 'Monthly Reading Challenge'],
+
+        [8, 19, 6, 'Annual Reading Challenge'],
+        [8, 4, 1, 'Monthly Reading Challenge'],
+
+        [9, 36, 22, 'Annual Reading Challenge'],
+        [9, 5, 5, 'Monthly Reading Challenge'],
+
+        [10, 7, 6, 'Annual Reading Challenge'],
+        [10, 3, 1, 'Monthly Reading Challenge'],
     ]
 
     connection.query(
@@ -335,7 +354,7 @@ function populateDatabase(connection) {
         ],
         [
             'Poetry Lovers',
-            10,
+            8,
             'For those who appreciate poetry.',
             path.resolve(__dirname, '..', 'Backend', 'groupImages', '8.jpg'),
         ],
@@ -353,44 +372,98 @@ function populateDatabase(connection) {
         }
     )
 
-    // Adăugăm știri
-    const news = [
-        [1, 1],
-        [2, 2],
-        [3, 3],
-        [4, 4],
-        [5, 5],
-        [6, 6],
-        [7, 7],
-        [8, 8],
-        [9, 9],
-        [10, 10],
-    ]
-
-    connection.query(
-        'INSERT INTO news (userId, bookId) VALUES ?',
-        [news],
-        (err) => {
-            if (err) {
-                console.error('Eroare la inserarea știrilor:', err)
-                throw err
-            }
-            console.log('Știrile au fost inserate cu succes!')
-        }
-    )
     const data = new Date()
-    // Adăugăm citiri
     const readings = [
-        [1, 1, new Date('2024-01-01'), 0, ' ', ' ', data.toString()],
-        [2, 2, new Date('2024-02-01'), 0, ' ', ' ', data.toString()],
-        [3, 3, new Date('2024-03-01'), 0, ' ', ' ', data.toString()],
-        [4, 4, new Date('2024-04-01'), 0, ' ', ' ', data.toString()],
-        [5, 5, new Date('2024-05-01'), 0, ' ', ' ', data.toString()],
-        [6, 6, new Date('2024-06-01'), 0, ' ', ' ', data.toString()],
-        [7, 7, new Date('2024-07-01'), 0, ' ', ' ', data.toString()],
-        [8, 8, new Date('2024-08-01'), 0, ' ', ' ', data.toString()],
-        [9, 9, new Date('2024-09-01'), 0, ' ', ' ', data.toString()],
-        [10, 10, new Date('2024-10-01'), 0, ' ', ' ', data.toString()],
+        [
+            1,
+            1,
+            new Date('2024-01-01'),
+            12,
+            'Finished chapter 5. Very interesting!',
+            ' ',
+            data.toString(),
+        ],
+        [
+            2,
+            2,
+            new Date('2024-02-01'),
+            9,
+            'Getting close to halfway through the book, the action is picking up',
+            ' ',
+            data.toString(),
+        ],
+        [
+            3,
+            3,
+            new Date('2024-03-01'),
+            124,
+            'Just started reading and I am already hooked.',
+            ' ',
+            data.toString(),
+        ],
+        [
+            4,
+            4,
+            new Date('2024-04-01'),
+            389,
+            'The characters are very well developed, especially the protagonist',
+            ' ',
+            data.toString(),
+        ],
+        [
+            5,
+            5,
+            new Date('2024-05-01'),
+            320,
+            'The plot is thickening and I ca not put the book down.',
+            ' ',
+            data.toString(),
+        ],
+        [
+            6,
+            6,
+            new Date('2024-06-01'),
+            73,
+            'Reached chapter 10. The story is gripping.',
+            ' ',
+            data.toString(),
+        ],
+        [
+            7,
+            7,
+            new Date('2024-07-01'),
+            10,
+            'The reading is heavier than I expected but still interesting',
+            ' ',
+            data.toString(),
+        ],
+        [
+            8,
+            8,
+            new Date('2024-08-01'),
+            56,
+            'Chapter 15 was full of surprises!',
+            ' ',
+            data.toString(),
+        ],
+        [
+            9,
+            9,
+            new Date('2024-09-01'),
+            120,
+            'Finished the book. The ending was unexpected.',
+            ' ',
+            data.toString(),
+        ],
+        [
+            10,
+            10,
+            new Date('2024-10-01'),
+            502,
+            'Learned a lot of new things from this book.',
+            ' ',
+            data.toString(),
+        ],
     ]
 
     connection.query(
@@ -408,14 +481,33 @@ function populateDatabase(connection) {
     // Adăugăm cărți deja citite
     const alreadyRead = [
         [1, 2, new Date('2023-01-10')],
+        [1, 6, new Date('2024-01-06')],
+
         [2, 3, new Date('2023-02-10')],
+        [2, 9, new Date('2023-05-10')],
+
         [3, 4, new Date('2023-03-10')],
-        [4, 5, new Date('2023-04-10')],
+        [3, 8, new Date('2024-03-01')],
+
+        [4, 5, new Date('2023-02-11')],
+        [4, 1, new Date('2023-04-10')],
+
         [5, 6, new Date('2023-05-10')],
+        [5, 3, new Date('2022-09-11')],
+
         [6, 7, new Date('2023-06-10')],
+        [6, 6, new Date('2021-11-11')],
+
         [7, 8, new Date('2023-07-10')],
+        [7, 8, new Date('2022-12-08')],
+
         [8, 9, new Date('2023-08-10')],
+        [8, 9, new Date('2024-01-09')],
+
         [9, 10, new Date('2023-09-10')],
+        [9, 10, new Date('2022-10-09')],
+
+        [10, 1, new Date('2023-07-06')],
         [10, 1, new Date('2023-10-10')],
     ]
 
@@ -434,15 +526,25 @@ function populateDatabase(connection) {
     // Adăugăm dorințe de lectură
     const wantToRead = [
         [1, 3],
+        [1, 9],
         [2, 4],
+        [2, 1],
         [3, 5],
+        [3, 7],
         [4, 6],
+        [4, 5],
         [5, 7],
+        [5, 2],
         [6, 8],
+        [6, 10],
         [7, 9],
+        [7, 4],
         [8, 10],
+        [8, 3],
         [9, 1],
+        [9, 5],
         [10, 2],
+        [10, 7],
     ]
 
     connection.query(
@@ -461,6 +563,7 @@ function populateDatabase(connection) {
     // Adăugăm recenzii
     const reviews = [
         [1, 2, 'An amazing read!', 5, new Date('2023-01-09'), dataa.toString()],
+        [1, 7, 'An amazing read!', 5, new Date('2023-01-09'), dataa.toString()],
         [
             2,
             3,
@@ -469,7 +572,16 @@ function populateDatabase(connection) {
             new Date('2023-02-07'),
             dataa.toString(),
         ],
+        [
+            2,
+            9,
+            'Very interesting.',
+            2,
+            new Date('2023-02-07'),
+            dataa.toString(),
+        ],
         [3, 4, 'It was okay.', 5, new Date('2023-03-10'), dataa.toString()],
+        [3, 1, 'It was okay.', 5, new Date('2023-03-10'), dataa.toString()],
         [
             4,
             5,
@@ -478,7 +590,16 @@ function populateDatabase(connection) {
             new Date('2023-01-03'),
             dataa.toString(),
         ],
+        [
+            4,
+            8,
+            'Not my cup of tea.',
+            4,
+            new Date('2023-01-03'),
+            dataa.toString(),
+        ],
         [5, 6, "Didn't enjoy it.", 3, new Date('2023-05-03'), dataa.toString()],
+        [5, 2, "Didn't enjoy it.", 3, new Date('2023-05-03'), dataa.toString()],
         [
             6,
             7,
@@ -487,8 +608,18 @@ function populateDatabase(connection) {
             new Date('2023-07-02'),
             dataa.toString(),
         ],
+        [
+            6,
+            3,
+            'Absolutely loved it!',
+            1,
+            new Date('2023-07-02'),
+            dataa.toString(),
+        ],
         [7, 8, 'Great book!', 5, new Date('2023-09-18'), dataa.toString()],
+        [7, 9, 'Great book!', 5, new Date('2023-09-18'), dataa.toString()],
         [8, 9, 'It was decent.', 3, new Date('2023-10-15'), dataa.toString()],
+        [8, 2, 'It was decent.', 3, new Date('2023-10-15'), dataa.toString()],
         [
             9,
             10,
@@ -498,8 +629,24 @@ function populateDatabase(connection) {
             dataa.toString(),
         ],
         [
+            9,
+            5,
+            'Could have been better.',
+            3,
+            new Date('2023-02-10'),
+            dataa.toString(),
+        ],
+        [
             10,
             1,
+            'Not worth the time.,',
+            4,
+            new Date('2023-03-09'),
+            dataa.toString(),
+        ],
+        [
+            10,
+            6,
             'Not worth the time.,',
             4,
             new Date('2023-03-09'),
@@ -587,15 +734,35 @@ function populateDatabase(connection) {
     // Adăugăm preferințele utilizatorilor
     const userPreferences = [
         [1, 1],
+        [1, 6],
+        [1, 2],
+        [2, 4],
         [2, 2],
+        [2, 9],
         [3, 3],
+        [3, 7],
+        [3, 1],
         [4, 4],
+        [4, 9],
+        [4, 5],
         [5, 5],
+        [5, 1],
+        [5, 8],
         [6, 6],
+        [6, 4],
+        [6, 10],
         [7, 7],
+        [7, 4],
+        [7, 1],
         [8, 8],
+        [8, 7],
+        [8, 3],
         [9, 9],
+        [9, 2],
+        [9, 8],
         [10, 10],
+        [10, 4],
+        [10, 2],
     ]
 
     connection.query(
@@ -626,6 +793,8 @@ function populateDatabase(connection) {
         [3, 9],
         [3, 2],
         [4, 8],
+        [4, 2],
+        [4, 9],
         [5, 4],
         [5, 2],
         [6, 1],

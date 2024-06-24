@@ -135,7 +135,7 @@ function initializeDatabase() {
             bookId  INT NOT NULL ,
             startDate  DATE,
             currentPageNumber INT NOT NULL,
-            descr VARCHAR(400),
+            descr VARCHAR(500),
             quote VARCHAR(400),
             updateDate VARCHAR(200) NOT NULL,
             FOREIGN KEY (userId) REFERENCES user(id) ON DELETE CASCADE,
