@@ -6,6 +6,20 @@ const querystring = require('querystring')
 const pool = require('../DataBase/database')
 const bcrypt = require('bcrypt')
 
+function readImage(imagePath, callback) {
+    fs.readFile(imagePath, (err, data) => {
+        if (err) {
+            return callback(
+                new Error(
+                    `Error reading image at ${imagePath}: ${err.message}`
+                ),
+                null
+            )
+        }
+        callback(null, data)
+    })
+}
+
 function getIdUser(email, callback) {
     pool.getConnection((err, connection) => {
         if (err) {
@@ -149,65 +163,113 @@ function handleSave(req, res) {
 }
 
 const saveTeamDetails = (teamName, moderatorId, description, callback) => {
-    const defaultPhotoPath = path.join(__dirname, 'imageDef', 'default.jpg')
+    const randomNumber = Math.floor(Math.random() * 10) + 1
+    const imageNr = `${randomNumber}.jpg`
+    let defaultPhotoPath
 
-    pool.getConnection((err, connection) => {
+    switch (randomNumber) {
+        case 1:
+            defaultPhotoPath = path.join(__dirname, 'groupsImages', '1.jpg')
+            break
+        case 2:
+            defaultPhotoPath = path.join(__dirname, 'groupsImages', '2.jpg')
+            break
+        case 3:
+            defaultPhotoPath = path.join(__dirname, 'groupsImages', '3.jpg')
+            break
+        case 4:
+            defaultPhotoPath = path.join(__dirname, 'groupsImages', '4.jpg')
+            break
+        case 5:
+            defaultPhotoPath = path.join(__dirname, 'groupsImages', '5.jpg')
+            break
+        case 6:
+            defaultPhotoPath = path.join(__dirname, 'groupsImages', '6.jpg')
+            break
+        case 7:
+            defaultPhotoPath = path.join(__dirname, 'groupsImages', '7.jpg')
+            break
+        case 8:
+            defaultPhotoPath = path.join(__dirname, 'groupsImages', '8.jpg')
+            break
+        case 9:
+            defaultPhotoPath = path.join(__dirname, 'groupsImages', '9.jpg')
+            break
+        case 10:
+            defaultPhotoPath = path.join(__dirname, 'groupsImages', '10.jpg')
+            break
+        default:
+            defaultPhotoPath = path.join(
+                __dirname,
+                'groupsImages',
+                'default.jpg'
+            )
+            break
+    }
+    readImage(defaultPhotoPath, (err, defaultPhoto) => {
         if (err) {
-            console.log('Error getting connection:', err)
-            return callback(err, null)
+            console.error(err.message)
+            res.writeHead(500, { 'Content-Type': 'application/json' })
+            return res.end(JSON.stringify({ message: 'Error reading photo' }))
         }
-
-        const params = []
-        let query = 'INSERT INTO team (teamName, moderatorId'
-
-        if (
-            description !== undefined &&
-            description !== null &&
-            description !== ''
-        ) {
-            query += `, description`
-            params.push(description)
-        }
-        if (
-            defaultPhotoPath !== undefined &&
-            defaultPhotoPath !== null &&
-            defaultPhotoPath !== ''
-        ) {
-            query += `, photo`
-            params.push(defaultPhotoPath)
-        }
-
-        query += ') VALUES (?, ?'
-
-        if (
-            description !== undefined &&
-            description !== null &&
-            description !== ''
-        ) {
-            query += `, ?`
-        }
-        if (
-            defaultPhotoPath !== undefined &&
-            defaultPhotoPath !== null &&
-            defaultPhotoPath !== ''
-        ) {
-            query += `, ?`
-        }
-
-        query += ')'
-        params.unshift(moderatorId)
-        params.unshift(teamName)
-
-        connection.query(query, params, (error, results) => {
-            connection.release()
-
-            if (error) {
-                console.log('Error inserting team details:', error)
-                return callback(error, null)
+        pool.getConnection((err, connection) => {
+            if (err) {
+                console.log('Error getting connection:', err)
+                return callback(err, null)
             }
 
-            console.log('Team details inserted successfully.')
-            callback(null, results)
+            const params = []
+            let query = 'INSERT INTO team (teamName, moderatorId'
+
+            if (
+                description !== undefined &&
+                description !== null &&
+                description !== ''
+            ) {
+                query += `, description`
+                params.push(description)
+            }
+            if (
+                defaultPhoto !== undefined &&
+                defaultPhoto !== null &&
+                defaultPhoto !== ''
+            ) {
+                query += `, photo`
+                params.push(defaultPhoto)
+            }
+
+            query += ') VALUES (?, ?'
+
+            if (
+                description !== undefined &&
+                description !== null &&
+                description !== ''
+            ) {
+                query += `, ?`
+            }
+            if (
+                defaultPhotoPath !== undefined &&
+                defaultPhotoPath !== null &&
+                defaultPhotoPath !== ''
+            ) {
+                query += `, ?`
+            }
+
+            query += ')'
+            params.unshift(moderatorId)
+            params.unshift(teamName)
+
+            connection.query(query, params, (error, results) => {
+                connection.release()
+
+                if (error) {
+                    console.log('Error inserting team details:', error)
+                    return callback(error, null)
+                }
+
+                console.log('Team details inserted successfully.')
+                callback(null, results)
+            })
         })
     })
 }
