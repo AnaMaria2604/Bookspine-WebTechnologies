@@ -314,49 +314,65 @@ function populateDatabase(connection) {
             'Book Lovers',
             1,
             'A team for those who love books.',
-            path.resolve(__dirname, '..', 'Backend', 'groupImages', '1.jpg'),
+            readImage(
+                path.resolve(__dirname, '..', 'Backend', 'groupsImages', '1.jpg')
+            ),
         ],
         [
             'Sci-Fi Enthusiasts',
             2,
             'Discussing all things science fiction.',
-            path.resolve(__dirname, '..', 'Backend', 'groupImages', '2.jpg'),
+            readImage(
+                path.resolve(__dirname, '..', 'Backend', 'groupsImages', '2.jpg')
+            ),
         ],
         [
             'Classic Literature Club',
             3,
             'Exploring classic literature.',
-            path.resolve(__dirname, '..', 'Backend', 'groupImages', '3.jpg'),
+            readImage(
+                path.resolve(__dirname, '..', 'Backend', 'groupsImages', '3.jpg')
+            ),
         ],
         [
             'Fantasy Fans',
             4,
             'For fans of fantasy books.',
-            path.resolve(__dirname, '..', 'Backend', 'groupImages', '4.jpg'),
+            readImage(
+                path.resolve(__dirname, '..', 'Backend', 'groupsImages', '4.jpg')
+            ),
         ],
         [
             'Mystery Solvers',
             5,
             'Solving mysteries one book at a time.',
-            path.resolve(__dirname, '..', 'Backend', 'groupImages', '5.jpg'),
+            readImage(
+                path.resolve(__dirname, '..', 'Backend', 'groupsImages', '5.jpg')
+            ),
         ],
         [
             'Romance Readers',
             6,
             'For those who love romance novels.',
-            path.resolve(__dirname, '..', 'Backend', 'groupImages', '6.jpg'),
+            readImage(
+                path.resolve(__dirname, '..', 'Backend', 'groupsImages', '6.jpg')
+            ),
         ],
         [
             'Biography Buffs',
             7,
             'Reading and discussing biographies.',
-            path.resolve(__dirname, '..', 'Backend', 'groupImages', '7.jpg'),
+            readImage(
+                path.resolve(__dirname, '..', 'Backend', 'groupsImages', '7.jpg')
+            ),
         ],
         [
             'Poetry Lovers',
             8,
             'For those who appreciate poetry.',
-            path.resolve(__dirname, '..', 'Backend', 'groupImages', '8.jpg'),
+            readImage(
+                path.resolve(__dirname, '..', 'Backend', 'groupsImages', '8.jpg')
+            ),
         ],
     ]
 
