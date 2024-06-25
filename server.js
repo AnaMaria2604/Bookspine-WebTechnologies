@@ -111,7 +111,7 @@ const {
 const { handleNotFoundPage } = require('./Backend/notfound')
 const { handle } = require('./Backend/groupCreateListFunction')
 
-//initializeDatabase()
+initializeDatabase()
 
 const server = http.createServer((req, res) => {
     if (req.method === 'GET' && req.url === '/create-account') {

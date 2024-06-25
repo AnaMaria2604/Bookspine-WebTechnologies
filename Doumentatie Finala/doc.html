@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>BookSpine</title>
+  <link rel="stylesheet" href="docstyle.css" />
+</head>
+
+<body prefix="schema: http://schema.org">
+  <header>
+    <div class="banner">
+      <img src="scholarly-html.svg" width="227" height="50" alt="Scholarly HTML logo" />
+      <div class="status">Community Draft</div>
+    </div>
+    <h1>BookSpine</h1>
+  </header>
+  <div role="contentinfo">
+    <dl>
+      <dt>Authors</dt>
+      <dd>
+        Bolohan Constantin-Sebastian ,
+        Ursache Ana-Maria
+      </dd>
+      <dt>License</dt>
+      <dd>
+        <p>
+          Built under MIT License Copyright &copy; 2024. All copyrights
+          reserved.
+        </p>
+        <p>
+          Permission is hereby granted, free of charge, to any person
+          obtaining a copy of this software and associated documentation files
+          (the "Software"), to deal in the Software without restriction,
+          including without limitation the rights to use, copy, modify, merge,
+          publish, distribute, sublicense, and/or sell copies of the Software,
+          and to permit persons to whom the Software is furnished to do so,
+          subject to the following conditions:
+        </p>
+        <ul>
+          <li>
+            <p>
+              The above copyright notice and this permission notice shall be
+              included in all copies or substantial portions of the Software.
+            </p>
+          </li>
+          <li>
+            <p>
+              THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+              EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+              OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+              NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+              HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+              WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+              FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+              OTHER DEALINGS IN THE SOFTWARE.
+            </p>
+          </li>
+        </ul>
+      </dd>
+    </dl>
+  </div>
+  <section typeof="sa:Abstract" id="abstract" role="doc-abstract">
+    <h2>Abstract</h2>
+    <p>
+      Boo(Book Reviewer) is a web application that allows you to specify the progress and express your opinion about the
+      reading done by a person or a group of people. This document outlines the functionality of
+      Boo and its underlying encoding mechanisms.
+    </p>
+  </section>
+  <section id="introduction" role="doc-introduction">
+    <h2>Introduction</h2>
+    <p>
+      Boo provides relevant statistics that can be exported in CSV or DocBook format. The application also features RSS
+      feeds where we have the reviews and updates.
+    </p>
+    <p>
+      We have groups where people with the same preferences can share their opinions about certain books.
+    </p>
+    <p>
+      People with a passion for reading and books can form a community.
+    </p>
+    <p>
+      This documentation will be the easy way to understand how to use our application. A strong point of our
+      application is related to security (password hashing), during the documentation we will also mention other details
+      related to security implementation.
+    </p>
+    <p>
+      In conclusion, our application aims to form an easy way to manage the path of books read and reviews given and to
+      form a community between people with similar passions.
+    </p>
+  </section>
+  <section id="structure">
+    <h2>Structure</h2>
+    <p>
+      The Boo application is made up of 22 web pages to ensure its smooth functioning. Within these pages we have 2
+      common elements header and footer.
+    </p>
+    <p>
+      Within the application we handle error handling through return codes, JSONs and "Not Found" page redirects.
+    </p>
+    <p>Our application uses tokens (JWT) to remember the user's login status in order to provide them with the relevant
+      pages.</p>
+    <p>The application pages share the same header structured as follows:</p>
+    <section class="component-1">
+      <h3>The header</h3>
+      <p>
+        The header is located at the top of the page and contains: on the left side: the name of the application that
+        leads to the main page depending on the user's login status, the button that displays the RSS feed, and on the
+        right side: the tick bar and the application menu that provides access to the pages: Account, MyBooks,
+        Challenges, Statistics, AboutUs and Help.
+      </p>
+      <figure type="sa:image">
+        <img src="header1.png" alt="header-img" />
+        <figcaption>Header of the app</figcaption>
+      </figure>
+      <figure type="sa:image">
+        <img src="header2.png" alt="profilemenu-img" />
+        <figcaption>Open Menu</figcaption>
+      </figure>
+      <p>
+        This menu helps the user to easily navigate within the application.
+
+      </p>
+    </section>
+    <section id="component-2">
+      <h3>The <code>AboutUs</code> page</h3>
+      <p>
+        It gives the user a brief presentation of the teams and the project, some details are also presented in the
+        footer.
+      </p>
+      <figure type="sa:image">
+        <img src="aboutus.png" alt="index-img" />
+        <figcaption>AboutUs page</figcaption>
+      </figure>
+      <p>
+        On the page there is a button that redirects the user to either the index (for unlogged) or to the mainpage (for
+        logged in)
+      </p>
+    </section>
+    <section id="component-3">
+      <h3>The <code>Account</code> page</h3>
+      <p>
+        Provides user details and the opportunity to personalize their experience.
+      </p>
+      <figure type="sa:image">
+        <img src="account.png" alt="index-img" />
+        <figcaption>Account page</figcaption>
+      </figure>
+      <p>
+        It shows the user's data, the groups they belong to, their description, favorite quote.It offers the option to
+        change email, password, name and favorite genres.
+        Moreover, you can create groups and you can also delete.
+      </p>
+    </section>
+    <section id="component-3">
+      <h3>The <code>Admin</code> page</h3>
+      <p>
+        The administrator can delete regular user accounts or certain groups as needed.
+      </p>
+      <figure type="sa:image">
+        <img src="admin.png" alt="index-img" />
+        <figcaption>Admin page</figcaption>
+      </figure>
+      <p>
+        This page is a dashboard where the administrator is in charge of ensuring a pleasant experience for other users.
+      </p>
+    </section>
+    <section id="component-4">
+      <h3>The <code>Book</code> page</h3>
+      <p>
+        The user can see the details of a book.
+      </p>
+      <figure type="sa:image">
+        <img src="book.png" alt="index-img" />
+        <figcaption>Book page</figcaption>
+      </figure>
+      <p>
+        On this page, a user can see different details related to a book (picture, title, author, genre, year, rating,
+        description), as well as the ratings given by other users to this book.
+        They can add the book to a specific shelf (Want to read, Currently Reading, Read).
+      </p>
+    </section>
+    <section id="component-5">
+      <h3>The <code>Update</code> page</h3>
+      <p>
+        The user can provide feedback while reading the book.
+      </p>
+      <figure type="sa:image">
+        <img src="update.png" alt="index-img" />
+        <figcaption>Update page</figcaption>
+      </figure>
+      <p>
+        For a given book, the user can express their opinion and give a quote that impressed them while reading it,
+        giving a page number of the page they stayed on.
+      </p>
+    </section>
+    <section id="component-6">
+      <h3>The <code>Favourite Genres</code> page</h3>
+      <p>
+        On this page users can personalize their experience.
+      </p>
+      <figure type="sa:image">
+        <img src="genres.png" alt="index-img" />
+        <figcaption>Favourite genres page</figcaption>
+      </figure>
+      <p>
+        The user has the chance to choose from a wide variety of literary genres and can be recommended books and groups
+        tailored to their preferences.
+      </p>
+    </section>
+    <section id="component-7">
+      <h3>The <code>Group conversation</code> page</h3>
+      <p>
+        This page outlines the idea of community.
+      </p>
+      <figure type="sa:image">
+        <img src="group-conv.png" alt="index-img" />
+        <figcaption>Group conv page</figcaption>
+      </figure>
+      <p>
+        A few other pages (create group, group join, group settings) form the community in the sense that users can
+        share reviews about selected books through a chat.
+      </p>
+    </section>
+    <section id="component-8">
+      <h3>The <code>Help</code> page</h3>
+      <p>
+        This page provides users with answers to different questions.
+      </p>
+      <figure type="sa:image">
+        <img src="help.png" alt="index-img" />
+        <figcaption>Help page</figcaption>
+      </figure>
+      <p>
+        A few other pages (create group, group join, group settings) form the community in the sense that users can
+        share reviews about selected books through a chat.On this page, the most relevant questions have been selected
+        and answered in a targeted way to provide users with an easy way to use the application.
+      </p>
+    </section>
+    <section id="component-9">
+      <h3>The <code>Index</code> page</h3>
+      <p>
+        Application home page for a logged out user.
+      </p>
+      <figure type="sa:image">
+        <img src="index.png" alt="index-img" />
+        <figcaption>Index page</figcaption>
+      </figure>
+      <p>
+        It offers on this page the most popular and recommended books from the database, as well as two buttons to
+        create an account or log in to an account. This page is the beginning of the experience of using the
+        application, until logging in the user has limited experience.
+      </p>
+    </section>
+    <section id="component-10">
+      <h3>The <code>Login</code> page</h3>
+      <p>
+        Page where a user can login if they already have an account.
+      </p>
+      <figure type="sa:image">
+        <img src="login.png" alt="index-img" />
+        <figcaption>Login page</figcaption>
+      </figure>
+      <p>
+        A form where the user will write the email and password of an already created account. There is a mechanism to
+        validate the correctness of the data.
+      </p>
+    </section>
+    <section id="component-11">
+      <h3>The <code>Register</code> page</h3>
+      <p>
+        The unlogged user can create an account.
+      </p>
+      <figure type="sa:image">
+        <img src="register.png" alt="index-img" />
+        <figcaption>Register page</figcaption>
+      </figure>
+      <p>
+        This page has a form where the user can create an account. There are mechanisms to verify the data validation,
+        the password is saved hashed in the database.
+        Also when registering the user will be given a picture containing a letter, according to the initial of his
+        name, and then will be added to the database and a reading challange annual and monthly reading challange that
+        will be initialized with 0 books.
+      </p>
+    </section>
+    <section id="component-12">
+      <h3>The <code>Main</code> page</h3>
+      <p>
+        This is the home page for the logged in user.
+      </p>
+      <figure type="sa:image">
+        <img src="main.png" alt="index-img" />
+        <figcaption>Main page</figcaption>
+      </figure>
+      <p>
+        On this page the logged in user can see the contents of his bookshelves, his challangers, but also a feed with
+        updates and reviews of different books.
+      </p>
+    </section>
+    <section id="component-13">
+      <h3>The <code>MyBooks</code> page</h3>
+      <p>
+        Page where the user can check the contents of their shelves.
+      </p>
+      <figure type="sa:image">
+        <img src="mybooks.png" alt="index-img" />
+        <figcaption>Mybooks page</figcaption>
+      </figure>
+      <p>
+        This page contains all the books approached by the user within the application and offers the possibility to
+        provide updates while reading.
+      </p>
+    </section>
+    <section id="component-14">
+      <h3>The <code>Reading Challenge</code> page</h3>
+      <p>
+        The page provides details of user challanges.
+      </p>
+      <figure type="sa:image">
+        <img src="readingch.png" alt="index-img" />
+        <figcaption>Reading challange page</figcaption>
+      </figure>
+      This page offers the opportunity to change the goal of a certain challenge (annual or monthly), and at the top of
+      the page there is a banner that offers in real time the number of days until the end of the challenges, helping to
+      set the goal.
+      </p>
+    </section>
+    <section id="component-15">
+      <h3>The <code>Review</code> page</h3>
+      <p>
+        This page offers the possibility to review a book.
+      </p>
+      <figure type="sa:image">
+        <img src="review.png" alt="index-img" />
+        <figcaption>Review page</figcaption>
+      </figure>
+      This page offers the possibility to offer a number of stars (a rating) and a review of a book, a review that is
+      visible to all other users.
+      </p>
+    </section>
+    <section id="component-16">
+      <h3>The <code>Search</code> page</h3>
+      <p>
+        There is the possibility to search for a group or a book.
+      </p>
+      <figure type="sa:image">
+        <img src="search.png" alt="index-img" />
+        <figcaption>Search page</figcaption>
+      </figure>
+      This page gives the user the chance to search for a group or a book by certain keywords, or by the tags on the
+      left side, while also offering the page to enter the pages of books or groups (being able to enter a certain
+      group).
+      </p>
+    </section>
+    <section id="component-17">
+      <h3>The <code>Statistics</code> page</h3>
+      <p>
+        This page provides relevant data regarding the application
+      </p>
+      <figure type="sa:image">
+        <img src="statistici.png" alt="index-img" />
+        <figcaption>Statistics page</figcaption>
+      </figure>
+      This page offers the top 10 most popular books in the application, while also offering the user the possibility to
+      export this information in special formats, CSV and DocBook, being able to store it locally on the personal
+      device.
+      </p>
+    </section>
+    <section id="component-18">
+      <h3>The <code>User Profile</code> page</h3>
+      <p>
+        This page provides details about the data of another user.
+      </p>
+      <figure type="sa:image">
+        <img src="account1.png" alt="index-img" />
+        <figcaption>Account1 page</figcaption>
+      </figure>
+      <figure type="sa:image">
+        <img src="account2.png" alt="index-img" />
+        <figcaption>Account2 page</figcaption>
+      </figure>
+      This page provides relevant information about the user's preferences, while also showing the updates and reviews offered by him.
+      </p>
+    </section>
+    <section id="semantics">
+      <h2>Actions</h2>
+      <p>
+        The primary actors engaged with the web application include users (logged and unlogged) and
+        the administrators.
+      </p>
+      <p>
+        As a user, you will have the capability to perform the following
+        actions:
+      </p>
+      <ul>
+        <li>
+          The logged in user can add books to different bookshelves, manage the reading progress, create groups, join
+          groups in which they communicate with other users with the same preferences, review and update books and
+          observe
+          a flow of updates on the main page.
+        </li>
+        <li>
+          As an unknown user, he can only see the pages visible to all users: Statistics (where he can also download in
+          CSV and DocBook format), Help and AboutUs. He can also use the Search option and see the pages: BookPage and
+          GroupPage.
+        </li>
+        <li>
+          The logged in user can also view his profile, change some personal data within the Account page, where he can
+          also see the groups he belongs to.
+        </li>
+      </ul>
+      <p>
+        The administrator assumes the role of the second main actor. They are
+        depicted through the following actions:
+      </p>
+      <ul>
+        <li>
+          As administrator, having a special account, he will only have the DashBoard where he can delete groups and
+          user
+          accounts.
+        </li>
+        <figure type="sa:image">
+          <img src="header1.png" alt="adminmain-img" />
+          <figcaption>C4-1</figcaption>
+        </figure>
+        <figure type="sa:image">
+          <img src="header1.png" alt="adminmain-img" />
+          <figcaption>C4-2</figcaption>
+        </figure>
+        <figure type="sa:image">
+          <img src="header1.png" alt="adminmain-img" />
+          <figcaption>C4-3</figcaption>
+        </figure>
+      </ul>
+    </section>
+    <section id="scholarly-article">
+      <h2>Technologies</h2>
+      <p>
+        For this project, we used the following technologies: HTML, SASS,
+        and a RESTful API.
+      </p>
+      <ul>
+        <li>
+          <p>
+            With the help of HTML (HyperText Markup Language) we have succeeded to make the pages that help us to run
+            the
+            application, using specific tags of this technology such as : body, main
+          </p>
+        </li>
+        <li>
+          <p>
+            With the help of SASS we were able to structure in an efficient way our CSS code by which we offer design to
+            these pages created in HTML.
+          </p>
+        </li>
+        <li>
+          <p>
+            We integrated a RESTful API to handle data exchange between
+            the client and the server. This API facilitated CRUD operations,
+            allowing us to create, read, update, and delete data efficiently. By
+            adhering to REST principles, we ensured a stateless, scalable, and
+            modular approach to backend communication.
+          </p>
+        </li>
+      </ul>
+    </section>
+    <section typeof="sa:Conclusion" id="conclusion" role="doc-conclusion">
+      <h2>Conclusion</h2>
+      <p>
+        In conclusion, our application presents 22 web pages, and through the technologies used (HTML, SASS, RESTful API
+        and various principles) we offer the user a more pleasant and personalized experience, the chance to be part of
+        a
+        community. Our main desire is to offer them a great experience.
+      </p>
+    </section>
+    <section id="acks">
+      <h2>References</h2>
+      <ul>
+        <li>
+          <a href="https://tehnologii-web.vercel.app/">Laboratory Page</a>
+        </li>
+        <li>
+          <a href="https://edu.info.uaic.ro/web-technologies/">Course Page</a>
+        </li>
+      </ul>
+    </section>
+</body>
+
+</html>
