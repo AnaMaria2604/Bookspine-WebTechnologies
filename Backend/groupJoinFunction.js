@@ -1,4 +1,8 @@
-const mysql = require('mysql')
+const fs = require('fs')
+const path = require('path')
+const jwt = require('jsonwebtoken')
+const cookie = require('cookie')
+const querystring = require('querystring')
 const pool = require('../DataBase/database')
 
 function handleGroupRequest(req, res, groupId) {
@@ -10,6 +14,26 @@ function handleGroupRequest(req, res, groupId) {
             res.writeHead(200, { 'Content-Type': 'application/json' })
             res.end(JSON.stringify(results))
         }
+    })
+}
+
+function getIdUser(email, callback) {
+    pool.getConnection((err, connection) => {
+        if (err) {
+            return callback(err, null)
+        }
+
+        connection.query(
+            'SELECT id FROM user WHERE email = ?',
+            [email],
+            (error, result) => {
+                connection.release()
+                if (error) {
+                    return callback(error, null)
+                }
+                callback(null, result)
+            }
+        )
     })
 }
 
@@ -101,5 +125,91 @@ const getGroupDetails = (groupId, callback) => {
         )
     })
 }
+function handleJoin(req, res) {
+    const token = getTokenFromCookie(req)
+    let email
 
-module.exports = { handleGroupRequest }
+    if (token) {
+        const secretKey =
+            'cfc1fffcd77355620d863b573349ee9cfb7b8552335aaf93e88abc52d147ef5e'
+        jwt.verify(token, secretKey, (err, decodedToken) => {
+            if (err) {
+                console.log('Error decoding token:', err.message)
+                return
+            }
+            email = decodedToken.email
+        })
+    }
+
+    let body = ''
+    req.on('data', (chunk) => {
+        body += chunk.toString()
+    })
+
+    req.on('end', () => {
+        const { groupId } = JSON.parse(body) // Parse body to extract groupId
+        getIdUser(email, (err, result) => {
+            if (err) {
+                console.error('Error getting user ID:', err)
+                res.write(JSON.stringify({ error: 'Error getting user ID.' }))
+                res.end()
+                return
+            }
+
+            const idUser = result[0].id
+            handleGroupJoinForUser(idUser, groupId, (error, userGroups) => {
+                if (error) {
+                    res.writeHead(500, { 'Content-Type': 'application/json' })
+                    res.end(JSON.stringify({ error: 'Internal Server Error' }))
+                    return
+                }
+
+                const response = { userGroups }
+
+                res.writeHead(200, { 'Content-Type': 'application/json' })
+                res.end(JSON.stringify(response))
+            })
+        })
+    })
+}
+
+function handleGroupJoinForUser(userId, groupId, callback) {
+    pool.getConnection((err, connection) => {
+        if (err) {
+            console.error('Error getting database connection:', err)
+            return callback(err)
+        }
+
+        if (typeof userId !== 'number' || typeof groupId !== 'number') {
+            console.error('Invalid types for userId or groupId')
+            connection.release()
+            return callback(new Error('Invalid types for userId or groupId'))
+        }
+
+        const sql = `INSERT INTO teamusers (userId, teamId) VALUES (?, ?)`
+
+        connection.query(sql, [userId, groupId], (error, results, fields) => {
+            connection.release()
+
+            if (error) {
+                console.error('Error adding user to group:', error)
+                return callback(error)
+            }
+            console.log(
+                `User with ID ${userId} added to group with ID ${groupId}`
+            )
+            callback(null, results)
+        })
+    })
+}
+
+function getTokenFromCookie(req) {
+    const cookies = req.headers.cookie
+    if (cookies) {
+        const parsedCookies = cookie.parse(cookies)
+        return parsedCookies.token
+    }
+    return null
+}
+
+module.exports = { handleGroupRequest, handleGroupJoinForUser, handleJoin }

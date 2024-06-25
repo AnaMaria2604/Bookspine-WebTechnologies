@@ -19,6 +19,7 @@ body {
     display: flex;
     flex-direction: column;
     margin: 0;
+
     .header {
         top: 0;
         left: 0;
@@ -32,11 +33,13 @@ body {
             align-items: center;
             position: relative;
             margin: 0 10px;
+
             .first {
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
                 margin-left: 10px;
+
                 .logo {
                     img {
                         width: 25px;
@@ -52,6 +55,7 @@ body {
                     text-decoration: none;
                 }
             }
+
             &__links {
                 display: flex;
                 flex-direction: column;
@@ -70,6 +74,7 @@ body {
                         font-weight: bold;
                         text-decoration: none;
                     }
+
                     .search-container {
                         display: flex;
                         align-items: center;
@@ -136,6 +141,7 @@ body {
         display: flex;
         flex-direction: row;
         justify-content: center;
+
         .content {
             width: 80%;
 
@@ -320,6 +326,7 @@ body {
                         }
 
                         .descriere {
+                            font-style: italic;
                             overflow-wrap: break-word;
                             padding-left: 20px;
                             padding-top: 10px;
@@ -423,9 +430,11 @@ body::after {
                 justify-content: center;
                 margin-top: 10px;
                 text-align: center;
+
                 ul {
                     margin-top: 20px;
                 }
+
                 ul li {
                     display: block;
                     margin: 5px;
@@ -433,8 +442,10 @@ body::after {
                 }
             }
         }
+
         .main {
             width: 100%;
+
             .content {
                 width: 90%;
                 display: flex;
@@ -504,9 +515,11 @@ body::after {
                 justify-content: center;
                 margin-top: 10px;
                 text-align: center;
+
                 ul {
                     margin-top: 20px;
                 }
+
                 ul li {
                     display: block;
                     margin: 5px;
@@ -514,6 +527,7 @@ body::after {
                 }
             }
         }
+
         .main {
             .content {
                 display: flex;

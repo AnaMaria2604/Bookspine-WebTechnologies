@@ -32,18 +32,18 @@ async function handleCreateAccountSubmit(req, res) {
         const forgotEmail = formData.get('email')
         const password = formData.get('password')
         const confirmPassword = formData.get('confirmedPassword')
+
         try {
             await createAccount(
                 lastName,
                 firstName,
                 forgotEmail,
                 password,
-                confirmPassword,
-                res
+                confirmPassword
             )
+            res.writeHead(302, { Location: '/login' })
+            res.end()
         } catch (error) {
-            // console.error('Register failed:', error)
-
             res.setHeader('Content-Type', 'text/html')
             res.end(`
                 <script>alert('${error.message}');</script>

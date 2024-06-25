@@ -1,11 +1,11 @@
 const jwt = require('jsonwebtoken')
 const cookie = require('cookie')
-const pool = require('../DataBase/database') 
+const pool = require('../DataBase/database')
 
 function isUserLoggedIn(req) {
     const token = getTokenFromCookie(req)
     if (!token) {
-        return null 
+        return null
     }
 
     const secretKey =

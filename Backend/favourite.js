@@ -201,9 +201,8 @@ function handleFavouriteSubmission(req, res) {
                             results
                         )
 
-                        res.statusCode = 200
-                        res.setHeader('Content-Type', 'text/plain')
-                        res.end('Datele au fost primite cu succes!')
+                        res.writeHead(302, { Location: '/mainpage' })
+                        res.end()
                     })
                 })
             })

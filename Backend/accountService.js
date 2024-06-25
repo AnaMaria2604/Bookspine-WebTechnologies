@@ -23,13 +23,13 @@ document.addEventListener('DOMContentLoaded', function () {
                             <div class="bookshelves">
                             <div class="title">Your shelfs:</div>
                                 <div class="carte">
-                                    <a href="/mybooks">Read</a>
+                                    <a href="/mybooks/read">Read</a>
                                 </div>
                                 <div class="carte">
-                                    <a href="/mybooks">Want to Read</a>
+                                    <a href="/mybooks/want-to-read">Want to Read</a>
                                 </div>
                                 <div class="carte">
-                                    <a href="/mybooks">Reading</a>
+                                    <a href="/mybooks/reading">Reading</a>
                                 </div>
                             </div>
                         </div>`
@@ -47,13 +47,13 @@ document.addEventListener('DOMContentLoaded', function () {
                             </div>
                             <div class="bookshelves">
                                 <div class="carte">
-                                    <a href="/mybooks">Read</a>
+                                    <a href="/mybooks/read">Read</a>
                                 </div>
                                 <div class="carte">
-                                    <a href="/mybooks">Want to Read</a>
+                                    <a href="/mybooks/want-to-read">Want to Read</a>
                                 </div>
                                 <div class="carte">
-                                    <a href="/mybooks">Reading</a>
+                                    <a href="/mybooks/reading">Reading</a>
                                 </div>
                             </div>
                         </div>`
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             <div>
                                 <div class="componenta">
                                     <img src="${groupImageUrl}" alt="">
-                                    <a href="/group/${group.id}">${group.teamName}</a>
+                                    <a href="/group-conv/${group.id}/1">${group.teamName}</a>
                                 </div>
                             </div>`
                         groupsElement.appendChild(groupElement)
@@ -198,6 +198,12 @@ document.addEventListener('DOMContentLoaded', function () {
         const pass1 = password.value
         const pass2 = confirmPassword.value
 
+        if (pass1 !== pass2) {
+            console.log("The passwords don't match.")
+            alert('The passwords do not match.')
+            return
+        }
+
         fetch(`/saveDetails`, {
             method: 'POST',
             headers: {
@@ -215,7 +221,13 @@ document.addEventListener('DOMContentLoaded', function () {
         })
             .then((response) => response.json())
             .then((data) => {
-                console.log('Success:', data)
+                if (data.error) {
+                    console.error('Error:', data.error)
+                    alert('There was an error.')
+                } else {
+                    console.log('Success:', data)
+                    window.location.reload()
+                }
             })
             .catch((error) => {
                 console.error('Error:', error)

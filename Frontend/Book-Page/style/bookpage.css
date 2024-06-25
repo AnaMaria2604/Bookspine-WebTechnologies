@@ -271,6 +271,7 @@ body .main .content .right_part .reviews .item .user_content .user_photo {
   float: right;
 }
 body .main .content .right_part .reviews .item .descriere {
+  font-style: italic;
   overflow-wrap: break-word;
   padding-left: 20px;
   padding-top: 10px;

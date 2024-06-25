@@ -76,33 +76,6 @@ function handleAccount(req, res) {
 
                         const idUser = result[0].id
 
-                        if (pass1 !== pass2) {
-                            console.log("The passwords don't match.")
-
-                            // Setează mesajul de eroare într-un element HTML sau folosește o fereastră modală
-                            const errorMessage = 'Passwords do not match.'
-                            const errorElement =
-                                document.getElementById('error-message') // ID-ul elementului unde vei afișa mesajul
-
-                            if (errorElement) {
-                                errorElement.textContent = errorMessage // Sau poți folosi innerHTML pentru mesaje mai complexe
-                            } else {
-                                // Poți crea un element nou dacă nu există deja
-                                const newErrorElement =
-                                    document.createElement('p')
-                                newErrorElement.id = 'error-message'
-                                newErrorElement.textContent = errorMessage
-                                // Aduagă elementul într-un container corespunzător din HTML
-                                // de exemplu, poți adăuga la sfârșitul formularului
-                                const formElement =
-                                    document.getElementById('my-form') // Înlocuiește cu ID-ul formularului tău
-                                formElement.appendChild(newErrorElement)
-                            }
-
-                            // Întoarce-te din funcție pentru a opri procesarea suplimentară
-                            return
-                        }
-
                         bcrypt.hash(pass1, 10, (err, hashedPassword) => {
                             if (err) {
                                 res.writeHead(500, {
