@@ -122,7 +122,6 @@ const handleDeleteUser = (req, res, userId) => {
                     `DELETE FROM reading WHERE userId = ?`,
                     `DELETE FROM alreadyRead WHERE userId = ?`,
                     `DELETE FROM wanttoread WHERE userId = ?`,
-                    `DELETE FROM news WHERE userId = ?`,
                     `DELETE FROM readingchallenge WHERE userId = ?`,
                     `DELETE FROM userpreferencies WHERE userId = ?`,
                     `DELETE FROM user WHERE id = ?`,

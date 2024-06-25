@@ -34,8 +34,9 @@ function handleSearchRequest(req, res) {
         }
 
         // Interogare pentru cărți
-        const bookQuery = `SELECT id,title, author, cover FROM book WHERE title LIKE ? OR author LIKE ? OR publisher LIKE ? OR genre LIKE ? OR collection LIKE ? OR editor LIKE ? OR year LIKE ?`
+        const bookQuery = `SELECT id,title, author, cover FROM book WHERE title LIKE ? OR author LIKE ? OR publisher LIKE ? OR genre LIKE ? OR collection LIKE ? OR editor LIKE ? OR edition LIKE ? OR year LIKE ?`
         const bookQueryValues = [
+            `%${query}%`,
             `%${query}%`,
             `%${query}%`,
             `%${query}%`,
@@ -48,7 +49,7 @@ function handleSearchRequest(req, res) {
         // Interogare pentru grupuri
         const groupQuery = `SELECT id,teamName,photo FROM team WHERE teamName LIKE ?`
         const groupQueryValues = [`%${query}%`]
-   
+
         connection.query(bookQuery, bookQueryValues, (bookErr, bookResults) => {
             if (bookErr) {
                 connection.release()
@@ -56,7 +57,7 @@ function handleSearchRequest(req, res) {
                 res.end(JSON.stringify({ error: 'Failed to query books' }))
                 return
             }
-            
+
             connection.query(
                 groupQuery,
                 groupQueryValues,

@@ -17,61 +17,71 @@ function readImage(imagePath, callback) {
     })
 }
 
-function checkEmailExists(email, callback) {
-    const sql = 'SELECT id FROM user WHERE email = ?'
-    pool.getConnection((err, connection) => {
-        if (err) {
-            return callback(err, null)
-        }
-        connection.query(sql, [email], (err, results) => {
-            connection.release()
+function checkEmailExists(email) {
+    return new Promise((resolve, reject) => {
+        const sql = 'SELECT email FROM user WHERE email = ?'
+        pool.getConnection((err, connection) => {
             if (err) {
-                return callback(err, null)
+                return reject(err)
             }
-            callback(null, results.length > 0)
+            connection.query(sql, [email], (err, results) => {
+                connection.release()
+                if (err) {
+                    return reject(err)
+                }
+                if (results.length > 0) {
+                    resolve(results[0].email)
+                } else {
+                    resolve(null)
+                }
+            })
         })
     })
 }
 
-function addAnnualReadingCh(userId, callback) {
-    const sql =
-        'INSERT INTO readingchallenge (userId, numberOfBooks, currentNumberOfBooks, type) VALUES (?,?,?,?)'
-    pool.getConnection((err, connection) => {
-        if (err) {
-            return callback(err, null)
-        }
-        connection.query(
-            sql,
-            [userId, 0, 0, 'Annual Reading Challenge'],
-            (err, results) => {
-                connection.release()
-                if (err) {
-                    return callback(err, null)
-                }
-                callback(null, results.insertId)
+function addAnnualReadingCh(userId) {
+    return new Promise((resolve, reject) => {
+        const sql =
+            'INSERT INTO readingchallenge (userId, numberOfBooks, currentNumberOfBooks, type) VALUES (?,?,?,?)'
+        pool.getConnection((err, connection) => {
+            if (err) {
+                return reject(err)
             }
-        )
+            connection.query(
+                sql,
+                [userId, 0, 0, 'Annual Reading Challenge'],
+                (err, results) => {
+                    connection.release()
+                    if (err) {
+                        return reject(err)
+                    }
+                    resolve(results.insertId)
+                }
+            )
+        })
     })
 }
 
-function addMonthlyReadingCh(userId, callback) {
-    const sql =
-        'INSERT INTO readingchallenge (userId, numberOfBooks, currentNumberOfBooks, type) VALUES (?,?,?,?)'
-    pool.getConnection((err, connection) => {
-        if (err) {
-            return callback(err, null)
-        }
-        connection.query(
-            sql,
-            [userId, 0, 0, 'Monthly Reading Challenge'],
-            (err, results) => {
-                connection.release()
-                if (err) {
-                    return callback(err, null)
-                }
-                callback(null, results.insertId)
+function addMonthlyReadingCh(userId) {
+    return new Promise((resolve, reject) => {
+        const sql =
+            'INSERT INTO readingchallenge (userId, numberOfBooks, currentNumberOfBooks, type) VALUES (?,?,?,?)'
+        pool.getConnection((err, connection) => {
+            if (err) {
+                return reject(err)
             }
-        )
+            connection.query(
+                sql,
+                [userId, 0, 0, 'Monthly Reading Challenge'],
+                (err, results) => {
+                    connection.release()
+                    if (err) {
+                        return reject(err)
+                    }
+                    resolve(results.insertId)
+                }
+            )
+        })
     })
 }
 
@@ -163,114 +173,57 @@ function getDefaultPhotoPath(firstLetter) {
     return path.join(__dirname, 'imageDef', photoFileName)
 }
 
-function createAccount(
+async function createAccount(
     lastName,
     firstName,
     email,
     password,
-    confirmPassword,
-    res
+    confirmPassword
 ) {
     if (password !== confirmPassword) {
         throw new Error('Passwords do not match')
     }
 
-    checkEmailExists(email, (err, emailExists) => {
-        if (err) {
-            res.writeHead(500, { 'Content-Type': 'application/json' })
-            return res.end(JSON.stringify({ message: 'Server error' }))
-        }
-        if (emailExists) {
-            res.writeHead(400, { 'Content-Type': 'application/json' })
-            return res.end(JSON.stringify({ message: 'Email already exists' }))
-        }
+    const emailExists = await checkEmailExists(email)
+    if (emailExists) {
+        throw new Error('Email already in use')
+    }
 
-        bcrypt.hash(password, 10, (err, hashedPassword) => {
+    const hashedPassword = await bcrypt.hash(password, 10)
+    const firstLetter = firstName.charAt(0)
+    const defaultPhotoPath = getDefaultPhotoPath(firstLetter)
+
+    return new Promise((resolve, reject) => {
+        readImage(defaultPhotoPath, async (err, defaultPhoto) => {
             if (err) {
-                res.writeHead(500, { 'Content-Type': 'application/json' })
-                return res.end(
-                    JSON.stringify({ message: 'Error hashing password' })
-                )
+                return reject(new Error('Error reading photo'))
             }
 
-            const firstLetter = firstName.charAt(0)
-            const defaultPhotoPath = getDefaultPhotoPath(firstLetter)
-
-            readImage(defaultPhotoPath, (err, defaultPhoto) => {
+            const sql =
+                'INSERT INTO user (firstName, lastName, email, password, photo) VALUES (?, ?, ?, ?, ?)'
+            pool.getConnection((err, connection) => {
                 if (err) {
-                    console.error(err.message)
-                    res.writeHead(500, { 'Content-Type': 'application/json' })
-                    return res.end(
-                        JSON.stringify({ message: 'Error reading photo' })
-                    )
+                    return reject(new Error('Server error'))
                 }
-
-                const sql =
-                    'INSERT INTO user (firstName, lastName, email, password, photo) VALUES (?, ?, ?, ?, ?)'
-
-                pool.getConnection((err, connection) => {
-                    if (err) {
-                        res.writeHead(500, {
-                            'Content-Type': 'application/json',
-                        })
-                        return res.end(
-                            JSON.stringify({ message: 'Server error' })
-                        )
-                    }
-                    connection.query(
-                        sql,
-                        [
-                            firstName,
-                            lastName,
-                            email,
-                            hashedPassword,
-                            defaultPhoto,
-                        ],
-                        (err, results) => {
-                            if (err) {
-                                connection.release()
-                                res.writeHead(500, {
-                                    'Content-Type': 'application/json',
-                                })
-                                return res.end(
-                                    JSON.stringify({
-                                        message: 'Error creating account',
-                                    })
-                                )
-                            }
-
-                            const userId = results.insertId
-                            addAnnualReadingCh(userId, (err) => {
-                                if (err) {
-                                    console.error(
-                                        'Error adding annual reading challenge:',
-                                        err
-                                    )
-                                }
-                                addMonthlyReadingCh(userId, (err) => {
-                                    connection.release()
-                                    if (err) {
-                                        console.error(
-                                            'Error adding monthly reading challenge:',
-                                            err
-                                        )
-                                        res.writeHead(500, {
-                                            'Content-Type': 'application/json',
-                                        })
-                                        return res.end(
-                                            JSON.stringify({
-                                                message:
-                                                    'Error adding reading challenge',
-                                            })
-                                        )
-                                    }
-                                    res.writeHead(302, { Location: '/login' })
-                                    res.end()
-                                })
-                            })
+                connection.query(
+                    sql,
+                    [firstName, lastName, email, hashedPassword, defaultPhoto],
+                    async (err, results) => {
+                        connection.release()
+                        if (err) {
+                            return reject(new Error('Error creating account'))
                         }
-                    )
-                })
+
+                        const userId = results.insertId
+                        try {
+                            await addAnnualReadingCh(userId)
+                            await addMonthlyReadingCh(userId)
+                            resolve()
+                        } catch (err) {
+                            reject(new Error('Error adding reading challenge'))
+                        }
+                    }
+                )
             })
         })
     })

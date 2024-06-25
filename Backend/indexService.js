@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     </div>
                     <div class="carte__text">
                         <a href="/book/${book.id}">${book.title}</a>
-                        <a href="#">${book.author}<a>
+                        <a href="/book/${book.id}">${book.author}<a>
                     </div>
                 </div>`
                 recommendedContainer.appendChild(bookElement)
@@ -45,8 +45,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         <img src="${imageUrl}" alt="${book.title}">
                     </div>
                     <div class="carte__text">
-                        <a href="#">${book.title}</a>
-                        <a href="#">${book.author}</a>
+                        <a href="/book/${book.id}">${book.title}</a>
+                        <a href="/book/${book.id}">${book.author}</a>
                     </div>
                 </div>`
                 popularContainer.appendChild(bookElement)

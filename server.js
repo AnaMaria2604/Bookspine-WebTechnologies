@@ -46,7 +46,11 @@ const { handleReview } = require('./Backend/reviewPostFunctions')
 const { Console } = require('console')
 const { handleTagsRequest } = require('./Backend/tags')
 const { handleGroupJoinPageRequest } = require('./Backend/groupjoin')
-const { handleGroupRequest } = require('./Backend/groupJoinFunction')
+const {
+    handleGroupRequest,
+    handleGroupJoinForUser,
+    handleJoin,
+} = require('./Backend/groupJoinFunction')
 const {
     handleGroupConvPageRequest,
     handleGroupConversationSubmit,
@@ -205,6 +209,11 @@ const server = http.createServer((req, res) => {
         handleRecommendedBooksRequest(req, res)
     } else if (req.method === 'GET' && req.url === '/api/popular-books') {
         handlePopularBooksRequest(req, res)
+    } else if (
+        req.method === 'POST' &&
+        req.url.startsWith('/api/add-user-to-group')
+    ) {
+        handleJoin(req, res)
     } else if (req.method === 'GET' && req.url.startsWith('/book/')) {
         const bookId = req.url.split('/').pop()
         handlePageDetailsRequest(req, res, bookId)

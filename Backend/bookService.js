@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const bookElement = document.createElement('div')
                 bookElement.innerHTML = `
                 <div class="cover">
-                    <img class="book_cover"src="${imageUrl}" alt="${book.title}">
+                    <img class="book_cover" src="${imageUrl}" alt="${book.title}">
                 </div`
                 details.appendChild(bookElement)
             })
@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             <div class="item">
                                 <div class="user_content">
                                     <img class="user_photo" src="${imageUrl}" alt=" "> 
-                                    <a href="#">${user.lastName}'s review:  </a>
+                                    <a href="/user-account/${user.id}">${user.lastName}'s review:  </a>
                                     <div>${rating} stars</div>
                                 </div>
                                 <div class="descriere">"${descr}"</div>
