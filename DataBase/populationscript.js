@@ -31,8 +31,25 @@ function populateDatabase(connection) {
         }
     )
 
-    // Adăugăm utilizatori
     const users = [
+        [
+            'Ursache',
+            'AnaMaria',
+            'ana.ursache@asii.ro',
+            '$2b$10$CJj/HJezD53YvFyJi62FXen3PRj1xVZJB8LSii9IlN6XBXEoMzbdK',
+            'I love reading mystery novels.',
+            'To be, or not to be, that is the question.',
+            readImage(path.join(__dirname, 'userImages', '2.jpg')),
+        ],
+        [
+            'Bolohan',
+            'Sebastian',
+            'sebastian.bolohan97@gmail.com',
+            '$2b$10$CJj/HJezD53YvFyJi62FXen3PRj1xVZJB8LSii9IlN6XBXEoMzbdK',
+            'I love reading mystery novels.',
+            'To be, or not to be, that is the question.',
+            readImage(path.join(__dirname, 'userImages', '4.jpg')),
+        ],
         [
             'John',
             'Doe',

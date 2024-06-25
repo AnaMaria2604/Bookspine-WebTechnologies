@@ -155,12 +155,12 @@ const fetchReviewsReadingsAndReadingch = (userId, connection, callback) => {
     const reviewsQuery = `
         SELECT review.*, book.title AS bookTitle 
         FROM review 
-        INNER JOIN book ON review.bookId = book.id
+        INNER JOIN book ON review.bookId = book.id ORDER BY id DESC
     `
     const readingsQuery = `
         SELECT reading.*, book.title AS bookTitle 
         FROM reading 
-        INNER JOIN book ON reading.bookId = book.id
+        INNER JOIN book ON reading.bookId = book.id ORDER BY id DESC
     `
     const readingchQuery = `
         SELECT numberOfBooks, currentNumberOfBooks 
