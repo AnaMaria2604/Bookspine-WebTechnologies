@@ -108,7 +108,7 @@
       <p>
         The header is located at the top of the page and contains: on the left side: the name of the application that
         leads to the main page depending on the user's login status, the button that displays the RSS feed, and on the
-        right side: the tick bar and the application menu that provides access to the pages: Account, MyBooks,
+        right side: the search bar and the application menu that provides access to the pages: Account, MyBooks,
         Challenges, Statistics, AboutUs and Help.
       </p>
       <figure type="sa:image">
@@ -121,8 +121,8 @@
       </figure>
       <p>
         This menu helps the user to easily navigate within the application.
-
       </p>
+
     </section>
     <section id="component-2">
       <h3>The <code>AboutUs</code> page</h3>
@@ -153,6 +153,59 @@
         change email, password, name and favorite genres.
         Moreover, you can create groups and you can also delete.
       </p>
+      <ol>
+        <li>
+          <strong>Request Handling:</strong>
+          <ul>
+            <li>
+              Accepts GET requests.
+            </li>
+            <li>
+              Accepts POST requests.
+            </li>
+            <li>
+              Validates the user's JWT token to take the id of the user and to give acces to edit data.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>Input Validation:</strong>
+          <ul>
+            <li>
+              Validates the presence of the userId and teamId, shelves ids.
+            </li>
+
+          </ul>
+        </li>
+        <li>
+          <strong>Database Operations:</strong>
+          <ul>
+            <li>
+              Retrieves detailed information about the user (name, photo, shelves, groups, about, favourite qoute).
+
+            </li>
+            <li>
+              Update the database with the new user details (name, new password, etc.) and insert a new id in the group
+              table, if the user creates one.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>Response Handling:</strong>
+          <ul>
+            <li>
+              Returns detailed information about the user in JSON format if
+              found, along with status code 200.
+            </li>
+            <li>
+              Returns status code 404 if the user is not connected
+            </li>
+            <li>
+              Redirect the user to "Not Found Page", if it's the case.
+            </li>
+          </ul>
+        </li>
+      </ol>
     </section>
     <section id="component-3">
       <h3>The <code>Admin</code> page</h3>
@@ -166,6 +219,43 @@
       <p>
         This page is a dashboard where the administrator is in charge of ensuring a pleasant experience for other users.
       </p>
+      <ol>
+        <li>
+          <strong>Request Handling:</strong>
+          <ul>
+            <li>
+              Accepts GET requests.
+            </li>
+            <li>
+              Accepts DELETE requests.
+            </li>
+            <li>
+              Validates the user's JWT token to take the id of the user and verify if it's an admin's id to give acces
+              to delete users or groups.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>Database Operations:</strong>
+          <ul>
+            <li>
+              Delete operations on the table user and team.
+
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>Response Handling:</strong>
+          <ul>
+            <li>
+              Redirect the user to Login if he is not an admin.
+            </li>
+            <li>
+              Redirect the user to "Not Found Page", if it's the case.
+            </li>
+          </ul>
+        </li>
+      </ol>
     </section>
     <section id="component-4">
       <h3>The <code>Book</code> page</h3>
@@ -181,6 +271,51 @@
         description), as well as the ratings given by other users to this book.
         They can add the book to a specific shelf (Want to read, Currently Reading, Read).
       </p>
+      <ol>
+        <li>
+          <strong>Request Handling:</strong>
+          <ul>
+            <li>
+              Accepts GET requests.
+            </li>
+            <li>
+              Validates the user's JWT token to take the id in order to see if the user can give a review/update or not.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>Input Validation:</strong>
+          <ul>
+            <li>
+              Validates the presence of the userId and teamId, shelves ids.
+            </li>
+
+          </ul>
+        </li>
+        <li>
+          <strong>Database Operations:</strong>
+          <ul>
+            <li>
+              Retrieves detailed information about the book (title, cover, reviews and others).
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>Response Handling:</strong>
+          <ul>
+            <li>
+              Returns detailed information about the book in JSON format if
+              found, along with status code 200.
+            </li>
+            <li>
+              Returns status code 404 if the book is not found
+            </li>
+            <li>
+              Redirect the user to "Not Found Page", if it's the case.
+            </li>
+          </ul>
+        </li>
+      </ol>
     </section>
     <section id="component-5">
       <h3>The <code>Update</code> page</h3>
@@ -195,6 +330,57 @@
         For a given book, the user can express their opinion and give a quote that impressed them while reading it,
         giving a page number of the page they stayed on.
       </p>
+      <ol>
+        <li>
+          <strong>Request Handling:</strong>
+          <ul>
+            <li>
+              Accepts GET requests.
+            </li>
+            <li>
+              Accepts POST requests.
+            </li>
+            <li>
+              Validates the user's JWT token to take the id in order to see if the user can give an update or not.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>Input Validation:</strong>
+          <ul>
+            <li>
+              Validates the presence of the userId, bookId, review, pageNumber, date.
+            </li>
+
+          </ul>
+        </li>
+        <li>
+          <strong>Database Operations:</strong>
+          <ul>
+            <li>
+              Retrieves detailed information about the book (title, cover, author).
+            </li>
+            <li>
+              Insert in the review table the new review gave by the user with the userId from the token.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>Response Handling:</strong>
+          <ul>
+            <li>
+              Returns detailed information about the book in JSON format if
+              found, along with status code 200.
+            </li>
+            <li>
+              Returns status code 404 if the book is not found
+            </li>
+            <li>
+              Redirect the user to "Not Found Page", if it's the case.
+            </li>
+          </ul>
+        </li>
+      </ol>
     </section>
     <section id="component-6">
       <h3>The <code>Favourite Genres</code> page</h3>
@@ -209,6 +395,50 @@
         The user has the chance to choose from a wide variety of literary genres and can be recommended books and groups
         tailored to their preferences.
       </p>
+      <ol>
+        <li>
+          <strong>Request Handling:</strong>
+          <ul>
+            <li>
+              Accepts POST requests.
+            </li>
+            <li>
+              Validates the user's JWT token to take the id in order to set its preferencies.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>Input Validation:</strong>
+          <ul>
+            <li>
+              Validates the presence of the userId.
+            </li>
+
+          </ul>
+        </li>
+        <li>
+          <strong>Database Operations:</strong>
+          <ul>
+            <li>
+              Insert the users options in the table "userpreferencies".
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>Response Handling:</strong>
+          <ul>
+            <li>
+              Returns a status code 200 if the insert was made.
+            </li>
+            <li>
+              Returns status code 404 if the insert was not made.
+            </li>
+            <li>
+              Redirect the user to "Not Found Page", if it's the case.
+            </li>
+          </ul>
+        </li>
+      </ol>
     </section>
     <section id="component-7">
       <h3>The <code>Group conversation</code> page</h3>
@@ -223,6 +453,51 @@
         A few other pages (create group, group join, group settings) form the community in the sense that users can
         share reviews about selected books through a chat.
       </p>
+      <ol>
+        <li>
+          <strong>Request Handling:</strong>
+          <ul>
+            <li>
+              Accepts GET requests.
+            </li>
+            <li>
+              Accepts POST requests.
+            </li>
+            <li>
+              Validates the user's JWT token to take the id in order to see if the user can join into a group, can be
+              part of the conversation from the group.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>Database Operations:</strong>
+          <ul>
+            <li>
+              Insert the user's opinion about the book in the table "teamconversation".
+            </li>
+            <li>
+              Retrieves the group's name, the books from the group and other reviews from tables like
+              "team","teamconv","teambooks".
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>Response Handling:</strong>
+          <ul>
+            <li>
+              Returns detailed information about the group and book in JSON format if
+              found, along with status code 200.
+            </li>
+            <li>Returns status code 200 if the reviews was inserted succesfully in the database</li>
+            <li>
+              Returns status code 404 if the group/book is not found
+            </li>
+            <li>
+              Redirect the user to "Not Found Page", if it's the case.
+            </li>
+          </ul>
+        </li>
+      </ol>
     </section>
     <section id="component-8">
       <h3>The <code>Help</code> page</h3>
@@ -234,15 +509,14 @@
         <figcaption>Help page</figcaption>
       </figure>
       <p>
-        A few other pages (create group, group join, group settings) form the community in the sense that users can
-        share reviews about selected books through a chat.On this page, the most relevant questions have been selected
+        On this page, the most relevant questions have been selected
         and answered in a targeted way to provide users with an easy way to use the application.
       </p>
     </section>
     <section id="component-9">
       <h3>The <code>Index</code> page</h3>
       <p>
-        Application home page for a logged out user.
+        Application home page for an unlogged user.
       </p>
       <figure type="sa:image">
         <img src="index.png" alt="index-img" />
@@ -251,7 +525,7 @@
       <p>
         It offers on this page the most popular and recommended books from the database, as well as two buttons to
         create an account or log in to an account. This page is the beginning of the experience of using the
-        application, until logging in the user has limited experience.
+        application.The unlogged user has limited experience.
       </p>
     </section>
     <section id="component-10">
@@ -267,6 +541,7 @@
         A form where the user will write the email and password of an already created account. There is a mechanism to
         validate the correctness of the data.
       </p>
+
     </section>
     <section id="component-11">
       <h3>The <code>Register</code> page</h3>
@@ -284,11 +559,44 @@
         name, and then will be added to the database and a reading challange annual and monthly reading challange that
         will be initialized with 0 books.
       </p>
+      <ol>
+        <li>
+          <strong>Request Handling:</strong>
+          <ul>
+            <li>
+              Accepts GET requests.
+            </li>
+            <li>
+              Accepts POST requests.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>Database Operations:</strong>
+          <ul>
+            <li>
+              Insert the user's details in the database "user".
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>Response Handling:</strong>
+          <ul>
+            <li>
+              Status code 200 and redirect to Login.
+            </li>
+            <li>Alert the user if the passwords don't match or the password is too short (less the 8 characters)</li>
+            <li>
+              Redirect the user to "Not Found Page", if it's the case.
+            </li>
+          </ul>
+        </li>
+      </ol>
     </section>
     <section id="component-12">
       <h3>The <code>Main</code> page</h3>
       <p>
-        This is the home page for the logged in user.
+        This is the home page for the logged user.
       </p>
       <figure type="sa:image">
         <img src="main.png" alt="index-img" />
@@ -296,7 +604,7 @@
       </figure>
       <p>
         On this page the logged in user can see the contents of his bookshelves, his challangers, but also a feed with
-        updates and reviews of different books.
+        updates and reviews of different books given by others.
       </p>
     </section>
     <section id="component-13">
@@ -312,6 +620,45 @@
         This page contains all the books approached by the user within the application and offers the possibility to
         provide updates while reading.
       </p>
+      <ol>
+        <li>
+          <strong>Request Handling:</strong>
+          <ul>
+            <li>
+              Accepts GET requests.
+            </li>
+            <li>
+              Validates the user's JWT token to take the id in order to put on the page informations (shelves,
+              challanges) relevant to him.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>Database Operations:</strong>
+          <ul>
+            <li>
+              Retrieves from the database information about shelves, challanges and updates and reviews.
+            </li>
+
+          </ul>
+        </li>
+        <li>
+          <strong>Response Handling:</strong>
+          <ul>
+            <li>
+              Returns detailed information about the challanges, reviews,updates and shelves in JSON format if
+              found, along with status code 200.
+            </li>
+
+            <li>
+              Returns status code 404 if one of them is not found
+            </li>
+            <li>
+              Redirect the user to "Not Found Page", if it's the case.
+            </li>
+          </ul>
+        </li>
+      </ol>
     </section>
     <section id="component-14">
       <h3>The <code>Reading Challenge</code> page</h3>
@@ -353,6 +700,7 @@
       left side, while also offering the page to enter the pages of books or groups (being able to enter a certain
       group).
       </p>
+
     </section>
     <section id="component-17">
       <h3>The <code>Statistics</code> page</h3>
@@ -367,6 +715,7 @@
       export this information in special formats, CSV and DocBook, being able to store it locally on the personal
       device.
       </p>
+
     </section>
     <section id="component-18">
       <h3>The <code>User Profile</code> page</h3>
@@ -381,7 +730,8 @@
         <img src="account2.png" alt="index-img" />
         <figcaption>Account2 page</figcaption>
       </figure>
-      This page provides relevant information about the user's preferences, while also showing the updates and reviews offered by him.
+      This page provides relevant information about the user's preferences, while also showing the updates and reviews
+      offered by him.
       </p>
     </section>
     <section id="semantics">
