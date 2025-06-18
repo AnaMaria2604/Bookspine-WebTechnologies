@@ -1,4 +1,6 @@
-# Team: Ursache Ana-Maria + Bolohan Constantin-Sebastian
+# BookSpine
+
+## Team: Ursache Ana-Maria + Bolohan Constantin-Sebastian
 
 BookSpine is a university project developed as part of a team effort to create a web-based book reviewing and tracking platform. The application is designed to help users manage their reading journey, share opinions, and engage with others who share a passion for books.
 
